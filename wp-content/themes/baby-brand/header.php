@@ -27,7 +27,7 @@
     <div class="header__container container">
                 <div class="header__body">
                     <ul class="header-list">
-                        <li class="header-list__item"><a class="link" href="shop.html">Shop</a>
+                        <li class="header-list__item"><a class="link" href="/shop/">Shop</a>
                             <div class="shopmenu__block header-block">
                                 <div class="header-block__container container">
                                     <div class="shopmenu-block__body">
@@ -90,7 +90,7 @@
                                 </div>
                             </div>
                         </li>
-                        <li class="header-list__item"><a class="link" href="about.html">About</a>
+                        <li class="header-list__item"><a class="link" href="/about/">About</a>
                             <div class="stories__block header-block">
                                 <div class="header-block__container container">
                                     <div class="aboutmenu-block__top">

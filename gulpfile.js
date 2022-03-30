@@ -1,4 +1,4 @@
-let themeAssetsPath = "wp-content/themes/anomeo/assets/";
+let themeAssetsPath = "wp-content/themes/baby-brand/assets/";
 
 const { src, dest, series, watch } = require("gulp");
 const webpack = require("webpack-stream");
