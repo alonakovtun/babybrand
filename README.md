@@ -1,4 +1,4 @@
-# WP Anomeo
+# WP BabyBrand
 ## Setup:
 
 -   for Windows install and setup docker together with WSL2 - [tutorial](https://docs.docker.com/docker-for-windows/wsl/)
