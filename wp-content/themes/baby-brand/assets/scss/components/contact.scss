@@ -1,0 +1,44 @@
+.contact-header{
+    position: relative;
+}
+.contactpage {
+    padding-top: rem(60);
+    &__container {
+    }
+
+    &__body {
+       margin-bottom: rem(250);
+        margin-top:rem(180) ;
+    }
+
+    &__column {
+        margin-bottom: rem(60);
+        max-width: rem(200);
+        color: #403b39;
+        font-family: Lato;
+        font-size: rem(16);
+        font-weight: 300;
+        font-style: normal;
+        letter-spacing: normal;
+        line-height: normal;
+        text-align: left;
+    }
+
+    &__title {
+    }
+
+    &__text {
+        &--3{
+            margin-bottom: rem(20);
+        }
+    }
+
+    &__link {
+        color: #403b39;
+        font-family: Lato;
+        font-size: rem(16);
+        font-weight: 300;
+        text-align: left;
+    }
+}
+

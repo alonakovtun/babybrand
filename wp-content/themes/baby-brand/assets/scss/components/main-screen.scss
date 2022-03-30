@@ -1,0 +1,304 @@
+.first-screen {
+    display: block;
+    position: relative;
+    &.active{
+        display: block;
+    }
+
+
+    &__bg {
+        position: relative;
+        display: block;
+    }
+
+    &-img {
+        object-fit: cover;
+        display: block;
+        width: 100%;
+        height: auto;
+        position: relative;
+        z-index: 1;
+        
+    }
+
+    &__subtitle {
+        padding-bottom: rem(44);
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 2;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        color: #000000;
+        font-family: Lato;
+        font-size: rem(16);
+        font-weight: 300;
+        line-height: rem(27);
+        text-transform: uppercase;
+    }
+}
+
+/*------------CATEGORIES----------------------------------------------------------------------*/
+.item-category__img{
+    display: block;
+    overflow: hidden;
+    max-height: rem(1196);
+    height: auto;
+    width: 100%;
+}
+.categories {
+    margin-bottom: rem(172);
+
+    img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        position: relative;
+        z-index: 1;
+    }
+
+    &__body {
+        @include dflex(stretch, wrap, space-between);
+    }
+
+    &__column {
+        position: relative;
+        flex: 1 1 50%;
+        transition: 0.3s;
+        &:hover img {
+            opacity: 0;
+            transition: 0.3s;
+        }
+    }
+
+    &__name {
+        max-width: rem(300);
+        text-align: center;
+        margin: 0 auto;        
+        padding-bottom: rem(44);
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 3;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        color: #000000;
+        font-family: Lato;
+        font-size: rem(16);
+        font-weight: 300;
+        line-height: rem(27);
+        text-transform: uppercase;
+        text-decoration: none;
+
+    }
+}
+
+.categories {
+
+    &__text {
+        margin: rem(105) 0;
+        color: #040404;
+        font-family: Lato;
+        font-size: rem(16);
+        font-weight: 300;
+        font-style: normal;
+        letter-spacing: normal;
+        line-height: rem(29.96);
+        text-align: center;
+        text-transform: uppercase;
+    }
+}
+
+.item-category__text {
+    position: absolute;
+    left: 50%;
+    bottom: 15%;
+    text-align: justify;
+    max-width: rem(351);
+    transform: translateX(-50%);
+    color: #040404;
+    font-family: Lato;
+    font-size: rem(16);
+    font-weight: 300;
+    font-style: normal;
+    text-transform: uppercase;
+    p{
+        text-align: center;
+    }
+
+
+}
+
+/*------------cookiespage----------------------------------------------------------------------*/
+
+.cookies-block {
+    opacity: 0;
+    visibility: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: rem(450);
+    height: rem(270);
+    background-color: #ffffff;
+    position: fixed;
+    transition:all 0.3s ease 0s;
+    bottom: 13%;
+    right: -100%;
+    z-index: 25;
+    
+    @media(min-width: 992px){
+        &._active{
+            opacity: 1;
+            visibility: visible;
+            right: 3%;
+            
+        }
+    }
+    
+    
+    &__icon{
+        width: 8px;
+        height: 8px;
+        position: absolute;
+        top: 0;
+        right: 0;
+        cursor: pointer;
+    }
+
+    &__body {
+        position: relative;
+        display:flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: rem(350);
+        height: rem(200);
+    }
+
+    &__title {
+        color: #010101;
+        font-family: Lato;
+        font-size: rem(12);
+        font-weight: 300;
+        text-transform: uppercase;
+    }
+
+    &__subtitle {
+        color: #010101;
+        font-family: Lato;
+        font-size: rem(12);
+        font-weight: 400;
+        text-transform: uppercase;
+    }
+
+    &__form {
+        position: relative;
+        max-width: rem(144);
+        border-bottom: 1px solid #939598;  
+        padding: rem(15) 0;
+        color: #939598;
+        margin-bottom: rem(8);
+    }
+
+    &__email {
+        display: inline;
+        border: none;  
+        font-size: rem(12);
+        .uncorrect-email{
+            color: #fb4141;
+        }
+    }
+
+    &__button {
+        position: absolute;
+        top: 41%;
+        right: -144%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: rem(98);
+        height: rem(31);
+        opacity: 0.5;
+        border: 1px solid #000000;
+        background-color: #ffffff;
+        
+        font-size: rem(12);
+        text-transform: uppercase;
+        cursor: pointer;
+        &:hover{
+            background-color: #000;
+            color: #ffffff;
+            opacity: 1;
+        }
+    }
+
+    &__privacy {
+        color: #030303;
+        font-family: Lato;
+        font-size: rem(12);
+        font-weight: 300;
+        span{
+            text-decoration: underline;
+        }
+        .uncorrect-privacy{
+            color: red;
+        }
+        .data-email{
+            color: red;
+        }
+        
+    }
+}
+.cookies-bottom {
+    width: 100%;
+    position: fixed;
+    bottom: -100%;
+    left: 0;
+    z-index: 25;
+    background-color: #fff;
+    opacity: 0;
+    visibility: hidden;
+    transition:all 0.3s ease 0s;
+    @media(min-width: 992px){
+        &._active{
+            opacity: 1;
+            visibility: visible;
+            bottom: 0;
+        }
+    }
+    
+
+    &__body {
+        @include dflex(stretch, wrap, space-between);
+
+    }
+
+    &__info {
+        color: #000000;
+        font-family: Lato;
+        font-size: rem(14);
+        font-weight: 300;
+        line-height: rem(71.17);
+    }
+
+    &__button {
+        font-family: Lato;
+        font-size: rem(14);
+        font-weight: 300;
+        line-height: rem(71.17);
+        text-transform: uppercase;
+        cursor: pointer;
+        
+    }
+    .active{
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+

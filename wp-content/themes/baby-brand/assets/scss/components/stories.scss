@@ -1,0 +1,70 @@
+.stories-header{
+    position: relative;
+    
+}
+.stories {
+
+		&__body {
+		}
+
+		&__info { 
+            max-width: rem(893);
+            margin: 0 auto;
+            padding: rem(195) 0 rem(195) 0;
+		}
+
+		&__title {
+            margin-bottom: rem(55);
+            color: #000000;
+            font-family: Lato;
+            font-size: rem(25);
+            font-weight: 300;
+            text-align: center;
+            text-transform: uppercase;
+            span{
+                font-size: rem(16);
+                line-height: rem(28.07);
+                text-align: center;
+            }
+		}
+
+		&__subtitle {
+            text-align:justify ;
+            color: #000000;
+            font-weight: 300;
+            font-size: rem(20);
+            line-height: rem(28.07);
+		}
+
+		&__images {
+            @include dflex(center,wrap,space-between);
+		}
+
+		&__img {
+            flex: 1 1 50%; 
+            
+		}
+
+		&__text {
+                  margin: 0 auto;
+                  max-width:rem(892) ;
+                  color: #000000;
+                  font-family: Lato;
+                  font-size: rem(20);
+                  font-weight: 300;
+                  font-style: normal;
+                  letter-spacing: normal;
+                  line-height: normal;
+                  text-align: justify;
+                  padding: rem(194) 0;
+		}
+
+		&__bottomimg {
+            margin-bottom: rem(240);
+		}
+}
+.img-stories{
+    display: block;
+    width: 100%;
+    max-height: rem(1196);           
+}

@@ -1,0 +1,35 @@
+.hellopage-header{
+    position: relative;
+}
+
+
+
+.hellopage {
+    margin-bottom: rem(660);
+
+    &__container {
+    }
+
+    &__body {
+        margin-top: rem(65);
+    }
+
+    &__title {
+        margin-bottom: rem(20);
+        
+        color: #000000;
+        font-family: Lato;
+        font-size: rem(16);
+        font-weight: 300;
+    }
+
+    &__subtitle {
+        max-width: rem(650);
+        color: #000000;
+        font-family: Lato;
+        font-size: rem(16);
+        font-weight: 300;
+    }
+}
+
+

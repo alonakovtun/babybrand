@@ -1,0 +1,42 @@
+.order-header{
+    position: relative;
+}
+
+.orders {
+    margin-bottom: rem(470);
+    
+
+    &__container {
+    }
+
+    &__body {
+        @include dflex(center,wrap,flex-start);
+        margin-top: rem(45);
+    }
+
+    &__column {
+        margin-right: rem(70);
+        
+    }
+}
+
+.item-orders {
+
+    &__name {
+        margin-bottom: rem(44);
+        color: #939598;
+        font-family: Lato;
+        font-size: rem(16);
+        font-weight: 300;
+        text-transform: uppercase;
+    }
+
+    &__text {
+        margin-bottom: rem(15);
+        color: #939598;
+        font-family: Lato;
+        font-size: rem(16);
+        font-weight: 300;
+        text-transform: uppercase;
+    }
+}

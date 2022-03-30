@@ -1,0 +1,68 @@
+.thankyoupage {
+    margin-top: rem(88);
+
+    &__container {}
+
+    &__body {}
+}
+
+
+.thankyoupage-top {
+    @include dflex(center, wrap, space-between);
+    margin-bottom: rem(40);
+
+    &__title {
+        color: #000000;
+        font-family: Lato;
+        font-size: rem(16);
+        font-weight: 400;
+        text-transform: uppercase;
+    }
+
+    &__backhome {
+        color: #070707;
+        font-family: Lato;
+        font-size: rem(16);
+        font-weight: 400;
+        line-height: rem(27);
+        text-transform: uppercase;
+    }
+}
+
+.thankyou-middle {
+
+
+    &__text {
+        margin-bottom: rem(42);
+        color: #000000;
+        font-family: Lato;
+        font-size: rem(16);
+        font-weight: 300;
+    }
+}
+
+.thankyoupage-bottom {
+    margin-bottom: rem(194);
+}
+
+.item-thankyou {
+
+    &__body {
+        margin-bottom: rem(40);
+    }
+
+    &__name {
+        color: #070707;
+        font-family: Lato;
+        font-size: rem(16);
+        font-weight: 400;
+        text-transform: uppercase;
+    }
+
+    &__subname {
+        color: #070707;
+        font-family: Lato;
+        font-size: rem(16);
+        font-weight: 300;
+    }
+}

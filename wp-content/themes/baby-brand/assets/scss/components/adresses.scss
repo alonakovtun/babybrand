@@ -1,0 +1,118 @@
+.adresses-header{
+    position: relative;
+}
+
+.adress {
+
+    &__list {    
+        margin-top:rem(95) ;   
+        padding: 0;
+        @include dflex(center,wrap,flex-start);
+        list-style-type: none;     
+    }
+
+    &__link {
+        position: relative;
+        z-index: 2;
+        margin-right:rem(25) ;
+        color: #000000;
+        font-family: Lato;
+        font-size: rem(16);
+        font-weight: 300;
+        text-transform: uppercase;
+        text-decoration: none;   
+    }
+    
+}
+
+.adress-page {
+
+    &__container {
+        
+        
+    }
+
+    &__body {
+        display: block; 
+        width: 100%;
+        padding: rem(60) 0 0 0;
+        background-color: #fff;   
+    }
+
+    &__columns {
+        @include dflex(flex-start,wrap,flex-start);
+        
+    }
+
+    &__column {
+        flex: 1 1 50%;
+        position: relative;
+        max-width: rem(470);
+        margin-right: rem(400);    
+        
+    }
+}
+.item-adress {
+
+    &__name {
+        margin-bottom: rem(45);
+        color: #000000;
+        font-family: Lato;
+        font-size: rem(16);
+        font-weight: 300;
+        line-height: rem(20);
+        text-transform: uppercase;
+
+    }
+
+    &__form {
+        width: 100%;
+        border-bottom: 1px solid #939598; 
+        margin-bottom: rem(31);
+        padding: rem(22) 0;
+        color: #939598;
+        
+        input{
+            display: block;
+            border: none;  
+            text-transform: uppercase;
+        }
+
+    }
+
+    &__edit { 
+        position: absolute;
+        right: 0;
+        top: 0;
+        color: #000000;
+        font-family: Lato;
+        font-size: rem(16);
+        font-weight: 300;
+        line-height: rem(20);
+        text-transform: uppercase;
+        &:hover{
+            text-decoration: underline;
+            cursor: pointer;
+        }
+    }
+}
+.adress {
+
+    &__buttons {
+        @include dflex(center,wrap,flex-start);
+        margin-top: rem(50);
+        margin-bottom: rem(140);
+                 
+    }
+
+    &__btn {
+        @include dflex(center,wrap,center);
+        width: rem(159);
+        height: rem(45);
+        border: 1px solid #000000;
+        background-color: #ffffff;
+        margin-right: rem(22);
+        cursor: pointer;
+        
+    }
+}

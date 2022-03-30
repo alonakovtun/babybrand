@@ -1,0 +1,27 @@
+html,
+body {
+  font-family: $f-main, sans-serif;
+}
+
+html {
+  font-size: $fz-root + px;
+  letter-spacing: normal;
+  line-height: 1.3;
+}
+
+body {
+
+  position: relative;
+  overflow-x: hidden;
+  height: 100vh;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+@media (max-width: 1600px) {
+  html {
+    font-size: 13px;
+  }
+}

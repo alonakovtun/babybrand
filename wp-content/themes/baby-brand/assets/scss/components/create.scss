@@ -1,0 +1,65 @@
+.create {
+    margin-bottom: rem(302);
+    &__title{
+        margin: rem(94) 0 rem(38) 0;
+        color: #000000;
+        font-family: Lato;
+        font-size: rem(16);
+        font-weight: 300;
+        line-height: rem(28);
+        text-transform: uppercase;
+    }
+    &__container {
+    }
+
+    &__body {
+    }
+
+    &__column {
+    }
+
+    &__button {
+        @include dflex(center,wrap,center);
+        margin-bottom: rem(42);
+        max-width: rem(338);
+        height: rem(45);
+        border: 1px solid #000000;
+        background-color: #ffffff;
+        margin-right: rem(22);
+        cursor: pointer;
+        color: #070707;
+        font-family: Lato;
+        font-size: rem(16);
+        font-weight: 400;
+        line-height: rem(19.43);
+        text-transform: uppercase;
+    }
+
+    &__text {
+        color: #030303;
+        font-family: Lato;
+        font-size: rem(12);
+        font-weight: 300;
+        text-decoration: underline;
+        margin-bottom: rem(138);
+    }
+}
+
+.item-create {
+
+    &__title {
+    }
+
+    &__form {
+        max-width: rem(338);
+        border-bottom: 1px solid #939598; 
+        margin-bottom: rem(31);
+        padding: rem(22) 0;
+        color: #939598;
+        input{
+            display: block;
+            border: none;  
+            text-transform: uppercase;
+        }
+    }
+}

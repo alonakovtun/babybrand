@@ -1,0 +1,194 @@
+.shop-header {
+      position: relative;
+
+
+}
+
+
+.main {
+      margin-top: rem(-20);
+}
+
+.filters {
+      position: relative;
+      margin-top: rem(120);
+      padding-bottom: rem(41);
+
+      
+
+      &__container {}
+
+      &__body {
+            @include dflex(center, wrap, space-between);
+      }
+
+      &__item {
+            color: #000000;
+            font-family: Lato;
+            font-size: rem(16);
+            font-weight: 300;
+            text-transform: uppercase;
+            text-decoration: none;
+
+            span:hover {
+                  text-decoration: underline;
+            }
+
+
+      }
+}
+
+.filters-menu {
+      width: 100%;
+      height: 0;
+      display: none;
+      &.active{
+            transition: all 0.3s;
+            display: none;
+            height: auto; 
+      }
+
+      &__column {
+            margin-right: rem(150);
+            height: auto;
+      }
+
+      &__name {
+            margin-bottom: rem(20);
+            font-family: Lato;
+            font-size: rem(16);
+            font-weight: 300;
+            text-transform: uppercase;
+            text-decoration: none;
+      }
+
+      &__body {
+            position: relative;
+            @include dflex(flex-start, wrap, flex-start);
+            margin-bottom:rem(70) ;           
+      }
+
+      &__item {   
+            margin-right: rem(20);
+            font-family: Lato;
+            font-size: rem(16);
+            font-weight: 300;
+            text-decoration: none;
+            cursor: pointer;
+            &--3{
+                  flex: 0 0 33.333%;
+                  margin-bottom: rem(20);
+                  font-family: Lato;
+                  font-size: rem(16);
+                  font-weight: 300;
+                  text-decoration: none;
+                  cursor: pointer;
+            }
+      }
+      &__clear{
+            position: absolute;
+            top: 0;
+            right: 0;
+            font-family: Lato;
+            font-size: rem(16);
+            font-weight: 300;
+            text-decoration: none;
+            cursor: pointer;
+            &:hover{
+                  text-decoration: underline;
+            }
+      }
+}
+
+
+.products {
+      margin-bottom: rem(165);
+      &__body {
+            @include dflex(center, wrap, space-between);
+      }
+
+      &__column {
+            position: relative;
+            flex: 1 1 25%;
+            height: rem(770);
+      }
+}
+
+.item-column {
+       
+      &__heart{
+            font-size: rem(24);
+
+            &.fa-heart:before{
+                  
+            }     
+      }
+
+
+      &__img {
+           img{
+                 display: block;
+                 height: auto;
+                 max-height: 100%;
+                 width: 100%;                
+            }                   
+      }
+      &__name{
+            color: #070707;
+            font-family: Lato;
+            font-size: rem(16);
+            font-weight: 300;
+            text-transform: uppercase;
+            text-decoration: none;
+      }
+      &__body {
+            @include dflex(flex-start, wrap, space-between);
+            padding: rem(38) rem(50) 0 rem(50);
+            
+      }
+
+      &__price {
+            
+      }
+
+      &__icon {
+            cursor: pointer;
+         
+      }
+
+      &__circles {
+            @include dflex(center, wrap, flex-start);
+            padding-left: rem(50);
+            padding-bottom: rem(50);
+            margin-top: rem(25);
+      }
+
+      &__circle {
+            margin-right: rem(11);
+            cursor: pointer;
+      }
+}
+
+.product-image {
+      display: block;
+      max-height:rem(618) ;
+      z-index: 2;
+      width: 100%;
+      position: relative;
+      transition: 0.5s;
+      
+
+      &__active {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 0;
+      }
+
+      &:hover {
+            opacity: 0;
+            transition: 0.5s;
+      }
+
+}
+

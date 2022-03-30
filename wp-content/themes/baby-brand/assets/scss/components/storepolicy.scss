@@ -1,0 +1,27 @@
+.storepolicy-header{
+    position: relative;
+}
+
+
+.policy {
+    margin: rem(90) 0 rem(169) 0;
+
+    &__container {
+    }
+
+    &__body {
+        max-width: rem(442);
+    }
+
+    &__column {
+        margin-bottom: rem(20);
+    }
+
+    &__title {
+        margin-bottom: rem(20);
+    }
+
+    &__text {
+        
+    }
+}

@@ -1,0 +1,4 @@
+function initHeaderScripts() {
+}
+
+export { initHeaderScripts };
