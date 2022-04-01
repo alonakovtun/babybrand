@@ -112,7 +112,7 @@
                                 </div>
                             </div>
                         </li>
-                        <li class="header-list__item"><a class="link" href="storieslista.html">stories</a>
+                        <li class="header-list__item"><a class="link" href="/stories/">stories</a>
                             <div class="stories__block header-block">
                                 <div class="header-block__container container">
                                     <div class="header-block__name">stories</div>
@@ -270,7 +270,7 @@
                         </li>
                     </ul>
                     <div class="header-logo">
-                        <a href="index.html" class="header-logo__img"><img src="/wp-content/themes/baby-brand/assets/img/icons/logo.svg" alt=""
+                        <a href="/" class="header-logo__img"><img src="/wp-content/themes/baby-brand/assets/img/icons/logo.svg" alt=""
                                 class="img"></a>
                     </div>
                     <ul class="header-list">
@@ -307,7 +307,7 @@
                                 </div>
                             </div>
                         </li>
-                        <li class="header-list__item"><a class="link" href="hellopage.html">Account</a>
+                        <li class="header-list__item"><a class="link" href="/my-account/">Account</a>
                             <div class="stories__block header-block">
                                 <div class="header-block__container container">
                                     <div class="login__body">

@@ -7,7 +7,7 @@ get_header();
                 <div class="orders__container container">
                     <ul class="adress__list">
                         <li><a href="hellopage.html" class="adress__link">hello</a></li>
-                        <li><a href="orders.html" class="adress__link">Orders</a></li>
+                        <li><a href="/orders/" class="adress__link">Orders</a></li>
                         <li><a href="adresses.html" class="adress__link">aDdresses</a>
 
                         </li>
