@@ -270,7 +270,7 @@
                         </li>
                     </ul>
                     <div class="header-logo">
-                        <a href="index.html" class="header-logo__img"><img src="..//img/headerlogo.png" alt=""
+                        <a href="index.html" class="header-logo__img"><img src="/wp-content/themes/baby-brand/assets/img/icons/logo.svg" alt=""
                                 class="img"></a>
                     </div>
                     <ul class="header-list">
