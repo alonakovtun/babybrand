@@ -46,41 +46,36 @@ $col    = 1;
 	<div class="u-columns woocommerce-Addresses col2-set addresses">
 <?php endif; ?>
 
-<?php foreach ( $get_addresses as $name => $address_title ) : ?>
-	<?php
-		$address = wc_get_account_formatted_address( $name );
-		$addressFieldsArray = explode('<br/>', $address);
-		$col     = $col * -1;
-		$oldcol  = $oldcol * -1;
-	?>
+<div class="adress-page">
+	<div class="adress-page__container container">
+		<div class="adress-page__body">
+			<div class="adress-page__columns">
+				<?php foreach ( $get_addresses as $name => $address_title ) : ?>
+					<?php
+						$address = wc_get_account_formatted_address( $name );
+						$addressFieldsArray = explode('<br/>', $address);
+						$col     = $col * -1;
+						$oldcol  = $oldcol * -1;
+					?>
+					<div class="adress-page__column item-adress">
+						<header class="woocommerce-Address-title title">
+							<div class="item-adress__name">
+								<?php echo esc_html( $address_title ); ?>
+							</div>
+							<div class="item-adress__edit">
+								<a href="<?php echo esc_url( wc_get_endpoint_url( 'edit-address', $name ) ); ?>"><?php echo $address ? esc_html__( 'Edit', 'woocommerce' ) : esc_html__( 'Add', 'woocommerce' ); ?></a>
+							</div>
+						</header>
 
-	<div class="u-column<?php echo $col < 0 ? 1 : 2; ?> col-<?php echo $oldcol < 0 ? 1 : 2; ?> woocommerce-Address">
-		<div class="adress-page">
-            <div class="adress-page__container container">
-				<div class="adress-page__body">
-					<div class="adress-page__columns">
-						<div class="adress-page__column item-adress">
-							<header class="woocommerce-Address-title title">
-								<div class="item-adress__name">
-									<?php echo esc_html( $address_title ); ?>
-								</div>
-								<div class="item-adress__edit">
-									<a href="<?php echo esc_url( wc_get_endpoint_url( 'edit-address', $name ) ); ?>"><?php echo $address ? esc_html__( 'Edit', 'woocommerce' ) : esc_html__( 'Add', 'woocommerce' ); ?></a>
-								</div>
-							</header>
-
-							<?php foreach ($addressFieldsArray as $field) : ?>
-								<div class="item-adress__form"><?php echo $field; ?></div>
-							<?php endforeach; ?>
-						</div>
+						<?php foreach ($addressFieldsArray as $field) : ?>
+							<div class="item-adress__form"><?php echo $field; ?></div>
+						<?php endforeach; ?>
 					</div>
+					<?php endforeach; ?>
 				</div>
 			</div>
 		</div>
 	</div>
-
-<?php endforeach; ?>
-
 <?php if ( ! wc_ship_to_billing_address_only() && wc_shipping_enabled() ) : ?>
 	</div>
 	<?php
