@@ -21,7 +21,5 @@ defined('ABSPATH') || exit;
 global $product;
 
 $post = get_post($product->get_id());
-?>
 
-
-		<? include get_template_directory() . '/template-parts/product-card.php'; ?>
+include get_template_directory() . '/template-parts/product-card.php'; ?>

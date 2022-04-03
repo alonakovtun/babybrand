@@ -56,8 +56,8 @@ a, a:active, a:focus{
   flex: 1 1 auto;
 }
 
-.site-main{
-  margin-top: 5rem;
+figure{
+  margin: 0;
 }
 
 .entry-header{
@@ -127,4 +127,41 @@ a, a:active, a:focus{
 
 .woocommerce-products-header{
   display: none;
+}
+
+.main-item-column__price{
+  display: flex;
+  align-items: center;
+}
+
+.product_title.entry-title{
+  margin-right: 1rem!important;
+}
+
+.item-cart__text {
+  background-color: inherit;
+  border: none;
+}
+
+.products__column{
+  flex: none;
+  width: 25%;
+}
+
+.products__body{
+  justify-content: flex-start;
+}
+
+.main__body{
+  .woocommerce-product-gallery, .main__columns{
+    width: 50%;
+  }
+}
+
+.item-adress__form input{ 
+  width: 100%; 
+  border-bottom: 1px solid #939598; 
+  margin-bottom: 1.9375rem; 
+  padding: 1.375rem 0; 
+  color: #939598; 
 }

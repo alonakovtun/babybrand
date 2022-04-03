@@ -20,14 +20,6 @@
 
   h6 {}
 
-  p,
-  div {
-    margin: 0 !important;
-
-    &:last-child {
-      margin-bottom: 0;
-    }
-  }
 
   blockquote {
     font-style: italic;
@@ -71,7 +63,7 @@
     float: none !important;
 
     display: block;
-    margin: 7px 0;
+    margin: -2px 0;
 
     max-width: 100%;
     width: 100%;
