@@ -41,7 +41,6 @@
   a {
     @include link {
       font-family: inherit;
-      text-decoration: underline;
     }
 
     @include link-h {

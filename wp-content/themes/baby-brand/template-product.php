@@ -105,7 +105,7 @@ get_header();
 
             <div class="products">
                 <div class="container">
-                    <div class="products__title">related products</div>
+                    <div class="products__title">related products</div> 
                 </div>
 
                 <div class="products__body">

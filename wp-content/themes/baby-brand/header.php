@@ -1,4 +1,5 @@
 <?php
+
 /**
  * The header for our theme
  *
@@ -12,19 +13,20 @@
 ?>
 <!doctype html>
 <html <?php language_attributes(); ?>>
-<head>
-	<meta charset="<?php bloginfo( 'charset' ); ?>">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="profile" href="https://gmpg.org/xfn/11">
 
-	<?php wp_head(); ?>
+<head>
+    <meta charset="<?php bloginfo('charset'); ?>">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="profile" href="https://gmpg.org/xfn/11">
+
+    <?php wp_head(); ?>
 </head>
 
 <body <?php body_class(); ?>>
-<?php wp_body_open(); ?>
-<div id="page" class="site wrapper">
-	<header id="masthead" class="site-header header">
-    <div class="header__container container">
+    <?php wp_body_open(); ?>
+    <div id="page" class="site wrapper">
+        <header id="masthead" class="site-header header">
+            <div class="header__container container">
                 <div class="header__body">
                     <ul class="header-list">
                         <li class="header-list__item"><a class="link" href="/shop/">Shop</a>
@@ -153,112 +155,80 @@
                                         <div class="result__body">
                                             <div class="result__columns">
                                                 <div class="result__column item-column">
-                                                    <a href="product.html" class="item-column__img"><img
-                                                            class="search-product-image" src="..//img/products1.png"
-                                                            alt=""></a>
+                                                    <a href="product.html" class="item-column__img"><img class="search-product-image" src="..//img/products1.png" alt=""></a>
                                                     <div class="item-column__body">
                                                         <a href="product.html" class="item-column__name">Bucket hat
                                                             <div class="item-column__price">€16</div>
                                                         </a>
-                                                        <div class="item-column__icon"><img
-                                                                src="..//img/products/producticon.png" alt=""></div>
+                                                        <div class="item-column__icon"><img src="..//img/products/producticon.png" alt=""></div>
                                                     </div>
                                                     <div class="item-column__circles">
-                                                        <div class="item-column__circle"><img
-                                                                src="..//img/products/colors/colorblack.png" alt="">
+                                                        <div class="item-column__circle"><img src="..//img/products/colors/colorblack.png" alt="">
                                                         </div>
-                                                        <div class="item-column__circle"><img
-                                                                src="..//img/products/colors/colorcolorlightbeige.png"
-                                                                alt="">
+                                                        <div class="item-column__circle"><img src="..//img/products/colors/colorcolorlightbeige.png" alt="">
                                                         </div>
-                                                        <div class="item-column__circle"><img
-                                                                src="..//img/products/colors/colorbeige.png" alt="">
+                                                        <div class="item-column__circle"><img src="..//img/products/colors/colorbeige.png" alt="">
                                                         </div>
-                                                        <div class="item-column__circle"><img
-                                                                src="..//img/products/colors/colorgold.png" alt="">
+                                                        <div class="item-column__circle"><img src="..//img/products/colors/colorgold.png" alt="">
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="result__column item-column">
-                                                    <a href="product.html" class="item-column__img"><img
-                                                            class="search-product-image" src="..//img/products2.png"
-                                                            alt=""></a>
+                                                    <a href="product.html" class="item-column__img"><img class="search-product-image" src="..//img/products2.png" alt=""></a>
                                                     <div class="item-column__body">
                                                         <a href="product.html" class="item-column__name">Bucket hat
                                                             <div class="item-column__price">€16</div>
                                                         </a>
-                                                        <div class="item-column__icon"><img
-                                                                src="..//img/products/producticon.png" alt=""></div>
+                                                        <div class="item-column__icon"><img src="..//img/products/producticon.png" alt=""></div>
                                                     </div>
                                                     <div class="item-column__circles">
-                                                        <div class="item-column__circle"><img
-                                                                src="..//img/products/colors/colorblack.png" alt="">
+                                                        <div class="item-column__circle"><img src="..//img/products/colors/colorblack.png" alt="">
                                                         </div>
-                                                        <div class="item-column__circle"><img
-                                                                src="..//img/products/colors/colorcolorlightbeige.png"
-                                                                alt="">
+                                                        <div class="item-column__circle"><img src="..//img/products/colors/colorcolorlightbeige.png" alt="">
                                                         </div>
-                                                        <div class="item-column__circle"><img
-                                                                src="..//img/products/colors/colorbeige.png" alt="">
+                                                        <div class="item-column__circle"><img src="..//img/products/colors/colorbeige.png" alt="">
                                                         </div>
-                                                        <div class="item-column__circle"><img
-                                                                src="..//img/products/colors/colorgold.png" alt="">
+                                                        <div class="item-column__circle"><img src="..//img/products/colors/colorgold.png" alt="">
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="result__column item-column">
-                                                    <a href="product.html" class="item-column__img"><img
-                                                            class="search-product-image" src="..//img/products3.png"
-                                                            alt=""></a>
+                                                    <a href="product.html" class="item-column__img"><img class="search-product-image" src="..//img/products3.png" alt=""></a>
                                                     <div class="item-column__body">
                                                         <a href="product.html" class="item-column__name">Bucket hat
                                                             <div class="item-column__price">€16</div>
                                                         </a>
-                                                        <div class="item-column__icon"><img
-                                                                src="..//img/products/producticon.png" alt=""></div>
+                                                        <div class="item-column__icon"><img src="..//img/products/producticon.png" alt=""></div>
                                                     </div>
                                                     <div class="item-column__circles">
-                                                        <div class="item-column__circle"><img
-                                                                src="..//img/products/colors/colorblack.png" alt="">
+                                                        <div class="item-column__circle"><img src="..//img/products/colors/colorblack.png" alt="">
                                                         </div>
-                                                        <div class="item-column__circle"><img
-                                                                src="..//img/products/colors/colorcolorlightbeige.png"
-                                                                alt="">
+                                                        <div class="item-column__circle"><img src="..//img/products/colors/colorcolorlightbeige.png" alt="">
                                                         </div>
-                                                        <div class="item-column__circle"><img
-                                                                src="..//img/products/colors/colorbeige.png" alt="">
+                                                        <div class="item-column__circle"><img src="..//img/products/colors/colorbeige.png" alt="">
                                                         </div>
-                                                        <div class="item-column__circle"><img
-                                                                src="..//img/products/colors/colorgold.png" alt="">
+                                                        <div class="item-column__circle"><img src="..//img/products/colors/colorgold.png" alt="">
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="result__column item-column">
-                                                    <a href="product.html" class="item-column__img"><img
-                                                            class="search-product-image " src="..//img/products4.png"
-                                                            alt=""></a>
+                                                    <a href="product.html" class="item-column__img"><img class="search-product-image " src="..//img/products4.png" alt=""></a>
 
                                                     <div class="item-column__body">
                                                         <a href="product.html" class="item-column__name">Bucket hat
                                                             <div class="item-column__price">€16</div>
                                                         </a>
 
-                                                        <div class="item-column__icon"><img
-                                                                src="..//img/products/producticon.png" alt=""></div>
+                                                        <div class="item-column__icon"><img src="..//img/products/producticon.png" alt=""></div>
                                                     </div>
                                                     <div class="item-column__circles">
-                                                        <div class="item-column__circle"><img
-                                                                src="..//img/products/colors/colorblack.png" alt="">
+                                                        <div class="item-column__circle"><img src="..//img/products/colors/colorblack.png" alt="">
                                                         </div>
-                                                        <div class="item-column__circle"><img
-                                                                src="..//img/products/colors/colorcolorlightbeige.png"
-                                                                alt="">
+                                                        <div class="item-column__circle"><img src="..//img/products/colors/colorcolorlightbeige.png" alt="">
                                                         </div>
-                                                        <div class="item-column__circle"><img
-                                                                src="..//img/products/colors/colorbeige.png" alt="">
+                                                        <div class="item-column__circle"><img src="..//img/products/colors/colorbeige.png" alt="">
                                                         </div>
-                                                        <div class="item-column__circle"><img
-                                                                src="..//img/products/colors/colorgold.png" alt="">
+                                                        <div class="item-column__circle"><img src="..//img/products/colors/colorgold.png" alt="">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -270,8 +240,7 @@
                         </li>
                     </ul>
                     <div class="header-logo">
-                        <a href="/" class="header-logo__img"><img src="/wp-content/themes/baby-brand/assets/img/icons/logo.svg" alt=""
-                                class="img"></a>
+                        <a href="/" class="header-logo__img"><img src="/wp-content/themes/baby-brand/assets/img/icons/logo.svg" alt="" class="img"></a>
                     </div>
                     <ul class="header-list">
                         <li class="header-list__item"><a class="link" href="">Eur/En</a>
@@ -342,12 +311,13 @@
                                 </div>
                             </div>
                         </li>
-                        <li class="header-list__item"><a class="link" href="">Cart<span
-                                    class="header-list__item_count">12</span></a>
+                        <li class="header-list__item"><a class="link mini-cart-trigger" href="#">Cart</a>
 
                             <div class="stories__block header-block">
                                 <div class="header-block__container container">
-
+                                    <div class="mini-cart">
+                                        <?php get_template_part('template-parts/baby-mini-cart'); ?>
+                                    </div>
                                     <div class="card-page">
                                         <div class="card-page__title">3 products in card</div>
                                         <div class="card-page__body">
@@ -426,9 +396,9 @@
                             </div>
                         </li>
                     </ul>
+
+
                 </div>
 
             </div>
-	</header><!-- #masthead -->
-
-   
+        </header><!-- #masthead -->
