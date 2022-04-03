@@ -18,5 +18,6 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
-
-the_title( '<h1 class="product_title entry-title">', '</h1>' );
+?>
+<div class="main-item-column__price">
+	<? the_title( '<div class="product_title entry-title ">', '</div>' );
