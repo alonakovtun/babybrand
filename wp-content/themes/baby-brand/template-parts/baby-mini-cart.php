@@ -1,10 +1,8 @@
 <!-- # START Sidebar Cart - Header -->
 <div class="card-page">
 
-    <div class="mini-cart__header flex jc-space al-center">
-    <div class="mini-cart__total">
-        <p class="txt-16 txt-light ls-04 txt-left с-black">
-        <?= esc_html__('Ilość rzeczy w koszyku: ' . WC()->cart->get_cart_contents_count() . '', 'hedonizm'); ?>
+        <p class="card-page__title">
+        <?= esc_html__(WC()->cart->get_cart_contents_count() . ' products in card' .  '', 'baby-brand'); ?>
         <span>
             <?php /**
             global $woocommerce_ultimate_multi_currency_suite;
@@ -18,11 +16,7 @@
             ?>
         </span>
         </p>
-    </div>
-    <button type="button" class="mini-cart__close txt-16 txt-light ls-04 txt-right">
-        Zamknij
-    </button>
-    </div>
+
     <!-- # END Sidebar Cart - Header -->
 
     <!-- # START LIST PRODUCT -->
@@ -32,7 +26,7 @@
 
         </div>
         </div> -->
-    <ul class="mini-cart__list woocommerce-mini-cart cart_list product_list_widget">
+    <ul class="card-page__body">
         <?php
         do_action('woocommerce_before_mini_cart_contents');
         // Loop - Begin
@@ -77,7 +71,7 @@
                         -
                     </button>
                     <div class="input-qty">
-                        <?php echo esc_html__('', 'hedonizm') . '<span>' . $cart_item['quantity'] . '</span>'; ?>
+                        <?php echo esc_html__('', 'baby-brand') . '<span>' . $cart_item['quantity'] . '</span>'; ?>
                     </div>
                     <?php $qty_class = ($cart_item['quantity'] > 1) ? '' : 'm-disabled'; ?>
                     <button type="button" class="plus">
@@ -123,7 +117,7 @@
     <div class="mini-cart__footer">
         <!-- Total -->
         <div class=" mini-cart__total-price woocommerce-mini-cart__total total flex jc-space al-center txt-20 txt-light txt-upper">
-        <span><?= _e('Suma', 'hedonizm'); ?></span>
+        <span><?= _e('Suma', 'baby-brand'); ?></span>
         <?= WC()->cart->get_cart_subtotal(); ?>
         <div class="preloader preloader2">
             <div class="preloader__container">
@@ -148,7 +142,7 @@
             a-btn
             trigger-change
         ">
-            <?= _e('Checkout', 'hedonizm'); ?>
+            <?= _e('Checkout', 'baby-brand'); ?>
         </a>
         </p>
 

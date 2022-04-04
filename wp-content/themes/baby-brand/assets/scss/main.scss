@@ -171,3 +171,11 @@ figure{
     margin-top: 10rem;
   }
 }
+
+.woocommerce-breadcrumb, .woocommerce-result-count, .woocommerce-ordering{
+  display: none;
+}
+
+.products__body.products{
+  margin-top: 15rem;
+}
