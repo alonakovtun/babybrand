@@ -35,15 +35,31 @@
                                     <div class="shopmenu-block__body">
                                         <div class="shopmenu-block__column">
                                         <?php
-                                            wp_nav_menu(
-                                            array(
-                                                'theme_location' => 'category',
-                                                'menu_id'        => 'category',
-                                            )
-                                            );
+                                            //wp_nav_menu(
+                                            //array(
+                                           //     'theme_location' => 'main-menu',
+                                            //    'menu_id'        => 'Main menu',
+                                            //)
+                                            //);
                                             ?>
+                                             <div class="shopmenu-block__column">
+                                            <div class="shopmenu-block-top">
+                                                <div class="shopmenu-block__text">babies (0/12m)
+                                                </div>
+                                                <div class="shopmenu-block__text">shop all</div>
+                                            </div>
+                                            <div class="shopmenu-block-bottom">
+                                                <div class="shopmenu-block__text">Body</div>
+                                                <div class="shopmenu-block__text">T-shirts
+                                                </div>
+                                                <div class="shopmenu-block__text">sweatshirts</div>
+                                                <div class="shopmenu-block__text">sweatshirts</div>
+                                                <div class="shopmenu-block__text">Shorts</div>
+                                                <div class="shopmenu-block__text">jackets</div>
+                                            </div>
                                         </div>
-                                        <!-- <div class="shopmenu-block__column">
+                                        </div>
+                                        <div class="shopmenu-block__column">
                                             <div class="shopmenu-block-top">
                                                 <div class="shopmenu-block__text">kids (1/8Y)
 
@@ -81,12 +97,12 @@
                                                 <div class="shopmenu-block__text">Underwear
                                                 </div>
                                             </div>
-                                        </div> -->
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </li>
-                        <li class="header-list__item"><a class="link" href="/about/">About</a>
+                        <li class="header-list__item"><a class="link" href="">About</a>
                             <div class="stories__block header-block">
                                 <div class="header-block__container container">
                                     <div class="aboutmenu-block__top">
@@ -103,12 +119,12 @@
                                             <div class="aboutmenu-block__subtext">MINIMALIST BASICS FOR BABIES & KIDS.
                                             </div>
                                         </div>
-                                        <a class="aboutmenu-block__get" href="about.html">get to know more</a>
+                                        <a class="aboutmenu-block__get" href="/about/">get to know more</a>
                                     </div>
                                 </div>
                             </div>
                         </li>
-                        <li class="header-list__item"><a class="link" href="/stories/">stories</a>
+                        <li class="header-list__item"><a class="link" href="">stories</a>
                             <div class="stories__block header-block">
                                 <div class="header-block__container container">
                                     <div class="header-block__name">stories</div>
@@ -119,7 +135,7 @@
                                     </div>
                                     <div class="header-block__text">07.11.2021 / lorem ipsum listopad
                                     </div>
-                                    <div class="header-block__text--bottom">all stories
+                                    <div class="header-block__text--bottom"> <a href="/stories/">all stories</a>
                                     </div>
                                 </div>
                             </div>
@@ -248,13 +264,13 @@
                                 </div>
                             </div>
                         </li>
-                        <li class="header-list__item"><a class="link" href="">assistance</a>
+                        <li class="header-list__item"><a class="link" href="/assistance/">assistance</a>
                             <div class="stories__block header-block">
                                 <div class="header-block__container container">
                                     <a href="" class="assistanse-link">Info@ababybrand.com</a>
-                                    <a href="" class="assistanse-link">shipping & returns
-                                        quality & care
-                                        size guide</a>
+                                    <a href="/shipping-returns/" class="assistanse-link nomarginb">shipping & returns</a>
+                                    <a href="/quality-care/" class="assistanse-link nomarginb">  quality & care</a>
+                                    <a href="/size-guide/" class="assistanse-link">   size guide</a>
                                     <a href="" class="assistanse-link">Wishlist</a>
                                     <a href="" class="assistanse-link">Newsletter</a>
                                     <form class="assistanse-form" action="" method="get">

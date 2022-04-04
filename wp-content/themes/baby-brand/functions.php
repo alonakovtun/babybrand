@@ -20,7 +20,7 @@ if (!function_exists('baby_setup')) :
         register_nav_menus(
             array(
                 'menu-1' => esc_html__('Primary', 'baby'),
-                'left-menu' => esc_html__('leftMenuHeader', 'hedo'),
+                'main-menu' => esc_html__('Main menu', 'baby')
             )
         );
 
