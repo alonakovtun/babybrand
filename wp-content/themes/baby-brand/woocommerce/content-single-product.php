@@ -46,11 +46,11 @@ if (post_password_required()) {
 			 */
 			do_action('woocommerce_before_single_product_summary');
 			?>
-<div class="main__columns main__columns--2">
-					<div class="main-column__body">
-						<div class="main-item-column">
-			<div class="summary entry-summary">
-				
+			<div class="main__columns main__columns--2">
+				<div class="main-column__body">
+					<div class="main-item-column">
+						<div class="summary entry-summary">
+
 							<?php
 							/**
 							 * Hook: woocommerce_single_product_summary.
@@ -73,15 +73,15 @@ if (post_password_required()) {
 		</div>
 
 		<?php
-			/**
-			 * Hook: woocommerce_after_single_product_summary.
-			 *
-			 * @hooked woocommerce_output_product_data_tabs - 10
-			 * @hooked woocommerce_upsell_display - 15
-			 * @hooked woocommerce_output_related_products - 20
-			 */
-			do_action('woocommerce_after_single_product_summary');
-			?>
+		/**
+		 * Hook: woocommerce_after_single_product_summary.
+		 *
+		 * @hooked woocommerce_output_product_data_tabs - 10
+		 * @hooked woocommerce_upsell_display - 15
+		 * @hooked woocommerce_output_related_products - 20
+		 */
+		do_action('woocommerce_after_single_product_summary');
+		?>
 	</div>
 </div>
 
