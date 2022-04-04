@@ -185,3 +185,34 @@ figure{
     margin-top: inherit;
   }
 }
+
+.information{
+  max-width: 115.625rem;
+  min-width: 320px;
+  padding: 0 1.25rem;
+  margin: 10rem 0.8rem;
+  .information__content{
+    max-width: 40.625rem;
+    color: #000000;
+    font-family: Lato;
+    font-size: 1rem;
+    font-weight: 300;
+    &.size{
+      max-width: 100%;
+
+    }
+    .information_title{
+      text-transform: uppercase;
+    }
+    .upper{
+      text-transform: uppercase;
+      p{
+        margin-right: 10rem;
+      }
+    }
+  }
+}
+
+.nomarginb{
+  margin-bottom: 0;
+}
