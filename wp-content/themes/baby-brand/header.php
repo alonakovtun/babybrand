@@ -34,22 +34,16 @@
                                 <div class="header-block__container container">
                                     <div class="shopmenu-block__body">
                                         <div class="shopmenu-block__column">
-                                            <div class="shopmenu-block-top">
-                                                <div class="shopmenu-block__text">babies (0/12m)
-                                                </div>
-                                                <div class="shopmenu-block__text">shop all</div>
-                                            </div>
-                                            <div class="shopmenu-block-bottom">
-                                                <div class="shopmenu-block__text">Body</div>
-                                                <div class="shopmenu-block__text">T-shirts
-                                                </div>
-                                                <div class="shopmenu-block__text">sweatshirts</div>
-                                                <div class="shopmenu-block__text">sweatshirts</div>
-                                                <div class="shopmenu-block__text">Shorts</div>
-                                                <div class="shopmenu-block__text">jackets</div>
-                                            </div>
+                                        <?php
+                                            wp_nav_menu(
+                                            array(
+                                                'theme_location' => 'category',
+                                                'menu_id'        => 'category',
+                                            )
+                                            );
+                                            ?>
                                         </div>
-                                        <div class="shopmenu-block__column">
+                                        <!-- <div class="shopmenu-block__column">
                                             <div class="shopmenu-block-top">
                                                 <div class="shopmenu-block__text">kids (1/8Y)
 
@@ -87,7 +81,7 @@
                                                 <div class="shopmenu-block__text">Underwear
                                                 </div>
                                             </div>
-                                        </div>
+                                        </div> -->
                                     </div>
                                 </div>
                             </div>
