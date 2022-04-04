@@ -17,9 +17,9 @@
                 <p class="footer__text">2021 Baby Brand / Based in Warsaw</p>
                 <div class="footer__menu">
                     <ul class="footer__list">
-                        <li class="footer__item"><a href="contact.html">Contact </a></li>
-                        <li class="footer__item"><a href="about.html">about</a></li>
-                        <li class="footer__item"><a href="storepolicy.html"> store policy </a></li>
+                        <li class="footer__item"><a href="/contact/">Contact </a></li>
+                        <li class="footer__item"><a href="/about/">about</a></li>
+                        <li class="footer__item"><a href="/privacy-policy/"> store policy </a></li>
                         <li class="footer__item"><a href="">Instagram </a></li>
                         <li class="footer__item"><a href="">Facebook</a></li>
                         <li class="footer__item"><a href="">pinterest</a></li>
