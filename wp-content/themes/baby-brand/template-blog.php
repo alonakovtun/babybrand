@@ -23,7 +23,7 @@ get_header(); ?>
                         $i += 2;
             ?>
 
-            <div class="categories__column item-category">
+            <div class="categories__column item-category" style="width: 50%;">
                 <a href="<?php the_permalink() ?>" class="bestsellery__image">
                     <img src="<?php echo get_the_post_thumbnail_url(); ?>" alt="images" />
                 </a>
@@ -33,16 +33,9 @@ get_header(); ?>
                 </div>
                 <a href="#" class="categories__name"><?php the_title(); ?></a>
             </div>
+            <?php endforeach; ?>
         </div>
     </div>
 </main>
-
-
-
-
-
-        <?php endforeach; ?>
-    </div>
-</section>
 
 <?php get_footer(); ?>
