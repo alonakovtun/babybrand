@@ -23,7 +23,7 @@ get_header(); ?>
                         $i += 2;
             ?>
 
-            <div class="categories__column item-category" style="width: 50%;">
+            <div class="categories__column item-category">
                 <a href="<?php the_permalink() ?>" class="bestsellery__image">
                     <img src="<?php echo get_the_post_thumbnail_url(); ?>" alt="images" />
                 </a>
