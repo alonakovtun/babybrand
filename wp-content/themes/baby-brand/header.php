@@ -128,13 +128,30 @@
                             <div class="stories__block header-block">
                                 <div class="header-block__container container">
                                     <div class="header-block__name">stories</div>
-                                    <div class="header-block__text">07.07.2021 / tytuly lipiec</div>
-                                    <div class="header-block__text">11.08.2021 / lorem ipsum sierpien
+                                    <?php
+                                        $i = 1;
+                                        $posts = get_posts(array(
+                                            'numberposts' => -1,
+                                            'category'    => 0,
+                                            'orderby'     => 'date',
+                                            'order'       => 'DESC',
+                                            'include'     => array(),
+                                            'exclude'     => array(),
+                                            'post_type'   => 'blog',
+                                            'suppress_filters' => true,
+                                        )); 
+
+                                        foreach ($posts as $post) :
+                                            setup_postdata($post);
+                                            $i += 2;
+                                    ?>
+                                    <div class="header-block__text">
+                                        <a href="<?php the_permalink() ?>">
+                                            <?php the_date('d.m.Y'); ?>/<?php the_title(); ?>
+                                        </a>
                                     </div>
-                                    <div class="header-block__text">21.10.2021 / lorem ipsum pazdiernik
-                                    </div>
-                                    <div class="header-block__text">07.11.2021 / lorem ipsum listopad
-                                    </div>
+
+                                    <?php endforeach; ?>
                                     <div class="header-block__text--bottom"> <a href="/stories/">all stories</a>
                                     </div>
                                 </div>
