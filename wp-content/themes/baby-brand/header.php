@@ -129,17 +129,7 @@
                                 <div class="header-block__container container">
                                     <div class="header-block__name">stories</div>
                                     <?php
-                                        $i = 1;
-                                        $posts = get_posts(array(
-                                            'numberposts' => -1,
-                                            'category'    => 0,
-                                            'orderby'     => 'date',
-                                            'order'       => 'DESC',
-                                            'include'     => array(),
-                                            'exclude'     => array(),
-                                            'post_type'   => 'blog',
-                                            'suppress_filters' => true,
-                                        )); 
+                                       
 
                                         foreach ($posts as $post) :
                                             setup_postdata($post);

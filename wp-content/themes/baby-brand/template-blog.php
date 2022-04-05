@@ -31,7 +31,7 @@ get_header(); ?>
                     <p><?php the_date('d.m.Y'); ?></p>
                     <?php the_content(); ?>
                 </div>
-                <p class="categories__name"><?php the_title(); ?></p>
+                <a href="<?php the_permalink() ?>" class="categories__name"><?php the_title(); ?></a>
             </div>
             <?php endforeach; ?>
         </div>
