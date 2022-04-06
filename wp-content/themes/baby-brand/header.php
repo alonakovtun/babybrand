@@ -155,9 +155,10 @@ $blogs = get_posts(array(
                             <div class="stories__block header-block">
                                 <div class="header-block__container container">
                                     <div class="search__body">
-                                        <form class="search-form" action="" method="get">
+                                        <!-- <form class="search-form" action="" method="get">
                                             <input type="search" placeholder="Write here">
-                                        </form>
+                                        </form> -->
+                                        <?php get_product_search_form() ?>
                                         <span class="header-block__text">suggestions:</span>
                                         <span class="header-block__text">white</span>
                                         <span class="header-block__text">grey</span>
