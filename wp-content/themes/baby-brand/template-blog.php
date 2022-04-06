@@ -6,7 +6,6 @@ get_header(); ?>
     <div class="categories">
         <div class="categories__body">
             <?php
-                    $i = 1;
                     $posts = get_posts(array(
                         'numberposts' => -1,
                         'category'    => 0,
@@ -20,7 +19,6 @@ get_header(); ?>
 
                     foreach ($posts as $post) :
                         setup_postdata($post);
-                        $i += 2;
             ?>
 
             <div class="categories__column item-category">

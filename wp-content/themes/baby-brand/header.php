@@ -10,6 +10,17 @@
  * @package shop
  */
 
+$blogs = get_posts(array(
+    'numberposts' => -1,
+    'category'    => 0,
+    'orderby'     => 'date',
+    'order'       => 'DESC',
+    'include'     => array(),
+    'exclude'     => array(),
+    'post_type'   => 'blog',
+    'suppress_filters' => true,
+)); 
+
 ?>
 <!doctype html>
 <html <?php language_attributes(); ?>>
@@ -128,19 +139,12 @@
                             <div class="stories__block header-block">
                                 <div class="header-block__container container">
                                     <div class="header-block__name">stories</div>
-                                    <?php
-                                       
-
-                                        foreach ($posts as $post) :
-                                            setup_postdata($post);
-                                            $i += 2;
-                                    ?>
+                                    <?php foreach ($blogs as $blog) : ?>
                                     <div class="header-block__text">
-                                        <a href="<?php the_permalink() ?>">
-                                            <?php the_date('d.m.Y'); ?>/<?php the_title(); ?>
+                                        <a href="<?php echo $blog->guid; ?>">
+                                            <?php echo date_format(date_create($blog->post_date), 'd.m.Y'); ?>/<?php echo $blog->post_title; ?>
                                         </a>
                                     </div>
-
                                     <?php endforeach; ?>
                                     <div class="header-block__text--bottom"> <a href="/stories/">all stories</a>
                                     </div>
