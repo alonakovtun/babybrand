@@ -18,4 +18,6 @@
 defined( 'ABSPATH' ) || exit;
 
 ?>
-<p class="woocommerce-info"><?php esc_html_e( 'No products were found matching your selection.', 'woocommerce' ); ?></p>
+<div class="noresult__item">
+    no results for: <?php echo get_search_query(); ?>
+</div>

@@ -164,7 +164,7 @@ $blogs = get_posts(array(
                                         <span class="header-block__text">grey</span>
                                         <span class="header-block__text">pants</span>
                                     </div>
-                                    <div class="search__body noresult">
+                                    <!-- <div class="search__body noresult">
                                         <div class="noresult__item">no results for:</div>
                                         <div class="noresult__item-result">Hat</div>
                                     </div>
@@ -256,7 +256,7 @@ $blogs = get_posts(array(
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> -->
                                 </div>
                             </div>
                         </li>
