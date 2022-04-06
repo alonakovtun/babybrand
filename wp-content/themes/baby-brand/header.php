@@ -276,7 +276,7 @@ $blogs = get_posts(array(
                                 </div>
                             </div>
                         </li>
-                        <li class="header-list__item"><a class="link" href="/assistance/">assistance</a>
+                        <li class="header-list__item"><a class="link" href="#">assistance</a>
                             <div class="stories__block header-block">
                                 <div class="header-block__container container">
                                     <a href="" class="assistanse-link">Info@ababybrand.com</a>
