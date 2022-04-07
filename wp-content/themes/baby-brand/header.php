@@ -10,6 +10,26 @@
  * @package shop
  */
 
+$blogs = get_posts(array(
+    'numberposts' => -1,
+    'category'    => 0,
+    'orderby'     => 'date',
+    'order'       => 'DESC',
+    'include'     => array(),
+    'exclude'     => array(),
+    'post_type'   => 'blog',
+    'suppress_filters' => true,
+)); 
+
+$product_categories = get_categories(array(
+    'taxonomy'     => 'product_cat',
+    'orderby'      => 'name',
+    'show_count'   => 0,
+    'pad_counts'   => 0,
+    'hierarchical' => 1,
+    'title_li'     => '',
+    'hide_empty'   => false
+));
 ?>
 <!doctype html>
 <html <?php language_attributes(); ?>>
@@ -33,71 +53,29 @@
                             <div class="shopmenu__block header-block">
                                 <div class="header-block__container container">
                                     <div class="shopmenu-block__body">
-                                        <div class="shopmenu-block__column">
-                                        <?php
-                                            //wp_nav_menu(
-                                            //array(
-                                           //     'theme_location' => 'main-menu',
-                                            //    'menu_id'        => 'Main menu',
-                                            //)
-                                            //);
-                                            ?>
-                                             <div class="shopmenu-block__column">
-                                            <div class="shopmenu-block-top">
-                                                <div class="shopmenu-block__text">babies (0/12m)
-                                                </div>
-                                                <div class="shopmenu-block__text">shop all</div>
-                                            </div>
-                                            <div class="shopmenu-block-bottom">
-                                                <div class="shopmenu-block__text">Body</div>
-                                                <div class="shopmenu-block__text">T-shirts
-                                                </div>
-                                                <div class="shopmenu-block__text">sweatshirts</div>
-                                                <div class="shopmenu-block__text">sweatshirts</div>
-                                                <div class="shopmenu-block__text">Shorts</div>
-                                                <div class="shopmenu-block__text">jackets</div>
-                                            </div>
-                                        </div>
-                                        </div>
-                                        <div class="shopmenu-block__column">
-                                            <div class="shopmenu-block-top">
-                                                <div class="shopmenu-block__text">kids (1/8Y)
-
-                                                </div>
-                                                <div class="shopmenu-block__text">shop all</div>
-                                            </div>
-                                            <div class="shopmenu-block-bottom">
-                                                <div class="shopmenu-block__text">Body</div>
-                                                <div class="shopmenu-block__text">T-shirts
-                                                </div>
-                                                <div class="shopmenu-block__text">Trousers
-                                                </div>
-                                                <div class="shopmenu-block__text">leggings
-                                                </div>
-                                                <div class="shopmenu-block__text">Shorts</div>
-                                                <div class="shopmenu-block__text">Dresses
-                                                </div>
-                                                <div class="shopmenu-block__text">jackets
-                                                </div>
-                                                <div class="shopmenu-block__text">Dresses
+                                        <?php foreach ($product_categories as $category) : ?>
+                                            <div class="shopmenu-block__column">
+                                                <div class="shopmenu-block__column">
+                                                    <div class="shopmenu-block-top">
+                                                        <div class="shopmenu-block__text">
+                                                            <?php echo $category->name ?>
+                                                        </div>
+                                                        <div class="shopmenu-block__text">
+                                                            <a href="<?php echo get_category_link($category->cat_ID) ?>">shop all</a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="shopmenu-block-bottom">
+                                                        <div class="shopmenu-block__text">Body</div>
+                                                        <div class="shopmenu-block__text">T-shirts
+                                                        </div>
+                                                        <div class="shopmenu-block__text">sweatshirts</div>
+                                                        <div class="shopmenu-block__text">sweatshirts</div>
+                                                        <div class="shopmenu-block__text">Shorts</div>
+                                                        <div class="shopmenu-block__text">jackets</div>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="shopmenu-block__column">
-                                            <div class="shopmenu-block-top">
-                                                <div class="shopmenu-block__text">accessories
-
-                                                </div>
-                                                <div class="shopmenu-block__text">shop all</div>
-                                            </div>
-                                            <div class="shopmenu-block-bottom">
-                                                <div class="shopmenu-block__text">Caps</div>
-                                                <div class="shopmenu-block__text">Socks
-                                                </div>
-                                                <div class="shopmenu-block__text">Underwear
-                                                </div>
-                                            </div>
-                                        </div>
+                                        <?php endforeach; ?>
                                     </div>
                                 </div>
                             </div>
@@ -128,19 +106,12 @@
                             <div class="stories__block header-block">
                                 <div class="header-block__container container">
                                     <div class="header-block__name">stories</div>
-                                    <?php
-                                       
-
-                                        foreach ($posts_blog as $post) :
-                                            setup_postdata($post);
-                                            $i += 2;
-                                    ?>
+                                    <?php foreach ($blogs as $blog) : ?>
                                     <div class="header-block__text">
-                                        <a href="<?php the_permalink() ?>">
-                                            <?php the_date('d.m.Y'); ?>/<?php the_title(); ?>
+                                        <a href="<?php echo $blog->guid; ?>">
+                                            <?php echo date_format(date_create($blog->post_date), 'd.m.Y'); ?>/<?php echo $blog->post_title; ?>
                                         </a>
                                     </div>
-
                                     <?php endforeach; ?>
                                     <div class="header-block__text--bottom"> <a href="/stories/">all stories</a>
                                     </div>
@@ -151,106 +122,11 @@
                             <div class="stories__block header-block">
                                 <div class="header-block__container container">
                                     <div class="search__body">
-                                        <form class="search-form" action="" method="get">
-                                            <input type="search" placeholder="Write here">
-                                        </form>
+                                        <?php get_product_search_form() ?>
                                         <span class="header-block__text">suggestions:</span>
                                         <span class="header-block__text">white</span>
                                         <span class="header-block__text">grey</span>
                                         <span class="header-block__text">pants</span>
-                                    </div>
-                                    <div class="search__body noresult">
-                                        <div class="noresult__item">no results for:</div>
-                                        <div class="noresult__item-result">Hat</div>
-                                    </div>
-                                    <div class="search__body result">
-                                        <div class="result__top">
-                                            <div class="noresult__item">search results for:</div>
-                                            <div class="noresult__item-result">Hat</div>
-                                            <div class="result__count">12</div>
-                                        </div>
-                                        <div class="result__body">
-                                            <div class="result__columns">
-                                                <div class="result__column item-column">
-                                                    <a href="product.html" class="item-column__img"><img class="search-product-image" src="..//img/products1.png" alt=""></a>
-                                                    <div class="item-column__body">
-                                                        <a href="product.html" class="item-column__name">Bucket hat
-                                                            <div class="item-column__price">€16</div>
-                                                        </a>
-                                                        <div class="item-column__icon"><img src="..//img/products/producticon.png" alt=""></div>
-                                                    </div>
-                                                    <div class="item-column__circles">
-                                                        <div class="item-column__circle"><img src="..//img/products/colors/colorblack.png" alt="">
-                                                        </div>
-                                                        <div class="item-column__circle"><img src="..//img/products/colors/colorcolorlightbeige.png" alt="">
-                                                        </div>
-                                                        <div class="item-column__circle"><img src="..//img/products/colors/colorbeige.png" alt="">
-                                                        </div>
-                                                        <div class="item-column__circle"><img src="..//img/products/colors/colorgold.png" alt="">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="result__column item-column">
-                                                    <a href="product.html" class="item-column__img"><img class="search-product-image" src="..//img/products2.png" alt=""></a>
-                                                    <div class="item-column__body">
-                                                        <a href="product.html" class="item-column__name">Bucket hat
-                                                            <div class="item-column__price">€16</div>
-                                                        </a>
-                                                        <div class="item-column__icon"><img src="..//img/products/producticon.png" alt=""></div>
-                                                    </div>
-                                                    <div class="item-column__circles">
-                                                        <div class="item-column__circle"><img src="..//img/products/colors/colorblack.png" alt="">
-                                                        </div>
-                                                        <div class="item-column__circle"><img src="..//img/products/colors/colorcolorlightbeige.png" alt="">
-                                                        </div>
-                                                        <div class="item-column__circle"><img src="..//img/products/colors/colorbeige.png" alt="">
-                                                        </div>
-                                                        <div class="item-column__circle"><img src="..//img/products/colors/colorgold.png" alt="">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="result__column item-column">
-                                                    <a href="product.html" class="item-column__img"><img class="search-product-image" src="..//img/products3.png" alt=""></a>
-                                                    <div class="item-column__body">
-                                                        <a href="product.html" class="item-column__name">Bucket hat
-                                                            <div class="item-column__price">€16</div>
-                                                        </a>
-                                                        <div class="item-column__icon"><img src="..//img/products/producticon.png" alt=""></div>
-                                                    </div>
-                                                    <div class="item-column__circles">
-                                                        <div class="item-column__circle"><img src="..//img/products/colors/colorblack.png" alt="">
-                                                        </div>
-                                                        <div class="item-column__circle"><img src="..//img/products/colors/colorcolorlightbeige.png" alt="">
-                                                        </div>
-                                                        <div class="item-column__circle"><img src="..//img/products/colors/colorbeige.png" alt="">
-                                                        </div>
-                                                        <div class="item-column__circle"><img src="..//img/products/colors/colorgold.png" alt="">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="result__column item-column">
-                                                    <a href="product.html" class="item-column__img"><img class="search-product-image " src="..//img/products4.png" alt=""></a>
-
-                                                    <div class="item-column__body">
-                                                        <a href="product.html" class="item-column__name">Bucket hat
-                                                            <div class="item-column__price">€16</div>
-                                                        </a>
-
-                                                        <div class="item-column__icon"><img src="..//img/products/producticon.png" alt=""></div>
-                                                    </div>
-                                                    <div class="item-column__circles">
-                                                        <div class="item-column__circle"><img src="..//img/products/colors/colorblack.png" alt="">
-                                                        </div>
-                                                        <div class="item-column__circle"><img src="..//img/products/colors/colorcolorlightbeige.png" alt="">
-                                                        </div>
-                                                        <div class="item-column__circle"><img src="..//img/products/colors/colorbeige.png" alt="">
-                                                        </div>
-                                                        <div class="item-column__circle"><img src="..//img/products/colors/colorgold.png" alt="">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
                                     </div>
                                 </div>
                             </div>
