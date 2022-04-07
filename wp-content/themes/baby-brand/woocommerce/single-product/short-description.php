@@ -19,15 +19,15 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-global $post;
+// global $post;
 
-$short_description = apply_filters( 'woocommerce_short_description', $post->post_excerpt );
+// $short_description = apply_filters( 'woocommerce_short_description', $post->post_excerpt );
 
-if ( ! $short_description ) {
-	return;
-}
+// if ( ! $short_description ) {
+// 	return;
+// }
 
-?>
-<div class="woocommerce-product-details__short-description main-item-column__text">
-	<?php echo $short_description; // WPCS: XSS ok. ?>
-</div>
+// ?>
+<!-- // <div class="woocommerce-product-details__short-description main-item-column__text">
+// 	<?php //echo $short_description; // WPCS: XSS ok. ?>
+// </div> -->

@@ -152,6 +152,7 @@
     max-height: rem(64);
     border: 1px solid #000000;
     background-color: #ffffff;
+    padding: 1rem 3rem 2rem;
     
     &.notactive{
         border: 1px solid red;
@@ -160,19 +161,10 @@
     
     margin-bottom: rem(87);
     transition: 0.5s;
-    &:hover{
-        transition: 0.5s;
-        background-color: #000000; 
-        p{
-            transition: 0.5s;
-            color: #ffffff;
-        } 
-    }
-    
+
 
 
     &__text {
-        padding-left: rem(48);
         color: #070707;
         font-family: Lato;
         font-size: rem(16);

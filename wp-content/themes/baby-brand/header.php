@@ -131,7 +131,7 @@
                                     <?php
                                        
 
-                                        foreach ($posts as $post) :
+                                        foreach ($posts_blog as $post) :
                                             setup_postdata($post);
                                             $i += 2;
                                     ?>
@@ -257,7 +257,7 @@
                         </li>
                     </ul>
                     <div class="header-logo">
-                        <a href="/" class="header-logo__img"><img src="/wp-content/themes/baby-brand/assets/img/icons/logo.svg" alt="" class="img"></a>
+                        <a href="/" class="header-logo__img"><img src="/wp-content/themes/baby-brand/assets/img/logo.svg" alt="" class="img"></a>
                     </div>
                     <ul class="header-list">
                         <li class="header-list__item"><a class="link" href="">Eur/En</a>
@@ -271,10 +271,10 @@
                                 </div>
                             </div>
                         </li>
-                        <li class="header-list__item"><a class="link" href="/assistance/">assistance</a>
+                        <li class="header-list__item"><a class="link" href="#">assistance</a>
                             <div class="stories__block header-block">
                                 <div class="header-block__container container">
-                                    <a href="" class="assistanse-link">Info@ababybrand.com</a>
+                                    <a href="mailto:info@ababybrand.com" class="assistanse-link">Info@ababybrand.com</a>
                                     <a href="/shipping-returns/" class="assistanse-link nomarginb">shipping & returns</a>
                                     <a href="/quality-care/" class="assistanse-link nomarginb">  quality & care</a>
                                     <a href="/size-guide/" class="assistanse-link">   size guide</a>
@@ -335,7 +335,7 @@
                                     <div class="mini-cart">
                                         <?php get_template_part('template-parts/baby-mini-cart'); ?>
                                     </div>
-                                    <div class="card-page">
+                                    <!-- <div class="card-page">
                                         <div class="card-page__title">3 products in card</div>
                                         <div class="card-page__body">
                                             <div class="card-page__columns">
@@ -408,7 +408,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> -->
                                 </div>
                             </div>
                         </li>

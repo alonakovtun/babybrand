@@ -1,21 +1,6 @@
 <!-- # START Sidebar Cart - Header -->
 <div class="card-page">
 
-        <p class="card-page__title">
-        <?= esc_html__(WC()->cart->get_cart_contents_count() . ' products in card' .  '', 'baby-brand'); ?>
-        <span>
-            <?php /**
-            global $woocommerce_ultimate_multi_currency_suite;
-            $default_currency = get_woocommerce_currency();
-            if (empty($woocommerce_ultimate_multi_currency_suite->settings->session_currency)) { // if no currency stored in session
-            $current_curr = $default_currency;
-            } else {
-            $current_curr = $woocommerce_ultimate_multi_currency_suite->settings->session_currency;
-            }
-            */
-            ?>
-        </span>
-        </p>
 
     <!-- # END Sidebar Cart - Header -->
 
@@ -105,7 +90,22 @@
 
     <?php else : ?>
 
-    <p class="s-drop-cart_main_list b-cart-list woocommerce-mini-cart__empty-message"><?= _e('No products in the cart.', 'woocommerce'); ?></p>
+        <p class="card-page__title">
+        <?= esc_html__(WC()->cart->get_cart_contents_count() . ' products in card' .  '', 'baby-brand'); ?>
+        <span>
+            <?php /**
+            global $woocommerce_ultimate_multi_currency_suite;
+            $default_currency = get_woocommerce_currency();
+            if (empty($woocommerce_ultimate_multi_currency_suite->settings->session_currency)) { // if no currency stored in session
+            $current_curr = $default_currency;
+            } else {
+            $current_curr = $woocommerce_ultimate_multi_currency_suite->settings->session_currency;
+            }
+            */
+            ?>
+        </span>
+        </p>
+
 
     <?php endif; ?>
     <!-- # END LIST PRODUCT -->
