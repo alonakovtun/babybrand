@@ -234,44 +234,7 @@ $product_categories = get_categories(array(
                                                         <div class="card-body__remove">remove</div>
                                                     </div>
                                                 </div>
-                                                <div class="card-page__column item-card">
-                                                    <div class="item-card__img"><img src="../img/cartimg.png"
-                                                            alt="product">
-                                                    </div>
-                                                    <div class="item-card__body card-body">
-                                                        <div class="card-body__row">
-                                                            <div class="card-body__name">Bucket hat</div>
-                                                            <div class="card-body__price">€16</div>
-                                                        </div>
-                                                        <div class="card-body__row">
-                                                            <div class="card-body__quantity">Quantity: 1</div>
-                                                            <span class="card-body__minus">-</span>
-                                                            <span class="card-body__plus">+</span>
 
-                                                        </div>
-
-                                                        <div class="card-body__remove">remove</div>
-                                                    </div>
-                                                </div>
-                                                <div class="card-page__column item-card">
-                                                    <div class="item-card__img"><img src="../img/cartimg.png"
-                                                            alt="product">
-                                                    </div>
-                                                    <div class="item-card__body card-body">
-                                                        <div class="card-body__row">
-                                                            <div class="card-body__name">Bucket hat</div>
-                                                            <div class="card-body__price">€16</div>
-                                                        </div>
-                                                        <div class="card-body__row">
-                                                            <div class="card-body__quantity">Quantity: 1</div>
-                                                            <span class="card-body__minus">-</span>
-                                                            <span class="card-body__plus">+</span>
-
-                                                        </div>
-
-                                                        <div class="card-body__remove">remove</div>
-                                                    </div>
-                                                </div>
                                                 <div class="card-page__column item-total">
                                                     <div class="item-total__body">
                                                         <div class="item-total__subtotal">subtotal</div>

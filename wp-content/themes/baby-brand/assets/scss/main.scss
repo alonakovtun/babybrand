@@ -34,6 +34,7 @@ html {
 
 a, a:active, a:focus{
   color: #000;
+  text-decoration: none;
 }
 
 
@@ -224,4 +225,30 @@ figure{
 
 .main_btn_area{
   display: flex;
+}
+
+.cart-flex{
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+
+  .card-page__body{
+    width: 75%;
+  }
+
+  .card-page__columns{
+    &.checkout{
+      width: 20%;
+    }
+  }
+}
+
+.quantity-block{
+  display: flex;
+}
+
+.card-body_btn{
+  background-color: inherit;
+  border: none;
+  cursor: pointer;
 }
