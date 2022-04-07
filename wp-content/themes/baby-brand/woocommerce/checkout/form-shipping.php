@@ -22,9 +22,11 @@ defined( 'ABSPATH' ) || exit;
 	<?php if ( true === WC()->cart->needs_shipping_address() ) : ?>
 
 		<h3 id="ship-to-different-address">
-			<label class="woocommerce-form__label woocommerce-form__label-for-checkbox checkbox">
-				<input id="ship-to-different-address-checkbox" class="woocommerce-form__input woocommerce-form__input-checkbox input-checkbox" <?php checked( apply_filters( 'woocommerce_ship_to_different_address_checked', 'shipping' === get_option( 'woocommerce_ship_to_destination' ) ? 1 : 0 ), 1 ); ?> type="checkbox" name="ship_to_different_address" value="1" /> <span><?php esc_html_e( 'Ship to a different address?', 'woocommerce' ); ?></span>
-			</label>
+			<label class="woocommerce-form__label woocommerce-form__label-for-checkbox checkbox checkout__invoice hov-underline-dont checkout__shipping">
+				<input id="ship-to-different-address-checkbox" class="woocommerce-form__input woocommerce-form__input-checkbox input-checkbox" <?php checked( apply_filters( 'woocommerce_ship_to_different_address_checked', 'shipping' === get_option( 'woocommerce_ship_to_destination' ) ? 1 : 0 ), 1 ); ?> type="checkbox" name="ship_to_different_address" value="1" />
+                <span class="txt-20 txt-light txt-upper c-black ls-08"><?php esc_html_e( 'Ship to a different address?', 'woocommerce' ); ?></span>
+                <span class="chagle-plus"></span>
+            </label>
 		</h3>
 
 		<div class="shipping_address">

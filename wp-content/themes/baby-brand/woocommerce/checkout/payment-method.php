@@ -19,15 +19,21 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 ?>
-<li class="wc_payment_method payment_method_<?php echo esc_attr( $gateway->id ); ?>">
-	<input id="payment_method_<?php echo esc_attr( $gateway->id ); ?>" type="radio" class="input-radio" name="payment_method" value="<?php echo esc_attr( $gateway->id ); ?>" <?php checked( $gateway->chosen, true ); ?> data-order_button_text="<?php echo esc_attr( $gateway->order_button_text ); ?>" />
+<li class="payment-method wc_payment_method payment_method_<?php echo esc_attr( $gateway->id ); ?>">
+    <?php
+    $icon = '';
 
-	<label for="payment_method_<?php echo esc_attr( $gateway->id ); ?>">
-		<?php echo $gateway->get_title(); /* phpcs:ignore WordPress.XSS.EscapeOutput.OutputNotEscaped */ ?> <?php echo $gateway->get_icon(); /* phpcs:ignore WordPress.XSS.EscapeOutput.OutputNotEscaped */ ?>
-	</label>
-	<?php if ( $gateway->has_fields() || $gateway->get_description() ) : ?>
-		<div class="payment_box payment_method_<?php echo esc_attr( $gateway->id ); ?>" <?php if ( ! $gateway->chosen ) : /* phpcs:ignore Squiz.ControlStructures.ControlSignature.NewlineAfterOpenBrace */ ?>style="display:none;"<?php endif; /* phpcs:ignore Squiz.ControlStructures.ControlSignature.NewlineAfterOpenBrace */ ?>>
-			<?php $gateway->payment_fields(); ?>
-		</div>
-	<?php endif; ?>
+    if (is_a($gateway, 'WC_Gateway_Paypal')) {
+        $icon =  get_template_directory_uri() . '/assets/img/i-paypal.png';
+    } elseif (is_a($gateway, 'WC_Payment_Gateway_BlueMedia')) {
+        $icon = get_template_directory_uri() . '/assets/img/i-bluemedia.png';
+    }
+    ?>
+    <input id="payment_method_<?php echo $gateway->id; ?>" type="radio" class="payment-method__check input-radio" name="payment_method" value="<?php echo esc_attr($gateway->id); ?>" <?php checked($gateway->chosen, true); ?> data-order_button_text="<?php echo esc_attr($gateway->order_button_text); ?>" />
+    <label for="payment_method_<?php echo $gateway->id; ?>">
+        <div class="payment-method__image">
+            <img class="payment-method__img" src="<?= $icon; ?>" alt="">
+        </div>
+        <div class="payment-method__title"><?= $gateway->get_title(); ?></div>
+    </label>
 </li>

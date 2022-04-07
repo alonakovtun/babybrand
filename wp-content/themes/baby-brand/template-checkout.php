@@ -3,7 +3,7 @@ get_header();
 ?>
 
 <main class="main">
-            <div class="checkout">
+            <div class="checkout"> 
                 <div class="checkout__container container">
                     <div class="checkout__body">
                         <div class="chekout__gobackbtn">Go back</div>
