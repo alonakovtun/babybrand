@@ -28,7 +28,7 @@ $product_categories = get_categories(array(
     'pad_counts'   => 0,
     'hierarchical' => 1,
     'title_li'     => '',
-    'hide_empty'   => false
+    'hide_empty'   => true
 ));
 ?>
 <!doctype html>
