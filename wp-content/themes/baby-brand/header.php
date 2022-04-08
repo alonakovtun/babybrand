@@ -52,11 +52,11 @@ $product_categories = get_categories(array(
                         
 
                         <?
-                        wp_nav_menu(array(
-                            'theme_location' => 'main-menu',
-                            'container' => '',
-                            'items_wrap' => '%3$s'
-                        ));
+                            wp_nav_menu(array(
+                                'theme_location' => 'main-menu',
+                                'container' => '',
+                                'items_wrap' => '%3$s'
+                            ));
                         ?>
 
                         <!-- <li class="header-list__item"><a class="link" href="/shop/">Shop</a>
