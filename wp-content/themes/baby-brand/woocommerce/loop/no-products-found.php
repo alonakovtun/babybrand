@@ -19,5 +19,7 @@ defined( 'ABSPATH' ) || exit;
 
 ?>
 <div class="noresult__item">
-    no results for: <?php echo get_search_query(); ?>
+    <?php
+        echo get_search_query() ? "no results for: " . get_search_query() : "no products found in this category";
+    ?>
 </div>
