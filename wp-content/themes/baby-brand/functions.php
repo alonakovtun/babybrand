@@ -94,3 +94,39 @@ function add_my_currency_symbol( $currency_symbol, $currency ) {
      }
      return $currency_symbol;
 }
+
+add_filter('woocommerce_checkout_fields', 'custom_override_checkout_fields');
+function custom_override_checkout_fields($fields) {
+
+    unset($fields['billing']);
+    unset($fields['shipping']);
+
+    $fields['billing']['billing_first_name']['placeholder'] = 'FIRST NAME';
+    $fields['billing']['billing_first_name']['input_class'] = array('item-login__email', 'mistakeform');
+
+    $fields['billing']['billing_last_name']['placeholder'] = 'LAST NAME';
+    $fields['billing']['billing_last_name']['input_class'] = array('item-login__email', 'mistakeform');
+
+    $fields['billing']['billing_company']['placeholder'] = 'COMPANY (OPTIONAL)';
+    $fields['billing']['billing_company']['input_class'] = array('item-login__email', 'mistakeform');
+
+    $fields['billing']['billing_address_1']['placeholder'] = 'ADDRESS';
+    $fields['billing']['billing_address_1']['input_class'] = array('item-login__email', 'mistakeform');
+
+    $fields['billing']['billing_postcode']['placeholder'] = 'ZIP CODE';
+    $fields['billing']['billing_postcode']['input_class'] = array('item-login__email', 'mistakeform');
+
+    $fields['billing']['billing_city']['placeholder'] = 'CITY';
+    $fields['billing']['billing_city']['input_class'] = array('item-login__email', 'mistakeform');
+
+    $fields['billing']['billing_country']['placeholder'] = 'COUNTRY';
+    $fields['billing']['billing_country']['input_class'] = array('item-login__email', 'mistakeform');
+
+    $fields['billing']['billing_phone']['placeholder'] = 'PHONE NUMBER';
+    $fields['billing']['billing_phone']['input_class'] = array('item-login__email', 'mistakeform');
+
+    $fields['billing']['billing_email']['placeholder'] = 'EMAIL';
+    $fields['billing']['billing_email']['input_class'] = array('item-login__email', 'mistakeform');
+
+    return $fields;
+}

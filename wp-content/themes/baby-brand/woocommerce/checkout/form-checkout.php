@@ -20,7 +20,7 @@ if (!defined('ABSPATH')) {
   exit;
 }
 
-do_action('woocommerce_before_checkout_form', $checkout);
+
 
 // If checkout registration is disabled and not logged in, the user cannot checkout.
 if (!$checkout->is_registration_enabled() && $checkout->is_registration_required() && !is_user_logged_in()) {
@@ -49,10 +49,7 @@ if (!$checkout->is_registration_enabled() && $checkout->is_registration_required
 
                   <div class="checkout__column item-checkout">
                     <?php do_action('woocommerce_checkout_billing'); ?>
-                    <p class="form-row checkout__invoice  invoice-vat-fields-tgl checkout__invoice_border">
-                      <?php _e('Invoice data (optional)', 'hedonizm'); ?>
-                      <span class="chagle-plus"></span>
-                    </p>
+                    
                     <div class="checkout__invoice-bottom">
                       <?php do_action('woocommerce_invoice_vat_fields', $checkout); ?>
                     </div>
@@ -70,14 +67,9 @@ if (!$checkout->is_registration_enabled() && $checkout->is_registration_required
   <div class="cart__bottom-review">
 
     <a href="#" class="showcoupon woocommerce-form-coupon-toggle checkout__invoice hov-underline-dont">
-      <?php wc_print_notice(apply_filters('woocommerce_checkout_coupon_message', ' <p class="txt-20 txt-light txt-transform-none c-black ls-08">' . esc_html__('Want to use Gift Card or Coupon Code?', 'woocommerce') . '</p>'), 'notice'); ?>
-      <span class="chagle-plus"></span>
+      <?php do_action('woocommerce_before_checkout_form', $checkout); ?>
+      <span class="option-item__plus">+</span>
     </a>
-    <div class="checkout_coupon woocommerce-form-coupon" method="post" style="display:none">
-      <p class="form-row form-row-first">
-        <input type="text" name="coupon_code" class="input-text textarea__input" placeholder="<?php esc_attr_e('Coupon code', 'woocommerce'); ?>" id="coupon_code" value="" />
-      </p>
-    </div>
     <div class="review-oreder__total-shipping">
       <div class="cart-subtotal flex jc-space al-center mb-48">
         <p class="txt-18"><?php esc_html_e('Item total', 'woocommerce'); ?></p>
