@@ -304,3 +304,23 @@ figure{
   margin-top: 10rem;
   padding-left: 33px;
 }
+
+.item-checkout__form.mistakeform{
+  border-bottom:none;
+}
+
+.item-checkout__form.mistakeform input{
+
+  position: relative;
+  width: 100%;
+  border-bottom: 1px solid #939598;
+  margin-bottom: 4.375rem;
+  padding: 1.375rem 0;
+  color: #939598;
+  outline: none;
+}
+
+.item-checkout__form.mistakeform input{
+  border-bottom:1px solid #f80606;
+  color:red;
+}
