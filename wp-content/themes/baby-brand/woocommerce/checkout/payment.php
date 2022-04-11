@@ -60,7 +60,7 @@ if (!is_ajax()) {
 		<?php wp_nonce_field('woocommerce-process_checkout', 'woocommerce-process-checkout-nonce'); ?>
 	</div>
 	<div class="accept_regulamin">
-		<input onchange="checkParamsCheckout()" id="accept-regulamin" type="radio" name=""><label>Oświadczam że przeczytałem i akceptuje <a href="/information-regluamin/">regulamin</a> sklepu internetowego livinger.pl</label>
+		<input onchange="checkParamsCheckout()" id="accept-regulamin" type="radio" name=""><label>By proceeding I accept the Terms & conditions</label>
 	</div>
 </div>
 <?php
