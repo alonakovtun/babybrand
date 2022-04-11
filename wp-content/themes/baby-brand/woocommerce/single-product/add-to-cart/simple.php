@@ -72,7 +72,7 @@ if ($product->is_in_stock()) : ?>
 					<button type="submit" name="add-to-cart" value="<?php echo esc_attr($product->get_id()); ?>" class="item-cart__text single_add_to_cart_button button alt item-cart__text"><?php echo esc_html($product->single_add_to_cart_text()); ?></button>
 				</div>
 				<div class="add-to-wish">
-					<img class="product-icon" src="/wp-content/themes/baby-brand/assets/img/products/producticon.png" alt="">
+					<?php echo do_shortcode("[yith_wcwl_add_to_wishlist]") ?>
 				</div>
 			</div>
 
