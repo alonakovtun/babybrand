@@ -63,6 +63,9 @@
 </div><!-- #page -->
 
 <?php wp_footer(); ?>
+<script>
 
+jQuery('.remove_from_wishlist').data("title", jQuery('.remove_from_wishlist').attr("title")).removeAttr("title");
+</script>
 </body>
 </html>
