@@ -28,72 +28,123 @@ if (!$checkout->is_registration_enabled() && $checkout->is_registration_required
   return;
 }
 ?>
-<div class="checkout__header-title">
-  <input type="button" onclick="history.go(-1);" value="Powrót" class="trigger-change button__reset button__back button__back_absolute" />
-  <p class="checkout__txt-title txt-center">
-    <?= is_user_logged_in() ? esc_html('Podsumowanie', 'hedo') : esc_html('Kup jako', 'hedo') ?>
-  </p>
-</div>
-<?php
-if (!is_user_logged_in()) {
-  get_template_part('template-parts/hedo-login');
-}
+<main class="main">
+  <div class="checkout">
+    <div class="checkout__container container">
+      <div class="checkout__body">
+        <div class="chekout__gobackbtn" onclick="history.go(-1);">Go back</div>
+        <?php
+        if (!is_user_logged_in()) {
+          get_template_part('template-parts/hedo-login');
+        }
 
-?>
+        ?>
+        <div class="checkout__column item-checkout">
+          <div class="item-checkout__name">delivery address</div>
+          <form name="checkout" method="post" class="item-checkout__form mistakeform <?= !is_user_logged_in() ? 'checkout__hidden' : '' ?>" action="<?php echo esc_url(wc_get_checkout_url()); ?>" enctype="multipart/form-data">
+            <div class="flex jc-space al-start ">
+              <div class="column-left">
+                <?php if ($checkout->get_checkout_fields()) : ?>
 
-<form name="checkout" method="post" class="checkout woocommerce-checkout checkout-swap <?= !is_user_logged_in() ? 'checkout__hidden' : '' ?>" action="<?php echo esc_url(wc_get_checkout_url()); ?>" enctype="multipart/form-data">
-  <div class="flex jc-space al-start ">
-    <div class="column-left">
-      <?php if ($checkout->get_checkout_fields()) : ?>
 
-        <?php do_action('woocommerce_checkout_before_customer_details'); ?>
+                  <div class="checkout__column item-checkout">
+                    <?php do_action('woocommerce_checkout_billing'); ?>
+                    <p class="form-row checkout__invoice  invoice-vat-fields-tgl checkout__invoice_border">
+                      <?php _e('Invoice data (optional)', 'hedonizm'); ?>
+                      <span class="chagle-plus"></span>
+                    </p>
+                    <div class="checkout__invoice-bottom">
+                      <?php do_action('woocommerce_invoice_vat_fields', $checkout); ?>
+                    </div>
+                  </div>
 
-        <div class="col2-set checkout__left" id="customer_details">
-          <?php do_action('woocommerce_checkout_billing'); ?>
-          <?php do_action('woocommerce_checkout_shipping'); ?>
-          <p class="form-row checkout__invoice  invoice-vat-fields-tgl checkout__invoice_border">
-            <?php _e('Invoice data (optional)', 'hedonizm'); ?>
-            <span class="chagle-plus"></span>
-          </p>
-          <div class="checkout__invoice-bottom">
-            <?php do_action('woocommerce_invoice_vat_fields', $checkout); ?>
-          </div>
-        </div>
+                  <?php do_action('woocommerce_checkout_after_customer_details'); ?>
+                <?php endif; ?>
 
-        <?php do_action('woocommerce_checkout_after_customer_details'); ?>
-      <?php endif; ?>
 
-      <?php do_action('woocommerce_checkout_before_order_review_heading'); ?>
+              </div>
 
-      <?php do_action('woocommerce_checkout_before_order_review'); ?>
+            </div>
+          </form>
 
-      <div id="order_review" class="woocommerce-checkout-review-order">
-        <?php do_action('woocommerce_checkout_order_review'); ?>
-      </div>
+  <div class="cart__bottom-review">
 
-      <?php do_action('woocommerce_checkout_after_order_review'); ?>
+    <a href="#" class="showcoupon woocommerce-form-coupon-toggle checkout__invoice hov-underline-dont">
+      <?php wc_print_notice(apply_filters('woocommerce_checkout_coupon_message', ' <p class="txt-20 txt-light txt-transform-none c-black ls-08">' . esc_html__('Want to use Gift Card or Coupon Code?', 'woocommerce') . '</p>'), 'notice'); ?>
+      <span class="chagle-plus"></span>
+    </a>
+    <div class="checkout_coupon woocommerce-form-coupon" method="post" style="display:none">
+      <p class="form-row form-row-first">
+        <input type="text" name="coupon_code" class="input-text textarea__input" placeholder="<?php esc_attr_e('Coupon code', 'woocommerce'); ?>" id="coupon_code" value="" />
+      </p>
     </div>
-    <div class="column-right checkout__right">
-      <?php do_action('woocommerce_checkout_before_order_review_heading'); ?>
-
-      <?php do_action('woocommerce_checkout_before_order_review'); ?>
-
-      <div id="order_review" class="woocommerce-checkout-review-order">
-        <?php do_action('woocommerce_checkout_order_review'); ?>
+    <div class="review-oreder__total-shipping">
+      <div class="cart-subtotal flex jc-space al-center mb-48">
+        <p class="txt-18"><?php esc_html_e('Item total', 'woocommerce'); ?></p>
+        <p class="txt-18 txt-upper"><?php wc_cart_totals_subtotal_html(); ?></p>
+      </div>
+      <?php foreach (WC()->cart->get_coupons() as $code => $coupon) : ?>
+        <div class="cart-discount coupon-<?php echo esc_attr(sanitize_title($code)); ?>" style="display: none">
+          <div><?php wc_cart_totals_coupon_label($coupon); ?></div>
+          <div><?php wc_cart_totals_coupon_html($coupon); ?></div>
+        </div>
+      <?php endforeach; ?>
+      <div class="cart-subtotal flex jc-space al-center mt-48 wysylka-subtotal">
+        <?php if (WC()->cart->needs_shipping() && WC()->cart->show_shipping()) : ?>
+          <?php do_action('woocommerce_review_order_before_shipping'); ?>
+          <?php wc_cart_totals_shipping_html(); ?>
+          <?php do_action('woocommerce_review_order_after_shipping'); ?>
+        <?php endif; ?>
       </div>
 
-      <div class="uwagi shop_table checkout__left checkout__total">
-        <div class="checkout__title flex jc-start al-center billing-summary">
-          <h3 class="txt-20 txt-light txt-upper ls-08"><?php esc_html_e('Uwagi do zamówienia', 'woocommerce'); ?></h3>
+      <?php foreach (WC()->cart->get_fees() as $fee) : ?>
+        <div class="fee">
+          <div><?php echo esc_html($fee->name); ?></div>
+          <div><?php wc_cart_totals_fee_html($fee); ?></div>
         </div>
-        <div class="uwagi__body">
-          <?php do_action('woocommerce_uwagi_fields', $checkout); ?>
+      <?php endforeach; ?>
+
+      <?php if (wc_tax_enabled() && !WC()->cart->display_prices_including_tax()) : ?>
+        <?php if ('itemized' === get_option('woocommerce_tax_total_display')) : ?>
+          <?php foreach (WC()->cart->get_tax_totals() as $code => $tax) : // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited 
+          ?>
+            <div class="tax-rate tax-rate-<?php echo esc_attr(sanitize_title($code)); ?>">
+              <div><?php echo esc_html($tax->label); ?></div>
+              <div><?php echo wp_kses_post($tax->formatted_amount); ?></div>
+            </div>
+          <?php endforeach; ?>
+        <?php else : ?>
+          <div class="tax-total">
+            <div><?php echo esc_html(WC()->countries->tax_or_vat()); ?></div>
+            <div><?php wc_cart_totals_taxes_total_html(); ?></div>
+          </div>
+        <?php endif; ?>
+      <?php endif; ?>
+    </div>
+
+    <?php do_action('woocommerce_review_order_before_order_total'); ?>
+
+    <div class="order-total flex jc-space al-center">
+      <p class="txt-upper"><?php esc_html_e('Total', 'woocommerce'); ?></p>
+      <p><?php wc_cart_totals_order_total_html(); ?></p>
+    </div>
+
+    <?php do_action('woocommerce_review_order_after_order_total'); ?>
+
+  </div>
         </div>
+
+        <div class="checkout__column item-column">
+
+          <div class="item-column-body">
+            <?php do_action('woocommerce_checkout_order_review'); ?>
+          </div>
+
+
+
+        </div>
+
       </div>
-
-
-      <?php do_action('woocommerce_checkout_after_order_review'); ?>
     </div>
   </div>
-</form>
-<?php do_action('woocommerce_after_checkout_form', $checkout); ?>
+</main>
