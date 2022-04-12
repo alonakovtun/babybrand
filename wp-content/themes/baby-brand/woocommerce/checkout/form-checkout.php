@@ -49,6 +49,7 @@ if (!$checkout->is_registration_enabled() && $checkout->is_registration_required
 
                   <div class="checkout__column item-checkout">
                     <?php do_action('woocommerce_checkout_billing'); ?>
+                    <?php do_action('woocommerce_checkout_shipping'); ?>
                     
                     <div class="checkout__invoice-bottom">
                       <?php do_action('woocommerce_invoice_vat_fields', $checkout); ?>
