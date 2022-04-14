@@ -107,3 +107,8 @@ function custom_override_checkout_fields($fields) {
 
     return $fields;
 }
+
+// add_action('woocommerce_checkout_order_review', 'reordering_checkout_order_review', 1);
+// function reordering_checkout_order_review(){
+//     remove_action('woocommerce_checkout_order_review', 'woocommerce_checkout_payment', 20);
+// }

@@ -50,7 +50,7 @@ if (!$checkout->is_registration_enabled() && $checkout->is_registration_required
                   <div class="checkout__column item-checkout">
                     <?php do_action('woocommerce_checkout_billing'); ?>
                     <?php do_action('woocommerce_checkout_shipping'); ?>
-                    
+
                     <div class="checkout__invoice-bottom">
                       <?php do_action('woocommerce_invoice_vat_fields', $checkout); ?>
                     </div>
@@ -65,66 +65,87 @@ if (!$checkout->is_registration_enabled() && $checkout->is_registration_required
             </div>
           </form>
 
-  <div class="cart__bottom-review">
+          <div class="cart__bottom-review">
+            <div class="item-checkout__subname">billing summary</div>
 
-    <a href="#" class="showcoupon woocommerce-form-coupon-toggle checkout__invoice hov-underline-dont">
-      <?php do_action('woocommerce_before_checkout_form', $checkout); ?>
-      <span class="option-item__plus">+</span>
-    </a>
-    <div class="review-oreder__total-shipping">
-      <div class="cart-subtotal flex jc-space al-center mb-48">
-        <p class="txt-18"><?php esc_html_e('Item total', 'woocommerce'); ?></p>
-        <p class="txt-18 txt-upper"><?php wc_cart_totals_subtotal_html(); ?></p>
-      </div>
-      <?php foreach (WC()->cart->get_coupons() as $code => $coupon) : ?>
-        <div class="cart-discount coupon-<?php echo esc_attr(sanitize_title($code)); ?>" style="display: none">
-          <div><?php wc_cart_totals_coupon_label($coupon); ?></div>
-          <div><?php wc_cart_totals_coupon_html($coupon); ?></div>
-        </div>
-      <?php endforeach; ?>
-      <div class="cart-subtotal flex jc-space al-center mt-48 wysylka-subtotal">
-        <?php if (WC()->cart->needs_shipping() && WC()->cart->show_shipping()) : ?>
-          <?php do_action('woocommerce_review_order_before_shipping'); ?>
-          <?php wc_cart_totals_shipping_html(); ?>
-          <?php do_action('woocommerce_review_order_after_shipping'); ?>
-        <?php endif; ?>
-      </div>
 
-      <?php foreach (WC()->cart->get_fees() as $fee) : ?>
-        <div class="fee">
-          <div><?php echo esc_html($fee->name); ?></div>
-          <div><?php wc_cart_totals_fee_html($fee); ?></div>
-        </div>
-      <?php endforeach; ?>
 
-      <?php if (wc_tax_enabled() && !WC()->cart->display_prices_including_tax()) : ?>
-        <?php if ('itemized' === get_option('woocommerce_tax_total_display')) : ?>
-          <?php foreach (WC()->cart->get_tax_totals() as $code => $tax) : // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited 
-          ?>
-            <div class="tax-rate tax-rate-<?php echo esc_attr(sanitize_title($code)); ?>">
-              <div><?php echo esc_html($tax->label); ?></div>
-              <div><?php echo wp_kses_post($tax->formatted_amount); ?></div>
+            <div class="item-checkout__option option-item ">
+              <div class="option-item__name">
+                <?php do_action('woocommerce_before_checkout_form', $checkout); ?>
+              </div>
+              <div class="option-item__plus">+</div>
             </div>
-          <?php endforeach; ?>
-        <?php else : ?>
-          <div class="tax-total">
-            <div><?php echo esc_html(WC()->countries->tax_or_vat()); ?></div>
-            <div><?php wc_cart_totals_taxes_total_html(); ?></div>
+
+
+
+            <div class="review-oreder__total-shipping">
+              <div class="cart-subtotal flex jc-space al-center mb-48">
+                <div class="item-checkout__option option-item ">
+                  <div class="option-item__name">
+                    <?php esc_html_e('Item total', 'woocommerce'); ?>
+                  </div>
+                  <div class="option-item__total">
+                    <?php wc_cart_totals_subtotal_html(); ?>
+                  </div>
+                </div>
+              </div>
+              <?php foreach (WC()->cart->get_coupons() as $code => $coupon) : ?>
+                <div class="cart-discount coupon-<?php echo esc_attr(sanitize_title($code)); ?>" style="display: none">
+                  <div><?php wc_cart_totals_coupon_label($coupon); ?></div>
+                  <div><?php wc_cart_totals_coupon_html($coupon); ?></div>
+                </div>
+              <?php endforeach; ?>
+              <div class="cart-subtotal flex jc-space al-center mt-48 wysylka-subtotal">
+                <?php if (WC()->cart->needs_shipping() && WC()->cart->show_shipping()) : ?>
+                  <?php do_action('woocommerce_review_order_before_shipping'); ?>
+                  <?php wc_cart_totals_shipping_html(); ?>
+                  <?php do_action('woocommerce_review_order_after_shipping'); ?>
+                <?php endif; ?>
+              </div>
+
+              <?php foreach (WC()->cart->get_fees() as $fee) : ?>
+                <div class="fee">
+                  <div><?php echo esc_html($fee->name); ?></div>
+                  <div><?php wc_cart_totals_fee_html($fee); ?></div>
+                </div>
+              <?php endforeach; ?>
+
+              <?php if (wc_tax_enabled() && !WC()->cart->display_prices_including_tax()) : ?>
+                <?php if ('itemized' === get_option('woocommerce_tax_total_display')) : ?>
+                  <?php foreach (WC()->cart->get_tax_totals() as $code => $tax) : // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited 
+                  ?>
+                    <div class="tax-rate tax-rate-<?php echo esc_attr(sanitize_title($code)); ?>">
+                      <div><?php echo esc_html($tax->label); ?></div>
+                      <div><?php echo wp_kses_post($tax->formatted_amount); ?></div>
+                    </div>
+                  <?php endforeach; ?>
+                <?php else : ?>
+                  <div class="tax-total">
+                    <div><?php echo esc_html(WC()->countries->tax_or_vat()); ?></div>
+                    <div><?php wc_cart_totals_taxes_total_html(); ?></div>
+                  </div>
+                <?php endif; ?>
+              <?php endif; ?>
+            </div>
+
+            <?php do_action('woocommerce_review_order_before_order_total'); ?>
+
+            <div class="order-total flex jc-space al-center">
+
+                <div class="item-checkout__option option-item ">
+                  <div class="option-item__name">
+                    <?php esc_html_e('Total', 'woocommerce'); ?>
+                  </div>
+                  <div class="option-item__total">
+                    <?php wc_cart_totals_order_total_html(); ?>
+                  </div>
+                </div>
+            </div>
+
+            <?php do_action('woocommerce_review_order_after_order_total'); ?>
+
           </div>
-        <?php endif; ?>
-      <?php endif; ?>
-    </div>
-
-    <?php do_action('woocommerce_review_order_before_order_total'); ?>
-
-    <div class="order-total flex jc-space al-center">
-      <p class="txt-upper"><?php esc_html_e('Total', 'woocommerce'); ?></p>
-      <p><?php wc_cart_totals_order_total_html(); ?></p>
-    </div>
-
-    <?php do_action('woocommerce_review_order_after_order_total'); ?>
-
-  </div>
         </div>
 
         <div class="checkout__column item-column">
