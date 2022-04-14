@@ -31,9 +31,11 @@ if ( ! defined( 'ABSPATH' ) ) {
     ?>
     <input id="payment_method_<?php echo $gateway->id; ?>" type="radio" class="payment-method__check input-radio" name="payment_method" value="<?php echo esc_attr($gateway->id); ?>" <?php checked($gateway->chosen, true); ?> data-order_button_text="<?php echo esc_attr($gateway->order_button_text); ?>" />
     <label for="payment_method_<?php echo $gateway->id; ?>">
-        <div class="payment-method__image">
+<div class="item-checkout__option option-item ">
+        <div class="option-item__icon option-item__icon">
             <img class="payment-method__img" src="<?= $icon; ?>" alt="">
         </div>
-        <div class="payment-method__title"><?= $gateway->get_title(); ?></div>
+        <div class="option-item__methods"><?= $gateway->get_title(); ?></div>
+</div>
     </label>
 </li>
