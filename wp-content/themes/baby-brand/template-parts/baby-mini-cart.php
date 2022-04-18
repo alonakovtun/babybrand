@@ -64,17 +64,25 @@
                                     <div class="card-body__row align-bottom">
                                         <div data-title="<?php esc_attr_e('Quantity', 'woocommerce'); ?>" data-key="<?= esc_attr($cart_item_key) ?>" data-qty="<?= $cart_item['quantity']; ?>" class="quantity-block">
                                             <span class="card-body__quantity"><?php esc_attr_e('Quantity', 'woocommerce'); ?></span>
-                                            <div class="input-qty">
-                                                <?php echo esc_html__('', 'baby-brand') . '<span>' . $cart_item['quantity'] . '</span>'; ?>
-                                            </div>
-                                            <button type="button" class="minus <?= $qty_class; ?> card-body_btn card-body__minus">
-                                                -
-                                            </button>
+                                            <?php
+                                            if ($_product->is_sold_individually()) {
+                                                $product_quantity = sprintf('1 <input type="hidden" name="cart[%s][qty]" value="1" />', $cart_item_key);
+                                            } else {
+                                                $product_quantity = woocommerce_quantity_input(
+                                                    array(
+                                                        'input_name'   => "cart[{$cart_item_key}][qty]",
+                                                        'input_value'  => $cart_item['quantity'],
+                                                        'max_value'    => $_product->get_max_purchase_quantity(),
+                                                        'min_value'    => '0',
+                                                        'product_name' => $_product->get_name(),
+                                                    ),
+                                                    $_product,
+                                                    false
+                                                );
+                                            }
 
-                                            <?php $qty_class = ($cart_item['quantity'] > 1) ? '' : 'm-disabled'; ?>
-                                            <button type="button" class="plus card-body__plus card-body_btn">
-                                                +
-                                            </button>
+                                            echo apply_filters('woocommerce_cart_item_quantity', $product_quantity, $cart_item_key, $cart_item); // PHPCS: XSS ok.
+                                            ?>
                                         </div>
 
                                         <div>
