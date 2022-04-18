@@ -70,6 +70,13 @@
     &__img {
         width: 100%;
         height: auto;
+        
+    }
+
+    .item-column__img{
+        img{
+            max-height: fit-content;
+        }
     }
 
     &__text--2 {
