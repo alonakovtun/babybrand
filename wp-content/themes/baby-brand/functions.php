@@ -100,8 +100,7 @@ function custom_override_checkout_fields($fields) {
 
     foreach ($fields as $fieldCategory => $billingFields) {
         foreach ($billingFields as $billingField => $options) {
-            $class = $options['required'] ? ['item-login__email', 'mistakeform'] : ['item-login__email'];
-            $fields[$fieldCategory][$billingField]['input_class'] = $class;
+            $fields[$fieldCategory][$billingField]['input_class'] = ['item-login__email'];
         }
     }
 
