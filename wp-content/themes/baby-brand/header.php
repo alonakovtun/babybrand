@@ -49,47 +49,20 @@ $product_categories = get_categories(array(
             <div class="header__container container">
                 <div class="header__body">
                     <ul class="header-list">
+                        <li class="header-list__item shop"><a class="link" href="">Shop</a>
+                        <div class="stories__block header-block shop-list">
+                        <ul class="header-block__container container">
+                                <?
+                                wp_nav_menu(array(
+                                    'theme_location' => 'main-menu',
+                                    'container' => '',
+                                    'items_wrap' => '%3$s'
+                                ));
+                                ?>
+                            </ul>
+                        </div>
                         
-
-                        <?
-                            wp_nav_menu(array(
-                                'theme_location' => 'main-menu',
-                                'container' => '',
-                                'items_wrap' => '%3$s'
-                            ));
-                        ?>
-
-                        <!-- <li class="header-list__item"><a class="link" href="/shop/">Shop</a>
-                            <div class="shopmenu__block header-block">
-                                <div class="header-block__container container">
-                                    <div class="shopmenu-block__body">
-                                        <?php foreach ($product_categories as $category) : ?>
-                                            <div class="shopmenu-block__column">
-                                                <div class="shopmenu-block__column">
-                                                    <div class="shopmenu-block-top">
-                                                        <div class="shopmenu-block__text">
-                                                            <?php echo $category->name ?>
-                                                        </div>
-                                                        <div class="shopmenu-block__text">
-                                                            <a href="<?php echo get_category_link($category->cat_ID) ?>">shop all</a>
-                                                        </div>
-                                                    </div>
-                                                    <div class="shopmenu-block-bottom">
-                                                        <div class="shopmenu-block__text">Body</div>
-                                                        <div class="shopmenu-block__text">T-shirts
-                                                        </div>
-                                                        <div class="shopmenu-block__text">sweatshirts</div>
-                                                        <div class="shopmenu-block__text">sweatshirts</div>
-                                                        <div class="shopmenu-block__text">Shorts</div>
-                                                        <div class="shopmenu-block__text">jackets</div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        <?php endforeach; ?>
-                                    </div>
-                                </div>
-                            </div>
-                        </li> -->
+                        </li>
 
                         <li class="header-list__item"><a class="link" href="">About</a>
                             <div class="stories__block header-block">
@@ -118,17 +91,17 @@ $product_categories = get_categories(array(
                                 <div class="header-block__container container">
                                     <div class="header-block__name">stories</div>
                                     <?php foreach ($blogs as $blog) : ?>
-                                    <div class="header-block__text">
-                                        <a href="<?php echo $blog->guid; ?>">
-                                            <?php echo date_format(date_create($blog->post_date), 'd.m.Y'); ?>/<?php echo $blog->post_title; ?>
-                                        </a>
-                                    </div>
+                                        <div class="header-block__text">
+                                            <a href="<?php echo $blog->guid; ?>">
+                                                <?php echo date_format(date_create($blog->post_date), 'd.m.Y'); ?>/<?php echo $blog->post_title; ?>
+                                            </a>
+                                        </div>
                                     <?php endforeach; ?>
                                     <div class="header-block__text--bottom"> <a href="/stories/">all stories</a>
                                     </div>
                                 </div>
                             </div>
-                        </li> 
+                        </li>
                         <li class="header-list__item"><a class="link" href="">Search</a>
                             <div class="stories__block header-block">
                                 <div class="header-block__container container">
@@ -141,7 +114,7 @@ $product_categories = get_categories(array(
                                     </div>
                                 </div>
                             </div>
-                        </li> 
+                        </li>
 
 
                     </ul>
