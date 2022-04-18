@@ -15,4 +15,13 @@ jQuery(window).scroll(function() {
 	}
 	scrollPrev = scrolled;
 });
+
+jQuery( ".shop" ).hover(
+	function() {
+	  jQuery('.shop-list' ).addClass( "hover" );
+	}, function() {
+	  jQuery('.shop-list' ).removeClass( "hover" );
+	}
+  );
+
 export { initHeaderScripts };

@@ -262,42 +262,9 @@ figure{
 }
 
 .sub-menu{
-  opacity: 0;
-  visibility: hidden;
-  -webkit-transition: 0.5s;
-  -o-transition: 0.5s;
-  transition: 0.5s;
-  position: absolute;
-  top: -100%;
-  left: 0;
-  width: 100%;
-  z-index: 2;
-  background-color: #ffffff;
-  padding: 17.125rem 53px 5.3125rem 25px;
+  padding: 0;
+  margin-top: 21px;
   list-style: none;
-  display: flex;
-
-  &._active{
-    opacity: 1;
-    visibility: visible;
-  }
-}
-
-.sub-menu .sub-menu{
-  opacity: 1;
-  visibility: visible;
-  -webkit-transition: 0.5s;
-  -o-transition: 0.5s;
-  transition: 0.5s;
-  position: absolute;
-  top: -100%;
-  left: 0;
-  width: 100%;
-  z-index: 2;
-  background-color: #ffffff;
-  padding: 17.125rem 53px 5.3125rem 25px;
-  list-style: none;
-  display: flex;
 }
 
 .noresult__item{
@@ -323,4 +290,31 @@ figure{
 .item-checkout__form.mistakeform input{
   border-bottom:1px solid #f80606;
   color:red;
+}
+
+.shop-list{
+
+  &.hover{
+    -webkit-transition: 0.5s;
+    -o-transition: 0.5s;
+    transition: 0.5s;
+    opacity: 1;
+    visibility: visible; 
+    top: 0;
+  }
+
+  .container{
+    display: inline-flex;
+    list-style: none;
+  }
+
+  .menu-item{
+    margin-right: 100px;
+  }
+
+  .sub-menu{
+    .menu-item{
+      margin-right: 0px;
+    }
+  }
 }
