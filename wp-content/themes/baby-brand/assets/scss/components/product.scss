@@ -265,4 +265,21 @@
     }
 }
 
+.quantity{
+    display: flex;
+
+    .qty_button{
+        background: none;
+        border: none;
+        cursor: pointer;
+    }
+
+    .qty{
+        outline: none;
+        border: none;
+        width: 20px;
+        text-align: center;
+    }
+}
+
 
