@@ -113,15 +113,15 @@ defined('ABSPATH') || exit;
 
 	</tfoot>
 </table> -->
-<?php
-do_action('woocommerce_review_order_before_cart_contents');
+<div class="checkout__column item-column">
+	<?php
+	do_action('woocommerce_review_order_before_cart_contents');
 
-foreach (WC()->cart->get_cart() as $cart_item_key => $cart_item) {
-	$_product = apply_filters('woocommerce_cart_item_product', $cart_item['data'], $cart_item, $cart_item_key);
+	foreach (WC()->cart->get_cart() as $cart_item_key => $cart_item) {
+		$_product = apply_filters('woocommerce_cart_item_product', $cart_item['data'], $cart_item, $cart_item_key);
 
-	if ($_product && $_product->exists() && $cart_item['quantity'] > 0 && apply_filters('woocommerce_checkout_cart_item_visible', true, $cart_item, $cart_item_key)) {
-?>
-		<div class="checkout__column item-column">
+		if ($_product && $_product->exists() && $cart_item['quantity'] > 0 && apply_filters('woocommerce_checkout_cart_item_visible', true, $cart_item, $cart_item_key)) {
+	?>
 			<div class="item-column-body">
 				<div class="item-checkout-img"><?php echo $_product->get_image() ?>
 				</div>
@@ -152,10 +152,10 @@ foreach (WC()->cart->get_cart() as $cart_item_key => $cart_item) {
 					</div>
 				</div>
 			</div>
-		</div>
-<?php
+	<?php
+		}
 	}
-}
 
-do_action('woocommerce_review_order_after_cart_contents');
-?>
+	do_action('woocommerce_review_order_after_cart_contents');
+	?>
+</div>
