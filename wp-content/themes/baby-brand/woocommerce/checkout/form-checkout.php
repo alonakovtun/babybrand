@@ -20,7 +20,7 @@ if (!defined('ABSPATH')) {
 	exit;
 }
 
-do_action('woocommerce_before_checkout_form', $checkout);
+// do_action('woocommerce_before_checkout_form', $checkout);
 
 // If checkout registration is disabled and not logged in, the user cannot checkout.
 if (!$checkout->is_registration_enabled() && $checkout->is_registration_required() && !is_user_logged_in()) {
@@ -40,8 +40,6 @@ if (!$checkout->is_registration_enabled() && $checkout->is_registration_required
 
 						<?php if ($checkout->get_checkout_fields()) : ?>
 
-							<?php do_action('woocommerce_checkout_before_customer_details'); ?>
-
 							<div class="col2-set" id="customer_details">
 								<div class="col-1">
 									<?php do_action('woocommerce_checkout_billing'); ?>
@@ -55,19 +53,15 @@ if (!$checkout->is_registration_enabled() && $checkout->is_registration_required
 							<?php do_action('woocommerce_checkout_after_customer_details'); ?>
 
 						<?php endif; ?>
-
-						<?php do_action('woocommerce_checkout_before_order_review_heading'); ?>
-
-						<?php do_action('woocommerce_checkout_before_order_review'); ?>
-
-						<div id="order_review" class="woocommerce-checkout-review-order">
-							<?php do_action('woocommerce_checkout_order_review'); ?>
-						</div>
-
-						<?php do_action('woocommerce_checkout_after_order_review'); ?>
-
+						<?php do_action('woocommerce_checkout_before_customer_details'); ?>
 					</form>
 				</div>
+				<?php
+					do_action('woocommerce_checkout_before_order_review');
+					do_action('woocommerce_checkout_before_order_review_heading');
+					do_action('woocommerce_checkout_order_review');
+					do_action('woocommerce_checkout_after_order_review');
+				?>
 			</div>
 		</div>
 	</div>

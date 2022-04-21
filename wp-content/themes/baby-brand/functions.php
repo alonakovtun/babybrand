@@ -107,6 +107,8 @@ function custom_override_checkout_fields($fields) {
     return $fields;
 }
 
+remove_action('woocommerce_checkout_order_review', 'woocommerce_checkout_payment', 20);
+add_action('woocommerce_checkout_before_customer_details', 'woocommerce_checkout_payment', 10);
 if ( ! function_exists( 'yith_wcwl_custom_remove_from_wishlist_label' ) ) {
 	function yith_wcwl_custom_remove_from_wishlist_label( $label ) {
 		return ' ';

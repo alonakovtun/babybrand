@@ -7,26 +7,22 @@ get_header();
                 <div class="contactpage__container container">
                     <div class="contactpage__body">
                         <div class="contactpage__column">
-                            <h4 class="contactpage__title">CUSTOMER SERVICE</h4>
+                            <h4 class="contactpage__title"><?php the_field('customer_service_title') ?></h4>
                             <div class="contactpage__text">
-                                A BABY BRAND <br>
-                                tel: +48 601 168 986
-                                <a class="contactpage__link" href="">info@ababybrand.com</a> </div>
+                                <?php the_field('customer_service_content') ?>
+                            </div>
                         </div>
                         <div class="contactpage__column">
-                            <h4 class="contactpage__title">COMPANY ADDRESS</h4>
+                            <h4 class="contactpage__title"><?php the_field('company_address_title') ?></h4>
                             <div class="contactpage__text">
-                                A BABY BRAND
-                                Rozbrat 34/36 #108
-                                00-429 Warsaw POLAND</div>
+                                <?php the_field('company_address_content') ?>
+                            </div>
                         </div>
                         <div class="contactpage__column">
-                            <h4 class="contactpage__title">HAVE A QUESTION?</h4>
+                            <h4 class="contactpage__title"><?php the_field('question_title') ?></h4>
                             <div class="contactpage__text--3">
-                                For questions or comments
-                                about our products and services,
-                                get in touch</div>
-                            <a class="contactpage__link" href="">info@ababybrand.com</a>
+                                <?php the_field('question_content') ?>
+                            </div>
                         </div>
                     </div>
                 </div>
