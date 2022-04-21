@@ -31,12 +31,30 @@ if ($product->is_in_stock()) : ?>
 	<div class="item-settings">
 		<div class="item-settings__name ">Colour</div>
 		<div class="item-settings__variants">
-			<div class="item-settings__color"><img class="color-icon" src="/wp-content/themes/baby-brand/assets/img/products/colors/colorsilver.png" alt="">
-			</div>
-			<div class="item-settings__color"><img class="color-icon" src="/wp-content/themes/baby-brand/assets/img/products/colors/colorwhite.png" alt="">
-			</div>
-			<div class="item-settings__color"><img class="color-icon" src="/wp-content/themes/baby-brand/assets/img/products/colors/colorgold.png" alt="">
-			</div>
+
+			<?php if (have_rows('color_links')) : ?>
+				<?php while (have_rows('color_links')) : the_row(); ?>
+					<?php
+							$post_object = get_sub_field('color_product_link');
+							$color = get_sub_field('color');
+					?>
+					<?php if ($post_object) : ?>
+						<?php // override $post
+								$post = $post_object;
+								$permalink = get_permalink( $post_object->ID );
+								setup_postdata($post);
+						?>
+						<a class="item-settings__color" href="<?php echo esc_url($permalink); ?>">
+							<div class="color-icon" style="background-color:<?php echo $color ?> "></div>
+						</a>
+
+						<?php wp_reset_postdata();
+						?>
+					<?php endif; ?>
+
+				<?php endwhile; ?>
+			<?php endif; ?>
+
 		</div>
 	</div>
 
