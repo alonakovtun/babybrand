@@ -49,7 +49,7 @@ $product_categories = get_categories(array(
             <div class="header__container container">
                 <div class="header__body">
                     <ul class="header-list">
-                        <li class="header-list__item shop"><a class="link" href="">Shop</a>
+                        <li class="header-list__item shop"><a class="link">Shop</a>
                         <div class="stories__block header-block shop-list">
                         <ul class="header-block__container container">
                                 <?
@@ -64,7 +64,7 @@ $product_categories = get_categories(array(
                         
                         </li>
 
-                        <li class="header-list__item"><a class="link" href="">About</a>
+                        <li class="header-list__item"><a class="link">About</a>
                             <div class="stories__block header-block">
                                 <div class="header-block__container container">
                                     <div class="aboutmenu-block__top">
@@ -86,7 +86,7 @@ $product_categories = get_categories(array(
                                 </div>
                             </div>
                         </li>
-                        <li class="header-list__item"><a class="link" href="">stories</a>
+                        <li class="header-list__item"><a class="link">stories</a>
                             <div class="stories__block header-block">
                                 <div class="header-block__container container">
                                     <div class="header-block__name">stories</div>
@@ -102,7 +102,7 @@ $product_categories = get_categories(array(
                                 </div>
                             </div>
                         </li>
-                        <li class="header-list__item"><a class="link" href="">Search</a>
+                        <li class="header-list__item"><a class="link">Search</a>
                             <div class="stories__block header-block">
                                 <div class="header-block__container container">
                                     <div class="search__body">
@@ -122,7 +122,7 @@ $product_categories = get_categories(array(
                         <a href="/" class="header-logo__img"><img src="/wp-content/themes/baby-brand/assets/img/logo.svg" alt="" class="img"></a>
                     </div>
                     <ul class="header-list">
-                        <li class="header-list__item"><a class="link" href="">Eur/En</a>
+                        <li class="header-list__item"><a class="link" >Eur/En</a>
                             <div class="stories__block header-block">
                                 <div class="header-block__container container">
                                     <div class="lang__body">
@@ -133,14 +133,14 @@ $product_categories = get_categories(array(
                                 </div>
                             </div>
                         </li>
-                        <li class="header-list__item"><a class="link" href="#">assistance</a>
+                        <li class="header-list__item"><a class="link" >assistance</a>
                             <div class="stories__block header-block">
                                 <div class="header-block__container container">
                                     <a href="mailto:info@ababybrand.com" class="assistanse-link">Info@ababybrand.com</a>
                                     <a href="/shipping-returns/" class="assistanse-link nomarginb">shipping & returns</a>
                                     <a href="/quality-care/" class="assistanse-link nomarginb"> quality & care</a>
                                     <a href="/size-guide/" class="assistanse-link"> size guide</a>
-                                    <a href="" class="assistanse-link">Wishlist</a>
+                                    <a href="/wishlist/" class="assistanse-link">Wishlist</a>
                                     <a href="" class="assistanse-link">Newsletter</a>
                                     <form class="assistanse-form" action="" method="get">
                                         <input type="email" class="assistanse-email" placeholder="Enter your email">
@@ -190,50 +190,14 @@ $product_categories = get_categories(array(
                                 </div>
                             </div>
                         </li>
-                        <li class="header-list__item"><a class="link mini-cart-trigger" href="#">Cart</a>
+                        <li class="header-list__item"><a class="link mini-cart-trigger" >Cart</a>
 
                             <div class="stories__block header-block">
                                 <div class="header-block__container container">
                                     <div class="mini-cart">
                                         <?php get_template_part('template-parts/baby-mini-cart'); ?>
                                     </div>
-                                    <!-- <div class="card-page">
-                                        <div class="card-page__title">3 products in card</div>
-                                        <div class="card-page__body">
-                                            <div class="card-page__columns">
-                                                <div class="card-page__column item-card">
-                                                    <div class="item-card__img"><img src="../img/cartimg.png"
-                                                            alt="product">
-                                                    </div>
-                                                    <div class="item-card__body card-body">
-                                                        <div class="card-body__row">
-                                                            <div class="card-body__name">Bucket hat</div>
-                                                            <div class="card-body__price">€16</div>
-                                                        </div>
-                                                        <div class="card-body__row">
-                                                            <div class="card-body__quantity">Quantity: 1</div>
-                                                            <span class="card-body__minus">-</span>
-                                                            <span class="card-body__plus">+</span>
-
-                                                        </div>
-
-                                                        <div class="card-body__remove">remove</div>
-                                                    </div>
-                                                </div>
-
-                                                <div class="card-page__column item-total">
-                                                    <div class="item-total__body">
-                                                        <div class="item-total__subtotal">subtotal</div>
-                                                        <div class="item-total__price">210 eur</div>
-                                                    </div>
-                                                    <div class="item-total__button">
-                                                        <a class="item-total__button_link"
-                                                            href="checkout.html">checkout</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div> -->
+                                   
                                 </div>
                             </div>
                         </li>

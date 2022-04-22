@@ -39,9 +39,7 @@ a, a:active, a:focus{
 
 
 .container { 
-  @include container(rem($wrapRem));
-  padding: 0 rem(20);
-  margin: 0 auto;
+  padding: 0 31px;
 }
 .header{
   padding-top:0;
@@ -316,5 +314,11 @@ figure{
     .menu-item{
       margin-right: 0px;
     }
+  }
+}
+
+.header-list__item{
+  .link{
+    cursor: pointer;
   }
 }

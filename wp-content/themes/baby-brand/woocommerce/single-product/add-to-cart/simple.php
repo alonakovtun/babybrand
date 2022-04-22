@@ -28,35 +28,37 @@ echo wc_get_stock_html($product); // WPCS: XSS ok.
 
 
 if ($product->is_in_stock()) : ?>
-	<div class="item-settings">
-		<div class="item-settings__name ">Colour</div>
-		<div class="item-settings__variants">
 
-			<?php if (have_rows('color_links')) : ?>
-				<?php while (have_rows('color_links')) : the_row(); ?>
-					<?php
-							$post_object = get_sub_field('color_product_link');
-							$color = get_sub_field('color');
-					?>
-					<?php if ($post_object) : ?>
-						<?php // override $post
-								$post = $post_object;
-								$permalink = get_permalink( $post_object->ID );
-								setup_postdata($post);
-						?>
+
+	<?php if (have_rows('color_links')) : ?>
+		<?php while (have_rows('color_links')) : the_row(); ?>
+			<?php
+			$post_object = get_sub_field('color_product_link');
+			$color = get_sub_field('color');
+			?>
+			<?php if ($post_object) : ?>
+				<?php // override $post
+				$post = $post_object;
+				$permalink = get_permalink($post_object->ID);
+				setup_postdata($post);
+				?>
+				<div class="item-settings">
+					<div class="item-settings__name ">Colour</div>
+					<div class="item-settings__variants">
 						<a class="item-settings__color" href="<?php echo esc_url($permalink); ?>">
 							<div class="color-icon" style="background-color:<?php echo $color ?> "></div>
 						</a>
+					</div>
+				</div>
 
-						<?php wp_reset_postdata();
-						?>
-					<?php endif; ?>
-
-				<?php endwhile; ?>
+				<?php wp_reset_postdata();
+				?>
 			<?php endif; ?>
 
-		</div>
-	</div>
+		<?php endwhile; ?>
+	<?php endif; ?>
+
+
 
 
 
