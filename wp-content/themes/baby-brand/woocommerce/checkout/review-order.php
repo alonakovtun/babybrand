@@ -134,9 +134,9 @@ defined('ABSPATH') || exit;
 							<?php echo apply_filters('woocommerce_cart_item_subtotal', WC()->cart->get_product_subtotal($_product, $cart_item['quantity']), $cart_item, $cart_item_key); ?>
 						</div>
 					</div>
-					<div class="card-body__row">
+					<div class="card-body__row q">
 						<div class="card-body__quantity">Quantity:
-							<?php echo apply_filters('woocommerce_checkout_cart_item_quantity', ' <p class="product-quantity">' . sprintf($cart_item['quantity']) . '</p>', $cart_item, $cart_item_key); ?>
+							<?php echo apply_filters('woocommerce_checkout_cart_item_quantity', '<span>' . sprintf($cart_item['quantity']) . '</span>', $cart_item, $cart_item_key); ?>
 						</div>
 					</div>
 
