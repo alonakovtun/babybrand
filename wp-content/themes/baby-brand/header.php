@@ -50,18 +50,18 @@ $product_categories = get_categories(array(
                 <div class="header__body">
                     <ul class="header-list">
                         <li class="header-list__item shop"><a class="link">Shop</a>
-                        <div class="stories__block header-block shop-list">
-                        <ul class="header-block__container container">
-                                <?
-                                wp_nav_menu(array(
-                                    'theme_location' => 'main-menu',
-                                    'container' => '',
-                                    'items_wrap' => '%3$s'
-                                ));
-                                ?>
-                            </ul>
-                        </div>
-                        
+                            <div class="stories__block header-block shop-list">
+                                <ul class="header-block__container container">
+                                    <?
+                                    wp_nav_menu(array(
+                                        'theme_location' => 'main-menu',
+                                        'container' => '',
+                                        'items_wrap' => '%3$s'
+                                    ));
+                                    ?>
+                                </ul>
+                            </div>
+
                         </li>
 
                         <li class="header-list__item"><a class="link">About</a>
@@ -122,7 +122,7 @@ $product_categories = get_categories(array(
                         <a href="/" class="header-logo__img"><img src="/wp-content/themes/baby-brand/assets/img/logo.svg" alt="" class="img"></a>
                     </div>
                     <ul class="header-list">
-                        <li class="header-list__item"><a class="link" >Eur/En</a>
+                        <li class="header-list__item"><a class="link">Eur/En</a>
                             <div class="stories__block header-block">
                                 <div class="header-block__container container">
                                     <div class="lang__body">
@@ -133,7 +133,7 @@ $product_categories = get_categories(array(
                                 </div>
                             </div>
                         </li>
-                        <li class="header-list__item"><a class="link" >assistance</a>
+                        <li class="header-list__item"><a class="link">assistance</a>
                             <div class="stories__block header-block">
                                 <div class="header-block__container container">
                                     <a href="mailto:info@ababybrand.com" class="assistanse-link">Info@ababybrand.com</a>
@@ -155,49 +155,53 @@ $product_categories = get_categories(array(
                                 </div>
                             </div>
                         </li>
-                        <li class="header-list__item"><a class="link" href="/my-account/">Account</a>
-                            <div class="stories__block header-block">
-                                <div class="header-block__container container">
-                                    <div class="login__body">
-                                        <div class="login__column item-login">
-                                            <div class="item-login__name">
-                                                login
+                        <? if (!is_user_logged_in()) : ?>
+                            <li class="header-list__item"><a class="link">Account</a>
+                                <div class="stories__block header-block">
+                                    <div class="header-block__container container">
+                                        <div class="login__body">
+                                            <div class="login__column item-login">
+                                                <div class="item-login__name">
+                                                    login
+                                                </div>
+                                                <form action="" class="item-login__form">
+                                                    <input type="email" class="item-login__email" placeholder="EMAIL">
+                                                </form>
+                                                <form action="" class="item-login__form">
+                                                    <input type="email" class="item-login__pass" placeholder="password">
+                                                </form>
+                                                <form action="">
+                                                    <button class="item-login__btn">login</button>
+                                                </form>
                                             </div>
-                                            <form action="" class="item-login__form">
-                                                <input type="email" class="item-login__email" placeholder="EMAIL">
-                                            </form>
-                                            <form action="" class="item-login__form">
-                                                <input type="email" class="item-login__pass" placeholder="password">
-                                            </form>
-                                            <form action="">
-                                                <button class="item-login__btn">login</button>
-                                            </form>
-                                        </div>
-                                        <div class="login__column">
-                                            <div class="item-login__name">
-                                                create an account
+                                            <div class="login__column">
+                                                <div class="item-login__name">
+                                                    create an account
+                                                </div>
+                                                <div class="item-login__text">Sign in to check the status of your most
+                                                    recent
+                                                    order and your order history.</div>
+                                                <form action="">
+                                                    <button class="item-login__btn">register</button>
+                                                </form>
                                             </div>
-                                            <div class="item-login__text">Sign in to check the status of your most
-                                                recent
-                                                order and your order history.</div>
-                                            <form action="">
-                                                <button class="item-login__btn">register</button>
-                                            </form>
-                                        </div>
 
+                                        </div>
+                                        <div class="login__bottomtext">Forget password?</div>
                                     </div>
-                                    <div class="login__bottomtext">Forget password?</div>
                                 </div>
-                            </div>
-                        </li>
-                        <li class="header-list__item"><a class="link mini-cart-trigger" >Cart</a>
+                            </li>
+                        <? else : ?>
+                            <li class="header-list__item"><a class="link" href="/my-account/">Account</a></li>
+                        <? endif; ?>
+                        <li class="header-list__item"><a class="link mini-cart-trigger">Cart</a>
 
                             <div class="stories__block header-block">
                                 <div class="header-block__container container">
                                     <div class="mini-cart">
                                         <?php get_template_part('template-parts/baby-mini-cart'); ?>
                                     </div>
-                                   
+
                                 </div>
                             </div>
                         </li>
