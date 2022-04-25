@@ -157,38 +157,8 @@ $product_categories = get_categories(array(
                         </li>
                         <? if (!is_user_logged_in()) : ?>
                             <li class="header-list__item"><a class="link">Account</a>
-                                <div class="stories__block header-block">
-                                    <div class="header-block__container container">
-                                        <div class="login__body">
-                                            <div class="login__column item-login">
-                                                <div class="item-login__name">
-                                                    login
-                                                </div>
-                                                <form action="" class="item-login__form">
-                                                    <input type="email" class="item-login__email" placeholder="EMAIL">
-                                                </form>
-                                                <form action="" class="item-login__form">
-                                                    <input type="email" class="item-login__pass" placeholder="password">
-                                                </form>
-                                                <form action="">
-                                                    <button class="item-login__btn">login</button>
-                                                </form>
-                                            </div>
-                                            <div class="login__column">
-                                                <div class="item-login__name">
-                                                    create an account
-                                                </div>
-                                                <div class="item-login__text">Sign in to check the status of your most
-                                                    recent
-                                                    order and your order history.</div>
-                                                <form action="">
-                                                    <button class="item-login__btn">register</button>
-                                                </form>
-                                            </div>
-
-                                        </div>
-                                        <div class="login__bottomtext">Forget password?</div>
-                                    </div>
+                                <div class="stories__block header-block">  
+                                    <? include get_template_directory() . '/template-parts/login.php'; ?>  
                                 </div>
                             </li>
                         <? else : ?>
