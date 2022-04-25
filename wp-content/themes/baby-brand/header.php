@@ -140,7 +140,7 @@ $product_categories = get_categories(array(
                                     <a href="/shipping-returns/" class="assistanse-link nomarginb">shipping & returns</a>
                                     <a href="/quality-care/" class="assistanse-link nomarginb"> quality & care</a>
                                     <a href="/size-guide/" class="assistanse-link"> size guide</a>
-                                    <a href="/wishlist/" class="assistanse-link">Wishlist</a>
+                                    <a href="/my-account/wish-list/" class="assistanse-link">Wishlist</a>
                                     <a href="" class="assistanse-link">Newsletter</a>
                                     <form class="assistanse-form" action="" method="get">
                                         <input type="email" class="assistanse-email" placeholder="Enter your email">
