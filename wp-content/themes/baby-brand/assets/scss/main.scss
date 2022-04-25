@@ -319,3 +319,19 @@ figure{
     cursor: pointer;
   }
 }
+
+.register{
+  .login__column{
+    margin-top: 115px;
+    padding: 0 31px;
+    max-width: 33.75rem;
+  }
+}
+
+.woocommerce-password-strength, .woocommerce-privacy-policy-text{
+  display: none!important;
+}
+
+input:focus{
+  outline: none;
+}
