@@ -19,7 +19,7 @@
                     <ul class="footer__list">
                         <li class="footer__item"><a href="/contact/">Contact </a></li>
                         <li class="footer__item"><a href="/about/">about</a></li>
-                        <li class="footer__item"><a href="/privacy-policy/"> store policy </a></li>
+                        <li class="footer__item"><a href="/store-policy/"> store policy </a></li>
                         <li class="footer__item"><a href="">Instagram </a></li>
                         <li class="footer__item"><a href="">Facebook</a></li>
                         <li class="footer__item"><a href="">pinterest</a></li>
