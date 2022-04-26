@@ -90,7 +90,7 @@ const miniCart = () => {
 //   });
 // };
 
-  subMenu();
-  subMenuHover();
+  // // subMenu();
+  // subMenuHover();
   
   export default miniCart;

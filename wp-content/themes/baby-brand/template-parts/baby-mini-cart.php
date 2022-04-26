@@ -63,7 +63,7 @@
                                     </div>
                                     <div class="card-body__row align-bottom">
                                         <div data-title="<?php esc_attr_e('Quantity', 'woocommerce'); ?>" data-key="<?= esc_attr($cart_item_key) ?>" data-qty="<?= $cart_item['quantity']; ?>" class="quantity-block">
-                                            <span class="card-body__quantity"><?php esc_attr_e('Quantity', 'woocommerce'); ?></span>
+                                           
                                             <?php
                                             if ($_product->is_sold_individually()) {
                                                 $product_quantity = sprintf('1 <input type="hidden" name="cart[%s][qty]" value="1" />', $cart_item_key);

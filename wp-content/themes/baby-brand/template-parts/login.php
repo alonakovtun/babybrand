@@ -35,7 +35,7 @@
 
             </form>
         </div>
-        <div class="login__column">
+        <div class="login__column register-block">
             <div class="item-login__name">
                 create an account
             </div>

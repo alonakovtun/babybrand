@@ -123,7 +123,7 @@ $product_categories = get_categories(array(
                     </div>
                     <ul class="header-list">
                         <li class="header-list__item"><a class="link">Eur/En</a>
-                            <div class="stories__block header-block">
+                            <div class="stories__block header-block lang">
                                 <div class="header-block__container container">
                                     <div class="lang__body">
                                         <div class="lang-block__eng">ENG / EURO</div>
@@ -139,19 +139,19 @@ $product_categories = get_categories(array(
                                     <a href="mailto:info@ababybrand.com" class="assistanse-link">Info@ababybrand.com</a>
                                     <a href="/shipping-returns/" class="assistanse-link nomarginb">shipping & returns</a>
                                     <a href="/quality-care/" class="assistanse-link nomarginb"> quality & care</a>
-                                    <a href="/size-guide/" class="assistanse-link"> size guide</a>
-                                    <a href="/my-account/wish-list/" class="assistanse-link">Wishlist</a>
-                                    <a href="" class="assistanse-link">Newsletter</a>
+                                    <a href="/size-guide/" class="assistanse-link bigmarginb"> size guide</a>
+                                    <a href="/my-account/wish-list/" class="assistanse-link bigmarginb">Wishlist</a>
+                                    <a href="" class="assistanse-link bigmarginb">Newsletter</a>
                                     <form class="assistanse-form" action="" method="get">
                                         <input type="email" class="assistanse-email" placeholder="Enter your email">
                                         <button class="assistance-btn">
                                             subscribe
                                         </button>
                                     </form>
-                                    <div class="assistance-bottomtext">
+                                    <!-- <div class="assistance-bottomtext">
                                         I have read, understood and accepted the terms
                                         and conditions and the privacy policy.
-                                    </div>
+                                    </div> -->
                                 </div>
                             </div>
                         </li>
