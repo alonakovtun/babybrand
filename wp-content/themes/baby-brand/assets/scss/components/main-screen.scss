@@ -50,7 +50,7 @@
     width: 100%;
 }
 .categories {
-    margin-bottom: rem(172);
+    margin-bottom: 92px;
 
     img {
         display: block;
@@ -79,7 +79,7 @@
         max-width: rem(300);
         text-align: center;
         margin: 0 auto;        
-        padding-bottom: rem(44);
+        padding-bottom: 31px;
         position: absolute;
         top: 0;
         left: 0;
@@ -103,7 +103,7 @@
 .categories {
 
     &__text {
-        margin: rem(105) 0;
+        margin-bottom: 92px;
         color: #040404;
         font-family: Lato;
         font-size: rem(16);

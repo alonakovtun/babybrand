@@ -42,9 +42,9 @@
             <div class="item-login__text">Sign in to check the status of your most
                 recent
                 order and your order history.</div>
-            <form action="">
-                <button class="item-login__btn">register</button>
-            </form>
+ 
+                <a href="/my-account/" class="item-login__btn">register</a>
+            
         </div>
 
     </div>

@@ -1,9 +1,10 @@
 .footer {
 
-    padding: 0 rem(45) rem(45) rem(45);
+    padding-bottom: 25px;
 
     p {
         font-size: rem(17);
+        margin-bottom: 0;
     }
 
     &__body {
@@ -31,7 +32,7 @@
         font-weight: 300;
         text-transform: uppercase;
         list-style-type: none;
-        margin-right: rem(16);
+        margin-right: 10px;
 
         a {
             text-decoration: none;
