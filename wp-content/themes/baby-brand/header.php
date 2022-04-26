@@ -49,7 +49,7 @@ $product_categories = get_categories(array(
             <div class="header__container container">
                 <div class="header__body">
                     <ul class="header-list">
-                        <li class="header-list__item shop"><a class="link">Shop</a>
+                        <li class="header-list__item shop"><a href="/shop/" class="link">Shop</a>
                             <div class="stories__block header-block shop-list">
                                 <ul class="header-block__container container">
                                     <?

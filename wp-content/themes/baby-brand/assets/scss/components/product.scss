@@ -238,7 +238,7 @@
 
     &__body {
         @include dflex(flex-start,wrap,space-between);
-            padding: rem(38) rem(50) 0 rem(50);
+            padding: 29px 31px 0 31px;
     }
 
     &__price {
@@ -254,7 +254,7 @@
 
     &__circles {
         @include dflex(center,wrap,flex-start);
-        padding-left:rem(50) ;
+        padding-left: 31px ;
         padding-bottom: rem(50);
         margin-top: rem(25);     
     }
@@ -285,9 +285,12 @@
 }
 
 .color-icon{
-    width: 8px;
-    height: 8px;
+    width: 10px;
+    height: 10px;
     border-radius: 50%;
 }
 
+.products__body.products{
+    margin-top: 30px;
+  }
 
