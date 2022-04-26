@@ -24,7 +24,36 @@ $variations_json = wp_json_encode( $available_variations );
 $variations_attr = function_exists( 'wc_esc_json' ) ? wc_esc_json( $variations_json ) : _wp_specialchars( $variations_json, ENT_QUOTES, 'UTF-8', true );
 
 do_action( 'woocommerce_before_add_to_cart_form' ); ?>
+<?php if (have_rows('color_links')) : ?>
+		<div class="item-settings">
+			<div class="item-settings__name ">Colour</div>
+			<?php while (have_rows('color_links')) : the_row(); ?>
+				<?php
+				$post_object = get_sub_field('color_product_link');
+				$color = get_sub_field('color');
+				?>
+				<?php if ($post_object) : ?>
+					<?php // override $post
+					$post = $post_object;
+					$permalink = get_permalink($post_object->ID);
+					setup_postdata($post);
+					?>
 
+					<div class="item-settings__variants">
+						<a class="item-settings__color" href="<?php echo esc_url($permalink); ?>">
+							<div class="color-icon" style="background-color:<?php echo $color ?> "></div>
+						</a>
+					</div>
+
+
+					<?php wp_reset_postdata();
+					?>
+				<?php endif; ?>
+
+			<?php endwhile; ?>
+		</div>
+	<?php endif; ?>
+<div class="">
 <form class="variations_form cart" action="<?php echo esc_url( apply_filters( 'woocommerce_add_to_cart_form_action', $product->get_permalink() ) ); ?>" method="post" enctype='multipart/form-data' data-product_id="<?php echo absint( $product->get_id() ); ?>" data-product_variations="<?php echo $variations_attr; // WPCS: XSS ok. ?>">
 	<?php do_action( 'woocommerce_before_variations_form' ); ?>
 
@@ -79,6 +108,6 @@ do_action( 'woocommerce_before_add_to_cart_form' ); ?>
 
 	<?php do_action( 'woocommerce_after_variations_form' ); ?>
 </form>
-
+</div>
 <?php
 do_action( 'woocommerce_after_add_to_cart_form' );
