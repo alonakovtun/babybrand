@@ -66,15 +66,7 @@ if ($product->is_in_stock()) : ?>
 
 
 
-	<div class="item-settings">
-		<div class="item-settings__name ">Size</div>
-		<div class="item-settings__variants">
-			<div class="item-settings__size">S</div>
-			<div class="item-settings__size">M</div>
-			<div class="item-settings__size">L</div>
-			<div class="item-settings__size">XL</div>
-		</div>
-	</div>
+	
 	<div class="">
 		<form class="cart " action="<?php echo esc_url(apply_filters('woocommerce_add_to_cart_form_action', $product->get_permalink())); ?>" method="post" enctype='multipart/form-data'>
 			<?php do_action('woocommerce_before_add_to_cart_button'); ?>

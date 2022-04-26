@@ -213,16 +213,16 @@ function cw_woo_attribute(){
                     $tax_label = substr( $tax_label, 8 );
                 }
             }
-            $display_result .= $tax_label . ': ';
+            $display_result .= '<div class="item-settings">' . '<div class="item-settings__name ">' . $tax_label . '</div> <div class="item-settings__variants">';
             $tax_terms = array();
             foreach ( $terms as $term ) {
-                $single_term = esc_html( $term->name );
+                $single_term = '<div class="item-settings__size">' . esc_html( $term->name ) . '</div>';
                 array_push( $tax_terms, $single_term );
             }
-            $display_result .= implode(', ', $tax_terms) .  '<br />';
+            $display_result .= implode(' ', $tax_terms) .  '</div></div>';
         } else {
-            $display_result .= $name . ': ';
-            $display_result .= esc_html( implode( ', ', $attribute->get_options() ) ) . '<br />';
+            $display_result .= $name . '';
+            $display_result .= esc_html( implode( ' ', $attribute->get_options() ) ) . '<br />';
         }
     }
     echo $display_result;

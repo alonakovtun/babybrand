@@ -1,29 +1,34 @@
-.header-bottom{
-    @include dflex(center,wrap,space-between);
+.header-bottom {
+    @include dflex(center, wrap, space-between);
     margin: rem(110) 0 rem(85) 0;
-  &__link{
-    color: #000000;
-    font-family: Lato;
-    font-size: rem(16);
-    font-weight: 400;
 
-    text-decoration: none;
-  }
+    &__link {
+        color: #000000;
+        font-family: Lato;
+        font-size: rem(16);
+        font-weight: 400;
+
+        text-decoration: none;
+    }
 }
+
 .product-header {
-    &__buttons{
+    &__buttons {
         margin-top: rem(100);
         display: flex;
-        justify-content:space-between;
+        justify-content: space-between;
     }
-    &__button{
+
+    &__button {
         color: #000000;
         font-family: Lato;
         font-size: rem(16);
         font-weight: 300;
-        span{
+
+        span {
             cursor: pointer;
-            &:hover{
+
+            &:hover {
                 text-decoration: underline;
             }
         }
@@ -32,11 +37,11 @@
 
 
 .main {
-    
+
 
     &__body {
-        @include dflex(flex-start,wrap,space-between);
-        
+        @include dflex(flex-start, wrap, space-between);
+
     }
 
     &__columns {
@@ -47,33 +52,36 @@
 
 
     &__img {
-        &--2{
+        &--2 {
             padding: rem(190) 0 rem(290) 0;
         }
-        img{
+
+        img {
             width: 100%;
             height: auto;
-            object-fit: cover;  
+            object-fit: cover;
         }
-        
+
 
     }
 
     &__columns--2 {
-        
+
         height: 100%;
         display: flex;
         align-items: center;
         justify-content: center;
-        
-        
+
+
     }
 }
+
 .main-item-column {
     max-height: rem(559);
     display: flex;
     flex-direction: column;
-    align-items:flex-start;
+    align-items: flex-start;
+
     &__price {
         color: #070707;
         font-family: Lato;
@@ -84,7 +92,7 @@
         line-height: normal;
         text-align: left;
         text-transform: uppercase;
-        margin-bottom: rem(42);
+        margin-bottom: 29px;
     }
 
     &__text {
@@ -92,60 +100,64 @@
         font-family: Lato;
         font-size: rem(16);
         font-weight: 300;
-        margin-bottom: rem(83);
+        margin-bottom: 60px;
         text-align: left;
     }
 }
+
 .item-settings {
-    @include dflex(center,wrap,space);
-    margin-bottom:rem(40) ;
-    &:last-child{
+    @include dflex(center, wrap, space);
+    margin-bottom: rem(40);
+
+    &:last-child {
         margin: 0;
     }
 
     &__name {
-        &.notactive{
+        &.notactive {
             color: red;
         }
     }
 
     &__variants {
-        @include dflex(center,wrap,space);
-        
-        
+        @include dflex(center, wrap, space);
+
+
     }
 
 
     &__color {
-        margin-right:rem(10); 
+        margin-right: rem(10);
         transform: translateX(78px);
-        
-        
-       
-        
+
+
+
+
     }
 
     &__size {
-        margin-right:rem(20); 
+        margin-right: rem(20);
         transform: translateX(99px);
-       
+
     }
 
     &__quantity {
-        margin-right:rem(13);
+        margin-right: rem(13);
         transform: translateX(63px);
-        
+
     }
 }
-.color-icon{
-    &:hover{
+
+.color-icon {
+    &:hover {
         border: rem(1) solid #939598;
         border-radius: 50%;
-        
+
     }
 }
+
 .item-cart {
-    @include dflex(center,wrap,space-between);
+    @include dflex(center, wrap, space-between);
     width: 100%;
     max-width: rem(561);
     height: auto;
@@ -153,12 +165,12 @@
     border: 1px solid #000000;
     background-color: #ffffff;
     padding: 1rem 3rem 2rem;
-    
-    &.notactive{
+
+    &.notactive {
         border: 1px solid red;
         display: none;
     }
-    
+
     margin-bottom: rem(87);
     transition: 0.5s;
 
@@ -169,11 +181,12 @@
         font-family: Lato;
         font-size: rem(16);
         font-weight: 300;
-        line-height: rem(26.97);      
+        line-height: rem(26.97);
         text-transform: uppercase;
         cursor: pointer;
         transition: 0.5s;
-        &.notactive{
+
+        &.notactive {
             color: red;
         }
     }
@@ -183,46 +196,50 @@
         cursor: pointer;
     }
 }
+
 .item-bottom {
-    @include dflex(center,wrap,space-between);
+    @include dflex(center, wrap, space-between);
     position: relative;
-    
+
     &__list {
-        margin-right: rem(55); 
-        &:hover p{ 
-            display: block;  
-        } 
+        margin-right: rem(55);
+
+        &:hover p {
+            display: block;
+        }
     }
-   
-    &__text{
-        display: none; 
+
+    &__text {
+        display: none;
         position: absolute;
         left: 0;
         top: 0;
         width: 100%;
-        padding:rem(30) 0 rem(30) 0 ;    
+        padding: rem(30) 0 rem(30) 0;
     }
-    &__link{
+
+    &__link {
         text-decoration: none;
         color: #000000;
         font-family: Lato;
         font-size: rem(16);
-        font-weight: 300;    
+        font-weight: 300;
         cursor: pointer;
     }
 }
-.main-column__body{
-    padding-top: rem(330);
+
+.main-column__body {
+    padding-top: 206px;
     max-width: rem(601);
-    margin-top: rem(-25)  
+    margin-top: rem(-25)
 }
 
 .products {
-    &__body{
-        @include dflex(center,wrap,space-between);
+    &__body {
+        @include dflex(center, wrap, space-between);
     }
 
-    &__title{
+    &__title {
         color: #000000;
         font-family: Lato;
         font-size: rem(16);
@@ -231,14 +248,15 @@
         margin: rem(164) 0 rem(85) 0;
     }
 
-    
+
 }
+
 .item-column {
 
 
     &__body {
-        @include dflex(flex-start,wrap,space-between);
-            padding: 29px 31px 0 31px;
+        @include dflex(flex-start, wrap, space-between);
+        padding: 29px 31px 0 31px;
     }
 
     &__price {
@@ -249,14 +267,13 @@
         text-transform: uppercase;
     }
 
-    &__icon {
-    }
+    &__icon {}
 
     &__circles {
-        @include dflex(center,wrap,flex-start);
-        padding-left: 31px ;
+        @include dflex(center, wrap, flex-start);
+        padding-left: 31px;
         padding-bottom: rem(50);
-        margin-top: rem(25);     
+        margin-top: rem(25);
     }
 
     &__circle {
@@ -265,16 +282,16 @@
     }
 }
 
-.quantity{
+.quantity {
     display: flex;
 
-    .qty_button{
+    .qty_button {
         background: none;
         border: none;
         cursor: pointer;
     }
 
-    .qty{
+    .qty {
         outline: none;
         border: none;
         width: 20px;
@@ -284,13 +301,19 @@
     }
 }
 
-.color-icon{
+.color-icon {
     width: 10px;
     height: 10px;
     border-radius: 50%;
 }
 
-.products__body.products{
+.products__body.products {
     margin-top: 30px;
-  }
+}
 
+.single-product{
+    .woocommerce-breadcrumb{
+        position: absolute;
+        text-transform: none;
+    }
+}
