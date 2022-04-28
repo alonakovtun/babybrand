@@ -24,10 +24,10 @@ do_action('woocommerce_before_account_orders', $has_orders); ?>
 
 <?php if ($has_orders) : ?>
 	<main class="main">
-		<div class="orders">
-			<div class="orders__container container">
+		<div class="orders ">
+			<div class="orders__container">
 				<div class="orders__body">
-					<table class="woocommerce-orders-table woocommerce-MyAccount-orders shop_table shop_table_responsive my_account_orders account-orders-table">
+					<table class="mt-65 woocommerce-orders-table woocommerce-MyAccount-orders shop_table shop_table_responsive my_account_orders account-orders-table">
 						<thead>
 							<tr>
 								<?php foreach (wc_get_account_orders_columns() as $column_id => $column_name) : ?>

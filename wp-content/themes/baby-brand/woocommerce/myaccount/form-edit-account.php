@@ -27,7 +27,7 @@ do_action('woocommerce_before_edit_account_form'); ?>
 			<div class="accountdetails__column item-details">
 
 
-				<form class="woocommerce-EditAccountForm edit-account item-details__form" action="" method="post" <?php do_action('woocommerce_edit_account_form_tag'); ?>>
+				<form class="woocommerce-EditAccountForm edit-account item-details__form mt-65" action="" method="post" <?php do_action('woocommerce_edit_account_form_tag'); ?>>
 
 					<?php do_action('woocommerce_edit_account_form_start'); ?>
 					<div class="item-details__title"><?php esc_html_e('personal details', 'woocommerce'); ?></div>

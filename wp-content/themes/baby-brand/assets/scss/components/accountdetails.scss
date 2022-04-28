@@ -2,6 +2,10 @@
     position: relative;
 }
 
+.mt-65{
+    margin-top: 65px;
+}
+
 
 .accountdetails {
 
@@ -58,7 +62,7 @@
         max-width: rem(465);
         border-bottom: 1px solid #939598; 
         margin-bottom: rem(31);
-        padding: rem(22) 0;
+        padding-bottom: rem(22);
         color: #939598;
         input{
             display: block;

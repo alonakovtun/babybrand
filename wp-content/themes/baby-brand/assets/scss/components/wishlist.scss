@@ -5,7 +5,6 @@
 
     &__body {
         @include dflex(center,wrap,space-between);
-        margin-top: rem(41);
     }
 }
 .wishlist-header{

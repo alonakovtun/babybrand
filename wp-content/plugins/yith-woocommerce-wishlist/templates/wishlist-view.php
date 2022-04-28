@@ -50,7 +50,7 @@ if (!defined('YITH_WCWL')) {
 <main class="main">
 	<div class="wishlist">
 		<div class="wishlist__container">
-			<div class="wishlist__body">
+			<div class="wishlist__body link mt-65">
 				<?php
 				if ($wishlist && $wishlist->has_items()) :
 					foreach ($wishlist_items as $item) :

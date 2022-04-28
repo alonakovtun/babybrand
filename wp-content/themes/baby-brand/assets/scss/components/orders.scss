@@ -11,7 +11,6 @@
 
     &__body {
         @include dflex(center,wrap,flex-start);
-        margin-top: rem(45);
     }
 
     &__column {

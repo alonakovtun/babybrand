@@ -47,7 +47,7 @@ $col    = 1;
 <?php endif; ?>
 
 <div class="adress-page">
-	<div class="adress-page__container container">
+	<div class="adress-page__container">
 		<div class="adress-page__body">
 			<div class="adress-page__columns">
 				<?php foreach ( $get_addresses as $name => $address_title ) : ?>
