@@ -327,14 +327,6 @@ figure{
   }
 }
 
-.register{
-  .login__column{
-    margin-top: 115px;
-    padding: 0 31px;
-    max-width: 33.75rem;
-  }
-}
-
 .woocommerce-password-strength, .woocommerce-privacy-policy-text{
   display: none!important;
 }
@@ -397,4 +389,16 @@ input:focus{
   content: '';
   display: block;
   clear:both;
+  }
+
+  .login-box{
+    transition: all 0.4s;
+  }
+
+  .register-box{
+    opacity: 0;
+    visibility: hidden;
+    height: 0;
+
+    transition: all 0.4s;
   }

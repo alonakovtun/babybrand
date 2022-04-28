@@ -91,7 +91,6 @@ $product_categories = get_categories(array(
                                 <div class="header-block__container container">
                                     <div class="header-block__name">stories</div>
                                     <?php foreach ($blogs as $blog) : ?>
-                                       <? var_dump($blog->guid) ?>
                                         <div class="header-block__text">
                                             <a href="<?php echo $blog->guid; ?>">
                                                 <?php echo date_format(date_create($blog->post_date), 'd.m.Y'); ?>/<?php echo $blog->post_title; ?>

@@ -2,6 +2,23 @@ function initHeaderScripts() {
 }
 
 
+    const buttonTrigger = document.querySelector('.button__trigger-register'),
+    visibileBox = document.querySelector('.login-box'),
+    hiddenBox = document.querySelector('.register-box');
+
+    buttonTrigger.addEventListener('click', (e) => {
+    e.preventDefault();
+    setTimeout(() => {
+    visibileBox.style.opacity = '0';
+	visibileBox.style.visibility = 'hidden';
+	visibileBox.style.height = '0';
+    hiddenBox.style.opacity = '1';
+	hiddenBox.style.visibility = 'visible';
+	hiddenBox.style.height = '100%';
+    }, 1000)
+    });
+
+
 var header = jQuery('.header'),
 	scrollPrev = 0;
 

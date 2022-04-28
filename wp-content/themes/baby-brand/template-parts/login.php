@@ -1,5 +1,5 @@
 <div class="header-block__container container">
-    <div class="login__body">
+    <div class="login__body login-box">
         <div class="login__column item-login">
             <div class="item-login__name">
                 <?php esc_html_e('Login', 'woocommerce'); ?>
@@ -43,9 +43,17 @@
                 recent
                 order and your order history.</div>
  
-                <a href="/my-account/" class="item-login__btn">register</a>
+                <a href="" class="item-login__btn button__trigger-register">register</a>
             
         </div>
 
     </div>
+
+    <div class="register-box">
+        <? include get_template_directory() . '/woocommerce/myaccount/form-login.php'; ?>  
+    </div>
+
+    
+
+    
 </div>
