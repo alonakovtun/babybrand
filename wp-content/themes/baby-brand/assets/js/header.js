@@ -1,22 +1,17 @@
 function initHeaderScripts() {
 }
 
+jQuery('.button__trigger-register').click(function() {
+	jQuery('.login-box').css('opacity', '0');
+	jQuery('.login-box').css('visibility', 'hidden');
+	jQuery('.login-box').css('height', '0');
 
-    const buttonTrigger = document.querySelector('.button__trigger-register'),
-    visibileBox = document.querySelector('.login-box'),
-    hiddenBox = document.querySelector('.register-box');
+	jQuery('.register-box').css('opacity', '1');
+	jQuery('.register-box').css('visibility', 'visible');
+	jQuery('.register-box').css('height', '100%');
+  });
 
-    buttonTrigger.addEventListener('click', (e) => {
-    e.preventDefault();
-    setTimeout(() => {
-    visibileBox.style.opacity = '0';
-	visibileBox.style.visibility = 'hidden';
-	visibileBox.style.height = '0';
-    hiddenBox.style.opacity = '1';
-	hiddenBox.style.visibility = 'visible';
-	hiddenBox.style.height = '100%';
-    }, 1000)
-    });
+    
 
 
 var header = jQuery('.header'),
@@ -51,11 +46,9 @@ jQuery( ".shop" ).hover(
 	}
   );
 
-  if (jQuery(".header-list__item").hasClass("change_color") && jQuery( ".header-list__item" ).hover()) {
-	jQuery('.header-list__item.change_color a').css('color', 'red')
-	// jQuery('.header-list__item a').css('color', '#939598')
-  }else{
 
-  }
+	  jQuery('.menu-item a' ).addClass( "link" );
+
+
 
 export { initHeaderScripts };

@@ -43,7 +43,7 @@
                 recent
                 order and your order history.</div>
  
-                <a href="" class="item-login__btn button__trigger-register">register</a>
+                <a class="item-login__btn button__trigger-register">register</a>
             
         </div>
 
