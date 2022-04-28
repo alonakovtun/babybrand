@@ -2,13 +2,17 @@ function initHeaderScripts() {
 }
 
 jQuery('.button__trigger-register').click(function() {
-	jQuery('.login-box').css('opacity', '0');
-	jQuery('.login-box').css('visibility', 'hidden');
-	jQuery('.login-box').css('height', '0');
+	// jQuery('.login-box').css('opacity', '0');
+	// jQuery('.login-box').css('visibility', 'hidden');
+	// jQuery('.login-box').css('height', '0');
 
-	jQuery('.register-box').css('opacity', '1');
-	jQuery('.register-box').css('visibility', 'visible');
-	jQuery('.register-box').css('height', '100%');
+	// jQuery('.register-box').css('opacity', '1');
+	// jQuery('.register-box').css('visibility', 'visible');
+	// jQuery('.register-box').css('height', '100%');
+
+	jQuery('.login-box').css('display', 'none');
+
+	jQuery('.register-box').css('display', 'block');
   });
 
     

@@ -391,14 +391,19 @@ input:focus{
   clear:both;
   }
 
-  .login-box{
-    transition: all 0.4s;
-  }
+  // .login-box{
+  //   transition: all 0.4s;
+  // }
+
+  // .register-box{
+  //   opacity: 0;
+  //   visibility: hidden;
+  //   height: 0;
+
+  //   transition: all 0.4s;
+  // }
+
 
   .register-box{
-    opacity: 0;
-    visibility: hidden;
-    height: 0;
-
-    transition: all 0.4s;
+    display: none;
   }
