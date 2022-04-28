@@ -1,19 +1,19 @@
-.stories-header{
-    position: relative;
-    
+.stories-header {
+      position: relative;
+
 }
+
 .stories {
 
-		&__body {
-		}
+      &__body {}
 
-		&__info { 
+      &__info {
             max-width: rem(893);
             margin: 0 auto;
-            padding: rem(195) 0 rem(195) 0;
-		}
+            padding: 187px 0 142px 0;
+      }
 
-		&__title {
+      &__title {
             margin-bottom: rem(55);
             color: #000000;
             font-family: Lato;
@@ -21,50 +21,60 @@
             font-weight: 300;
             text-align: center;
             text-transform: uppercase;
-            span{
-                font-size: rem(16);
-                line-height: rem(28.07);
-                text-align: center;
-            }
-		}
 
-		&__subtitle {
-            text-align:justify ;
+            span {
+                  font-size: rem(16);
+                  line-height: rem(28.07);
+                  text-align: center;
+            }
+      }
+
+      &__subtitle {
+            text-align: justify;
             color: #000000;
             font-weight: 300;
             font-size: rem(20);
             line-height: rem(28.07);
-		}
+      }
 
-		&__images {
-            @include dflex(center,wrap,space-between);
-		}
+      &__images {
+            @include dflex(center, wrap, space-between);
+      }
 
-		&__img {
-            flex: 1 1 50%; 
-            
-		}
+      &__img {
+            flex: 1 1 50%;
 
-		&__text {
-                  margin: 0 auto;
-                  max-width:rem(892) ;
-                  color: #000000;
-                  font-family: Lato;
-                  font-size: rem(20);
-                  font-weight: 300;
-                  font-style: normal;
-                  letter-spacing: normal;
-                  line-height: normal;
-                  text-align: justify;
-                  padding: rem(194) 0;
-		}
+      }
 
-		&__bottomimg {
+      &__text {
+            margin: 0 auto;
+            max-width: rem(892);
+            color: #000000;
+            font-family: Lato;
+            font-size: rem(20);
+            font-weight: 300;
+            font-style: normal;
+            letter-spacing: normal;
+            line-height: normal;
+            text-align: justify;
+            padding: rem(194) 0;
+      }
+
+      &__bottomimg {
             margin-bottom: rem(240);
-		}
+
+            img {
+                  width: 100%;
+            }
+
+      }
 }
-.img-stories{
-    display: block;
-    width: 100%;
-    max-height: rem(1196);           
+
+.img-stories {
+      display: block;
+      width: 100%;
+      height: 860px;
+      @media only screen and (min-width: 1600px) {
+            height: 1200px;
+        }
 }

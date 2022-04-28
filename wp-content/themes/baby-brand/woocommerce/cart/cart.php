@@ -64,7 +64,7 @@ do_action( 'woocommerce_before_cart' ); ?>
 		</tbody>
 	</table>
 	<?php do_action( 'woocommerce_after_cart_table' ); ?>
-</form>
+</form>.woocommerce-MyAccount-content
 
 <?php do_action( 'woocommerce_before_cart_collaterals' ); ?>
 
