@@ -76,6 +76,8 @@ require get_template_directory() . '/inc/custom-functions.php';
 
 require get_template_directory() . '/inc/woocomerce.php';
 
+require get_template_directory() . '/inc/custom-widget.php';
+
 /**
  * Custom currency and currency symbol
  */
@@ -228,3 +230,43 @@ function cw_woo_attribute(){
     echo $display_result;
 }
 add_action('woocommerce_single_product_summary', 'cw_woo_attribute', 25);
+
+function arphabet_widgets_init() {
+
+    register_sidebar(array(
+        'name'          => __('Filters sidebar', 'shop'),
+        'id'            => 'filters-sidebar',
+        'before_widget' => '<aside id="%1$s" class="ak-filter-widget %2$s">',
+        'after_widget'  => '</aside>',
+        'before_title'  => '<p class="widget-title">',
+        'after_title'   => '</p>',
+    ));
+}
+add_action( 'widgets_init', 'arphabet_widgets_init' );
+
+/**
+ * @snippet       Add next/prev buttons @ WooCommerce Single Product Page
+ * @how-to        Get CustomizeWoo.com FREE
+ * @sourcecode    https://businessbloomer.com/?p=20567
+ * @author        Rodolfo Melogli
+ * @testedwith    WooCommerce 2.5.5
+ */
+ 
+add_action( 'woocommerce_before_single_product', 'bbloomer_prev_next_product' );
+ 
+// and if you also want them at the bottom...
+add_action( 'woocommerce_after_single_product', 'bbloomer_prev_next_product' );
+ 
+function bbloomer_prev_next_product(){
+ 
+echo '<div class="prev_next_buttons">';
+ 
+   // 'product_cat' will make sure to return next/prev from current category
+    $previous = next_post_link('%link', 'PREVIOUS', TRUE, ' ', 'product_cat');
+   $next = previous_post_link('%link', 'NEXT', TRUE, ' ', 'product_cat');
+ 
+   echo $previous . '<a>/</a>' . $next;
+    
+echo '</div>';
+         
+}
