@@ -282,3 +282,15 @@ function njengah_homepage_logout_redirect(){
     exit;
 
 }
+
+function cart_empty_redirect_to_shop()
+{
+    global $woocommerce, $woocommerce_errors;
+
+    if (is_cart() && sizeof($woocommerce->cart->cart_contents) === 0) {
+        wp_safe_redirect(get_permalink(wc_get_page_id('shop')));
+        exit;
+    }
+}
+add_action( 'template_redirect', 'cart_empty_redirect_to_shop' );
+add_filter('woocommerce_cart_item_removed_notice_type', '__return_null');
