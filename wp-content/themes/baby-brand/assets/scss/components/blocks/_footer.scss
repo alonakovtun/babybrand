@@ -3,8 +3,12 @@
     padding-bottom: 25px;
 
     p {
-        font-size: rem(17);
-        margin-bottom: 0;
+        font-size: 12px;
+
+        @media only screen and (min-width: 1600px) {
+            font-size: 16px;
+        }
+       
     }
 
     &__body {
@@ -16,6 +20,11 @@
         font-family: Lato;
         font-weight: 300;
         text-transform: uppercase;
+        font-size: 12px;
+
+        @media only screen and (min-width: 1600px) {
+            font-size: 16px;
+        }
     }
 
     &__menu {
@@ -28,7 +37,7 @@
 
     &__item {
         font-family: Lato;
-        font-size: rem(16);
+        font-size: 12px;
         font-weight: 300;
         text-transform: uppercase;
         list-style-type: none;
