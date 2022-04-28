@@ -59,6 +59,10 @@
         font-size: rem(20);
         font-weight: 300;
         margin-bottom: rem(30);
+
+        @media only screen and (min-width: 1600px) {
+            font-size: 20px;
+        }
     }
     &__subtitle {
         color: #000000;

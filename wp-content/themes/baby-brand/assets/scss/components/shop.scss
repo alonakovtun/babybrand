@@ -131,7 +131,10 @@
                  height: auto;
                  max-height: 430px;
                  width: 100%;   
-                 object-fit: cover;             
+                 object-fit: cover;   
+                 @media only screen and (min-width: 1600px) {
+                  max-height: 600px;
+              }          
             }                   
       }
       &__name{
@@ -207,6 +210,12 @@
       text-transform: uppercase;
       -webkit-transition: all 0.3s;
       -o-transition: all 0.3s;
+
+      @media only screen and (min-width: 1600px) {
+            padding-left: 51px;
+            font-size: 16px;
+            margin-top: 200px;
+        }
 
 }
 

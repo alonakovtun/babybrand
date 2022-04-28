@@ -231,7 +231,12 @@
 .main-column__body {
     padding-top: 206px;
     max-width: rem(601);
-    margin-top: rem(-25)
+    margin-top: rem(-25);
+
+    @media only screen and (min-width: 1600px) {
+        padding-top: 291px;
+        width: 558px;
+    }
 }
 
 .products {
@@ -305,6 +310,11 @@
     width: 10px;
     height: 10px;
     border-radius: 50%;
+
+    @media only screen and (min-width: 1600px) {
+        width: 11px;
+        height: 11px;
+    }
 }
 
 .products__body.products {
