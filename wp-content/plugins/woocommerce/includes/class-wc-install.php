@@ -7,6 +7,8 @@
  */
 
 use Automattic\Jetpack\Constants;
+use Automattic\WooCommerce\Internal\ProductAttributesLookup\DataRegenerator;
+use Automattic\WooCommerce\Internal\Utilities\DatabaseUtil;
 use Automattic\WooCommerce\Internal\WCCom\ConnectionHelper as WCConnectionHelper;
 
 defined( 'ABSPATH' ) || exit;
@@ -18,6 +20,13 @@ class WC_Install {
 
 	/**
 	 * DB updates and callbacks that need to be run per version.
+	 *
+	 * Please note that these functions are invoked when WooCommerce is updated from a previous version,
+	 * but NOT when WooCommerce is newly installed.
+	 *
+	 * Database schema changes must be incorporated to the SQL returned by get_schema, which is applied
+	 * via dbDelta at both install and update time. If any other kind of database change is required
+	 * at install time (e.g. populating tables), use the 'woocommerce_installed' hook.
 	 *
 	 * @var array
 	 */
@@ -165,6 +174,18 @@ class WC_Install {
 			'wc_update_560_create_refund_returns_page',
 			'wc_update_560_db_version',
 		),
+		'6.0.0' => array(
+			'wc_update_600_migrate_rate_limit_options',
+			'wc_update_600_db_version',
+		),
+		'6.3.0' => array(
+			'wc_update_630_create_product_attributes_lookup_table',
+			'wc_update_630_db_version',
+		),
+		'6.4.0' => array(
+			'wc_update_640_add_primary_key_to_product_attributes_lookup_table',
+			'wc_update_640_db_version',
+		),
 	);
 
 	/**
@@ -176,6 +197,7 @@ class WC_Install {
 		add_action( 'admin_init', array( __CLASS__, 'wc_admin_db_update_notice' ) );
 		add_action( 'admin_init', array( __CLASS__, 'add_admin_note_after_page_created' ) );
 		add_action( 'woocommerce_run_update_callback', array( __CLASS__, 'run_update_callback' ) );
+		add_action( 'woocommerce_update_db_to_current_version', array( __CLASS__, 'update_db_version' ) );
 		add_action( 'admin_init', array( __CLASS__, 'install_actions' ) );
 		add_action( 'woocommerce_page_created', array( __CLASS__, 'page_created' ), 10, 2 );
 		add_filter( 'plugin_action_links_' . WC_PLUGIN_BASENAME, array( __CLASS__, 'plugin_action_links' ) );
@@ -332,21 +354,16 @@ class WC_Install {
 	 * @param bool $modify_notice Whether to modify notice based on if all tables are present.
 	 * @param bool $execute       Whether to execute get_schema queries as well.
 	 *
-	 * @return array List of querues.
+	 * @return array List of queries.
 	 */
 	public static function verify_base_tables( $modify_notice = true, $execute = false ) {
-		require_once ABSPATH . 'wp-admin/includes/upgrade.php';
-
 		if ( $execute ) {
 			self::create_tables();
 		}
-		$queries        = dbDelta( self::get_schema(), false );
-		$missing_tables = array();
-		foreach ( $queries as $table_name => $result ) {
-			if ( "Created table $table_name" === $result ) {
-				$missing_tables[] = $table_name;
-			}
-		}
+
+		$missing_tables = wc_get_container()
+			->get( DatabaseUtil::class )
+			->get_missing_tables( self::get_schema() );
 
 		if ( 0 < count( $missing_tables ) ) {
 			if ( $modify_notice ) {
@@ -483,6 +500,20 @@ class WC_Install {
 				}
 			}
 		}
+
+		// After the callbacks finish, update the db version to the current WC version.
+		$current_wc_version = WC()->version;
+		if ( version_compare( $current_db_version, $current_wc_version, '<' ) &&
+			! WC()->queue()->get_next( 'woocommerce_update_db_to_current_version' ) ) {
+			WC()->queue()->schedule_single(
+				time() + $loop,
+				'woocommerce_update_db_to_current_version',
+				array(
+					'version' => $current_wc_version,
+				),
+				'woocommerce-db-updates'
+			);
+		}
 	}
 
 	/**
@@ -524,6 +555,7 @@ class WC_Install {
 		wp_clear_scheduled_hook( 'woocommerce_cleanup_logs' );
 		wp_clear_scheduled_hook( 'woocommerce_geoip_updater' );
 		wp_clear_scheduled_hook( 'woocommerce_tracker_send_event' );
+		wp_clear_scheduled_hook( 'woocommerce_cleanup_rate_limits' );
 
 		$ve = get_option( 'gmt_offset' ) > 0 ? '-' : '+';
 
@@ -545,6 +577,7 @@ class WC_Install {
 		wp_schedule_event( time() + ( 6 * HOUR_IN_SECONDS ), 'twicedaily', 'woocommerce_cleanup_sessions' );
 		wp_schedule_event( time() + MINUTE_IN_SECONDS, 'fifteendays', 'woocommerce_geoip_updater' );
 		wp_schedule_event( time() + 10, apply_filters( 'woocommerce_tracker_event_recurrence', 'daily' ), 'woocommerce_tracker_send_event' );
+		wp_schedule_event( time() + ( 3 * HOUR_IN_SECONDS ), 'daily', 'woocommerce_cleanup_rate_limits' );
 	}
 
 	/**
@@ -565,22 +598,22 @@ class WC_Install {
 		$pages = apply_filters(
 			'woocommerce_create_pages',
 			array(
-				'shop'          => array(
+				'shop'           => array(
 					'name'    => _x( 'shop', 'Page slug', 'woocommerce' ),
 					'title'   => _x( 'Shop', 'Page title', 'woocommerce' ),
 					'content' => '',
 				),
-				'cart'          => array(
+				'cart'           => array(
 					'name'    => _x( 'cart', 'Page slug', 'woocommerce' ),
 					'title'   => _x( 'Cart', 'Page title', 'woocommerce' ),
 					'content' => '<!-- wp:shortcode -->[' . apply_filters( 'woocommerce_cart_shortcode_tag', 'woocommerce_cart' ) . ']<!-- /wp:shortcode -->',
 				),
-				'checkout'      => array(
+				'checkout'       => array(
 					'name'    => _x( 'checkout', 'Page slug', 'woocommerce' ),
 					'title'   => _x( 'Checkout', 'Page title', 'woocommerce' ),
 					'content' => '<!-- wp:shortcode -->[' . apply_filters( 'woocommerce_checkout_shortcode_tag', 'woocommerce_checkout' ) . ']<!-- /wp:shortcode -->',
 				),
-				'myaccount'     => array(
+				'myaccount'      => array(
 					'name'    => _x( 'my-account', 'Page slug', 'woocommerce' ),
 					'title'   => _x( 'My account', 'Page title', 'woocommerce' ),
 					'content' => '<!-- wp:shortcode -->[' . apply_filters( 'woocommerce_my_account_shortcode_tag', 'woocommerce_my_account' ) . ']<!-- /wp:shortcode -->',
@@ -828,6 +861,8 @@ class WC_Install {
 		 */
 		$max_index_length = 191;
 
+		$product_attributes_lookup_table_creation_sql = wc_get_container()->get( DataRegenerator::class )->get_table_creation_sql();
+
 		$tables = "
 CREATE TABLE {$wpdb->prefix}woocommerce_sessions (
   session_id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
@@ -1040,6 +1075,15 @@ CREATE TABLE {$wpdb->prefix}wc_reserved_stock (
 	`expires` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
 	PRIMARY KEY  (`order_id`, `product_id`)
 ) $collate;
+CREATE TABLE {$wpdb->prefix}wc_rate_limits (
+  rate_limit_id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
+  rate_limit_key varchar(200) NOT NULL,
+  rate_limit_expiry BIGINT UNSIGNED NOT NULL,
+  rate_limit_remaining smallint(10) NOT NULL DEFAULT '0',
+  PRIMARY KEY  (rate_limit_id),
+  UNIQUE KEY rate_limit_key (rate_limit_key($max_index_length))
+) $collate;
+$product_attributes_lookup_table_creation_sql
 		";
 
 		return $tables;
@@ -1074,6 +1118,8 @@ CREATE TABLE {$wpdb->prefix}wc_reserved_stock (
 			"{$wpdb->prefix}woocommerce_tax_rate_locations",
 			"{$wpdb->prefix}woocommerce_tax_rates",
 			"{$wpdb->prefix}wc_reserved_stock",
+			"{$wpdb->prefix}wc_rate_limits",
+			wc_get_container()->get( DataRegenerator::class )->get_lookup_table_name(),
 		);
 
 		/**
@@ -1672,7 +1718,7 @@ CREATE TABLE {$wpdb->prefix}wc_reserved_stock (
 	 * Gets the content of the sample refunds and return policy page.
 	 *
 	 * @since 5.6.0
-	 * @return HTML The content for the page
+	 * @return string The content for the page
 	 */
 	private static function get_refunds_return_policy_page_content() {
 		return <<<EOT

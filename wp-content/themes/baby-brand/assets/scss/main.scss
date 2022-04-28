@@ -365,6 +365,10 @@ input:focus{
   top: 131px;
   right: 31px;
   line-height: 40px;
+  @media only screen and (min-width: 1600px) {
+    right: 51px;
+    top: 200px;
+}
   }
   .prev_next_buttons a{
     color: #070707;
@@ -374,7 +378,6 @@ input:focus{
     font-style: normal;
     letter-spacing: normal;
     text-align: left;
-    text-transform: uppercase;
     margin-bottom: 29px;
   }
   .prev_next_buttons a[rel="prev"], .prev_next_buttons a[rel="next"] {

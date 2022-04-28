@@ -11,6 +11,7 @@ use Automattic\WooCommerce\Admin\API\Reports\Orders\DataStore as OrdersDataStore
 use Automattic\WooCommerce\Admin\API\Plugins;
 use Automattic\WooCommerce\Admin\Features\Features;
 use Automattic\WooCommerce\Admin\Features\Navigation\Screen;
+use Automattic\WooCommerce\Internal\Admin\WCAdminSharedSettings;
 use WC_Marketplace_Suggestions;
 
 /**
@@ -69,6 +70,7 @@ class Loader {
 	 */
 	public function __construct() {
 		Features::get_instance();
+		WCAdminSharedSettings::get_instance();
 		add_action( 'init', array( __CLASS__, 'define_tables' ) );
 		add_action( 'admin_enqueue_scripts', array( __CLASS__, 'register_scripts' ) );
 		add_action( 'admin_enqueue_scripts', array( __CLASS__, 'inject_wc_settings_dependencies' ), 14 );
@@ -76,7 +78,7 @@ class Loader {
 		// Old settings injection.
 		add_filter( 'woocommerce_components_settings', array( __CLASS__, 'add_component_settings' ) );
 		// New settings injection.
-		add_filter( 'woocommerce_shared_settings', array( __CLASS__, 'add_component_settings' ) );
+		add_filter( 'woocommerce_admin_shared_settings', array( __CLASS__, 'add_component_settings' ) );
 		add_filter( 'admin_body_class', array( __CLASS__, 'add_admin_body_classes' ) );
 		add_action( 'admin_menu', array( __CLASS__, 'register_page_handler' ) );
 		add_action( 'admin_menu', array( __CLASS__, 'register_store_details_page' ) );
@@ -290,7 +292,7 @@ class Loader {
 		if ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) {
 			return filemtime( WC_ADMIN_ABSPATH . self::get_path( $ext ) );
 		}
-		return WC_ADMIN_VERSION_NUMBER;
+		return WC_VERSION;
 	}
 
 	/**
@@ -426,8 +428,6 @@ class Loader {
 		);
 		wp_style_add_data( 'wc-components', 'rtl', 'replace' );
 
-		wp_style_add_data( 'wc-components-ie', 'rtl', 'replace' );
-
 		wp_register_style(
 			'wc-customer-effort-score',
 			self::get_url( 'customer-effort-score/style', 'css' ),
@@ -453,15 +453,13 @@ class Loader {
 			)
 		);
 
-		// The "app" RTL files are in a different format than the components.
-		$rtl = is_rtl() ? '.rtl' : '';
-
 		wp_register_style(
 			WC_ADMIN_APP,
-			self::get_url( "app/style{$rtl}", 'css' ),
+			self::get_url( 'app/style', 'css' ),
 			array( 'wc-components', 'wc-customer-effort-score', 'wp-components', 'wc-experimental' ),
 			$css_file_version
 		);
+		wp_style_add_data( WC_ADMIN_APP, 'rtl', 'replace' );
 
 		wp_register_style(
 			'wc-onboarding',
@@ -469,6 +467,7 @@ class Loader {
 			array(),
 			$css_file_version
 		);
+		wp_style_add_data( 'wc-onboarding', 'rtl', 'replace' );
 	}
 
 	/**
@@ -694,17 +693,6 @@ class Loader {
 		wp_enqueue_style( 'wc-material-icons' );
 		wp_enqueue_style( 'wc-onboarding' );
 
-		// Use server-side detection to prevent unneccessary stylesheet loading in other browsers.
-		$user_agent = isset( $_SERVER['HTTP_USER_AGENT'] ) ? $_SERVER['HTTP_USER_AGENT'] : ''; // phpcs:ignore sanitization ok.
-		preg_match( '/MSIE (.*?);/', $user_agent, $matches );
-		if ( count( $matches ) < 2 ) {
-			preg_match( '/Trident\/\d{1,2}.\d{1,2}; rv:([0-9]*)/', $user_agent, $matches );
-		}
-		if ( count( $matches ) > 1 ) {
-			wp_enqueue_style( 'wc-components-ie' );
-			wp_enqueue_style( 'wc-admin-ie' );
-		}
-
 		// Preload our assets.
 		$this->output_header_preload_tags();
 	}
@@ -789,8 +777,6 @@ class Loader {
 		$wc_admin_styles = array(
 			WC_ADMIN_APP,
 			'wc-components',
-			'wc-components-ie',
-			'wc-admin-ie',
 			'wc-material-icons',
 		);
 
@@ -813,8 +799,9 @@ class Loader {
 	 * Returns true if we are on a JS powered admin page.
 	 */
 	public static function is_admin_page() {
-		// Check the function exists before calling in case WC Admin is disabled. See PR #6563.
-		return function_exists( 'wc_admin_is_registered_page' ) && wc_admin_is_registered_page();
+		// phpcs:disable WordPress.Security.NonceVerification
+		return isset( $_GET['page'] ) && 'wc-admin' === $_GET['page'];
+		// phpcs:enable WordPress.Security.NonceVerification
 	}
 
 	/**
@@ -1033,7 +1020,7 @@ class Loader {
 			];
 		}
 
-		$preload_data_endpoints = apply_filters( 'woocommerce_component_settings_preload_endpoints', array( '/wc/v3' ) );
+		$preload_data_endpoints = apply_filters( 'woocommerce_component_settings_preload_endpoints', array() );
 		if ( class_exists( 'Jetpack' ) ) {
 			$preload_data_endpoints['jetpackStatus'] = '/jetpack/v4/connection';
 		}
@@ -1116,8 +1103,9 @@ class Loader {
 			$settings['embedBreadcrumbs'] = self::get_embed_breadcrumbs();
 		}
 
-		$settings['allowMarketplaceSuggestions'] = WC_Marketplace_Suggestions::allow_suggestions();
-		$settings['connectNonce']                = wp_create_nonce( 'connect' );
+		$settings['allowMarketplaceSuggestions']      = WC_Marketplace_Suggestions::allow_suggestions();
+		$settings['connectNonce']                     = wp_create_nonce( 'connect' );
+		$settings['wcpay_welcome_page_connect_nonce'] = wp_create_nonce( 'wcpay-connect' );
 
 		return $settings;
 	}

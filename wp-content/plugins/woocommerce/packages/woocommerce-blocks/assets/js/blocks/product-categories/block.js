@@ -2,7 +2,7 @@
  * External dependencies
  */
 import { __ } from '@wordpress/i18n';
-import { InspectorControls } from '@wordpress/block-editor';
+import { InspectorControls, useBlockProps } from '@wordpress/block-editor';
 import ServerSideRender from '@wordpress/server-side-render';
 import PropTypes from 'prop-types';
 import {
@@ -11,12 +11,12 @@ import {
 	ToggleControl,
 	Placeholder,
 } from '@wordpress/components';
-import { Icon, list } from '@woocommerce/icons';
+import { Icon, listView } from '@wordpress/icons';
 import ToggleButtonControl from '@woocommerce/editor-components/toggle-button-control';
 
 const EmptyPlaceholder = () => (
 	<Placeholder
-		icon={ <Icon srcElement={ list } /> }
+		icon={ <Icon icon={ listView } /> }
 		label={ __(
 			'Product Categories List',
 			'woocommerce'
@@ -183,8 +183,12 @@ const ProductCategoriesBlock = ( { attributes, setAttributes, name } ) => {
 		);
 	};
 
+	const blockProps = useBlockProps( {
+		className: 'wc-block-product-categories',
+	} );
+
 	return (
-		<>
+		<div { ...blockProps }>
 			{ getInspectorControls() }
 			<Disabled>
 				<ServerSideRender
@@ -193,7 +197,7 @@ const ProductCategoriesBlock = ( { attributes, setAttributes, name } ) => {
 					EmptyResponsePlaceholder={ EmptyPlaceholder }
 				/>
 			</Disabled>
-		</>
+		</div>
 	);
 };
 

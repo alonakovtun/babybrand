@@ -9,6 +9,9 @@ namespace Automattic\WooCommerce\Admin\Features;
 use \Automattic\WooCommerce\Admin\Loader;
 use Automattic\WooCommerce\Admin\PageController;
 use Automattic\WooCommerce\Admin\WCAdminHelper;
+use Automattic\WooCommerce\Admin\Features\OnboardingTasks\Init as OnboardingTasks;
+use Automattic\WooCommerce\Admin\Features\OnboardingTasks\TaskLists;
+use Automattic\WooCommerce\Internal\Admin\Schedulers\MailchimpScheduler;
 
 /**
  * Contains backend logic for the onboarding profile and checklist feature.
@@ -56,10 +59,7 @@ class Onboarding {
 	public function __construct() {
 		$this->add_toggle_actions();
 
-		// Include WC Admin Onboarding classes.
-		if ( self::should_show_tasks() ) {
-			OnboardingTasks::get_instance();
-		}
+		OnboardingTasks::get_instance();
 
 		// Add actions and filters.
 		$this->add_actions();
@@ -97,17 +97,18 @@ class Onboarding {
 		// Always hook into Jetpack connection even if outside of admin.
 		add_action( 'jetpack_site_registered', array( $this, 'set_woocommerce_setup_jetpack_opted_in' ) );
 
+		add_action( 'woocommerce_onboarding_profile_data_updated', array( $this, 'on_profile_data_updated' ), 10, 2 );
+
 		if ( ! is_admin() ) {
 			return;
 		}
 
 		add_action( 'admin_init', array( $this, 'admin_redirects' ) );
 		add_action( 'current_screen', array( $this, 'add_help_tab' ), 60 );
-		add_action( 'current_screen', array( $this, 'reset_profiler' ) );
 		add_action( 'current_screen', array( $this, 'reset_task_list' ) );
 		add_action( 'current_screen', array( $this, 'reset_extended_task_list' ) );
 		add_action( 'current_screen', array( $this, 'redirect_wccom_install' ) );
-		add_action( 'current_screen', array( $this, 'redirect_old_onboarding' ) );
+		add_action( 'current_screen', array( $this, 'redirect_to_profiler' ) );
 	}
 
 	/**
@@ -213,23 +214,10 @@ class Onboarding {
 		// Run after Automattic\WooCommerce\Admin\Loader.
 		add_filter( 'woocommerce_components_settings', array( $this, 'component_settings' ), 20 );
 		// New settings injection.
-		add_filter( 'woocommerce_shared_settings', array( $this, 'component_settings' ), 20 );
-		add_filter( 'woocommerce_admin_preload_options', array( $this, 'preload_options' ) );
+		add_filter( 'woocommerce_admin_shared_settings', array( $this, 'component_settings' ), 20 );
 		add_filter( 'woocommerce_admin_preload_settings', array( $this, 'preload_settings' ) );
-		add_filter( 'woocommerce_admin_is_loading', array( $this, 'is_loading' ) );
+		add_filter( 'admin_body_class', array( __CLASS__, 'add_loading_classes' ) );
 		add_filter( 'woocommerce_show_admin_notice', array( $this, 'remove_install_notice' ), 10, 2 );
-		add_filter( 'woocommerce_component_settings_preload_endpoints', array( $this, 'add_preload_endpoints' ) );
-	}
-
-	/**
-	 * Preload data from the countries endpoint.
-	 *
-	 * @param array $endpoints Array of preloaded endpoints.
-	 * @return array
-	 */
-	public function add_preload_endpoints( $endpoints ) {
-		$endpoints['countries'] = '/wc-analytics/data/countries';
-		return $endpoints;
 	}
 
 	/**
@@ -261,6 +249,7 @@ class Onboarding {
 			'product_types'       => array(),
 			'product_count'       => '0',
 			'selling_venues'      => 'no',
+			'number_employees'    => '1',
 			'revenue'             => 'none',
 			'other_platform'      => 'none',
 			'business_extensions' => array(),
@@ -319,34 +308,36 @@ class Onboarding {
 	}
 
 	/**
-	 * Redirect the old onboarding wizard to the profiler.
-	 */
-	public static function redirect_old_onboarding() {
-		$current_page = isset( $_GET['page'] ) ? wc_clean( wp_unslash( $_GET['page'] ) ) : false; // phpcs:ignore csrf okay.
-
-		if ( 'wc-setup' === $current_page ) {
-			delete_transient( '_wc_activation_redirect' );
-			wp_safe_redirect( wc_admin_url( '&reset_profiler=1' ) );
-		}
-	}
-
-	/**
 	 * Returns true if the profiler should be displayed (not completed and not skipped).
 	 *
 	 * @return bool
 	 */
 	public static function should_show_profiler() {
-		/* phpcs:disable WordPress.Security.NonceVerification */
-		$is_current_page = isset( $_GET['page'] ) &&
-			'wc-admin' === $_GET['page'] &&
-			isset( $_GET['path'] ) &&
-			'/setup-wizard' === $_GET['path'];
-		/* phpcs: enable */
-
-		if ( $is_current_page ) {
+		if ( self::is_profile_wizard() ) {
 			return true;
 		}
 
+		return self::profiler_needs_completion();
+	}
+
+	/**
+	 * Redirect to the profiler on homepage if completion is needed.
+	 */
+	public static function redirect_to_profiler() {
+		if ( ! self::is_homepage() || ! self::profiler_needs_completion() ) {
+			return;
+		}
+
+		wp_safe_redirect( wc_admin_url( '&path=/setup-wizard' ) );
+		exit;
+	}
+
+	/**
+	 * Check if the profiler still needs to be completed.
+	 *
+	 * @return bool
+	 */
+	public static function profiler_needs_completion() {
 		$onboarding_data = get_option( self::PROFILE_DATA_OPTION, array() );
 
 		$is_completed = isset( $onboarding_data['completed'] ) && true === $onboarding_data['completed'];
@@ -358,12 +349,45 @@ class Onboarding {
 	}
 
 	/**
-	 * Returns true if the task list should be displayed (not completed or hidden off the dashboard).
+	 * Check if the current page is the profile wizard.
 	 *
 	 * @return bool
 	 */
+	public static function is_profile_wizard() {
+		/* phpcs:disable WordPress.Security.NonceVerification */
+		return isset( $_GET['page'] ) &&
+			'wc-admin' === $_GET['page'] &&
+			isset( $_GET['path'] ) &&
+			'/setup-wizard' === $_GET['path'];
+		/* phpcs: enable */
+	}
+
+	/**
+	 * Check if the current page is the homepage.
+	 *
+	 * @return bool
+	 */
+	public static function is_homepage() {
+		/* phpcs:disable WordPress.Security.NonceVerification */
+		return isset( $_GET['page'] ) &&
+			'wc-admin' === $_GET['page'] &&
+			! isset( $_GET['path'] );
+		/* phpcs: enable */
+	}
+
+	/**
+	 * Returns true if the task list should be displayed (not completed or hidden off the dashboard).
+	 *
+	 * @deprecated 2.7.0
+	 * @return bool
+	 */
 	public static function should_show_tasks() {
-		return 'no' === get_option( 'woocommerce_task_list_hidden', 'no' ) || 'no' === get_option( 'woocommerce_extended_task_list_hidden', 'no' );
+		wc_deprecated_function( 'should_show_tasks', '4.4', '\Automattic\WooCommerce\Admin\Features\OnboardingTasks\TaskLists::get_list( $list_id )->is_hidden()' );
+
+		$setup_list    = TaskLists::get_list( 'setup' );
+		$extended_list = TaskLists::get_list( 'extended' );
+
+		return ( $setup_list && ! $setup_list->is_hidden() ) || ( $extended_list && ! $extended_list->is_hidden() );
 	}
 
 	/**
@@ -426,39 +450,47 @@ class Onboarding {
 	 * @return array
 	 */
 	public static function get_allowed_product_types() {
-		$product_types = self::append_product_data(
-			array(
-				'physical'        => array(
-					'label'   => __( 'Physical products', 'woocommerce' ),
-					'default' => true,
-				),
-				'downloads'       => array(
-					'label' => __( 'Downloads', 'woocommerce' ),
-				),
-				'subscriptions'   => array(
-					'label'   => __( 'Subscriptions', 'woocommerce' ),
-					'product' => 27147,
-				),
-				'memberships'     => array(
-					'label'   => __( 'Memberships', 'woocommerce' ),
-					'product' => 958589,
-				),
-				'bookings'        => array(
-					'label'   => __( 'Bookings', 'woocommerce' ),
-					'product' => 390890,
-				),
-				'product-bundles' => array(
-					'label'   => __( 'Bundles', 'woocommerce' ),
-					'product' => 18716,
-				),
-				'product-add-ons' => array(
-					'label'   => __( 'Customizable products', 'woocommerce' ),
-					'product' => 18618,
-				),
-			)
+		$products         = array(
+			'physical'        => array(
+				'label'   => __( 'Physical products', 'woocommerce' ),
+				'default' => true,
+			),
+			'downloads'       => array(
+				'label' => __( 'Downloads', 'woocommerce' ),
+			),
+			'subscriptions'   => array(
+				'label' => __( 'Subscriptions', 'woocommerce' ),
+			),
+			'memberships'     => array(
+				'label'   => __( 'Memberships', 'woocommerce' ),
+				'product' => 958589,
+			),
+			'bookings'        => array(
+				'label'   => __( 'Bookings', 'woocommerce' ),
+				'product' => 390890,
+			),
+			'product-bundles' => array(
+				'label'   => __( 'Bundles', 'woocommerce' ),
+				'product' => 18716,
+			),
+			'product-add-ons' => array(
+				'label'   => __( 'Customizable products', 'woocommerce' ),
+				'product' => 18618,
+			),
 		);
+		$base_location    = wc_get_base_location();
+		$has_cbd_industry = false;
+		if ( 'US' === $base_location['country'] ) {
+			$profile = get_option( self::PROFILE_DATA_OPTION, array() );
+			if ( ! empty( $profile['industry'] ) ) {
+				$has_cbd_industry = in_array( 'cbd-other-hemp-derived-products', array_column( $profile['industry'], 'slug' ), true );
+			}
+		}
+		if ( ! Features::is_enabled( 'subscriptions' ) || 'US' !== $base_location['country'] || $has_cbd_industry ) {
+			$products['subscriptions']['product'] = 27147;
+		}
 
-		return apply_filters( 'woocommerce_admin_onboarding_product_types', $product_types );
+		return apply_filters( 'woocommerce_admin_onboarding_product_types', $products );
 	}
 
 	/**
@@ -515,8 +547,13 @@ class Onboarding {
 			$active_theme     = get_option( 'stylesheet' );
 
 			foreach ( $installed_themes as $slug => $theme ) {
-				$theme_data      = self::get_theme_data( $theme );
-				$themes[ $slug ] = $theme_data;
+				$theme_data = self::get_theme_data( $theme );
+				if ( isset( $themes[ $slug ] ) ) {
+					$themes[ $slug ]['is_installed'] = true;
+					$themes[ $slug ]['image']        = $theme_data['image'];
+				} else {
+					$themes[ $slug ] = $theme_data;
+				}
 			}
 
 			// Add the WooCommerce support tag for default themes that don't explicitly declare support.
@@ -581,12 +618,12 @@ class Onboarding {
 	}
 
 	/**
-	 * Append dynamic product data from API.
+	 * Get dynamic product data from API.
 	 *
 	 * @param array $product_types Array of product types.
 	 * @return array
 	 */
-	public static function append_product_data( $product_types ) {
+	public static function get_product_data( $product_types ) {
 		$woocommerce_products = get_transient( self::PRODUCT_DATA_TRANSIENT );
 		if ( false === $woocommerce_products ) {
 			$woocommerce_products = wp_remote_get( 'https://woocommerce.com/wp-json/wccom-extensions/1.0/search' );
@@ -597,12 +634,13 @@ class Onboarding {
 			set_transient( self::PRODUCT_DATA_TRANSIENT, $woocommerce_products, DAY_IN_SECONDS );
 		}
 
-		$product_data = json_decode( $woocommerce_products['body'] );
+		$data         = json_decode( $woocommerce_products['body'] );
 		$products     = array();
+		$product_data = array();
 
 		// Map product data by ID.
-		if ( isset( $product_data ) && isset( $product_data->products ) ) {
-			foreach ( $product_data->products as $product_datum ) {
+		if ( isset( $data ) && isset( $data->products ) ) {
+			foreach ( $data->products as $product_datum ) {
 				if ( isset( $product_datum->id ) ) {
 					$products[ $product_datum->id ] = $product_datum;
 				}
@@ -611,21 +649,23 @@ class Onboarding {
 
 		// Loop over product types and append data.
 		foreach ( $product_types as $key => $product_type ) {
+			$product_data[ $key ] = $product_types[ $key ];
+
 			if ( isset( $product_type['product'] ) && isset( $products[ $product_type['product'] ] ) ) {
 				$price        = html_entity_decode( $products[ $product_type['product'] ]->price );
 				$yearly_price = (float) str_replace( '$', '', $price );
 
-				$product_types[ $key ]['yearly_price'] = $yearly_price;
-				$product_types[ $key ]['description']  = $products[ $product_type['product'] ]->excerpt;
-				$product_types[ $key ]['more_url']     = $products[ $product_type['product'] ]->link;
-				$product_types[ $key ]['slug']         = strtolower( preg_replace( '~[^\pL\d]+~u', '-', $products[ $product_type['product'] ]->slug ) );
+				$product_data[ $key ]['yearly_price'] = $yearly_price;
+				$product_data[ $key ]['description']  = $products[ $product_type['product'] ]->excerpt;
+				$product_data[ $key ]['more_url']     = $products[ $product_type['product'] ]->link;
+				$product_data[ $key ]['slug']         = strtolower( preg_replace( '~[^\pL\d]+~u', '-', $products[ $product_type['product'] ]->slug ) );
 			} elseif ( isset( $product_type['product'] ) ) {
 				/* translators: site currency symbol (used to show that the product costs money) */
-				$product_types[ $key ]['label'] .= sprintf( __( ' — %s', 'woocommerce' ), html_entity_decode( get_woocommerce_currency_symbol() ) );
+				$product_data[ $key ]['label'] .= sprintf( __( ' — %s', 'woocommerce' ), html_entity_decode( get_woocommerce_currency_symbol() ) );
 			}
 		}
 
-		return $product_types;
+		return $product_data;
 	}
 
 	/**
@@ -665,7 +705,7 @@ class Onboarding {
 		// Only fetch if the onboarding wizard OR the task list is incomplete or currently shown
 		// or the current page is one of the WooCommerce Admin pages.
 		if (
-			( ! self::should_show_profiler() && ! self::should_show_tasks()
+			( ! self::should_show_profiler() && ! count( TaskLists::get_visible() )
 			||
 			! $this->is_wc_pages()
 		)
@@ -682,58 +722,10 @@ class Onboarding {
 		$settings['onboarding']['euCountries']     = WC()->countries->get_european_union_countries();
 		$settings['onboarding']['industries']      = self::get_allowed_industries();
 		$settings['onboarding']['localeInfo']      = include WC()->plugin_path() . '/i18n/locale-info.php';
-		$settings['onboarding']['productTypes']    = self::get_allowed_product_types();
 		$settings['onboarding']['profile']         = $profile;
 		$settings['onboarding']['themes']          = self::get_themes();
 
 		return $settings;
-	}
-
-	/**
-	 * Preload options to prime state of the application.
-	 *
-	 * @param array $options Array of options to preload.
-	 * @return array
-	 */
-	public function preload_options( $options ) {
-		$options[] = 'woocommerce_task_list_complete';
-		$options[] = 'woocommerce_task_list_do_this_later';
-		$options[] = 'woocommerce_task_list_hidden';
-		$options[] = 'woocommerce_extended_task_list_complete';
-		$options[] = 'woocommerce_extended_task_list_hidden';
-		$options[] = 'woocommerce_task_list_remind_me_later_tasks';
-
-		if ( ! self::should_show_tasks() && ! self::should_show_profiler() ) {
-			return $options;
-		}
-
-		$options[] = 'wc_connect_options';
-		$options[] = 'woocommerce_task_list_welcome_modal_dismissed';
-		$options[] = 'woocommerce_welcome_from_calypso_modal_dismissed';
-		$options[] = 'woocommerce_task_list_prompt_shown';
-		$options[] = 'woocommerce_task_list_tracked_completed_tasks';
-		$options[] = 'woocommerce_task_list_dismissed_tasks';
-		$options[] = 'woocommerce_allow_tracking';
-		$options[] = 'woocommerce_woo-mercado-pago-basic_settings';
-		$options[] = 'woocommerce_stripe_settings';
-		$options[] = 'woocommerce-ppcp-settings';
-		$options[] = 'woocommerce_ppcp-gateway_settings';
-		$options[] = 'wc_square_refresh_tokens';
-		$options[] = 'woocommerce_square_credit_card_settings';
-		$options[] = 'woocommerce_payfast_settings';
-		$options[] = 'woocommerce_paystack_settings';
-		$options[] = 'woocommerce_kco_settings';
-		$options[] = 'woocommerce_klarna_payments_settings';
-		$options[] = 'woocommerce_cod_settings';
-		$options[] = 'woocommerce_bacs_settings';
-		$options[] = 'woocommerce_bacs_accounts';
-		$options[] = 'woocommerce_woocommerce_payments_settings';
-		$options[] = 'woocommerce_eway_settings';
-		$options[] = 'woocommerce_razorpay_settings';
-		$options[] = 'woocommerce_payubiz_settings';
-		$options[] = 'woocommerce_mollie_payments_settings';
-
-		return $options;
 	}
 
 	/**
@@ -769,19 +761,19 @@ class Onboarding {
 	}
 
 	/**
-	 * Let the app know that we will be showing the onboarding route, so wp-admin elements should be hidden while loading.
+	 * Set the admin full screen class when loading to prevent flashes of unstyled content.
 	 *
-	 * @param bool $is_loading Indicates if the `woocommerce-admin-is-loading` should be appended or not.
-	 * @return bool
+	 * @param bool $classes Body classes.
+	 * @return array
 	 */
-	public function is_loading( $is_loading ) {
-		$show_profiler = self::should_show_profiler();
-
-		if ( $show_profiler ) {
-			return true;
+	public static function add_loading_classes( $classes ) {
+		/* phpcs:disable WordPress.Security.NonceVerification */
+		if ( self::is_profile_wizard() ) {
+			$classes .= ' woocommerce-admin-full-screen';
 		}
+		/* phpcs: enable */
 
-		return $is_loading;
+		return $classes;
 	}
 
 	/**
@@ -834,68 +826,34 @@ class Onboarding {
 			'id'    => 'woocommerce_onboard_tab',
 		);
 
-		$task_list_hidden = ( 'yes' === get_option( 'woocommerce_task_list_hidden', 'no' ) );
+		$setup_list    = TaskLists::get_list( 'setup' );
+		$extended_list = TaskLists::get_list( 'extended' );
 
-		$extended_task_list_hidden = ( 'yes' === get_option( 'woocommerce_extended_task_list_hidden', 'no' ) );
+		if ( $setup_list ) {
+			$help_tab['content'] = '<h2>' . __( 'WooCommerce Onboarding', 'woocommerce' ) . '</h2>';
 
-		$help_tab['content'] = '<h2>' . __( 'WooCommerce Onboarding', 'woocommerce' ) . '</h2>';
+			$help_tab['content'] .= '<h3>' . __( 'Profile Setup Wizard', 'woocommerce' ) . '</h3>';
+			$help_tab['content'] .= '<p>' . __( 'If you need to access the setup wizard again, please click on the button below.', 'woocommerce' ) . '</p>' .
+				'<p><a href="' . wc_admin_url( '&path=/setup-wizard' ) . '" class="button button-primary">' . __( 'Setup wizard', 'woocommerce' ) . '</a></p>';
 
-		$help_tab['content'] .= '<h3>' . __( 'Profile Setup Wizard', 'woocommerce' ) . '</h3>';
-		$help_tab['content'] .= '<p>' . __( 'If you need to access the setup wizard again, please click on the button below.', 'woocommerce' ) . '</p>' .
-			'<p><a href="' . wc_admin_url( '&path=/setup-wizard' ) . '" class="button button-primary">' . __( 'Setup wizard', 'woocommerce' ) . '</a></p>';
-
-		$help_tab['content'] .= '<h3>' . __( 'Task List', 'woocommerce' ) . '</h3>';
-		$help_tab['content'] .= '<p>' . __( 'If you need to enable or disable the task lists, please click on the button below.', 'woocommerce' ) . '</p>' .
-		( $task_list_hidden
-			? '<p><a href="' . wc_admin_url( '&reset_task_list=1' ) . '" class="button button-primary">' . __( 'Enable', 'woocommerce' ) . '</a></p>'
-			: '<p><a href="' . wc_admin_url( '&reset_task_list=0' ) . '" class="button button-primary">' . __( 'Disable', 'woocommerce' ) . '</a></p>'
-		);
-
-		$help_tab['content'] .= '<h3>' . __( 'Extended task List', 'woocommerce' ) . '</h3>';
-		$help_tab['content'] .= '<p>' . __( 'If you need to enable or disable the extended task lists, please click on the button below.', 'woocommerce' ) . '</p>' .
-		( $extended_task_list_hidden
-			? '<p><a href="' . wc_admin_url( '&reset_extended_task_list=1' ) . '" class="button button-primary">' . __( 'Enable', 'woocommerce' ) . '</a></p>'
-			: '<p><a href="' . wc_admin_url( '&reset_extended_task_list=0' ) . '" class="button button-primary">' . __( 'Disable', 'woocommerce' ) . '</a></p>'
-		);
-
-		$screen->add_help_tab( $help_tab );
-	}
-
-	/**
-	 * Reset the onboarding profiler and redirect to the profiler.
-	 */
-	public static function reset_profiler() {
-		if (
-			! Loader::is_admin_page() ||
-			! isset( $_GET['reset_profiler'] ) // phpcs:ignore CSRF ok.
-		) {
-			return;
+			$help_tab['content'] .= '<h3>' . __( 'Task List', 'woocommerce' ) . '</h3>';
+			$help_tab['content'] .= '<p>' . __( 'If you need to enable or disable the task lists, please click on the button below.', 'woocommerce' ) . '</p>' .
+			( $setup_list->is_hidden()
+				? '<p><a href="' . wc_admin_url( '&reset_task_list=1' ) . '" class="button button-primary">' . __( 'Enable', 'woocommerce' ) . '</a></p>'
+				: '<p><a href="' . wc_admin_url( '&reset_task_list=0' ) . '" class="button button-primary">' . __( 'Disable', 'woocommerce' ) . '</a></p>'
+			);
 		}
 
-		$previous  = 1 === absint( $_GET['reset_profiler'] ); // phpcs:ignore CSRF ok.
-		$new_value = ! $previous;
+		if ( $extended_list ) {
+			$help_tab['content'] .= '<h3>' . __( 'Extended task List', 'woocommerce' ) . '</h3>';
+			$help_tab['content'] .= '<p>' . __( 'If you need to enable or disable the extended task lists, please click on the button below.', 'woocommerce' ) . '</p>' .
+			( $extended_list->is_hidden()
+				? '<p><a href="' . wc_admin_url( '&reset_extended_task_list=1' ) . '" class="button button-primary">' . __( 'Enable', 'woocommerce' ) . '</a></p>'
+				: '<p><a href="' . wc_admin_url( '&reset_extended_task_list=0' ) . '" class="button button-primary">' . __( 'Disable', 'woocommerce' ) . '</a></p>'
+			);
+		}
 
-		wc_admin_record_tracks_event(
-			'storeprofiler_toggled',
-			array(
-				'previous'  => $previous,
-				'new_value' => $new_value,
-			)
-		);
-
-		$request = new \WP_REST_Request( 'POST', '/wc-admin/onboarding/profile' );
-		$request->set_headers( array( 'content-type' => 'application/json' ) );
-		$request->set_body(
-			wp_json_encode(
-				array(
-					'completed' => $new_value,
-					'skipped'   => $new_value,
-				)
-			)
-		);
-		$response = rest_do_request( $request );
-		wp_safe_redirect( wc_admin_url() );
-		exit;
+		$screen->add_help_tab( $help_tab );
 	}
 
 	/**
@@ -909,15 +867,23 @@ class Onboarding {
 			return;
 		}
 
-		$task_list_hidden = 1 === absint( $_GET['reset_task_list'] ) ? 'no' : 'yes'; // phpcs:ignore CSRF ok.
-		update_option( 'woocommerce_task_list_hidden', $task_list_hidden );
+		$task_list = TaskLists::get_list( 'setup' );
 
-		wc_admin_record_tracks_event(
-			'tasklist_toggled',
-			array(
-				'status' => 'yes' === $task_list_hidden ? 'disabled' : 'enabled',
-			)
-		);
+		if ( ! $task_list ) {
+			return;
+		}
+		$show   = 1 === absint( $_GET['reset_task_list'] );
+		$update = $show ? $task_list->unhide() : $task_list->hide(); // phpcs:ignore CSRF ok.
+
+		if ( $update ) {
+			wc_admin_record_tracks_event(
+				'tasklist_toggled',
+				array(
+					'status' => $show ? 'enabled' : 'disabled',
+				)
+			);
+		}
+
 		wp_safe_redirect( wc_admin_url() );
 		exit;
 	}
@@ -933,15 +899,23 @@ class Onboarding {
 			return;
 		}
 
-		$extended_task_list_hidden = 1 === absint( $_GET['reset_extended_task_list'] ) ? 'no' : 'yes'; // phpcs:ignore CSRF ok.
-		update_option( 'woocommerce_extended_task_list_hidden', $extended_task_list_hidden );
+		$task_list = TaskLists::get_list( 'extended' );
 
-		wc_admin_record_tracks_event(
-			'extended_tasklist_toggled',
-			array(
-				'status' => 'yes' === $extended_task_list_hidden ? 'disabled' : 'enabled',
-			)
-		);
+		if ( ! $task_list ) {
+			return;
+		}
+		$show   = 1 === absint( $_GET['reset_extended_task_list'] );
+		$update = $show ? $task_list->unhide() : $task_list->hide(); // phpcs:ignore CSRF ok.
+
+		if ( $update ) {
+			wc_admin_record_tracks_event(
+				'extended_tasklist_toggled',
+				array(
+					'status' => $show ? 'disabled' : 'enabled',
+				)
+			);
+		}
+
 		wp_safe_redirect( wc_admin_url() );
 		exit;
 	}
@@ -967,8 +941,11 @@ class Onboarding {
 	 * @todo Once URL params are added to the redirect, we can check those instead of the referer.
 	 */
 	public static function redirect_wccom_install() {
+		$task_list = TaskLists::get_list( 'setup' );
+
 		if (
-			! self::should_show_tasks() ||
+			! $task_list ||
+			$task_list->is_hidden() ||
 			! isset( $_SERVER['HTTP_REFERER'] ) ||
 			0 !== strpos( $_SERVER['HTTP_REFERER'], 'https://woocommerce.com/checkout?utm_medium=product' ) // phpcs:ignore sanitization ok.
 		) {
@@ -1003,7 +980,11 @@ class Onboarding {
 		update_option( self::PROFILE_DATA_OPTION, $onboarding_data );
 
 		if ( ! WCAdminHelper::is_wc_admin_active_for( DAY_IN_SECONDS ) ) {
-			update_option( 'woocommerce_task_list_hidden', 'yes' );
+			$task_list = TaskLists::get_list( 'setup' );
+			if ( ! $task_list ) {
+				return;
+			}
+			$task_list->hide();
 		}
 	}
 
@@ -1024,5 +1005,21 @@ class Onboarding {
 			$plugins = array_unique( $plugins );
 		}
 		return $plugins;
+	}
+
+	/**
+	 * Reset MailchimpScheduler if profile data is being updated with a new email.
+	 *
+	 * @param array $existing_data Existing option data.
+	 * @param array $updating_data Updating option data.
+	 */
+	public function on_profile_data_updated( $existing_data, $updating_data ) {
+		if (
+			isset( $existing_data['store_email'] ) &&
+			isset( $updating_data['store_email'] ) &&
+			$existing_data['store_email'] !== $updating_data['store_email']
+		) {
+			MailchimpScheduler::reset();
+		}
 	}
 }
