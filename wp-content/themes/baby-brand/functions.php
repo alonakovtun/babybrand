@@ -275,3 +275,17 @@ function filter_woocommerce_add_notice ( $message ) {
     return $message;
 }
 add_filter( 'woocommerce_add_notice', 'filter_woocommerce_add_notice', 10, 1 );
+
+// remove_action( 'woocommerce_before_checkout_form', 'woocommerce_checkout_coupon_form', 10 );
+// add_action( 'woocommerce_review_order_after_cart_contents', 'woocommerce_checkout_coupon_form_custom' );
+// function woocommerce_checkout_coupon_form_custom() {
+//     echo '<tr class="coupon-form"><td colspan="2">';
+    
+//     wc_get_template(
+//         'checkout/form-coupon.php',
+//         array(
+//             'checkout' => WC()->checkout(),
+//         )
+//     );
+//     echo '</tr></td>';
+// }

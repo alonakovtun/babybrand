@@ -53,14 +53,65 @@ if (!$checkout->is_registration_enabled() && $checkout->is_registration_required
 							<?php do_action('woocommerce_checkout_after_customer_details'); ?>
 
 						<?php endif; ?>
-						<?php do_action('woocommerce_checkout_before_customer_details'); ?>
+					<div class="item-checkout__subname">billing summary</div>
+
+					<?php do_action('woocommerce_review_order_before_order_total'); ?>
+
+					<div class="item-checkout__option option-item ">
+                        <div class="option-item__name"><?php esc_html_e('item total', 'woocommerce'); ?></div>
+                        <div class="option-item__total"><?php wc_cart_totals_order_total_html(); ?></div>
+                    </div>
+
+					<?php do_action('woocommerce_review_order_after_order_total'); ?>
+
+					<?php foreach (WC()->cart->get_coupons() as $code => $coupon) : ?>
+						<tr class="cart-discount coupon-<?php echo esc_attr(sanitize_title($code)); ?>">
+							<th><?php wc_cart_totals_coupon_label($coupon); ?></th>
+							<td><?php wc_cart_totals_coupon_html($coupon); ?></td>
+						</tr>
+					<?php endforeach; ?>
+
+					<?php if (WC()->cart->needs_shipping() && WC()->cart->show_shipping()) : ?>
+					<div class="item-checkout__option option-item ">
+						<?php do_action('woocommerce_review_order_before_shipping'); ?>
+                        <!-- <div class="option-item__name">Shipping</div> -->
+                        <div class="option-item__total"><?php wc_cart_totals_shipping_html(); ?></div>
+
+						<?php do_action('woocommerce_review_order_after_shipping'); ?>
+                    </div>
+					<?php endif; ?>
+
+					<?php foreach (WC()->cart->get_fees() as $fee) : ?>
+						<tr class="fee">
+							<th><?php echo esc_html($fee->name); ?></th>
+							<td><?php wc_cart_totals_fee_html($fee); ?></td>
+						</tr>
+					<?php endforeach; ?>
+
+					<?php if (wc_tax_enabled() && !WC()->cart->display_prices_including_tax()) : ?>
+						<?php if ('itemized' === get_option('woocommerce_tax_total_display')) : ?>
+							<?php foreach (WC()->cart->get_tax_totals() as $code => $tax) : // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited 
+							?>
+								<tr class="tax-rate tax-rate-<?php echo esc_attr(sanitize_title($code)); ?>">
+									<th><?php echo esc_html($tax->label); ?></th>
+									<td><?php echo wp_kses_post($tax->formatted_amount); ?></td>
+								</tr>
+							<?php endforeach; ?>
+						<?php else : ?>
+							<tr class="tax-total">
+								<th><?php echo esc_html(WC()->countries->tax_or_vat()); ?></th>
+								<td><?php wc_cart_totals_taxes_total_html(); ?></td>
+							</tr>
+						<?php endif; ?>
+					<?php endif; ?><div><br></div>
+					<?php do_action('woocommerce_checkout_before_customer_details'); ?>
 					</form>
 				</div>
 				<?php
-					do_action('woocommerce_checkout_before_order_review');
-					do_action('woocommerce_checkout_before_order_review_heading');
-					do_action('woocommerce_checkout_order_review');
-					do_action('woocommerce_checkout_after_order_review');
+				do_action('woocommerce_checkout_before_order_review');
+				do_action('woocommerce_checkout_before_order_review_heading');
+				do_action('woocommerce_checkout_order_review');
+				do_action('woocommerce_checkout_after_order_review');
 				?>
 			</div>
 		</div>
