@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Variable product add to cart
  *
@@ -15,58 +16,60 @@
  * @version 3.5.5
  */
 
-defined( 'ABSPATH' ) || exit;
+defined('ABSPATH') || exit;
 
 global $product;
 
-$attribute_keys  = array_keys( $attributes );
-$variations_json = wp_json_encode( $available_variations );
-$variations_attr = function_exists( 'wc_esc_json' ) ? wc_esc_json( $variations_json ) : _wp_specialchars( $variations_json, ENT_QUOTES, 'UTF-8', true );
+$attribute_keys  = array_keys($attributes);
+$variations_json = wp_json_encode($available_variations);
+$variations_attr = function_exists('wc_esc_json') ? wc_esc_json($variations_json) : _wp_specialchars($variations_json, ENT_QUOTES, 'UTF-8', true);
 
-do_action( 'woocommerce_before_add_to_cart_form' ); ?>
+do_action('woocommerce_before_add_to_cart_form'); ?>
 <?php if (have_rows('color_links')) : ?>
-		<div class="item-settings">
-			<div class="item-settings__name ">Colour</div>
-			<?php while (have_rows('color_links')) : the_row(); ?>
-				<?php
-				$post_object = get_sub_field('color_product_link');
-				$color = get_sub_field('color');
+	<div class="item-settings">
+		<div class="item-settings__name ">Colour</div>
+		<?php while (have_rows('color_links')) : the_row(); ?>
+			<?php
+			$post_object = get_sub_field('color_product_link');
+			$color = get_sub_field('color');
+			?>
+			<?php if ($post_object) : ?>
+				<?php // override $post
+				$post = $post_object;
+				$permalink = get_permalink($post_object->ID);
+				setup_postdata($post);
 				?>
-				<?php if ($post_object) : ?>
-					<?php // override $post
-					$post = $post_object;
-					$permalink = get_permalink($post_object->ID);
-					setup_postdata($post);
-					?>
 
-					<div class="item-settings__variants">
-						<a class="item-settings__color" href="<?php echo esc_url($permalink); ?>">
-							<div class="color-icon" style="background-color:<?php echo $color ?> "></div>
-						</a>
-					</div>
+				<div class="item-settings__variants">
+					<a class="item-settings__color" href="<?php echo esc_url($permalink); ?>">
+						<div class="color-icon" style="background-color:<?php echo $color ?> "></div>
+					</a>
+				</div>
 
 
-					<?php wp_reset_postdata();
-					?>
-				<?php endif; ?>
+				<?php wp_reset_postdata();
+				?>
+			<?php endif; ?>
 
-			<?php endwhile; ?>
-		</div>
-	<?php endif; ?>
+		<?php endwhile; ?>
+	</div>
+<?php endif; ?>
 <div class="">
-<form class="variations_form cart" action="<?php echo esc_url( apply_filters( 'woocommerce_add_to_cart_form_action', $product->get_permalink() ) ); ?>" method="post" enctype='multipart/form-data' data-product_id="<?php echo absint( $product->get_id() ); ?>" data-product_variations="<?php echo $variations_attr; // WPCS: XSS ok. ?>">
-	<?php do_action( 'woocommerce_before_variations_form' ); ?>
+	<form class="variations_form cart" action="<?php echo esc_url(apply_filters('woocommerce_add_to_cart_form_action', $product->get_permalink())); ?>" method="post" enctype='multipart/form-data' data-product_id="<?php echo absint($product->get_id()); ?>" data-product_variations="<?php echo $variations_attr; // WPCS: XSS ok. 
+																																																																								?>">
+		<?php do_action('woocommerce_before_variations_form'); ?>
 
-	<?php if ( empty( $available_variations ) && false !== $available_variations ) : ?>
-		<p class="stock out-of-stock"><?php echo esc_html( apply_filters( 'woocommerce_out_of_stock_message', __( 'This product is currently out of stock and unavailable.', 'woocommerce' ) ) ); ?></p>
-	<?php else : ?>
-		<table class="variations" cellspacing="0">
-			<tbody>
-				<?php foreach ( $attributes as $attribute_name => $options ) : ?>
-					<tr class="<?php echo esc_attr( sanitize_title( $attribute_name ) ); ?>">
-						<td class="label"><label for="<?php echo esc_attr( sanitize_title( $attribute_name ) ); ?>"><?php echo wc_attribute_label( $attribute_name ); // WPCS: XSS ok. ?></label></td>
-						<td class="value">
-							<?php
+		<?php if (empty($available_variations) && false !== $available_variations) : ?>
+			<p class="stock out-of-stock"><?php echo esc_html(apply_filters('woocommerce_out_of_stock_message', __('This product is currently out of stock and unavailable.', 'woocommerce'))); ?></p>
+		<?php else : ?>
+			<table class="variations" cellspacing="0">
+				<tbody>
+					<?php foreach ($attributes as $attribute_name => $options) : ?>
+						<tr class="<?php echo esc_attr(sanitize_title($attribute_name)); ?>">
+							<td class="label"><label for="<?php echo esc_attr(sanitize_title($attribute_name)); ?>"><?php echo wc_attribute_label($attribute_name); // WPCS: XSS ok. 
+																														?></label></td>
+							<td class="value">
+								<?php
 								wc_dropdown_variation_attribute_options(
 									array(
 										'options'   => $options,
@@ -74,20 +77,20 @@ do_action( 'woocommerce_before_add_to_cart_form' ); ?>
 										'product'   => $product,
 									)
 								);
-								echo end( $attribute_keys ) === $attribute_name ? wp_kses_post( apply_filters( 'woocommerce_reset_variations_link', '<a class="reset_variations" href="#">' . esc_html__( 'Clear', 'woocommerce' ) . '</a>' ) ) : '';
-							?>
-						</td>
-					</tr>
-				<?php endforeach; ?>
-			</tbody>
-		</table>
+								echo end($attribute_keys) === $attribute_name ? wp_kses_post(apply_filters('woocommerce_reset_variations_link', '<a class="reset_variations" href="#">' . esc_html__('Clear', 'woocommerce') . '</a>')) : '';
+								?>
+							</td>
+						</tr>
+					<?php endforeach; ?>
+				</tbody>
+			</table>
 
-		<div class="single_variation_wrap">
-			<?php
+			<div class="single_variation_wrap">
+				<?php
 				/**
 				 * Hook: woocommerce_before_single_variation.
 				 */
-				do_action( 'woocommerce_before_single_variation' );
+				do_action('woocommerce_before_single_variation');
 
 				/**
 				 * Hook: woocommerce_single_variation. Used to output the cart button and placeholder for variation data.
@@ -96,18 +99,48 @@ do_action( 'woocommerce_before_add_to_cart_form' ); ?>
 				 * @hooked woocommerce_single_variation - 10 Empty div for variation data.
 				 * @hooked woocommerce_single_variation_add_to_cart_button - 20 Qty and cart button.
 				 */
-				do_action( 'woocommerce_single_variation' );
+				do_action('woocommerce_single_variation');
 
 				/**
 				 * Hook: woocommerce_after_single_variation.
 				 */
-				do_action( 'woocommerce_after_single_variation' );
-			?>
-		</div>
-	<?php endif; ?>
+				do_action('woocommerce_after_single_variation');
+				?>
+			</div>
+		<?php endif; ?>
 
-	<?php do_action( 'woocommerce_after_variations_form' ); ?>
-</form>
+		<?php do_action('woocommerce_after_variations_form'); ?>
+	</form>
 </div>
+
+<div class="item-bottom">
+		<div class="item-bottom__list">
+			<div class="item-bottom__link" href="">Size guide</div>
+			<?php get_field('size_guide_product'); ?>
+		</div>
+
+		<div class="item-bottom__list">
+			<div class="item-bottom__link" href="">Shipping info</div>
+			<p class="item-bottom__text">Thisss basic cardigan is a perfect easy-going outer
+				layer.
+				Crafted rom an ultra cosy thin cotton fleece, with an incredible soft touch -
+				the
+				softest possible fabric for your childs delicate skin. Opens fully with small
+				snaps.
+				The most simple design in basic colors.</p>
+		</div>
+		<div class="item-bottom__list">
+			<div class="item-bottom__link" href="">Exchange & Returns
+				Policy</div>
+			<p class="item-bottom__text">This basic cardigan is a perfect easy-going outer
+				layer.
+				Crafted rom an ultra cosy thin cotton fleece, with an incredible soft touch -
+				the
+				softest possible fabric for your childs delicate skin. Opens fully with small
+				snaps.
+				The most simple design in basic colors.</p>
+		</div>
+
+	</div>
 <?php
-do_action( 'woocommerce_after_add_to_cart_form' );
+do_action('woocommerce_after_add_to_cart_form');

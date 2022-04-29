@@ -105,35 +105,17 @@ if ($product->is_in_stock()) : ?>
 	<div class="item-bottom">
 		<div class="item-bottom__list">
 			<div class="item-bottom__link" href="">Size guide</div>
-			<p class="item-bottom__text">This basic cardigan is a perfect easy-going outer
-				layer.
-				Crafted rom an ultra cosy thin cotton fleece, with an incredible soft touch -
-				the
-				softest possible fabric for your childs delicate skin. Opens fully with small
-				snaps.
-				The most simple design in basic colors.</p>
+			<div class="item-bottom__text"> <?php the_field('size_guide_product'); ?> </div>
 		</div>
 
 		<div class="item-bottom__list">
 			<div class="item-bottom__link" href="">Shipping info</div>
-			<p class="item-bottom__text">Thisss basic cardigan is a perfect easy-going outer
-				layer.
-				Crafted rom an ultra cosy thin cotton fleece, with an incredible soft touch -
-				the
-				softest possible fabric for your childs delicate skin. Opens fully with small
-				snaps.
-				The most simple design in basic colors.</p>
+			<div class="item-bottom__text"><?php the_field('shipping_info_product'); ?></div>
 		</div>
 		<div class="item-bottom__list">
 			<div class="item-bottom__link" href="">Exchange & Returns
 				Policy</div>
-			<p class="item-bottom__text">This basic cardigan is a perfect easy-going outer
-				layer.
-				Crafted rom an ultra cosy thin cotton fleece, with an incredible soft touch -
-				the
-				softest possible fabric for your childs delicate skin. Opens fully with small
-				snaps.
-				The most simple design in basic colors.</p>
+			<div class="item-bottom__text"><?php the_field('exchange_returns_policy_product'); ?></div>
 		</div>
 
 	</div>
