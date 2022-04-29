@@ -53,11 +53,9 @@ do_action( 'woocommerce_before_main_content' );
 
 <div class="filters-popup filter-row-popup">
 			<?php dynamic_sidebar('filters-sidebar'); ?>
-			test
 		</div>
 		<div class="filters-popup filter-row-popup">
 			<?php dynamic_sidebar('filters-sidebar2'); ?>
-			test
 		</div>
 <?php
 if ( woocommerce_product_loop() ) {

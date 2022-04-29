@@ -164,7 +164,10 @@ $product_categories = get_categories(array(
                         <? else : ?>
                             <li class="header-list__item"><a class="link" href="/my-account/">Account</a></li>
                         <? endif; ?>
-                        <li class="header-list__item"><a class="link mini-cart-trigger">Cart</a>
+                        <li class="header-list__item"><a class="link mini-cart-trigger">Cart
+                        <span class="count"><?php echo WC()->cart->get_cart_contents_count() === 0 ? '' :  WC()->cart->get_cart_contents_count()  ?></span>
+
+                        </a>
 
                             <div class="stories__block header-block">
                                 <div class="header-block__container container">

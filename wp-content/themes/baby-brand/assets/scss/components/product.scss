@@ -229,6 +229,8 @@
 }
 
 .main-column__body {
+    position: fixed;
+    top: 0;
     padding-top: 206px;
     max-width: rem(601);
     margin-top: rem(-25);
@@ -326,4 +328,22 @@
         position: absolute;
         text-transform: none;
     }
+}
+
+.button-variable-item{
+    box-shadow: none!important;
+
+    &.selected{
+        box-shadow: none!important;
+        text-decoration: underline!important;
+    }
+}
+
+.reset_variations, .woo-selected-variation-item-name{
+    display: none!important;
+}
+
+.pa_size{
+    display: flex;
+    align-items: baseline;
 }
