@@ -265,3 +265,13 @@ function cart_empty_redirect_to_shop()
 }
 add_action( 'template_redirect', 'cart_empty_redirect_to_shop' );
 add_filter('woocommerce_cart_item_removed_notice_type', '__return_null');
+function filter_woocommerce_add_notice ( $message ) {
+    // Equal to (Must be exactly the same).
+    // If the message is displayed in another language, adjust where necessary!
+    if ( $message == 'Checkout is not available whilst your basket is empty.' ) {
+        return false;
+    }   
+    
+    return $message;
+}
+add_filter( 'woocommerce_add_notice', 'filter_woocommerce_add_notice', 10, 1 );
