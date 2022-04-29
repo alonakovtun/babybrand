@@ -63,7 +63,16 @@ if (!function_exists('baby_setup')) :
         register_sidebar(array(
             'name'          => __('Filters sidebar', 'shop'),
             'id'            => 'filters-sidebar',
-            'before_widget' => '<aside id="%1$s" class="ak-filter-widget %2$s">',
+            'before_widget' => '<aside id="%1$s" class="filter-widget %2$s">',
+            'after_widget'  => '</aside>',
+            'before_title'  => '<p class="widget-title">',
+            'after_title'   => '</p>',
+        ));
+
+        register_sidebar(array(
+            'name'          => __('Filters sidebar2', 'shop'),
+            'id'            => 'filters-sidebar2',
+            'before_widget' => '<aside id="%1$s" class="filter-widget %2$s">',
             'after_widget'  => '</aside>',
             'before_title'  => '<p class="widget-title">',
             'after_title'   => '</p>',

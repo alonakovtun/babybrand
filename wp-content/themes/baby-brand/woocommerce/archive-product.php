@@ -47,8 +47,16 @@ do_action( 'woocommerce_before_main_content' );
 	?>
 </header>
 
-<div class="ak-filters-popup filter-row-popup">
+<div id="filter-toggle-btn" class="filters_title link">
+	<? _e( 'Filters', 'shop' )?>
+</div>
+
+<div class="filters-popup filter-row-popup">
 			<?php dynamic_sidebar('filters-sidebar'); ?>
+			test
+		</div>
+		<div class="filters-popup filter-row-popup">
+			<?php dynamic_sidebar('filters-sidebar2'); ?>
 			test
 		</div>
 <?php
