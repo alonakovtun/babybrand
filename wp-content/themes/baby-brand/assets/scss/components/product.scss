@@ -204,18 +204,28 @@
     &__list {
         margin-right: rem(55);
 
-        &:hover p {
-            display: block;
+        &:hover{
+            cursor: pointer;
+            .item-bottom__text{
+                opacity: 1;
+                visibility: visible;
+            }
+            
         }
     }
 
     &__text {
-        display: none;
+        opacity: 0;
+        visibility: hidden;
         position: absolute;
         left: 0;
         top: 0;
         width: 100%;
-        padding: rem(30) 0 rem(30) 0;
+        margin: rem(30) 0 rem(30) 0;
+
+        font-weight: 300;
+
+        transition: all 0.4s;
     }
 
     &__link {
