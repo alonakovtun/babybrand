@@ -53,8 +53,8 @@ if ( ! is_ajax() ) {
 				<?php echo apply_filters( 'woocommerce_order_button_html', '<button type="submit" disabled class="button alt item-checkout__button" name="woocommerce_checkout_place_order" id="place_order" value="' . esc_attr( $order_button_text ) . '" data-value="' . esc_attr( $order_button_text ) . '">' . esc_html( $order_button_text ) . '</button>' ); // @codingStandardsIgnoreLine ?>
 			</div>
 			<div class="item-checkout__radiobtns">
-				<input class="item-checkout__radio notactive" onchange="jQuery('#place_order').removeAttr('disabled')" id="checkoutradio" type="radio" name="" value="">
-				<label class="item-checkout__radiotext notactive" for="checkoutradio">By proceeding I
+				<input class="item-checkout__radio" onchange="jQuery('#place_order').removeAttr('disabled')" id="checkoutradio" type="radio" name="" value="">
+				<label class="item-checkout__radiotext" for="checkoutradio">By proceeding I
 					accept
 					the
 					Terms &

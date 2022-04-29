@@ -290,26 +290,6 @@ figure {
   padding-left: 33px;
 }
 
-.item-checkout__form.mistakeform {
-  border-bottom: none;
-}
-
-.item-checkout__form.mistakeform input {
-
-  position: relative;
-  width: 100%;
-  border-bottom: 1px solid #939598;
-  margin-bottom: 4.375rem;
-  padding: 1.375rem 0;
-  color: #939598;
-  outline: none;
-}
-
-.item-checkout__form.mistakeform input {
-  border-bottom: 1px solid #f80606;
-  color: red;
-}
-
 .shop-list {
 
   &.hover {
@@ -475,6 +455,13 @@ input:focus {
   right: 31px;
 
   cursor: pointer;
+}
 
+.select2-container--default .select2-selection--single{
+  border: none;
+}
 
+.select2-container .select2-selection--single .select2-selection__rendered{
+  padding-left: 0;
+  text-transform: uppercase;
 }

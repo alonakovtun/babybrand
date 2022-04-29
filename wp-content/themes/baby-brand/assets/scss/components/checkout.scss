@@ -6,9 +6,11 @@
 .checkout {
     position: relative;
     z-index: 1;
+
     &__body {
         @include dflex (flex-start, wrap, flex-start);
     }
+
     &__column {
         flex: 1 1 33.333%;
         margin-right: rem(200);
@@ -16,6 +18,7 @@
         .card-body__row {
             flex: 1 1 50%;
             display: flex;
+
             &.q {
                 align-items: end;
             }
@@ -35,18 +38,83 @@
         font-weight: 300;
         line-height: rem(15);
         cursor: pointer;
-        &:hover{
+
+        &:hover {
             text-decoration: underline;
         }
     }
 }
 
+.woocommerce-checkout {
+    .woocommerce-error {
+        display: none;
+    }
+}
+
+
 .item-checkout {
-    &__radiobtns{
+    &__radiobtns {
         display: flex;
         align-items: flex-start;
+        margin-bottom: 174px;
+
+        [type="radio"]:checked,
+        [type="radio"]:not(:checked) {
+            position: absolute;
+            left: -9999px;
+        }
+
+        [type="radio"]:checked+label,
+        [type="radio"]:not(:checked)+label {
+            position: relative;
+            padding-left: 28px;
+            cursor: pointer;
+            line-height: 20px;
+            display: inline-block;
+        }
+
+        [type="radio"]:checked+label:before,
+        [type="radio"]:not(:checked)+label:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 16px;
+            height: 16px;
+            border: 1px solid #000;
+            background: #fff;
+            border-radius: 50%;
+        }
+
+        [type="radio"]:checked+label:after,
+        [type="radio"]:not(:checked)+label:after {
+            content: '';
+            width: 6px;
+            height: 6px;
+            background: #000;
+            position: absolute;
+            border-radius: 50%;
+            top: 6px;
+            left: 6px;
+            -webkit-transition: all 0.2s ease;
+            -o-transition: all 0.2s ease;
+            transition: all 0.2s ease;
+        }
+
+        [type="radio"]:not(:checked)+label:after {
+            opacity: 0;
+            -webkit-transform: scale(0);
+            transform: scale(0);
+        }
+
+        [type="radio"]:checked+label:after {
+            opacity: 1;
+            -webkit-transform: scale(1);
+            transform: scale(1);
+        }
     }
-    &__formtext{
+
+    &__formtext {
         position: absolute;
         top: 50%;
         right: 0;
@@ -54,6 +122,7 @@
         text-transform: uppercase;
         opacity: 0.7;
     }
+
     &__form {
         position: relative;
         width: 100%;
@@ -62,10 +131,22 @@
         padding: rem(22) 0;
         color: #939598;
 
-        &.mistakeform{
+        &.woocommerce-invalid-required-field {
             border-bottom: 1px solid #f80606;
-           
-            color: red;
+
+            &:after {
+                content: "this field is required";
+                position: absolute;
+                right: 0;
+                color: red;
+                text-transform: uppercase;
+            }
+
+            input {
+                &::placeholder {
+                    color: red;
+                }
+            }
         }
 
     }
@@ -100,9 +181,10 @@
         margin-bottom: rem(173);
         transform: translateY(20%);
         width: rem(16);
-        height: rem(17);   
-        &.notactive{
-            color: red;
+        height: rem(17);
+
+        &:checked+label {
+            color: #000;
         }
 
         label {
@@ -115,13 +197,13 @@
         }
     }
 
-    &__radiotext{
-        transform:translateY(4%);
-        &.notactive{
-            color: red;
-        }
+    &__radiotext {
+        transform: translateY(4%);
+        color: red;
+
     }
-    &__buttons{
+
+    &__buttons {
         display: flex;
         justify-content: space-between;
     }
@@ -143,10 +225,12 @@
         line-height: rem(19.43);
         text-transform: uppercase;
         cursor: pointer;
-        &:last-child{
+
+        &:last-child {
             margin-right: 0;
         }
-        &.active{
+
+        &.active {
             display: none;
         }
     }
@@ -154,11 +238,12 @@
 
 
 .item-login {
-    
+
     &__email {
-        
+
         text-transform: uppercase;
-        &.mistakeform{ 
+
+        &.mistakeform {
             color: red;
         }
     }
@@ -208,7 +293,8 @@
         top: 50%;
         right: 0;
         transform: translateY(-50%);
-        &.red{
+
+        &.red {
             color: red;
         }
 
@@ -227,12 +313,13 @@
     margin: 0 rem(30) rem(50) 0;
     @include dflex (center, wrap, center);
     width: 100%;
-    max-width: rem(270);  
+    max-width: rem(270);
     height: rem(360);
     border: 1px solid #000000;
     opacity: 0.5;
-    img{
-        width:100%;
+
+    img {
+        width: 100%;
         max-width: rem(170);
         height: auto;
     }
