@@ -276,16 +276,64 @@ function filter_woocommerce_add_notice ( $message ) {
 }
 add_filter( 'woocommerce_add_notice', 'filter_woocommerce_add_notice', 10, 1 );
 
-// remove_action( 'woocommerce_before_checkout_form', 'woocommerce_checkout_coupon_form', 10 );
-// add_action( 'woocommerce_review_order_after_cart_contents', 'woocommerce_checkout_coupon_form_custom' );
-// function woocommerce_checkout_coupon_form_custom() {
-//     echo '<tr class="coupon-form"><td colspan="2">';
-    
-//     wc_get_template(
-//         'checkout/form-coupon.php',
-//         array(
-//             'checkout' => WC()->checkout(),
-//         )
-//     );
-//     echo '</tr></td>';
-// }
+// Just hide default woocommerce coupon field
+add_action( 'woocommerce_before_checkout_form', 'hide_checkout_coupon_form', 5 );
+function hide_checkout_coupon_form() {
+    echo '<style>.woocommerce-form-coupon-toggle {display:none;}</style>';
+}
+
+
+// Add a custom coupon field before checkout payment section
+add_action( 'woocommerce_review_order_before_payment', 'woocommerce_checkout_coupon_form_custom' );
+function woocommerce_checkout_coupon_form_custom() {
+    echo '<div class="checkout-coupon-toggle item-checkout__option option-item">
+	<div class="woocommerce-info option-item__name">';
+		wc_print_notice( apply_filters( 'woocommerce_checkout_coupon_message', ' <a href="#" class="show-coupon">' . esc_html__( 'want to use gift card or coupon code', 'woocommerce' ) . '</a>' ), 'notice' ); 
+	echo '</div><div class="option-item__plus">+</div></div>';
+
+
+
+    echo '<div class="coupon-form" style="margin-bottom:20px;" style="display:none !important;">
+        <p class="form-row form-row-first woocommerce-validated">
+            <input type="text" name="coupon_code" class="input-text item-login__email item-checkout__form" placeholder="' . __("Coupon code") . '" id="coupon_code" value="">
+        </p>
+        <p class="form-row form-row-last">
+<div class="item-checkout__buttons">
+            <button type="button" class="button item-checkout__button" name="apply_coupon" value="' . __("Apply coupon") . '">' . __("Apply coupon") . '</button>
+</div>
+        </p>
+        <div class="clear"></div>
+    </div>';
+}
+
+// jQuery code
+add_action( 'wp_footer', 'custom_checkout_jquery_script' );
+function custom_checkout_jquery_script() {
+    if ( is_checkout() && ! is_wc_endpoint_url() ) :
+    ?>
+    <script type="text/javascript">
+    jQuery( function($){
+        $('.coupon-form').css("display", "none"); // Be sure coupon field is hidden
+        
+        // Show or Hide coupon field
+        $('.checkout-coupon-toggle .show-coupon').on( 'click', function(e){
+            $('.coupon-form').slideToggle("slow", "linear");
+            e.preventDefault();
+        })
+        
+        // Copy the inputed coupon code to WooCommerce hidden default coupon field
+        $('.coupon-form input[name="coupon_code"]').on( 'input change', function(){
+            $('form.checkout_coupon input[name="coupon_code"]').val($(this).val());
+            // console.log($(this).val()); // Uncomment for testing
+        });
+        
+        // On button click, submit WooCommerce hidden default coupon form
+        $('.coupon-form button[name="apply_coupon"]').on( 'click', function(){
+            $('form.checkout_coupon').submit();
+            // console.log('click: submit form'); // Uncomment for testing
+        });
+    });
+    </script>
+    <?php
+    endif;
+}
