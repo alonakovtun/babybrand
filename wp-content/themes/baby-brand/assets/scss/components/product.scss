@@ -85,7 +85,7 @@
     &__price {
         color: #070707;
         font-family: Lato;
-        font-size: rem(16);
+        font-size: 12px;
         font-weight: 300;
         font-style: normal;
         letter-spacing: normal;
@@ -98,22 +98,55 @@
     &__text {
         color: #000000;
         font-family: Lato;
-        font-size: rem(16);
+        font-size: 12px;
         font-weight: 300;
         margin-bottom: 60px;
         text-align: left;
     }
 }
 
+.variations_form{
+    .variations{
+        margin-bottom: 36px;
+    }
+   
+    .label{
+        margin-right: 77px;
+        position: relative;
+        z-index: 20;
+        text-decoration: none;
+        color: #000000;
+        font-family: Lato;
+        font-size: 12px;
+        font-weight: 300;
+        -webkit-transition: all 0.3s;
+        -o-transition: all 0.3s;
+        transition: all 0.3s;
+    }
+
+    .quantity{
+        .qty{
+            margin-right: 0
+        }
+
+        .item-settings__name{
+            margin-right: 63px;
+        }
+    }
+}
+
 .item-settings {
     @include dflex(center, wrap, space);
-    margin-bottom: rem(40);
+    margin-bottom: 36px;
 
     &:last-child {
         margin: 0;
     }
 
     &__name {
+        &.link{
+            text-transform: none;
+        }
         &.notactive {
             color: red;
         }
@@ -416,5 +449,9 @@
     right: 31px;
   
     cursor: pointer;
+  }
+
+  .wvs-has-image-tooltip:hover:after, .wvs-has-image-tooltip:hover:before, [data-wvstooltip]:hover:after, [data-wvstooltip]:hover:before{
+      visibility: hidden !important;;
   }
   
