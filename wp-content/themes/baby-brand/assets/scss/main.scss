@@ -384,6 +384,12 @@ input:focus {
   letter-spacing: normal;
   text-align: left;
   margin-bottom: 29px;
+
+  transition: all 0.3s;
+
+  &:hover{
+    text-decoration: underline;
+  }
 }
 
 .prev_next_buttons a[rel="prev"],

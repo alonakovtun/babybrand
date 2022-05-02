@@ -198,6 +198,14 @@
     border: 1px solid #000000;
     background-color: #ffffff;
     padding: 1rem 3rem 2rem;
+    transition: all .3s;
+
+    &:hover{
+        background-color: #000;
+        .item-cart__text {
+            color: #ffffff;
+        }
+    }
 
     &.notactive {
         border: 1px solid red;
@@ -217,7 +225,11 @@
         line-height: rem(26.97);
         text-transform: uppercase;
         cursor: pointer;
-        transition: 0.5s;
+        transition: all .3s;
+
+    &:hover{
+        color: #fff;
+    }
 
         &.notactive {
             color: red;

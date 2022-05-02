@@ -107,10 +107,26 @@ $product_categories = get_categories(array(
                                 <div class="header-block__container container">
                                     <div class="search__body">
                                         <?php get_product_search_form() ?>
-                                        <span class="header-block__text">suggestions:</span>
+                                        <? if (have_rows('search_suggestions_items', 'option')) : ?>
+                                                <span class="header-block__text"><? _e('suggestions', 'anomeo'); ?>:</span>
+
+                                               
+                                                    <?php while (have_rows('search_suggestions_items', 'option')) : the_row();
+                                                        $link = get_sub_field('link');
+                                                        if ($link) :
+                                                            $link_url = $link['url'];
+                                                            $link_title = $link['title'];
+                                                    ?>
+                                                            <span class="header-block__text">
+                                                                <a  href="<?= $link_url; ?>"><?= $link_title; ?></a>
+                                                            </span>
+                                                        <? endif; ?>
+                                                    <?php endwhile; ?>
+                                        <? endif; ?>
+                                        <!-- <span class="header-block__text">suggestions:</span>
                                         <span class="header-block__text">white</span>
                                         <span class="header-block__text">grey</span>
-                                        <span class="header-block__text">pants</span>
+                                        <span class="header-block__text">pants</span> -->
                                     </div>
                                 </div>
                             </div>
@@ -157,17 +173,17 @@ $product_categories = get_categories(array(
                         </li>
                         <? if (!is_user_logged_in()) : ?>
                             <li class="header-list__item"><a class="link">Account</a>
-                                <div class="stories__block header-block">  
-                                    <? include get_template_directory() . '/template-parts/login.php'; ?>  
+                                <div class="stories__block header-block">
+                                    <? include get_template_directory() . '/template-parts/login.php'; ?>
                                 </div>
                             </li>
                         <? else : ?>
                             <li class="header-list__item"><a class="link" href="/my-account/">Account</a></li>
                         <? endif; ?>
                         <li class="header-list__item"><a class="link mini-cart-trigger">Cart
-                        <span class="count"><?php echo WC()->cart->get_cart_contents_count() === 0 ? '' :  WC()->cart->get_cart_contents_count()  ?></span>
+                                <span class="count"><?php echo WC()->cart->get_cart_contents_count() === 0 ? '' :  WC()->cart->get_cart_contents_count()  ?></span>
 
-                        </a>
+                            </a>
 
                             <div class="stories__block header-block">
                                 <div class="header-block__container container">

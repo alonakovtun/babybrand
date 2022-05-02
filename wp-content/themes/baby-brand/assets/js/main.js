@@ -64,4 +64,12 @@ jQuery( ".item-bottom__link" ).hover(
 	}
   );
 
+  jQuery( ".item-cart" ).hover(
+	function() {
+	  jQuery('.add_to_wishlist img').attr('src', '/wp-content/themes/baby-brand/assets/img/white-heart.png');
+	}, function() {
+        jQuery('.add_to_wishlist img').attr('src', '/wp-content/uploads/2022/04/producticon.png');
+	}
+  );
+
 export default miniCart;

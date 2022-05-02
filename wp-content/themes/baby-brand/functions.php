@@ -337,3 +337,9 @@ function custom_checkout_jquery_script() {
     <?php
     endif;
 }
+
+if( function_exists('acf_add_options_page') ) {
+	
+	acf_add_options_page();
+	
+}
