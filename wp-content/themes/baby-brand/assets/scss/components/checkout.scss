@@ -170,7 +170,7 @@
 
     &__subname {
         margin-top: rem(100);
-        margin-bottom: rem(50);
+        margin-bottom: 52px;
         color: #010101;
         font-family: Lato;
         font-size: rem(16);
@@ -252,16 +252,24 @@
     }
 }
 
+.ch_total{
+    margin-top: 84px;
+}
+
+#payment {
+    margin-top: 47px;
+}
+
 .option-item {
     @include dflex(center, wrap, flex-start);
-    margin-bottom: rem(55);
+    margin-bottom: 52px;
 
     &__name {
         color: #282828;
         opacity: 0.5;
         font-family: Lato;
         text-transform: uppercase;
-        margin-bottom: rem(50);
+        // margin-bottom: rem(50);
     }
 
     &__plus {
@@ -286,6 +294,9 @@
         font-weight: 400;
         letter-spacing: rem(0.39);
         line-height: rem(33);
+        strong {
+            font-weight: 400!important;
+        }
     }
 
     &__icon {}
