@@ -27,7 +27,7 @@ $variations_attr = function_exists('wc_esc_json') ? wc_esc_json($variations_json
 do_action('woocommerce_before_add_to_cart_form'); ?>
 <?php if (have_rows('color_links')) : ?>
 	<div class="item-settings">
-		<div class="item-settings__name ">Colour</div>
+		<div class="item-settings__name link">Colour</div>
 		<?php while (have_rows('color_links')) : the_row(); ?>
 			<?php
 			$post_object = get_sub_field('color_product_link');
