@@ -333,7 +333,20 @@ function custom_checkout_jquery_script() {
             // console.log('click: submit form'); // Uncomment for testing
         });
     });
+    jQuery( document.body ).on( 'applied_coupon_in_checkout removed_coupon_in_checkout', function () {
+        location.reload();
+    } );
     </script>
     <?php
     endif;
+}
+
+add_filter( 'woocommerce_cart_totals_coupon_html', 'custom_cart_totals_coupon_html', 30, 3 );
+function custom_cart_totals_coupon_html( $coupon_html, $coupon, $discount_amount_html ) {
+        $discount_amount_html = '<span>' . $coupon->get_amount() . get_woocommerce_currency_symbol() . '  </span>';
+
+        $coupon_html          = $discount_amount_html . ' <a href="' . esc_url( add_query_arg( 'remove_coupon', urlencode( $coupon->get_code() ), defined( 'WOOCOMMERCE_CHECKOUT' ) ? wc_get_checkout_url() : wc_get_cart_url() ) ) . '" class="woocommerce-remove-coupon" data-coupon="' . esc_attr( $coupon->get_code() ) . '">' . __( '[Remove]', 'woocommerce' ) . '</a>';
+    
+
+    return $coupon_html;
 }

@@ -62,10 +62,10 @@ if (!$checkout->is_registration_enabled() && $checkout->is_registration_required
                     </div>
 
 					<?php foreach (WC()->cart->get_coupons() as $code => $coupon) : ?>
-						<tr class="cart-discount coupon-<?php echo esc_attr(sanitize_title($code)); ?>">
-							<th><?php wc_cart_totals_coupon_label($coupon); ?></th>
-							<td><?php wc_cart_totals_coupon_html($coupon); ?></td>
-						</tr>
+						<div class="item-checkout__option option-item ">
+							<div class="option-item__name"><?php wc_cart_totals_coupon_label($coupon); ?></div>
+							<div class="option-item__total"><?php wc_cart_totals_coupon_html($coupon); ?></div>
+						</div>
 					<?php endforeach; ?>
 
 					<?php if (WC()->cart->needs_shipping() && WC()->cart->show_shipping()) : ?>
