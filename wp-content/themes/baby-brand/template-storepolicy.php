@@ -4,7 +4,7 @@ get_header();
 
 <main class="main">
             <div class="policy">
-                <div class="policy__container container">
+                <div class="policy__container container link">
                     <div class="policy__body">
                         <div class="policy__column">
                             <h4 class="policy__title"><?php the_field('caption1') ?></h4>
