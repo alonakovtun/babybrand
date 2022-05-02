@@ -17,9 +17,6 @@
 
 defined( 'ABSPATH' ) || exit;
 
-if ( ! is_ajax() ) {
-	do_action( 'woocommerce_review_order_before_payment' );
-}
 ?>
 <div id="payment" class="woocommerce-checkout-payment">
 	<div class="item-checkout__subname">payment method</div>
@@ -66,7 +63,3 @@ if ( ! is_ajax() ) {
 			<?php wp_nonce_field( 'woocommerce-process_checkout', 'woocommerce-process-checkout-nonce' ); ?>
 		</div>
 </div>
-<?php
-if ( ! is_ajax() ) {
-	do_action( 'woocommerce_review_order_after_payment' );
-}

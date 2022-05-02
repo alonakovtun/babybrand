@@ -20,7 +20,7 @@ if (!defined('ABSPATH')) {
 	exit;
 }
 
-// do_action('woocommerce_before_checkout_form', $checkout);
+do_action('woocommerce_before_checkout_form', $checkout);
 
 // If checkout registration is disabled and not logged in, the user cannot checkout.
 if (!$checkout->is_registration_enabled() && $checkout->is_registration_required() && !is_user_logged_in()) {
@@ -54,7 +54,7 @@ if (!$checkout->is_registration_enabled() && $checkout->is_registration_required
 
 						<?php endif; ?>
 					<div class="item-checkout__subname">billing summary</div>
-
+					<?php do_action('woocommerce_review_order_before_payment') ?>
 					<?php do_action('woocommerce_review_order_before_order_total'); ?>
 
 					<div class="item-checkout__option option-item ">
@@ -74,7 +74,7 @@ if (!$checkout->is_registration_enabled() && $checkout->is_registration_required
 					<?php if (WC()->cart->needs_shipping() && WC()->cart->show_shipping()) : ?>
 					<div class="item-checkout__option option-item ">
 						<?php do_action('woocommerce_review_order_before_shipping'); ?>
-                        <!-- <div class="option-item__name">Shipping</div> -->
+                        <div class="option-item__name"></div>
                         <div class="option-item__total"><?php wc_cart_totals_shipping_html(); ?></div>
 
 						<?php do_action('woocommerce_review_order_after_shipping'); ?>
@@ -103,7 +103,7 @@ if (!$checkout->is_registration_enabled() && $checkout->is_registration_required
 								<td><?php wc_cart_totals_taxes_total_html(); ?></td>
 							</tr>
 						<?php endif; ?>
-					<?php endif; ?><div><br></div>
+					<?php endif; ?>
 					<?php do_action('woocommerce_checkout_before_customer_details'); ?>
 					</form>
 				</div>
