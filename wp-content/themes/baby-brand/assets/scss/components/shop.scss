@@ -14,7 +14,7 @@
       margin-top: rem(120);
       padding-bottom: rem(41);
 
-      
+
 
       &__container {}
 
@@ -42,10 +42,11 @@
       width: 100%;
       height: 0;
       display: none;
-      &.active{
+
+      &.active {
             transition: all 0.3s;
             display: none;
-            height: auto; 
+            height: auto;
       }
 
       &__column {
@@ -65,17 +66,18 @@
       &__body {
             position: relative;
             @include dflex(flex-start, wrap, flex-start);
-            margin-bottom:rem(70) ;           
+            margin-bottom: rem(70);
       }
 
-      &__item {   
+      &__item {
             margin-right: rem(20);
             font-family: Lato;
             font-size: rem(16);
             font-weight: 300;
             text-decoration: none;
             cursor: pointer;
-            &--3{
+
+            &--3 {
                   flex: 0 0 33.333%;
                   margin-bottom: rem(20);
                   font-family: Lato;
@@ -85,7 +87,8 @@
                   cursor: pointer;
             }
       }
-      &__clear{
+
+      &__clear {
             position: absolute;
             top: 0;
             right: 0;
@@ -94,7 +97,8 @@
             font-weight: 300;
             text-decoration: none;
             cursor: pointer;
-            &:hover{
+
+            &:hover {
                   text-decoration: underline;
             }
       }
@@ -103,6 +107,7 @@
 
 .products {
       margin-bottom: rem(165);
+
       &__body {
             @include dflex(center, wrap, space-between);
       }
@@ -115,29 +120,29 @@
 }
 
 .item-column {
-       
-      &__heart{
+
+      &__heart {
             font-size: rem(24);
 
-            &.fa-heart:before{
-                  
-            }     
+            &.fa-heart:before {}
       }
 
 
       &__img {
-           img{
-                 display: block;
-                 height: auto;
-                 max-height: 430px;
-                 width: 100%;   
-                 object-fit: cover;   
-                 @media only screen and (min-width: 1600px) {
-                  max-height: 600px;
-              }          
-            }                   
+            img {
+                  display: block;
+                  height: auto;
+                  max-height: 430px;
+                  width: 100%;
+                  object-fit: cover;
+
+                  @media only screen and (min-width: 1600px) {
+                        max-height: 600px;
+                  }
+            }
       }
-      &__name{
+
+      &__name {
             color: #070707;
             font-family: Lato;
             font-size: rem(16);
@@ -145,19 +150,18 @@
             text-transform: uppercase;
             text-decoration: none;
       }
+
       &__body {
             @include dflex(flex-start, wrap, space-between);
             padding: rem(38) rem(50) 0 rem(50);
-            
+
       }
 
-      &__price {
-            
-      }
+      &__price {}
 
       &__icon {
             cursor: pointer;
-         
+
       }
 
       &__circles {
@@ -175,12 +179,12 @@
 
 .product-image {
       display: block;
-      max-height:rem(618) ;
+      max-height: rem(618);
       z-index: 2;
       width: 100%;
       position: relative;
       transition: 0.5s;
-      
+
 
       &__active {
             position: absolute;
@@ -188,12 +192,25 @@
             left: 0;
             z-index: 0;
       }
+}
 
-      &:hover {
+._first{
+      opacity: 1;
+      visibility: visible;
+      transition: all 0.5s;
+
+      &:hover{
             opacity: 0;
-            transition: 0.5s;
+            visibility: hidden;
       }
+}
 
+._second{
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: -1;
 }
 
 .woocommerce-breadcrumb {
@@ -215,9 +232,16 @@
             padding-left: 51px;
             font-size: 16px;
             margin-top: 200px;
-        }
+      }
 
 }
 
-
-
+// .woocommerce ul.products li.product a img:nth-of-type(2) {
+//     display: none;
+// }
+// .woocommerce ul.products li.product a:hover img:nth-of-type(2) {product-image
+//     display: block
+// }
+// .woocommerce ul.products li.product a:hover img:nth-of-type(1) {
+//     display: none;
+// }
