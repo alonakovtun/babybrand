@@ -53,4 +53,15 @@ jQuery(".filters_title").click(function () {
     jQuery(".filters-popup").slideToggle("slow","linear");
 });
 
+
+jQuery( ".item-bottom__link" ).hover(
+	function() {
+	  jQuery(this).addClass( "dif_color" );
+	  jQuery('.item-bottom__link').addClass('opacity');
+	}, function() {
+	  jQuery(this).removeClass( "dif_color" );
+	  jQuery('.item-bottom__link').removeClass('opacity')
+	}
+  );
+
 export default miniCart;

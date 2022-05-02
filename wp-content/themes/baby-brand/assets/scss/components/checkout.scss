@@ -13,7 +13,10 @@
 
     &__column {
         flex: 1 1 33.333%;
-        margin-right: rem(200);
+        &:not(:last-child){
+            margin-right: rem(200);
+
+        }
 
         .card-body__row {
             flex: 1 1 50%;
