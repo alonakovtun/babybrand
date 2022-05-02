@@ -55,27 +55,24 @@ if (!$checkout->is_registration_enabled() && $checkout->is_registration_required
 						<?php endif; ?>
 					<div class="item-checkout__subname">billing summary</div>
 					<?php do_action('woocommerce_review_order_before_payment') ?>
-					<?php do_action('woocommerce_review_order_before_order_total'); ?>
 
 					<div class="item-checkout__option option-item ">
                         <div class="option-item__name"><?php esc_html_e('item total', 'woocommerce'); ?></div>
-                        <div class="option-item__total"><?php wc_cart_totals_order_total_html(); ?></div>
+                        <div class="option-item__total"><?php wc_cart_totals_subtotal_html(); ?></div>
                     </div>
 
-					<?php do_action('woocommerce_review_order_after_order_total'); ?>
-
 					<?php foreach (WC()->cart->get_coupons() as $code => $coupon) : ?>
-						<tr class="cart-discount coupon-<?php echo esc_attr(sanitize_title($code)); ?>">
-							<th><?php wc_cart_totals_coupon_label($coupon); ?></th>
-							<td><?php wc_cart_totals_coupon_html($coupon); ?></td>
-						</tr>
+						<div class="item-checkout__option option-item ">
+							<div class="option-item__name"><?php wc_cart_totals_coupon_label($coupon); ?></div>
+							<div class="option-item__total"><?php wc_cart_totals_coupon_html($coupon); ?></div>
+						</div>
 					<?php endforeach; ?>
 
 					<?php if (WC()->cart->needs_shipping() && WC()->cart->show_shipping()) : ?>
 					<div class="item-checkout__option option-item ">
 						<?php do_action('woocommerce_review_order_before_shipping'); ?>
-                        <div class="option-item__name"></div>
-                        <div class="option-item__total"><?php wc_cart_totals_shipping_html(); ?></div>
+                        <div class="option-item__name">shipping</div>
+                        <div class="option-item__total"><?php echo WC()->cart->get_cart_shipping_total(); ?></div>
 
 						<?php do_action('woocommerce_review_order_after_shipping'); ?>
                     </div>
@@ -104,6 +101,12 @@ if (!$checkout->is_registration_enabled() && $checkout->is_registration_required
 							</tr>
 						<?php endif; ?>
 					<?php endif; ?>
+					<?php do_action('woocommerce_review_order_before_order_total'); ?>
+					<div class="item-checkout__option option-item ch_total">
+                        <div class="option-item__name"><?php esc_html_e('total', 'woocommerce'); ?></div>
+                        <div class="option-item__total"><?php wc_cart_totals_order_total_html(); ?></div>
+                    </div>
+					<?php do_action('woocommerce_review_order_after_order_total'); ?>
 					<?php do_action('woocommerce_checkout_before_customer_details'); ?>
 					</form>
 				</div>
