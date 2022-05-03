@@ -242,6 +242,9 @@ figure {
 
 .nomarginb {
   margin-bottom: 0;
+  @media only screen and (max-width: 768px) {
+    margin-bottom: 35px;
+}
 }
 
 .categories__column {
@@ -339,6 +342,11 @@ figure {
     .count {
       position: absolute;
       font-size: 9px;
+
+      @media only screen and (max-width: 768px) {
+        top: 1px;
+        right: 5px;
+      }
     }
   }
 

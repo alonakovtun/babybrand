@@ -5,6 +5,73 @@
     top: 0;
     left: 0;
     z-index: 50;
+
+    &.mobile{
+        display: none;
+    }
+    @media only screen and (max-width: 768px) {
+        &.desktop{
+            display: none;
+        }
+
+        &.mobile{
+            display: block;
+
+            &.is_active{
+                background-color: #fff;
+                overflow: auto;
+                height: 100vh;
+                padding-bottom: 50px;
+
+                li.header-list__item{
+                    margin-top: 50px;
+
+                    img{
+                        width: 20px;
+                    }
+                }
+
+                .open-link{
+                    position: relative;
+                    margin-right: 0;
+                    &:after{
+                        content: "+";
+                        position: absolute;
+                        right: 0;
+                        top: 0;
+                    }
+
+                    &.change{
+                        &:after{
+                            content: "-";
+                        }
+                    }
+                }
+
+                
+                .list-block{
+                    display: none;
+                    &.open{
+                        display: block;
+                    }
+                    ul{
+                        list-style: none;
+                        padding-left: 0;
+                    }
+
+                    .sub-menu{
+                        .menu-item:first-child{
+                            margin-top: 0;
+                        }
+                    }
+                   
+                }
+               
+            }
+
+            
+        }
+    }
     
 
     &__body {
@@ -23,14 +90,25 @@
         font-size: rem(10);
         font-weight: 300;
         text-transform: uppercase;
+        @media only screen and (max-width: 768px) {
+            font-size: 11px;
+        }
     }
+    
 }
 
 .header-list {
     padding: 0;
     @include dflex(center, wrap, space-between);
     list-style-type: none;
-   
+    @media only screen and (max-width: 768px) {
+       display: none;
+
+       &.mobile.is_active{
+        display: block;
+       }
+    }
+
     
 
     &__item {
@@ -78,6 +156,9 @@
             line-height: rem(10);
             font-weight: 300;
             text-transform: uppercase;
+            @media only screen and (max-width: 768px) {
+                font-size: 11px;
+            }
         }
     }
 
@@ -98,6 +179,9 @@
     @media only screen and (min-width: 1600px) {
         font-size: 16px;
     }
+    @media only screen and (max-width: 768px) {
+        font-size: 11px;
+    }
 
     &.opacity{
         color: #939598;
@@ -109,6 +193,10 @@
     position: relative;
     z-index: 50;
     width: rem(313);
+
+    @media only screen and (max-width: 768px) {
+        width: 115px;
+    }
 
     &__img {
         position: relative;
@@ -148,7 +236,9 @@
    &__top{
        display: flex;
        justify-content: space-between;
-       
+       @media only screen and (max-width: 768px) {
+        display: block;
+    }
    }
 
     &__text{
@@ -161,6 +251,10 @@
         @media only screen and (min-width: 1600px) {
             font-size: 16px;
         }
+
+        @media only screen and (max-width: 768px) {
+            font-size: 11px;
+        }
     }
     &__subtext{
         margin-top: rem(59);
@@ -168,6 +262,7 @@
         @media only screen and (min-width: 1600px) {
             font-size: 16px;
         }
+
     }
     &__get{
         position: absolute;
@@ -181,6 +276,9 @@
         cursor: pointer;
         @media only screen and (min-width: 1600px) {
             font-size: 16px;
+        }
+        @media only screen and (max-width: 768px) {
+            font-size: 11px;
         }
     }
 }
@@ -200,6 +298,11 @@
     &__container {
         position: relative;
 
+        @media only screen and (max-width: 768px) {
+            padding: 0!important;
+            margin-top: 40px;
+        }
+
     }
 
     &__name {
@@ -210,6 +313,9 @@
         font-weight: 300;
         line-height: rem(28);
         text-transform: uppercase;
+        @media only screen and (max-width: 768px) {
+            font-size: 11px;
+        }
     }
 
     &__text {
@@ -224,6 +330,9 @@
         @media only screen and (min-width: 1600px) {
             font-size: 16px;
         }
+        @media only screen and (max-width: 768px) {
+            font-size: 11px;
+        }
 
     }
 
@@ -234,6 +343,9 @@
         font-weight: 300;
         text-transform: uppercase;
         margin-top: 112px;
+        @media only screen and (max-width: 768px) {
+            font-size: 11px;
+        }
     }
 
     
@@ -257,6 +369,9 @@
             font-size: 16px;
         }
 
+        @media only screen and (max-width: 768px) {
+            font-size: 11px;
+        }
         &::placeholder{
             color: #939598;
         }
@@ -287,6 +402,9 @@
         font-size: rem(16);
         font-weight: 300;
         text-transform: uppercase;
+        @media only screen and (max-width: 768px) {
+            font-size: 11px;
+        }
     }
 
     &__item-result {
@@ -295,6 +413,9 @@
         font-size: rem(16);
         font-weight: 300;
         text-transform: uppercase;
+        @media only screen and (max-width: 768px) {
+            font-size: 11px;
+        }
     }
 }
 .result{
@@ -322,6 +443,9 @@
         font-size: rem(16);
         font-weight: 300;
         text-transform: uppercase;
+        @media only screen and (max-width: 768px) {
+            font-size: 11px;
+        }
     }
 }
 
@@ -348,14 +472,25 @@
     max-width:rem(200) ;
     color: #000000;
     font-family: Lato;
-    font-size: rem(16);
+    font-size: 12px;
     font-weight: 300;
     text-align: left;
     text-transform: uppercase;
     text-decoration: none;
 
+    @media only screen and (min-width: 1600px) {
+        font-size: 16px;
+    }
+    @media only screen and (max-width: 768px) {
+        font-size: 11px;
+        margin-bottom: 35px;
+    }
+
     &.bigmarginb{
         margin-bottom: 31px;
+        @media only screen and (max-width: 768px) {
+            margin-bottom: 35px;
+        }
     }
 }
 
@@ -402,6 +537,9 @@
     font-size: rem(14);
     font-weight: 300;
     max-width: rem(229);
+    @media only screen and (max-width: 768px) {
+        font-size: 11px;
+    }
 }
 
 
@@ -565,6 +703,9 @@
         max-width: rem(460);
         height: auto;
         margin-right: rem(120);
+        @media only screen and (max-width: 768px) {
+            flex: 0 0 100%;
+        }
     }
 
     &__login__bottomtext {
@@ -573,6 +714,9 @@
         font-weight: 300;
         line-height: rem(28);
         text-decoration: underline;
+        @media only screen and (max-width: 768px) {
+            font-size: 11px;
+        }
 
     }
 }
@@ -630,6 +774,10 @@
         @media only screen and (min-width: 1600px) {
             margin-bottom: 53.5px;
         }
+
+        @media only screen and (max-width: 768px) {
+            height: 95px;
+        }
     }
 }
 .shopmenu {
@@ -664,6 +812,9 @@
         font-weight: 300;
         text-align: left;
         text-transform: uppercase;
+        @media only screen and (max-width: 768px) {
+            font-size: 11px;
+        }
     }
 }
 
@@ -679,6 +830,9 @@
         font-weight: 300;
         text-transform: uppercase;
         cursor: pointer;
+        @media only screen and (max-width: 768px) {
+            font-size: 11px;
+        }
     }
 
     &__pl {
@@ -688,6 +842,9 @@
         font-weight: 300;
         text-transform: uppercase;
         cursor: pointer;
+        @media only screen and (max-width: 768px) {
+            font-size: 11px;
+        }
     }
 }
 .lang__body{
@@ -717,6 +874,61 @@
         padding: 17.5px 155px;
         @media only screen and (min-width: 1600px) {
             padding: 21.5px 192px;
+        }
+        @media only screen and (max-width: 768px) {
+            padding: 17.5px 98px;
+        }
+    }
+}
+
+.wish{
+    img{
+        width: 11px;
+        margin-left: 5px;
+        @media only screen and (min-width: 1600px) {
+            width: 13px;
+        }
+        @media only screen and (max-width: 768px) {
+            width: 10px!important;
+        }
+    }
+}
+
+.mobile-menu-icon {
+    position: relative;
+    display: block;
+
+    height: 12px;
+    width: 25px;
+
+    .bar {
+        position: absolute;
+        left: 0;
+        top: 0;
+        background-color: #000000;
+        height: 1px;
+        width: 100%;
+
+        transform-origin: left;
+        transition: all 250ms;
+
+        &:nth-of-type(2) {
+            top: 5px;
+        }
+
+        &:nth-of-type(3) {
+            top: 10px;
+            transform-origin: right;
+        }
+    }
+
+    &.open {
+        .bar:nth-of-type(1) {
+            transform: scaleX(0.5);
+        }
+
+        .bar:nth-of-type(3) {
+            transform: scaleX(0.5);
         }
     }
 }
