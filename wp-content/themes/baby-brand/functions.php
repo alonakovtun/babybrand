@@ -369,3 +369,6 @@ function custom_billing_fields( $fields ) {
 
     return $fields;
 }
+
+// removing basket updated message
+add_filter( 'woocommerce_cart_updated_notice_type', '__return_false' );
