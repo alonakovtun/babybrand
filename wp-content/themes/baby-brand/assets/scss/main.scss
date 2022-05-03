@@ -420,19 +420,6 @@ input:focus {
   clear: both;
 }
 
-// .login-box{
-//   transition: all 0.4s;
-// }
-
-// .register-box{
-//   opacity: 0;
-//   visibility: hidden;
-//   height: 0;
-
-//   transition: all 0.4s;
-// }
-
-
 .register-box {
   display: none;
 }
@@ -449,4 +436,26 @@ input:focus {
 
 .woocommerce-widget-layered-nav-list__item--chosen{
   text-decoration: underline;
+}
+
+.woocommerce-MyAccount-navigation-link{
+  &:last-child{
+    position: absolute;
+    right: 31px;
+    @media only screen and (min-width: 1600px) {
+      right: 51px;
+    }
+    .adress__link{
+      margin-right: 0;
+    }
+  }
+}
+
+.adress__link{
+  &.opacity{
+      color: #939598;
+  }
+  &.dif_color {
+      color: #000;
+  }
 }

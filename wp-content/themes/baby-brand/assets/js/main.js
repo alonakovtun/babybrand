@@ -64,11 +64,31 @@ jQuery( ".item-bottom__link" ).hover(
 	}
   );
 
+  jQuery( ".adress__link" ).hover(
+	function() {
+	  jQuery(this).addClass( "dif_color" );
+	  jQuery('.adress__link').addClass('opacity');
+	}, function() {
+	  jQuery(this).removeClass( "dif_color" );
+	  jQuery('.adress__link').removeClass('opacity')
+	}
+  );
+
+  
+
   jQuery( ".item-cart" ).hover(
 	function() {
 	  jQuery('.add_to_wishlist img').attr('src', '/wp-content/themes/baby-brand/assets/img/white-heart.png');
 	}, function() {
         jQuery('.add_to_wishlist img').attr('src', '/wp-content/uploads/2022/04/producticon.png');
+	}
+  );
+
+  jQuery( ".item-cart" ).hover(
+	function() {
+	  jQuery('.delete_item   img').attr('src', '/wp-content/themes/baby-brand/assets/img/heart-white.png');
+	}, function() {
+        jQuery('.delete_item   img').attr('src', '/wp-content/uploads/2022/05/black-heart.png');
 	}
   );
 
