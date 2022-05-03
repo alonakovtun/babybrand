@@ -116,12 +116,20 @@
         
     }
 }
+#select2-billing_country-container {
+    font-weight: 300;
+}
 
-.woocommerce-address-fields__field-wrapper{
+.woocommerce-address-fields__field-wrapper {
     width: 26.5%;
 
-    label{
+    label {
         display: none;
+    }
+
+    input {
+        color: #000000 !important;
+        font-weight: 300;
     }
 }
 .woocommerce-Addresses{
