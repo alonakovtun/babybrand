@@ -72,3 +72,28 @@
         }
     }
 }
+
+.woocommerce-lost-password{
+    .login__body.register{
+        margin-top: 10rem;
+        padding: 0 31px;
+
+        @media only screen and (min-width: 1600px) {
+            padding: 0 51px;        
+        }
+    }
+}
+
+.u-column1{
+    .login__body.register{
+        margin-top: 0;
+
+        .link{
+            text-transform: none;
+        }
+    }
+}
+
+.mb-0{
+    margin-bottom: 0;
+}

@@ -33,18 +33,11 @@ do_action('woocommerce_before_customer_login_form'); ?>
 
 		<div class="login__body register">
 			<div class="login__column">
-
-
-
-
 				<?php if ('yes' === get_option('woocommerce_enable_myaccount_registration')) : ?>
-
-
 					<div class="u-column2 col-2">
 						<div class="item-login__name">
-							<?php esc_html_e('Register', 'woocommerce'); ?>
+							<?php esc_html_e('Create an account', 'woocommerce'); ?>
 						</div>
-
 						<form method="post" class="woocommerce-form woocommerce-form-register register item-login__form" <?php do_action('woocommerce_register_form_tag'); ?>>
 
 							<?php do_action('woocommerce_register_form_start'); ?>
@@ -82,12 +75,15 @@ do_action('woocommerce_before_customer_login_form'); ?>
 
 							<p class="woocommerce-form-row form-row">
 								<?php wp_nonce_field('woocommerce-register', 'woocommerce-register-nonce'); ?>
-								<button type="submit" class="item-login__btn woocommerce-Button woocommerce-button button woocommerce-form-register__submit" name="register" value="<?php esc_attr_e('Register', 'woocommerce'); ?>"><?php esc_html_e('Register', 'woocommerce'); ?></button>
+								<button type="submit" class="item-login__btn woocommerce-Button woocommerce-button button woocommerce-form-register__submit mb-0" name="register" value="<?php esc_attr_e('Register', 'woocommerce'); ?>"><?php esc_html_e('Register', 'woocommerce'); ?></button>
 							</p>
 
 							<?php do_action('woocommerce_register_form_end'); ?>
 
 						</form>
+
+						<p class="link"><?php esc_html_e('By creating an account, you accept our Terms and Conditions and 
+confirm that you have read our Privacy Policy.', 'woocommerce'); ?></p>
 
 					</div>
 			</div>

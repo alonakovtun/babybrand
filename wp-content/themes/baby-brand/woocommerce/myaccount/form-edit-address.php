@@ -24,10 +24,12 @@ do_action( 'woocommerce_before_edit_account_address_form' ); ?>
 <?php if ( ! $load_address ) : ?>
 	<?php wc_get_template( 'myaccount/my-address.php' ); ?>
 <?php else : ?>
+<div class="adress-page__body">
 
-	<form method="post" class="item-adress__form">
 
-		<h3><?php echo apply_filters( 'woocommerce_my_account_edit_address_title', $page_title, $load_address ); ?></h3><?php // @codingStandardsIgnoreLine ?>
+	<form method="post" class="item-adress__form pt-0">
+
+		<div class="item-adress__name"><?php echo apply_filters( 'woocommerce_my_account_edit_address_title', $page_title, $load_address ); ?></div><?php // @codingStandardsIgnoreLine ?>
 
 		<div class="woocommerce-address-fields">
 			<?php do_action( "woocommerce_before_edit_address_form_{$load_address}" ); ?>
@@ -50,7 +52,7 @@ do_action( 'woocommerce_before_edit_account_address_form' ); ?>
 		</div>
 
 	</form>
-
+	</div>
 <?php endif; ?>
 
 <?php do_action( 'woocommerce_after_edit_account_address_form' ); ?>

@@ -166,13 +166,21 @@ figure {
   }
 }
 
-.item-adress__form input {
+.item-adress__form input, .item-adress__form .woocommerce-input-wrapper {
   width: 100%;
   border-bottom: 1px solid #939598;
   margin-bottom: 1.9375rem;
   padding: 1.375rem 0;
   color: #939598;
 }
+
+
+.item-adress__form{
+  #billing_country_field, #billing_company, #shipping_country_field, #shipping_company, #shipping_state_field, #shipping_city{
+    margin-bottom: 35px;
+  
+  }
+} 
 
 .woocommerce {
   .woocommerce-MyAccount-navigation.accountdetails {

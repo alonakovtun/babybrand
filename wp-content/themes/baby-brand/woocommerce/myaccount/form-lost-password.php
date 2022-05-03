@@ -20,7 +20,7 @@ defined('ABSPATH') || exit;
 
 do_action('woocommerce_before_lost_password_form');
 ?>
-<div class="login__body register">
+<div class="login__body register lost">
 	<div class="login__column ">
 		<div class="u-column2 col-2">
 			
