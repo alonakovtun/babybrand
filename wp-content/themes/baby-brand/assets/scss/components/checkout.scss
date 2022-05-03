@@ -260,6 +260,12 @@
     margin-top: 47px;
 }
 
+.woocommerce-billing-fields__field-wrapper {
+    input {
+        font-weight: 300;
+    }
+}
+
 .option-item {
     @include dflex(center, wrap, flex-start);
     margin-bottom: 52px;

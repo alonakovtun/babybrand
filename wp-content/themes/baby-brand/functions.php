@@ -341,11 +341,6 @@ function custom_checkout_jquery_script() {
     endif;
 }
 
-if( function_exists('acf_add_options_page') ) {
-	
-	acf_add_options_page();
-	
-}
 add_filter( 'woocommerce_cart_totals_coupon_html', 'custom_cart_totals_coupon_html', 30, 3 );
 function custom_cart_totals_coupon_html( $coupon_html, $coupon, $discount_amount_html ) {
         $discount_amount_html = '<span>' . $coupon->get_amount() . get_woocommerce_currency_symbol() . '  </span>';
@@ -354,4 +349,23 @@ function custom_cart_totals_coupon_html( $coupon_html, $coupon, $discount_amount
     
 
     return $coupon_html;
+}
+
+// Billing fields on my account edit-addresses and checkout
+add_filter( 'woocommerce_billing_fields' , 'custom_billing_fields' );
+function custom_billing_fields( $fields ) {
+
+    $fields['billing_first_name']['placeholder'] = 'First name';
+    $fields['billing_last_name']['placeholder'] = 'Last name';
+    $fields['billing_company']['placeholder'] = 'Company (optional)';
+    $fields['billing_country']['placeholder'] = 'Country';
+    $fields['billing_address_1']['placeholder'] = 'Address';
+    $fields['billing_address_2']['placeholder'] = 'Apartment, unit, etc.';
+    $fields['billing_city']['placeholder'] = 'City';
+    $fields['billing_state']['placeholder'] = 'State';
+    $fields['billing_postcode']['placeholder'] = 'ZIP Code';
+    $fields['billing_phone']['placeholder'] = 'Phone';
+    $fields['billing_email']['placeholder'] = 'Email';
+
+    return $fields;
 }
