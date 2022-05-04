@@ -25,6 +25,18 @@
 @import "./components/storepolicy";
 @import "./components/contact";
 
+@font-face {
+  font-family: "Lato Light";
+  src: url("/wp-content/themes/baby-brand/assets/fonts/lato-light.ttf");
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Lato Regular";
+  src: url("/wp-content/themes/baby-brand/assets/fonts/lato-regular.ttf");
+  font-style: normal;
+}
+
 
 html {
   -webkit-font-smoothing: antialiased;
@@ -210,7 +222,7 @@ figure {
   .information__content {
     max-width: 40.625rem;
     color: #000000;
-    font-family: Lato;
+   font-family: "Lato Light";;
     font-size: 1rem;
     font-weight: 300;
 
@@ -388,7 +400,7 @@ input:focus {
 
 .prev_next_buttons a {
   color: #070707;
-  font-family: Lato;
+ font-family: "Lato Light";;
   font-size: 1rem;
   font-weight: 300;
   font-style: normal;

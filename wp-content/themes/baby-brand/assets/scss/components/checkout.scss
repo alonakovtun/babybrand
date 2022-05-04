@@ -36,7 +36,7 @@
     &__gobackbtn {
         margin-right: rem(90);
         color: #000000;
-        font-family: Lato;
+       font-family: "Lato Light";;
         font-size: rem(16);
         font-weight: 300;
         line-height: rem(15);
@@ -161,7 +161,7 @@
     &__name {
         margin-bottom: rem(52);
         color: #000000;
-        font-family: Lato;
+       font-family: "Lato Light";;
         font-size: rem(16);
         font-weight: 300;
         line-height: rem(15);
@@ -177,7 +177,7 @@
         margin-top: rem(100);
         margin-bottom: 52px;
         color: #010101;
-        font-family: Lato;
+       font-family: "Lato Light";;
         font-size: rem(16);
         font-weight: bold;
         line-height: rem(35);
@@ -198,7 +198,7 @@
         label {
             width: 100%;
             color: #282828;
-            font-family: Lato;
+           font-family: "Lato Light";;
             font-size: rem(12);
             font-weight: 300;
             line-height: rem(20);
@@ -227,7 +227,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        font-family: Lato;
+       font-family: "Lato Light";;
         font-size: rem(14);
         font-weight: 700;
         line-height: rem(19.43);
@@ -278,7 +278,7 @@
     &__name {
         color: #282828;
         opacity: 0.5;
-        font-family: Lato;
+       font-family: "Lato Light";;
         text-transform: uppercase;
         // margin-bottom: rem(50);
     }
@@ -310,7 +310,7 @@
         position: absolute;
         top: 0;
         right: 0;
-        font-family: Lato;
+       font-family: "Lato Light";;
         color: #000000;
         text-transform: uppercase;
         font-style: normal;

@@ -49,7 +49,7 @@ $product_categories = get_categories(array(
             <div class="header__container container">
                 <div class="header__body">
 
-                    <ul class="header-list">
+                    <ul class="header-list first">
                         <li class="header-list__item shop"><a class="link">Shop</a>
                             <div class="stories__block header-block shop-list">
                                 <ul class="header-block__container container">
@@ -140,7 +140,7 @@ $product_categories = get_categories(array(
                     <div class="header-logo">
                         <a href="/" class="header-logo__img"><img src="/wp-content/themes/baby-brand/assets/img/logo.svg" alt="" class="img"></a>
                     </div>
-                    <ul class="header-list">
+                    <ul class="header-list second">
                         <li class="header-list__item"><a class="link">Eur/En</a>
                             <div class="stories__block header-block lang">
                                 <div class="header-block__container container">

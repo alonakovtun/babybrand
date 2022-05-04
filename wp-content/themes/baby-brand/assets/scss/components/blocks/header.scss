@@ -86,7 +86,7 @@
         
         z-index: 52;
         color: #000000;
-        font-family: Lato;
+       font-family: "Lato Light";;
         font-size: rem(10);
         font-weight: 300;
         text-transform: uppercase;
@@ -101,11 +101,21 @@
     padding: 0;
     @include dflex(center, wrap, space-between);
     list-style-type: none;
+    width: 30%;
+
+    &.first{
+        justify-content: flex-start;
+    }
+    &.second{
+        justify-content: flex-end;
+    }
     @media only screen and (max-width: 768px) {
        display: none;
+       
 
        &.mobile.is_active{
         display: block;
+        width: 100%;
        }
     }
 
@@ -170,7 +180,7 @@
     z-index: 20;
     text-decoration: none;
     color: #000000;
-    font-family: Lato;
+   font-family: "Lato Light";;
     font-size: 12px;
     font-weight: 300;
     text-transform: uppercase;
@@ -206,6 +216,7 @@
         img {
             display: block;
             max-width: 235px;
+            margin: 0 auto;
         }
     }
 }
@@ -244,7 +255,7 @@
     &__text{
         margin-bottom: rem(31);
         color: #000000;
-        font-family: Lato;
+       font-family: "Lato Light";;
         font-size: 14px;
         font-weight: 300;
         max-width: rem(570);  
@@ -308,7 +319,7 @@
     &__name {
         margin-bottom: 32px;
         color: #000000;
-        font-family: Lato;
+       font-family: "Lato Light";;
         font-size: rem(16);
         font-weight: 300;
         line-height: rem(28);
@@ -322,7 +333,7 @@
 
         margin-bottom: 31px;
         color: #000000;
-        font-family: Lato;
+       font-family: "Lato Light";;
         font-size: 12px;
         font-weight: 300;
         text-transform: uppercase;
@@ -338,7 +349,7 @@
 
     &__text--bottom {
         color: #000000;
-        font-family: Lato;
+       font-family: "Lato Light";;
         font-size: rem(16);
         font-weight: 300;
         text-transform: uppercase;
@@ -398,7 +409,7 @@
 
     &__item {
         color: #000000;
-        font-family: Lato;
+       font-family: "Lato Light";;
         font-size: rem(16);
         font-weight: 300;
         text-transform: uppercase;
@@ -409,7 +420,7 @@
 
     &__item-result {
         margin-left: rem(5);
-        font-family: Lato;
+       font-family: "Lato Light";;
         font-size: rem(16);
         font-weight: 300;
         text-transform: uppercase;
@@ -439,7 +450,7 @@
         position: absolute;
         top: 0;
         right: 0;
-        font-family: Lato;
+       font-family: "Lato Light";;
         font-size: rem(16);
         font-weight: 300;
         text-transform: uppercase;
@@ -471,7 +482,7 @@
     margin-bottom: 21px;
     max-width:rem(200) ;
     color: #000000;
-    font-family: Lato;
+   font-family: "Lato Light";;
     font-size: 12px;
     font-weight: 300;
     text-align: left;
@@ -533,7 +544,7 @@
 
 .assistance-bottomtext {
     color: #030303;
-    font-family: Lato;
+   font-family: "Lato Light";;
     font-size: rem(14);
     font-weight: 300;
     max-width: rem(229);
@@ -552,7 +563,7 @@
     &__title {
         margin-bottom: 31px;
         color: #000000;
-        font-family: Lato;
+       font-family: "Lato Light";;
         font-weight: 300;
         text-transform: uppercase;
     }
@@ -595,7 +606,7 @@
         justify-content: space-between;
         height: 17.1875rem;
         color: #000000;
-        font-family: Lato;
+       font-family: "Lato Light";;
         font-weight: 300;
         text-transform: uppercase;
         padding: 20px 0; 
@@ -653,7 +664,7 @@
         justify-content: space-between;
         width: 100%;
         color: #000000;
-        font-family: Lato;
+       font-family: "Lato Light";;
         font-weight: 300;
         text-transform: uppercase;
     }
@@ -669,7 +680,7 @@
         justify-content: center;
         align-items: center;
         color: #000000;
-        font-family: Lato;
+       font-family: "Lato Light";;
         font-weight: 300;
         text-transform: uppercase;
     }
@@ -726,7 +737,7 @@
     &__name {
         margin-bottom: 19px;
         color: #000000;
-        font-family: Lato;
+       font-family: "Lato Light";;
         font-weight: 300;
         line-height: rem(25);
         text-transform: uppercase;
@@ -764,7 +775,7 @@
 
     &__text {
         color: #000;
-        font-family: Lato;
+       font-family: "Lato Light";;
         font-weight: 300;
         text-transform: uppercase;
         margin-top: 38px;
@@ -807,7 +818,7 @@
 
     &__text {
         color: #000000;
-        font-family: Lato;
+       font-family: "Lato Light";;
         font-size: rem(16);
         font-weight: 300;
         text-align: left;
@@ -825,7 +836,7 @@
     &__eng {
         margin-right: rem(73);
         color: #010101;
-        font-family: Lato;
+       font-family: "Lato Light";;
         font-size: rem(16);
         font-weight: 300;
         text-transform: uppercase;
@@ -837,7 +848,7 @@
 
     &__pl {
         color: #010101;
-        font-family: Lato;
+       font-family: "Lato Light";;
         font-size: rem(16);
         font-weight: 300;
         text-transform: uppercase;
