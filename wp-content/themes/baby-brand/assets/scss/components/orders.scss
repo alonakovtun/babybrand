@@ -22,16 +22,15 @@
 
     &__name {
         margin-bottom: rem(44);
-        color: #939598;
        font-family: "Lato Light";;
         font-size: rem(16);
         font-weight: 300;
         text-transform: uppercase;
+        text-align: start;
     }
 
     &__text {
         margin-bottom: rem(15);
-        color: #939598;
        font-family: "Lato Light";;
         font-size: rem(16);
         font-weight: 300;
@@ -40,8 +39,8 @@
 }
 
 .woocommerce-order-details {
-    margin-top: 65px;
-    width: 400px;
+    margin-top: 25px;
+    width: 460px;
 
     .woocommerce-table{
         font-weight: 300;
@@ -61,14 +60,19 @@
             display: flex;
             justify-content: space-between;
 
+            border-bottom: 1px solid #464646;
+            padding: 25px 0;
+
             .product-name {
-                width: 60%;
+                width: 50%;
                 display: flex;
                 justify-content: space-between;
+                text-transform: uppercase;
             }
 
             .product-total {
-                width: 30%;
+                width: 50%;
+                text-align: end;
             }
 
             strong{
@@ -82,13 +86,39 @@
 .woocommerce-customer-details{
     width: 400px;
     font-weight: 300;
-    margin-top: 30px;
+    margin-top: 55px;
 
     .woocommerce-column__title{
-        margin-bottom: 20px;
+        margin-bottom: 55px;
     }
 
     address{
         font-style: normal;
+        text-transform: uppercase;
+    }
+
+    .woocommerce-customer-details--phone,
+    .woocommerce-customer-details--email{
+        margin: 0;
     }
 }
+
+.woocommerce-columns--addresses{
+    display: flex;
+    justify-content: space-between;
+}
+
+.order-number{
+    margin-top: 35px
+}
+
+.woocommerce-MyAccount-content {
+    max-width: 115.625rem;
+    min-width: 320px;
+    padding: 0 31px;
+    margin-bottom: 175px;
+
+    .chekout__gobackbtn{
+        margin-top: 20px
+    }
+  }
