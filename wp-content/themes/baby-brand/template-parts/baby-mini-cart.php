@@ -156,3 +156,9 @@
 
     <?php wp_nonce_field('woocommerce-cart', 'woocommerce-cart-nonce'); ?>
 </form>
+<script>
+    // jQuery(".qty").change(function() {
+    //     jQuery("[name='update_cart']").removeAttr('disabled');
+    //     jQuery("[name='update_cart']").trigger("click");
+    // });
+</script>
