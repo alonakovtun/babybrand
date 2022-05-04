@@ -289,7 +289,7 @@ function woocommerce_checkout_coupon_form_custom() {
     echo '<div class="checkout-coupon-toggle item-checkout__option option-item">
 	<div class="woocommerce-info option-item__name">';
 		wc_print_notice( apply_filters( 'woocommerce_checkout_coupon_message', ' <a href="#" class="show-coupon">' . esc_html__( 'want to use gift card or coupon code', 'woocommerce' ) . '</a>' ), 'notice' ); 
-	echo '</div><div class="option-item__plus">+</div></div>';
+	echo '</div><div class="option-item__plus"></div></div>';
 
 
 
@@ -318,6 +318,7 @@ function custom_checkout_jquery_script() {
         // Show or Hide coupon field
         $('.checkout-coupon-toggle .show-coupon').on( 'click', function(e){
             $('.coupon-form').slideToggle("slow", "linear");
+            $('.checkout-coupon-toggle').find('> .option-item__plus').toggleClass('minus');
             e.preventDefault();
         })
         

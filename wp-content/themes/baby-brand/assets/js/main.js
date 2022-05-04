@@ -53,6 +53,11 @@ jQuery(".filters_title").click(function () {
     jQuery(".filters-popup").slideToggle("slow","linear");
 });
 
+jQuery(".item-checkout__name.ship").click(function () {
+  jQuery('.item-checkout__option.shipping').find('> .option-item__plus').toggleClass('minus');
+});
+
+
 
 jQuery( ".item-bottom__link" ).hover(
 	function() {

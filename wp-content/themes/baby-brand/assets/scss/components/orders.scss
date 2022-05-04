@@ -1,21 +1,20 @@
-.order-header{
+.order-header {
     position: relative;
 }
 
 .orders {
     margin-bottom: rem(470);
-    
 
-    &__container {
-    }
+
+    &__container {}
 
     &__body {
-        @include dflex(center,wrap,flex-start);
+        @include dflex(center, wrap, flex-start);
     }
 
     &__column {
         margin-right: rem(70);
-        
+
     }
 }
 
@@ -37,5 +36,59 @@
         font-size: rem(16);
         font-weight: 300;
         text-transform: uppercase;
+    }
+}
+
+.woocommerce-order-details {
+    margin-top: 65px;
+    width: 400px;
+
+    .woocommerce-table{
+        font-weight: 300;
+    }
+
+
+    &__title {
+        margin-bottom: 20px;
+    }
+
+    .order-list {
+        display: flex;
+
+        flex-direction: column;
+
+        .order_item {
+            display: flex;
+            justify-content: space-between;
+
+            .product-name {
+                width: 60%;
+                display: flex;
+                justify-content: space-between;
+            }
+
+            .product-total {
+                width: 30%;
+            }
+
+            strong{
+                font-weight: 300;
+            }
+
+        }
+    }
+}
+
+.woocommerce-customer-details{
+    width: 400px;
+    font-weight: 300;
+    margin-top: 30px;
+
+    .woocommerce-column__title{
+        margin-bottom: 20px;
+    }
+
+    address{
+        font-style: normal;
     }
 }

@@ -152,13 +152,7 @@
         <!-- # START LIST PRODUCT -->
 
     </div>
-    <button type="submit" class="button hidden-cart-updater" name="update_cart" value="<?php esc_attr_e('Update cart', 'woocommerce'); ?>"><?php esc_html_e('Update cart', 'woocommerce'); ?></button>
+    <button type="submit" class="button" name="update_cart" value="<?php esc_attr_e('Update cart', 'woocommerce'); ?>"><?php esc_html_e('Update cart', 'woocommerce'); ?></button>
 
     <?php wp_nonce_field('woocommerce-cart', 'woocommerce-cart-nonce'); ?>
 </form>
-<script>
-    jQuery(".qty").change(function() {
-        jQuery("[name='update_cart']").removeAttr('disabled');
-        jQuery("[name='update_cart']").trigger("click");
-    });
-</script>

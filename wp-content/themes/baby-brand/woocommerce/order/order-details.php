@@ -42,18 +42,18 @@ if ( $show_downloads ) {
 <section class="woocommerce-order-details">
 	<?php do_action( 'woocommerce_order_details_before_order_table', $order ); ?>
 
-	<h2 class="woocommerce-order-details__title"><?php esc_html_e( 'Order details', 'woocommerce' ); ?></h2>
+	<div class="woocommerce-order-details__title link"><?php esc_html_e( 'Order details', 'woocommerce' ); ?></div>
 
-	<table class="woocommerce-table woocommerce-table--order-details shop_table order_details">
+	<div class="woocommerce-table woocommerce-table--order-details shop_table order_details">
 
-		<thead>
+		<!-- <thead>
 			<tr>
 				<th class="woocommerce-table__product-name product-name"><?php esc_html_e( 'Product', 'woocommerce' ); ?></th>
 				<th class="woocommerce-table__product-table product-total"><?php esc_html_e( 'Total', 'woocommerce' ); ?></th>
 			</tr>
-		</thead>
+		</thead> -->
 
-		<tbody>
+		<div class="order-list">
 			<?php
 			do_action( 'woocommerce_order_details_before_order_table_items', $order );
 
@@ -75,9 +75,9 @@ if ( $show_downloads ) {
 
 			do_action( 'woocommerce_order_details_after_order_table_items', $order );
 			?>
-		</tbody>
+		</div>
 
-		<tfoot>
+		<!-- <tfoot>
 			<?php
 			foreach ( $order->get_order_item_totals() as $key => $total ) {
 				?>
@@ -94,8 +94,8 @@ if ( $show_downloads ) {
 					<td><?php echo wp_kses_post( nl2br( wptexturize( $order->get_customer_note() ) ) ); ?></td>
 				</tr>
 			<?php endif; ?>
-		</tfoot>
-	</table>
+		</tfoot> -->
+			</div>
 
 	<?php do_action( 'woocommerce_order_details_after_order_table', $order ); ?>
 </section>

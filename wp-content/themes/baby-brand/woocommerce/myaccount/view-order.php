@@ -21,7 +21,7 @@ defined( 'ABSPATH' ) || exit;
 
 $notes = $order->get_customer_order_notes();
 ?>
-<p>
+<!-- <p>
 <?php
 printf(
 	/* translators: 1: order number 2: order date 3: order status */
@@ -31,7 +31,7 @@ printf(
 	'<mark class="order-status">' . wc_get_order_status_name( $order->get_status() ) . '</mark>' // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 );
 ?>
-</p>
+</p> -->
 
 <?php if ( $notes ) : ?>
 	<h2><?php esc_html_e( 'Order updates', 'woocommerce' ); ?></h2>

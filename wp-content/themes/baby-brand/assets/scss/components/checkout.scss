@@ -166,6 +166,11 @@
         font-weight: 300;
         line-height: rem(15);
         text-transform: uppercase;
+
+        &.ship{
+            font-weight: 500;
+            opacity: 0.5;
+        }
     }
 
     &__subname {
@@ -284,7 +289,19 @@
         position: absolute;
         top: 0;
         right: 0;
+        font-weight: 400;
+        font-size: 14px;
         cursor: pointer;
+
+        &:after {
+            content: "+";
+        }
+    
+        &.minus {
+            &:after {
+                content: "-";
+            }
+        }
     }
 
     &__total {
