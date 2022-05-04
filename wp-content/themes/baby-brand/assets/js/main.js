@@ -51,6 +51,9 @@ jQuery(".menu-item").addClass("header-list__item");
 
 jQuery(".filters_title").click(function () {
     jQuery(".filters-popup").slideToggle("slow","linear");
+
+    jQuery('#filter-toggle-btn').text(jQuery('#filter-toggle-btn').text() == 'Close Filters' ? 'Filters' : 'Close Filters');
+
 });
 
 jQuery(".item-checkout__name.ship").click(function () {

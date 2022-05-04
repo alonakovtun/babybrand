@@ -32,7 +32,7 @@
         margin-right: rem(22);
         cursor: pointer;
         color: #070707;
-        font-family: Lato;
+       font-family: "Lato Light";;
         font-size: rem(16);
         font-weight: 400;
         line-height: rem(19.43);
@@ -41,7 +41,7 @@
 
     &__forgot {
         color: #030303;
-        font-family: Lato;
+       font-family: "Lato Light";;
         font-size: rem(16);
         font-weight: 300;
         text-decoration: underline;
@@ -52,7 +52,7 @@
 .item-details {
 
     &__title {
-        font-family: Lato;
+       font-family: "Lato Light";;
         font-size: rem(16);
         text-transform: uppercase;
         margin: rem(70) 0 rem(40) 0;

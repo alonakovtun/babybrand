@@ -4,7 +4,7 @@
 
     &__link {
         color: #000000;
-        font-family: Lato;
+       font-family: "Lato Light";;
         font-size: rem(16);
         font-weight: 400;
 
@@ -21,7 +21,7 @@
 
     &__button {
         color: #000000;
-        font-family: Lato;
+       font-family: "Lato Light";;
         font-size: rem(16);
         font-weight: 300;
 
@@ -84,7 +84,7 @@
 
     &__price {
         color: #070707;
-        font-family: Lato;
+       font-family: "Lato Light";;
         font-size: 12px;
         font-weight: 300;
         font-style: normal;
@@ -97,7 +97,7 @@
 
     &__text {
         color: #000000;
-        font-family: Lato;
+       font-family: "Lato Light";;
         font-size: 12px;
         font-weight: 300;
         margin-bottom: 60px;
@@ -105,18 +105,18 @@
     }
 }
 
-.variations_form{
-    .variations{
+.variations_form {
+    .variations {
         margin-bottom: 36px;
     }
-   
-    .label{
+
+    .label {
         margin-right: 77px;
         position: relative;
         z-index: 20;
         text-decoration: none;
         color: #000000;
-        font-family: Lato;
+       font-family: "Lato Light";;
         font-size: 12px;
         font-weight: 300;
         -webkit-transition: all 0.3s;
@@ -124,12 +124,12 @@
         transition: all 0.3s;
     }
 
-    .quantity{
-        .qty{
+    .quantity {
+        .qty {
             margin-right: 0
         }
 
-        .item-settings__name{
+        .item-settings__name {
             margin-right: 63px;
         }
     }
@@ -144,9 +144,10 @@
     }
 
     &__name {
-        &.link{
+        &.link {
             text-transform: none;
         }
+
         &.notactive {
             color: red;
         }
@@ -200,8 +201,9 @@
     padding: 1rem 3rem 2rem;
     transition: all .3s;
 
-    &:hover{
+    &:hover {
         background-color: #000;
+
         .item-cart__text {
             color: #ffffff;
         }
@@ -219,7 +221,7 @@
 
     &__text {
         color: #070707;
-        font-family: Lato;
+       font-family: "Lato Light";;
         font-size: rem(16);
         font-weight: 300;
         line-height: rem(26.97);
@@ -227,9 +229,9 @@
         cursor: pointer;
         transition: all .3s;
 
-    &:hover{
-        color: #fff;
-    }
+        &:hover {
+            color: #fff;
+        }
 
         &.notactive {
             color: red;
@@ -249,13 +251,14 @@
     &__list {
         margin-right: rem(55);
 
-        &:hover{
+        &:hover {
             cursor: pointer;
-            .item-bottom__text{
+
+            .item-bottom__text {
                 opacity: 1;
                 visibility: visible;
             }
-            
+
         }
     }
 
@@ -276,7 +279,7 @@
     &__link {
         text-decoration: none;
         color: #000000;
-        font-family: Lato;
+       font-family: "Lato Light";;
         font-size: rem(16);
         font-weight: 300;
         cursor: pointer;
@@ -303,7 +306,7 @@
 
     &__title {
         color: #000000;
-        font-family: Lato;
+       font-family: "Lato Light";;
         font-size: rem(16);
         font-weight: 300;
         text-transform: uppercase;
@@ -323,7 +326,7 @@
 
     &__price {
         color: #070707;
-        font-family: Lato;
+       font-family: "Lato Light";;
         font-size: rem(16);
         font-weight: 300;
         text-transform: uppercase;
@@ -378,54 +381,59 @@
     margin-top: 30px;
 }
 
-.single-product{
-    .woocommerce-breadcrumb{
+.single-product {
+    .woocommerce-breadcrumb {
         position: absolute;
         text-transform: none;
     }
 }
 
-.button-variable-item{
-    box-shadow: none!important;
-    color: #939598!important;;
+.button-variable-item {
+    box-shadow: none !important;
+    color: #939598 !important;
+    ;
 
-    &.selected{
-        box-shadow: none!important;
+    &.selected {
+        box-shadow: none !important;
         color: #000 !important;
     }
 }
 
-.reset_variations, .woo-selected-variation-item-name{
-    display: none!important;
+.reset_variations,
+.woo-selected-variation-item-name {
+    display: none !important;
 }
 
-.pa_size, .pa_color{
+.pa_size,
+.pa_color {
     display: flex;
-    align-items: baseline;
+    align-items: center;
 }
 
 .pa_color {
-    .variable-item:not(.radio-variable-item){
-        box-shadow: none!important;
+
+    .variable-item:not(.radio-variable-item) {
+        box-shadow: none !important;
     }
 
-    li{
-        width: 14px!important;
-        height: 14px!important;
+    li {
+        width: 14px !important;
+        height: 14px !important;
 
-        &.variable-item.color-variable-item.selected{
-            box-shadow: 0 0 0 1px rgba(0, 0, 0, .2)!important;
+        &.variable-item.color-variable-item.selected {
+            box-shadow: 0 0 0 1px rgba(0, 0, 0, .2) !important;
         }
-        
+
     }
 }
 
 
 
-.item-bottom__link{
-    &.opacity{
+.item-bottom__link {
+    &.opacity {
         color: #939598;
     }
+
     &.dif_color {
         color: #000;
     }
@@ -434,52 +442,95 @@
 .filters-popup {
     padding-left: 31px;
     display: none;
-    
+
     .widget-title {
-      text-transform: uppercase;
-      margin-top: 30px;
-    }
-  
-    .widget-title,
-    .woocommerce-widget-layered-nav-list {
-      color: #000000;
-      font-family: Lato;
-      font-size: 12px;
-      font-weight: 300;
-    }
-  
-    .woocommerce-widget-layered-nav-list {
-      display: flex;
-      width: 15%;
-  
-      &__item:not(:last-child) {
-        margin-right: 18px;
-      }
-  
-      .count {
-        display: none;
-      }
+        text-transform: uppercase;
+        margin-top: 30px;
     }
 
-    .filters-block{
+    .widget-title,
+    .woocommerce-widget-layered-nav-list {
+        color: #000000;
+       font-family: "Lato Light";;
+        font-size: 12px;
+        font-weight: 300;
+    }
+
+    .woocommerce-widget-layered-nav-list {
         display: flex;
-        .filter-widget{
-            &:not(:last-child){
-            margin-right: 116px
+        width: 15%;
+
+        &__item:not(:last-child) {
+            margin-right: 18px;
+        }
+
+        .count {
+            display: none;
+        }
+    }
+
+    .filters-block {
+        display: flex;
+
+        .filter-widget {
+            &:not(:last-child) {
+                margin-right: 116px
             }
         }
     }
-  }
-  
-  .filters_title {
+}
+
+.filters_title {
     position: absolute;
     top: 133px;
     right: 31px;
-  
-    cursor: pointer;
-  }
 
-  .wvs-has-image-tooltip:hover:after, .wvs-has-image-tooltip:hover:before, [data-wvstooltip]:hover:after, [data-wvstooltip]:hover:before{
-      visibility: hidden !important;;
-  }
-  
+    cursor: pointer;
+}
+
+.wvs-has-image-tooltip:hover:after,
+.wvs-has-image-tooltip:hover:before,
+[data-wvstooltip]:hover:after,
+[data-wvstooltip]:hover:before {
+    visibility: hidden !important;
+    ;
+}
+
+.filter-items {
+    display: flex;
+    width: 170px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.yith-wcan-filters .yith-wcan-filter .filter-items .filter-item.active > a, 
+.yith-wcan-filters .yith-wcan-filter .filter-items .filter-item.active > label > a,
+.yith-wcan-filters .yith-wcan-filter .filter-items .filter-item > a:hover, 
+.yith-wcan-filters .yith-wcan-filter .filter-items .filter-item > label > a:hover,
+.yith-wcan-filters .yith-wcan-filter .filter-items .filter-item > a, 
+.yith-wcan-filters .yith-wcan-filter .filter-items .filter-item > label > a {
+    color: #000;
+    font-weight: 300;
+}
+
+.yith-wcan-filters .yith-wcan-filter .filter-items .filter-item.active > a, 
+.yith-wcan-filters .yith-wcan-filter .filter-items .filter-item.active > label > a{
+    text-decoration: underline;
+}
+
+.filter-title{
+    position: relative;
+    z-index: 20;
+    text-decoration: none;
+    color: #000000;
+   font-family: "Lato Light";;
+    font-size: 12px;
+    font-weight: 300;
+    text-transform: uppercase;
+    -webkit-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+
+    margin-top: 30px;
+    margin-bottom: 9px;
+}

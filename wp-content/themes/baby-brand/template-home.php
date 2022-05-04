@@ -36,8 +36,12 @@ get_header();
             <?php endif; ?>
         </div>
     </section>
-    <section class="categories__text">
+    <section class="categories__text desktop">
         <?= get_field('footer_text') ?>
+    </section>
+
+    <section class="categories__text mobile">
+        <?= get_field('mobile_footer_text') ?>
     </section>
 </main>
 <?php

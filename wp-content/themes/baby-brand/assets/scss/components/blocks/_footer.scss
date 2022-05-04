@@ -1,5 +1,24 @@
 .footer {
 
+    &.mobile{
+        display: none;
+    }
+
+        @media only screen and (max-width: 768px) {
+            &.mobile{
+                display: block;
+        }
+
+        &.desktop{
+            display: none;
+        }
+
+        &__bottom{
+            display: flex;
+            justify-content: space-between;
+        }
+    }
+
     padding-bottom: 25px;
 
     p {
@@ -13,11 +32,17 @@
 
     &__body {
         @include dflex(center, wrap, space-between);
+
+        @media only screen and (max-width: 768px) {
+            display: block;
+        }
     }
+
+    
 
     &__text {
         color: #000000;
-        font-family: Lato;
+       font-family: "Lato Light";;
         font-weight: 300;
         text-transform: uppercase;
         font-size: 12px;
@@ -29,19 +54,30 @@
 
     &__menu {
         transform: translateX(rem(-110));
+        @media only screen and (max-width: 768px) {
+            transform: none;
+        }
     }
 
     &__list {
         @include dflex(center, wrap, space-between);
+        @media only screen and (max-width: 768px) {
+            display: block;
+            padding-left: 0;
+        }
     }
 
     &__item {
-        font-family: Lato;
+       font-family: "Lato Light";;
         font-size: 12px;
         font-weight: 300;
         text-transform: uppercase;
         list-style-type: none;
         margin-right: 10px;
+
+        @media only screen and (max-width: 768px) {
+            margin-bottom: 45px
+        }
 
         @media only screen and (min-width: 1600px) {
             font-size: 16px;
