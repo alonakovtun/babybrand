@@ -10,7 +10,7 @@
  * @package shop
  */
 
-$blogs = get_posts(array(
+$blogsArr = get_posts(array(
     'numberposts' => -1,
     'category'    => 0,
     'orderby'     => 'date',
@@ -20,6 +20,8 @@ $blogs = get_posts(array(
     'post_type'   => 'blog',
     'suppress_filters' => true,
 ));
+
+$blogs = array_slice($blogsArr, 0, 4);
 
 $product_categories = get_categories(array(
     'taxonomy'     => 'product_cat',
