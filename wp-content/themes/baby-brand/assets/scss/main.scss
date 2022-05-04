@@ -372,11 +372,6 @@ input:focus {
 }
 
 
-.pa_color {
-  display: none;
-}
-
-
 /* CSS */
 
 .prev_next_buttons {
@@ -460,6 +455,7 @@ input:focus {
 }
 
 .adress__link{
+  transition: all .4s;
   &.opacity{
       color: #939598;
   }

@@ -399,9 +399,25 @@
     display: none!important;
 }
 
-.pa_size{
+.pa_size, .pa_color{
     display: flex;
     align-items: baseline;
+}
+
+.pa_color {
+    .variable-item:not(.radio-variable-item){
+        box-shadow: none!important;
+    }
+
+    li{
+        width: 14px!important;
+        height: 14px!important;
+
+        &.variable-item.color-variable-item.selected{
+            box-shadow: 0 0 0 1px rgba(0, 0, 0, .2)!important;
+        }
+        
+    }
 }
 
 
