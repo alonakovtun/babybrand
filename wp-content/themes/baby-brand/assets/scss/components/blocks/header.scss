@@ -345,6 +345,12 @@
             font-size: 11px;
         }
 
+        a{
+            &:hover{
+                text-decoration: underline;
+            }
+        }
+
     }
 
     &__text--bottom {

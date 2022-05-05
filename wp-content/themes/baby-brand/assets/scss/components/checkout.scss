@@ -241,6 +241,11 @@
         &.active {
             display: none;
         }
+
+        a{
+            width: 100%;
+            text-align: center;
+        }
     }
 }
 
@@ -331,8 +336,8 @@
         right: 0;
         transform: translateY(-50%);
 
-        &.red {
-            color: red;
+        &.bottom {
+            border-bottom: 1px solid #282828;
         }
 
     }
@@ -361,3 +366,24 @@
         height: auto;
     }
 }
+
+.option-item__methods{
+    cursor: pointer;    
+}
+
+.wc_payment_methods{
+    .input-radio{
+        display: none;
+    }
+}
+
+.payment_methods{
+    padding-left: 0;
+   .payment_box{
+       p{
+           display: none;
+       }
+   } 
+}
+
+

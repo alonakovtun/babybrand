@@ -485,6 +485,10 @@
     top: 133px;
     right: 31px;
 
+    &:hover{
+        text-decoration: underline
+    }
+
     cursor: pointer;
 }
 

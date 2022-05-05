@@ -80,6 +80,10 @@
             }
 
         }
+
+        .wc-item-meta{
+            display: none;
+        }
     }
 }
 
@@ -121,4 +125,29 @@
     .chekout__gobackbtn{
         margin-top: 20px
     }
+  }
+
+  .order_pay{
+      padding-left: 31px;
+      margin-top: 150px;
+
+      @media only screen and (min-width: 1600px) {
+        padding-left: 51px;
+    }
+
+    .chekout__gobackbtn{
+        margin-bottom: 20px;
+    }
+  }
+
+  .order-payment{
+      width: 460px;
+      padding-left: 31px;
+      @media only screen and (min-width: 1600px) {
+        padding-left: 51px;
+    }
+      .item-checkout__button{
+          width: 100%;
+         
+      }
   }

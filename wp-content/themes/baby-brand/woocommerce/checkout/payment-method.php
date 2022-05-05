@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Output a single payment method
  *
@@ -15,24 +16,45 @@
  * @version     3.5.0
  */
 
-if ( ! defined( 'ABSPATH' ) ) {
+if (!defined('ABSPATH')) {
 	exit;
 }
 ?>
-<li class="wc_payment_method payment_method_<?php echo esc_attr( $gateway->id ); ?>" style="list-style-type: none;">
-	<input id="payment_method_<?php echo esc_attr( $gateway->id ); ?>" type="radio" class="input-radio" name="payment_method" value="<?php echo esc_attr( $gateway->id ); ?>" <?php checked( $gateway->chosen, true ); ?> data-order_button_text="<?php echo esc_attr( $gateway->order_button_text ); ?>" />
+<li class="test-class wc_payment_method payment_method_<?php echo esc_attr($gateway->id); ?>" style="list-style-type: none;">
+	<input id="payment_method_<?php echo esc_attr($gateway->id); ?>" type="radio" class="input-radio" name="payment_method" value="<?php echo esc_attr($gateway->id); ?>" <?php checked($gateway->chosen, true); ?> data-order_button_text="<?php echo esc_attr($gateway->order_button_text); ?>" />
+	<?
+	$icon = '';
 
-	<label for="payment_method_<?php echo esc_attr( $gateway->id ); ?>">
+	if ($gateway->id ==  'bacs') {
+		$icon =  get_template_directory_uri() . '/assets/img/paymethod1.png';
+	}
+	?>
+	<label for="payment_method_<?php echo esc_attr($gateway->id); ?>">
 		<div class="item-checkout__option option-item ">
 			<div class="option-item__icon option-item__icon">
-				<?php echo $gateway->get_icon(); ?>
+				<img class="payment-method__img" src="<?= $icon; ?>" alt="">
 			</div>
-			<div class="option-item__methods red"><?php echo $gateway->get_title(); ?></div>
+			<a class="option-item__methods"><?php echo $gateway->get_title(); ?></a>
 		</div>
 	</label>
-	<?php if ( $gateway->has_fields() || $gateway->get_description() ) : ?>
-		<div class="payment_box payment_method_<?php echo esc_attr( $gateway->id ); ?>" <?php if ( ! $gateway->chosen ) : /* phpcs:ignore Squiz.ControlStructures.ControlSignature.NewlineAfterOpenBrace */ ?>style="display:none;"<?php endif; /* phpcs:ignore Squiz.ControlStructures.ControlSignature.NewlineAfterOpenBrace */ ?>>
+	<!-- <?php if ($gateway->has_fields() || $gateway->get_description()) : ?>
+		<div class="payment_box payment_method_<?php echo esc_attr($gateway->id); ?>" <?php if (!$gateway->chosen) : /* phpcs:ignore Squiz.ControlStructures.ControlSignature.NewlineAfterOpenBrace */ ?>style="display:none;"<?php endif; /* phpcs:ignore Squiz.ControlStructures.ControlSignature.NewlineAfterOpenBrace */ ?>>
 			<?php $gateway->payment_fields(); ?>
 		</div>
-	<?php endif; ?>
+	<?php endif; ?> -->
 </li>
+
+<script>
+	var panels = document.getElementsByClassName("option-item__methods");
+	var actives = document.getElementsByClassName('bottom');
+	for (i = 0; panels.length > i; i++) {
+		panels[i].onclick = function() {
+			var currentActive = actives[0];
+			if (currentActive)
+				currentActive.classList.remove("bottom");
+
+			if (currentActive !== this)
+				this.classList.add("bottom");
+		};
+	}
+</script>
