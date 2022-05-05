@@ -74,9 +74,25 @@
 }
 
 .woocommerce-lost-password{
+    .type-page{
+        margin-top: 10rem;
+        padding: 0 31px;
+        width: 34%;
+        @media only screen and (max-width: 768px) {
+           width: 100%;        
+        }
+    }
+
+    .login__column{
+        flex: 0 0 100%;
+    }
+
     .login__body.register{
         margin-top: 10rem;
         padding: 0 31px;
+        @media only screen and (max-width: 768px) {
+            padding: 0;
+         }
 
         @media only screen and (min-width: 1600px) {
             padding: 0 51px;        
