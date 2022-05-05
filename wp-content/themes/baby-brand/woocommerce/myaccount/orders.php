@@ -76,6 +76,8 @@ do_action('woocommerce_before_account_orders', $has_orders); ?>
 													<?php elseif ('order-actions' === $column_id) : ?>
 														<?php
 														$actions = wc_get_account_orders_actions($order);
+														unset($actions['pay']);
+														unset($actions['cancel']);
 
 														if (!empty($actions)) {
 															foreach ($actions as $key => $action) { // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
