@@ -152,7 +152,7 @@
         <!-- # START LIST PRODUCT -->
 
     </div>
-    <button type="submit" class="button" name="update_cart" value="<?php esc_attr_e('Update cart', 'woocommerce'); ?>"><?php esc_html_e('Update cart', 'woocommerce'); ?></button>
+    <button style="display:none;" type="submit" class="button" name="update_cart" value="<?php esc_attr_e('Update cart', 'woocommerce'); ?>"><?php esc_html_e('Update cart', 'woocommerce'); ?></button>
 
     <?php wp_nonce_field('woocommerce-cart', 'woocommerce-cart-nonce'); ?>
 </form>

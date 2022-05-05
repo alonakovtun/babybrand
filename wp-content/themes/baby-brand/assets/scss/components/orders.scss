@@ -122,3 +122,19 @@
         margin-top: 20px
     }
   }
+
+a.disabled {
+    color: gray;
+    pointer-events: none;
+}
+
+.order-pay-cancel-buttons {
+    margin-top: 49px;
+}
+
+.item-checkout__radiotext {
+    a {
+        text-decoration: underline;
+        color: red;
+    }
+}
