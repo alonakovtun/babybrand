@@ -44,13 +44,17 @@ do_action( 'woocommerce_before_edit_account_address_form' ); ?>
 
 			<?php do_action( "woocommerce_after_edit_address_form_{$load_address}" ); ?>
 
-			<p>
-				<button type="submit" class="woocommerce-Button button accountdetails__button" name="save_address" value="<?php esc_attr_e( 'Save address', 'woocommerce' ); ?>"><?php esc_html_e( 'Save address', 'woocommerce' ); ?></button>
+			
+				
 				<?php wp_nonce_field( 'woocommerce-edit_address', 'woocommerce-edit-address-nonce' ); ?>
 				<input type="hidden" name="action" value="edit_address" />
-			</p>
+			
 		</div>
-
+		<div class="item-checkout__buttons address-buttons">
+			<!-- <button onclick="history.go(-1)" class="woocommerce-Button button accountdetails__button" name="cancel" value="<?php esc_attr_e( 'Cancel', 'woocommerce' ); ?>"><?php esc_html_e( 'Cancel', 'woocommerce' ); ?></button> -->
+			<a href="javascript:history.back()" class="woocommerce-Button button accountdetails__button" ><?php esc_html_e( 'Cancel', 'woocommerce' ); ?></a>
+			<button type="submit" class="accountdetails__button" name="save_address" value="<?php esc_attr_e( 'Save', 'woocommerce' ); ?>"><?php esc_html_e( 'Save', 'woocommerce' ); ?></button>
+		</div>
 	</form>
 	</div>
 <?php endif; ?>
