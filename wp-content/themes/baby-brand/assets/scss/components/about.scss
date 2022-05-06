@@ -3,6 +3,10 @@
 
     &__body {
         @include dflex(center, wrap, space-between);
+
+        @media only screen and (max-width: 768px) {
+            flex-direction: column;
+        }
     }
 
     &__column {
@@ -13,6 +17,13 @@
         width: 100%;
         height: auto;
         flex: 0 0 50%;
+        @media only screen and (max-width: 768px) {
+            &:nth-child(3) {  
+                order: 2;
+              }
+        }
+
+       
     }
 }
 
@@ -35,16 +46,32 @@
         display: flex;
         flex-direction: column;
         justify-content: center;
+        @media only screen and (max-width: 768px) {
+            display: block
+        }
 
         &--1 {
             width: rem(522);
             height: rem(322);
+            @media only screen and (max-width: 768px) {
+                width: 100%;
+                height: 100%;
+
+                margin-top: 95px;
+                padding: 0 31px;
+            }
         
         }
 
         &--2 {
             width: rem(564);
             height: rem(403);
+
+            @media only screen and (max-width: 768px) {
+                width: 100%;
+                height: 100%;
+                padding: 65px 31px;
+            }
             
         }
     }
@@ -52,30 +79,51 @@
     &__title {
         color: #000000;
        font-family: "Lato Light";;
-        font-size: rem(20);
+       font-size: 14px;
         font-weight: 300;
         line-height: normal;
         text-align: left;
         text-transform: uppercase;
         margin-bottom: 65px;
+        @media only screen and (max-width: 768px) {
+            margin-bottom: 25px;
+            font-size: 11px;
+        }
+        @media only screen and (min-width: 1600px) {
+            font-size: 20px;
+        }
     }
 
     &__text {
         color: #000000;
        font-family: "Lato Light";;
-        font-size: 12px;
+        font-size: 14px;
         font-weight: 300;
         margin-bottom: 34px;
 
         @media only screen and (min-width: 1600px) {
             font-size: 20px;
         }
+
+        @media only screen and (max-width: 768px) {
+            margin-bottom: 25px;
+            font-size: 11px;
+        }
     }
     &__subtitle {
         color: #000000;
        font-family: "Lato Light";;
-        font-size: rem(20);
+       font-size: 14px;
         font-weight: 300;
+
+        @media only screen and (min-width: 1600px) {
+            font-size: 20px;
+        }
+
+        @media only screen and (max-width: 768px) {
+            margin-bottom: 65px;
+            font-size: 11px;
+        }
     }
 
     &__img {
@@ -93,10 +141,18 @@
     &__text--2 {
         color: #231f20;
        font-family: "Lato Light";;
-        font-size: rem(20);
+        font-size: 14px;
         font-weight: 300;
-        line-height: rem(37.95);
         margin-bottom: rem(30);
+
+        @media only screen and (min-width: 1600px) {
+            font-size: 20px;
+        }
+
+        @media only screen and (max-width: 768px) {
+            font-size: 11px;
+            margin-bottom: 0;
+        }
     }
 
 

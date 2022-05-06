@@ -129,6 +129,7 @@
 
 
       &__img {
+
             img {
                   display: block;
                   height: auto;
@@ -138,6 +139,9 @@
 
                   @media only screen and (min-width: 1600px) {
                         max-height: 600px;
+                  }
+                  @media only screen and (max-width: 768px) {
+                        max-height: 265px;
                   }
             }
       }
@@ -155,12 +159,19 @@
             @include dflex(flex-start, wrap, space-between);
             padding: rem(38) rem(50) 0 rem(50);
 
+            @media only screen and (max-width: 768px) {
+                 flex-direction: column;
+            }
+
       }
 
       &__price {}
 
       &__icon {
             cursor: pointer;
+            @media only screen and (max-width: 768px) {
+                 margin-top: 10px;
+             }
 
       }
 
@@ -233,6 +244,10 @@
             font-size: 16px;
             margin-top: 200px;
       }
+      @media only screen and (max-width: 768px) {
+            visibility: hidden;
+            opacity: 0;
+        }
 
 }
 

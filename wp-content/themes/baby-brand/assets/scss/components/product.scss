@@ -41,6 +41,10 @@
 
     &__body {
         @include dflex(flex-start, wrap, space-between);
+        @media only screen and (max-width: 768px) {
+            flex-direction: column;
+        }
+        
 
     }
 
@@ -248,23 +252,32 @@
     @include dflex(center, wrap, space-between);
     position: relative;
 
-    &__list {
-        margin-right: rem(55);
-
-        &:hover {
-            cursor: pointer;
-
-            .item-bottom__text {
-                opacity: 1;
-                visibility: visible;
-            }
-
-        }
+    @media only screen and (max-width: 768px) {
+       flex-direction: column;
+       align-items: baseline;
     }
 
+        &__list {
+            margin-right: rem(55);
+    
+            &:hover {
+                cursor: pointer;
+            }
+    
+            // &.active {
+            //     .item-bottom__text {
+            //         opacity: 1;
+            //         visibility: visible;
+
+            //     }
+
+            // }
+            }
+
     &__text {
-        opacity: 0;
-        visibility: hidden;
+        // opacity: 0;
+        // visibility: hidden;
+        display: none;
         position: absolute;
         left: 0;
         top: 0;
@@ -296,6 +309,11 @@
     @media only screen and (min-width: 1600px) {
         padding-top: 291px;
         width: 558px;
+    }
+
+    @media only screen and (max-width: 768px) {
+        position: relative;
+        padding: 65px 31px;
     }
 }
 
@@ -411,6 +429,7 @@
 }
 
 .pa_color {
+    margin-bottom: 30px;
 
     .variable-item:not(.radio-variable-item) {
         box-shadow: none !important;
@@ -471,6 +490,9 @@
 
     .filters-block {
         display: flex;
+        @media only screen and (max-width: 768px) {
+            flex-direction: column;
+        }
 
         .filter-widget {
             &:not(:last-child) {
@@ -487,6 +509,11 @@
 
     &:hover{
         text-decoration: underline
+    }
+
+    @media only screen and (max-width: 768px) {
+        left: 31px;
+
     }
 
     cursor: pointer;

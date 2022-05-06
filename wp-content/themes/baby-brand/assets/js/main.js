@@ -100,4 +100,20 @@ jQuery( ".item-bottom__link" ).hover(
 	}
   );
 
+
+
+var panels = document.getElementsByClassName("item-bottom__list");
+var actives = document.getElementsByClassName('_active');
+for (i = 0; panels.length > i; i++) {
+  panels[i].onclick = function() {
+    var currentActive = actives[0];
+    if (currentActive)
+      currentActive.classList.remove("bottom");
+
+    if (currentActive !== this)
+      this.classList.add("bottom");
+  };
+}
+  
+
 export default miniCart;
