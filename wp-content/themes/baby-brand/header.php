@@ -41,6 +41,9 @@ $product_categories = get_categories(array(
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="profile" href="https://gmpg.org/xfn/11">
 
+    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
+
+
     <?php wp_head(); ?>
 </head>
 
@@ -162,7 +165,7 @@ $product_categories = get_categories(array(
                                     <a href="/quality-care/" class="assistanse-link nomarginb"> quality & care</a>
                                     <a href="/size-guide/" class="assistanse-link bigmarginb"> size guide</a>
                                     <a href="/my-account/wish-list/" class="assistanse-link bigmarginb wish">Wishlist <img src="/wp-content/uploads/2022/04/producticon.png"> </a>
-                                    <a  class="assistanse-link bigmarginb">Newsletter</a>
+                                    <a class="assistanse-link bigmarginb">Newsletter</a>
                                     <form class="assistanse-form" action="" method="get">
                                         <input type="email" class="assistanse-email" placeholder="Enter your email">
                                         <button class="assistance-btn">

@@ -90,8 +90,25 @@
 </div><!-- #page -->
 
 <?php wp_footer(); ?>
+
+<script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
 <script>
     jQuery('.remove_from_wishlist').data("title", jQuery('.remove_from_wishlist').attr("title")).removeAttr("title");
+</script>
+
+<script type="module">
+  import Swiper from 'https://unpkg.com/swiper@8/swiper-bundle.esm.browser.min.js'
+
+  var mainScreenSwiper = new Swiper('.first-screen.swiper', {
+  slidesPerView: 1,
+  spaceBetween: 0,
+  speed: 800,
+  autoplay: {
+    delay: 4000
+  },
+  loop: true,
+ 
+});
 </script>
 </body>
 

@@ -1,6 +1,7 @@
 import { ready } from "./utils";
 import { initHeaderScripts } from "./header";
 
+
 function initHomePageScripts() {}
 
 (function () {
@@ -134,6 +135,10 @@ jQuery( ".item-bottom__link" ).hover(
         });
     });
 });
+
+
+
+
 
 
   
