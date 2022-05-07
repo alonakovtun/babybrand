@@ -89,6 +89,10 @@
                
             }
 
+            .header-list__item{
+                margin-right: 0;
+            }
+
             
         }
     }
@@ -333,6 +337,9 @@
             padding: 0!important;
             margin-top: 40px;
         }
+
+       
+        
 
     }
 
@@ -974,3 +981,28 @@
     display: none;
 }
 
+
+.stories__block, .list-block{
+    .header-block__container{
+        .stories-color:nth-child(2){
+            a{
+                color: #000;
+            }
+        }
+        .stories-color:nth-child(3){
+            a{
+                color: #141515;
+            }
+        }
+        .stories-color:nth-child(4){
+            a{
+                color: #808285;
+            }
+        }
+        .stories-color:nth-child(5){
+            a{
+                color: #939598;
+            }
+        }
+    }
+}

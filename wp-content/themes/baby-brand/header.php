@@ -94,7 +94,7 @@ $product_categories = get_categories(array(
                                 <div class="header-block__container container">
                                     <div class="header-block__name">stories</div>
                                     <?php foreach ($blogs as $blog) : ?>
-                                        <div class="header-block__text">
+                                        <div class="header-block__text stories-color">
                                             <a href="<?php echo $blog->guid; ?>">
                                                 <?php echo date_format(date_create($blog->post_date), 'd.m.Y'); ?>/<?php echo $blog->post_title; ?>
                                             </a>
@@ -162,7 +162,7 @@ $product_categories = get_categories(array(
                                     <a href="/quality-care/" class="assistanse-link nomarginb"> quality & care</a>
                                     <a href="/size-guide/" class="assistanse-link bigmarginb"> size guide</a>
                                     <a href="/my-account/wish-list/" class="assistanse-link bigmarginb wish">Wishlist <img src="/wp-content/uploads/2022/04/producticon.png"> </a>
-                                    <a href="" class="assistanse-link bigmarginb">Newsletter</a>
+                                    <a  class="assistanse-link bigmarginb">Newsletter</a>
                                     <form class="assistanse-form" action="" method="get">
                                         <input type="email" class="assistanse-email" placeholder="Enter your email">
                                         <button class="assistance-btn">
@@ -291,7 +291,7 @@ $product_categories = get_categories(array(
                         <div class="list-block">
                             <div class="header-block__container container">
                                 <?php foreach ($blogs as $blog) : ?>
-                                    <div class="header-block__text">
+                                    <div class="header-block__text stories-color">
                                         <a href="<?php echo $blog->guid; ?>">
                                             <?php echo date_format(date_create($blog->post_date), 'd.m.Y'); ?>/<?php echo $blog->post_title; ?>
                                         </a>
@@ -312,7 +312,7 @@ $product_categories = get_categories(array(
                                 <a href="/quality-care/" class="assistanse-link nomarginb"> quality & care</a>
                                 <a href="/size-guide/" class="assistanse-link bigmarginb"> size guide</a>
                                 <a href="/my-account/wish-list/" class="assistanse-link bigmarginb wish">Wishlist <img src="/wp-content/uploads/2022/04/producticon.png"> </a>
-                                <a href="" class="assistanse-link bigmarginb">Newsletter</a>
+                                <a class="assistanse-link bigmarginb">Newsletter</a>
                                 <form class="assistanse-form" action="" method="get">
                                     <input type="email" class="assistanse-email" placeholder="Enter your email">
                                     <button class="assistance-btn">

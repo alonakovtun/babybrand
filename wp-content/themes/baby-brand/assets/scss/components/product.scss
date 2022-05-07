@@ -4,7 +4,8 @@
 
     &__link {
         color: #000000;
-       font-family: "Lato Light";;
+        font-family: "Lato Light";
+        ;
         font-size: rem(16);
         font-weight: 400;
 
@@ -21,7 +22,8 @@
 
     &__button {
         color: #000000;
-       font-family: "Lato Light";;
+        font-family: "Lato Light";
+        ;
         font-size: rem(16);
         font-weight: 300;
 
@@ -41,10 +43,11 @@
 
     &__body {
         @include dflex(flex-start, wrap, space-between);
+
         @media only screen and (max-width: 768px) {
             flex-direction: column;
         }
-        
+
 
     }
 
@@ -85,10 +88,14 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    @media only screen and (max-width: 768px) {
+        max-height: fit-content;
+    }
 
     &__price {
         color: #070707;
-       font-family: "Lato Light";;
+        font-family: "Lato Light";
+        ;
         font-size: 12px;
         font-weight: 300;
         font-style: normal;
@@ -101,7 +108,8 @@
 
     &__text {
         color: #000000;
-       font-family: "Lato Light";;
+        font-family: "Lato Light";
+        ;
         font-size: 12px;
         font-weight: 300;
         margin-bottom: 60px;
@@ -120,7 +128,8 @@
         z-index: 20;
         text-decoration: none;
         color: #000000;
-       font-family: "Lato Light";;
+        font-family: "Lato Light";
+        ;
         font-size: 12px;
         font-weight: 300;
         -webkit-transition: all 0.3s;
@@ -205,11 +214,23 @@
     padding: 1rem 3rem 2rem;
     transition: all .3s;
 
+    @media only screen and (max-width: 768px) {
+        margin-bottom: 90px;
+    }
+
     &:hover {
         background-color: #000;
 
         .item-cart__text {
             color: #ffffff;
+        }
+
+        @media only screen and (max-width: 768px) {
+            background-color: #fff;
+
+            .item-cart__text {
+                color: #000;
+            }
         }
     }
 
@@ -225,7 +246,8 @@
 
     &__text {
         color: #070707;
-       font-family: "Lato Light";;
+        font-family: "Lato Light";
+        ;
         font-size: rem(16);
         font-weight: 300;
         line-height: rem(26.97);
@@ -253,30 +275,33 @@
     position: relative;
 
     @media only screen and (max-width: 768px) {
-       flex-direction: column;
-       align-items: baseline;
+        flex-direction: column;
+        align-items: baseline;
+        margin-right: 0;
     }
 
-        &__list {
-            margin-right: rem(55);
-    
-            &:hover {
-                cursor: pointer;
-            }
-    
-            // &.active {
-            //     .item-bottom__text {
-            //         opacity: 1;
-            //         visibility: visible;
+    &__list {
+        margin-right: rem(55);
 
-            //     }
+        @media only screen and (max-width: 768px) {
+            margin-right: 0;
+        }
+       
+        &:hover {
+            cursor: pointer;
+        }
 
-            // }
-            }
+        // &.active {
+        //     .item-bottom__text {
+        //         opacity: 1;
+        //         visibility: visible;
+
+        //     }
+
+        // }
+    }
 
     &__text {
-        // opacity: 0;
-        // visibility: hidden;
         display: none;
         position: absolute;
         left: 0;
@@ -287,15 +312,26 @@
         font-weight: 300;
 
         transition: all 0.4s;
+
+        @media only screen and (max-width: 768px) {
+            position: relative;
+        }
+
+
     }
 
     &__link {
         text-decoration: none;
         color: #000000;
-       font-family: "Lato Light";;
+        font-family: "Lato Light";
+        ;
         font-size: rem(16);
         font-weight: 300;
         cursor: pointer;
+
+        @media only screen and (max-width: 768px) {
+            margin-bottom: 40px;
+        }
     }
 }
 
@@ -324,11 +360,18 @@
 
     &__title {
         color: #000000;
-       font-family: "Lato Light";;
+        font-family: "Lato Light";
+        ;
         font-size: rem(16);
         font-weight: 300;
         text-transform: uppercase;
         margin: rem(164) 0 rem(85) 0;
+
+        @media only screen and (max-width: 768px) {
+           margin-top: -10px;
+        }
+
+        
     }
 
 
@@ -344,7 +387,8 @@
 
     &__price {
         color: #070707;
-       font-family: "Lato Light";;
+        font-family: "Lato Light";
+        ;
         font-size: rem(16);
         font-weight: 300;
         text-transform: uppercase;
@@ -422,10 +466,28 @@
     display: none !important;
 }
 
+.woo-variation-swatches .variable-items-wrapper .variable-item:not(.radio-variable-item){
+    @media only screen and (max-width: 768px) {
+        margin: 4px 18px 4px 0!important;
+    }
+}
+
 .pa_size,
 .pa_color {
     display: flex;
     align-items: center;
+
+    
+
+}
+
+.pa_size {
+    .variable-item:not(.radio-variable-item) {
+        @media only screen and (max-width: 768px) {
+            width: 16px !important;
+        }
+
+    }
 }
 
 .pa_color {
@@ -443,6 +505,12 @@
             box-shadow: 0 0 0 1px rgba(0, 0, 0, .2) !important;
         }
 
+    }
+
+    .label {
+        @media only screen and (max-width: 768px) {
+            margin-right: 72px!important;
+        }
     }
 }
 
@@ -470,7 +538,8 @@
     .widget-title,
     .woocommerce-widget-layered-nav-list {
         color: #000000;
-       font-family: "Lato Light";;
+        font-family: "Lato Light";
+        ;
         font-size: 12px;
         font-weight: 300;
     }
@@ -490,6 +559,7 @@
 
     .filters-block {
         display: flex;
+
         @media only screen and (max-width: 768px) {
             flex-direction: column;
         }
@@ -507,7 +577,7 @@
     top: 133px;
     right: 31px;
 
-    &:hover{
+    &:hover {
         text-decoration: underline
     }
 
@@ -534,27 +604,28 @@
     justify-content: space-between;
 }
 
-.yith-wcan-filters .yith-wcan-filter .filter-items .filter-item.active > a, 
-.yith-wcan-filters .yith-wcan-filter .filter-items .filter-item.active > label > a,
-.yith-wcan-filters .yith-wcan-filter .filter-items .filter-item > a:hover, 
-.yith-wcan-filters .yith-wcan-filter .filter-items .filter-item > label > a:hover,
-.yith-wcan-filters .yith-wcan-filter .filter-items .filter-item > a, 
-.yith-wcan-filters .yith-wcan-filter .filter-items .filter-item > label > a {
+.yith-wcan-filters .yith-wcan-filter .filter-items .filter-item.active>a,
+.yith-wcan-filters .yith-wcan-filter .filter-items .filter-item.active>label>a,
+.yith-wcan-filters .yith-wcan-filter .filter-items .filter-item>a:hover,
+.yith-wcan-filters .yith-wcan-filter .filter-items .filter-item>label>a:hover,
+.yith-wcan-filters .yith-wcan-filter .filter-items .filter-item>a,
+.yith-wcan-filters .yith-wcan-filter .filter-items .filter-item>label>a {
     color: #000;
     font-weight: 300;
 }
 
-.yith-wcan-filters .yith-wcan-filter .filter-items .filter-item.active > a, 
-.yith-wcan-filters .yith-wcan-filter .filter-items .filter-item.active > label > a{
+.yith-wcan-filters .yith-wcan-filter .filter-items .filter-item.active>a,
+.yith-wcan-filters .yith-wcan-filter .filter-items .filter-item.active>label>a {
     text-decoration: underline;
 }
 
-.filter-title{
+.filter-title {
     position: relative;
     z-index: 20;
     text-decoration: none;
     color: #000000;
-   font-family: "Lato Light";;
+    font-family: "Lato Light";
+    ;
     font-size: 12px;
     font-weight: 300;
     text-transform: uppercase;
@@ -564,4 +635,10 @@
 
     margin-top: 30px;
     margin-bottom: 9px;
+}
+
+.product-template-default{
+    .woocommerce-message{
+        display: none;
+    }
 }
