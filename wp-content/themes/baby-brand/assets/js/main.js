@@ -71,7 +71,7 @@ jQuery( ".item-bottom__link" ).hover(
 	  jQuery('.item-bottom__link').removeClass('opacity')
 	}
   );
-
+//window.location.href
   jQuery( ".adress__link" ).hover(
 	function() {
 	  jQuery(this).addClass( "dif_color" );
@@ -83,6 +83,16 @@ jQuery( ".item-bottom__link" ).hover(
   );
 
   
+jQuery( ".myacc" ).each(function() {
+  // jQuery(this).click(function () {
+    if (jQuery(this).attr('href') == window.location.href) {
+      // alert('a');
+      jQuery(this).addClass( "dif_color" );
+      jQuery( ".myacc" ).not(jQuery(this)).addClass( "opacity" );
+    }
+    // alert(window.location.href);
+  // })
+});
 
   jQuery( ".item-cart" ).hover(
 	function() {

@@ -6,6 +6,20 @@
     margin-top: 65px;
 }
 
+.myacc {
+    position: relative;
+    z-index: 2;
+    margin-right: rem(25);
+    color: #000000;
+    font-family: "Lato Light";
+    ;
+    font-size: rem(16);
+    font-weight: 300;
+    text-transform: uppercase;
+    text-decoration: none;
+
+    transition: all 0.4s;
+}
 
 .accountdetails {
 
