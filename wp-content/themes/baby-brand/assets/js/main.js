@@ -71,24 +71,13 @@ jQuery( ".item-bottom__link" ).hover(
 	  jQuery('.item-bottom__link').removeClass('opacity')
 	}
   );
-//window.location.href
-  jQuery( ".adress__link" ).hover(
-	function() {
-	  jQuery(this).addClass( "dif_color" );
-	  jQuery('.adress__link').addClass('opacity');
-	}, function() {
-	  jQuery(this).removeClass( "dif_color" );
-	  jQuery('.adress__link').removeClass('opacity')
-	}
-  );
-
   
-  jQuery( ".myacc" ).each(function() {
-      if (jQuery(this).attr('href') == window.location.href) {
-        jQuery(this).addClass( "dif_color" );
-        jQuery( ".myacc" ).not(jQuery(this)).addClass( "opacity" );
-      }
-  });
+  // jQuery( ".myacc" ).each(function() {
+  //     if (jQuery(this).attr('href') == window.location.href) {
+  //       jQuery(this).addClass( "dif_color" );
+  //       jQuery( ".myacc" ).not(jQuery(this)).addClass( "opacity" );
+  //     }
+  // });
 
   jQuery(document).ready(function () {
     jQuery(window).on("resize", function (e) {
