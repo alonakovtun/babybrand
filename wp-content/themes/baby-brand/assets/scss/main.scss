@@ -226,9 +226,21 @@ figure {
 
 
 .related.products {
+  @media only screen and (max-width: 768px) {
+    margin-bottom: 0;
+  }
+
+  .products{
+    @media only screen and (max-width: 768px) {
+      margin-bottom: 0;
+    }
+  }
+
   .products__body.products {
     margin-top: inherit;
   }
+
+ 
 }
 
 .information {
@@ -401,7 +413,7 @@ figure {
       font-size: 9px;
 
       @media only screen and (max-width: 768px) {
-        top: 1px;
+        bottom: 2px;
         right: 5px;
       }
     }

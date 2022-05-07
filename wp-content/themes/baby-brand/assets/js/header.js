@@ -48,8 +48,29 @@ jQuery("#mobile-menu-toggle").click(function () {
 });
 
 jQuery(".header-list__item").click(function () {
-    jQuery(this).find('> .list-block').slideToggle("slow", "linear");
     jQuery(this).toggleClass("change");
+    jQuery(".header-list__item").not(this).removeClass("change");
+});
+
+jQuery(document).ready(function () {
+    jQuery(".header-list__item").each(function () {
+        jQuery(this).click(function () {
+            var nextElem = jQuery(this).find(".list-block");
+
+            jQuery(".list-block")
+                .not(nextElem)
+                .each(function () {
+                    jQuery(this).hide();
+                });
+
+            if (nextElem.css("display") === "block") {
+                nextElem.hide();
+                return;
+            }
+
+            nextElem.fadeIn(500);
+        });
+    });
 });
 
 export { initHeaderScripts };

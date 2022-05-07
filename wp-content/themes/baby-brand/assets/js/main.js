@@ -83,47 +83,59 @@ jQuery( ".item-bottom__link" ).hover(
   );
 
   
-jQuery( ".myacc" ).each(function() {
-  // jQuery(this).click(function () {
-    if (jQuery(this).attr('href') == window.location.href) {
-      // alert('a');
-      jQuery(this).addClass( "dif_color" );
-      jQuery( ".myacc" ).not(jQuery(this)).addClass( "opacity" );
+  jQuery( ".myacc" ).each(function() {
+      if (jQuery(this).attr('href') == window.location.href) {
+        jQuery(this).addClass( "dif_color" );
+        jQuery( ".myacc" ).not(jQuery(this)).addClass( "opacity" );
+      }
+  });
+
+  jQuery(document).ready(function () {
+    jQuery(window).on("resize", function (e) {
+        checkScreenSize();
+    });
+
+    checkScreenSize();
+    
+    function checkScreenSize(){
+        var newWindowWidth = jQuery(window).width();
+        if (newWindowWidth > 768) {
+          jQuery( ".item-cart" ).hover(
+            function() {
+              jQuery('.add_to_wishlist img').attr('src', '/wp-content/themes/baby-brand/assets/img/white-heart.png');
+            }, function() {
+                  jQuery('.add_to_wishlist img').attr('src', '/wp-content/uploads/2022/04/producticon.png');
+            }
+            );
+        }
     }
-    // alert(window.location.href);
-  // })
+});
+ 
+
+
+
+  jQuery(document).ready(function () {
+    jQuery(".item-bottom__list").each(function () {
+        jQuery(this).click(function () {
+            var nextElem = jQuery(this).find(".item-bottom__text");
+
+            jQuery(".item-bottom__text")
+                .not(nextElem)
+                .each(function () {
+                    jQuery(this).hide();
+                });
+
+            if (nextElem.css("display") === "block") {
+                nextElem.hide();
+                return;
+            }
+
+            nextElem.fadeIn(500);
+        });
+    });
 });
 
-  jQuery( ".item-cart" ).hover(
-	function() {
-	  jQuery('.add_to_wishlist img').attr('src', '/wp-content/themes/baby-brand/assets/img/white-heart.png');
-	}, function() {
-        jQuery('.add_to_wishlist img').attr('src', '/wp-content/uploads/2022/04/producticon.png');
-	}
-  );
 
-  jQuery( ".item-cart" ).hover(
-	function() {
-	  jQuery('.delete_item   img').attr('src', '/wp-content/themes/baby-brand/assets/img/heart-white.png');
-	}, function() {
-        jQuery('.delete_item   img').attr('src', '/wp-content/uploads/2022/05/black-heart.png');
-	}
-  );
-
-
-
-var panels = document.getElementsByClassName("item-bottom__list");
-var actives = document.getElementsByClassName('_active');
-for (i = 0; panels.length > i; i++) {
-  panels[i].onclick = function() {
-    var currentActive = actives[0];
-    if (currentActive)
-      currentActive.classList.remove("bottom");
-
-    if (currentActive !== this)
-      this.classList.add("bottom");
-  };
-}
   
 
 export default miniCart;
