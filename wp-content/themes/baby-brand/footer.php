@@ -109,6 +109,18 @@
   loop: true,
  
 });
+
+var mainScreenSwiper = new Swiper('.product-mobile.swiper', {
+  slidesPerView: 1,
+  spaceBetween: 0,
+  speed: 800,
+  autoplay: {
+    delay: 4000
+  },
+  loop: true,
+ 
+});
+
 </script>
 </body>
 

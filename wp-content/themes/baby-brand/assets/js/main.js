@@ -1,7 +1,6 @@
 import { ready } from "./utils";
 import { initHeaderScripts } from "./header";
 
-
 function initHomePageScripts() {}
 
 (function () {
@@ -72,8 +71,7 @@ jQuery( ".item-bottom__link" ).hover(
 	  jQuery('.item-bottom__link').removeClass('opacity')
 	}
   );
-
-
+//window.location.href
   jQuery( ".adress__link" ).hover(
 	function() {
 	  jQuery(this).addClass( "dif_color" );
@@ -85,12 +83,12 @@ jQuery( ".item-bottom__link" ).hover(
   );
 
   
-  // jQuery( ".myacc" ).each(function() {
-  //     if (jQuery(this).attr('href') == window.location.href) {
-  //       jQuery(this).addClass( "dif_color" );
-  //       jQuery( ".myacc" ).not(jQuery(this)).addClass( "opacity" );
-  //     }
-  // });
+  jQuery( ".myacc" ).each(function() {
+      if (jQuery(this).attr('href') == window.location.href) {
+        jQuery(this).addClass( "dif_color" );
+        jQuery( ".myacc" ).not(jQuery(this)).addClass( "opacity" );
+      }
+  });
 
   jQuery(document).ready(function () {
     jQuery(window).on("resize", function (e) {
@@ -109,6 +107,14 @@ jQuery( ".item-bottom__link" ).hover(
                   jQuery('.add_to_wishlist img').attr('src', '/wp-content/uploads/2022/04/producticon.png');
             }
             );
+
+            jQuery( ".item-cart" ).hover(
+              function() {
+                jQuery('.delete_item   img').attr('src', '/wp-content/themes/baby-brand/assets/img/heart-white.png');
+              }, function() {
+                    jQuery('.delete_item   img').attr('src', '/wp-content/uploads/2022/05/black-heart.png');
+              }
+              );
         }
     }
 });
@@ -138,6 +144,10 @@ jQuery( ".item-bottom__link" ).hover(
 });
 
 
-  
+jQuery('.product-mobile .woocommerce-product-gallery__image').addClass('swiper-slide')
+
+
+
+
 
 export default miniCart;
