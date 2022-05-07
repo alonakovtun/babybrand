@@ -71,6 +71,18 @@ jQuery( ".item-bottom__link" ).hover(
 	  jQuery('.item-bottom__link').removeClass('opacity')
 	}
   );
+
+
+  jQuery( ".adress__link" ).hover(
+	function() {
+	  jQuery(this).addClass( "dif_color" );
+	  jQuery('.adress__link').addClass('opacity');
+	}, function() {
+	  jQuery(this).removeClass( "dif_color" );
+	  jQuery('.adress__link').removeClass('opacity')
+	}
+  );
+
   
   // jQuery( ".myacc" ).each(function() {
   //     if (jQuery(this).attr('href') == window.location.href) {
