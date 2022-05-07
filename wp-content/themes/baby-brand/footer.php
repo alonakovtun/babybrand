@@ -77,13 +77,10 @@
         <div class="cookies-block__privacy data-email ">This email is already subscribed.
         </div>
     </div>
-</div>
-
-</div><!-- #page -->
-<? site_cookies_banner(); ?>
+   
+</div><!-- #page --> <? site_cookies_banner() ?>
 
 <?php wp_footer(); ?>
-
 
 <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
 <script>
@@ -91,30 +88,29 @@
 </script>
 
 <script type="module">
-  import Swiper from 'https://unpkg.com/swiper@8/swiper-bundle.esm.browser.min.js'
+    import Swiper from 'https://unpkg.com/swiper@8/swiper-bundle.esm.browser.min.js'
 
-  var mainScreenSwiper = new Swiper('.first-screen.swiper', {
-  slidesPerView: 1,
-  spaceBetween: 0,
-  speed: 800,
-  autoplay: {
-    delay: 4000
-  },
-  loop: true,
- 
-});
+    var mainScreenSwiper = new Swiper('.first-screen.swiper', {
+        slidesPerView: 1,
+        spaceBetween: 0,
+        speed: 800,
+        autoplay: {
+            delay: 4000
+        },
+        loop: true,
 
-var mainScreenSwiper = new Swiper('.product-mobile.swiper', {
-  slidesPerView: 1,
-  spaceBetween: 0,
-  speed: 800,
-  autoplay: {
-    delay: 4000
-  },
-  loop: true,
- 
-});
+    });
 
+    var mainScreenSwiper = new Swiper('.product-mobile.swiper', {
+        slidesPerView: 1,
+        spaceBetween: 0,
+        speed: 800,
+        autoplay: {
+            delay: 4000
+        },
+        loop: true,
+
+    });
 </script>
 </body>
 

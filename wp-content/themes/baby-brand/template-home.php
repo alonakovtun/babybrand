@@ -2,12 +2,12 @@
 get_header();
 ?>
 <main class="main">
-<? if (have_rows('main_slider')) :
+    <? if (have_rows('main_slider')) : ?>
+        <section class="first-screen active swiper">
+            <div class="swiper-wrapper">
 
-while (have_rows('main_slider')) : the_row(); ?>
-    <section class="first-screen active swiper">
-        <div class="swiper-wrapper">
-           
+
+                <? while (have_rows('main_slider')) : the_row(); ?>
                     <div class="swiper-slide">
                         <div class="first-screen__bg ">
 
@@ -15,22 +15,18 @@ while (have_rows('main_slider')) : the_row(); ?>
                             $image = get_sub_field('main_bunner');
                             if (!empty($image)) : ?>
                                 <img class="first-screen-img" src="<?php echo esc_url($image); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
+                            <?php endif; ?>
                         </div>
                         <h1 class="first-screen__subtitle"><?= get_sub_field('main_bunner_title') ?>
                         </h1>
                     </div>
-      
+                <?
+                endwhile; ?>
+            </div>
 
-        </div>
-
-        </div>
-    </section>
-    <?php endif;
-                        endwhile;
-
-
-                    endif; ?>
-
+            </div>
+        </section>
+    <? endif; ?>
     <section class="categories">
         <div class="categories__body">
             <?php

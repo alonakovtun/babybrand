@@ -396,5 +396,6 @@ function site_cookies_banner()
                 <button class="cookies-bottom__button"><? _e('Close', 'shop'); ?></button>
             </div>
         </div>
+    </div>
     <?
 }
