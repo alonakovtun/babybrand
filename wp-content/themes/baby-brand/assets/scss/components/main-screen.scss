@@ -303,14 +303,15 @@
 }
 
 .cookies-bottom {
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(100%);
     width: 100%;
     position: fixed;
-    bottom: -100%;
+    bottom: 0;
     left: 0;
     z-index: 25;
     background-color: #fff;
-    opacity: 0;
-    visibility: hidden;
     transition: all 0.3s ease 0s;
 
     @media(min-width: 992px) {
@@ -324,6 +325,8 @@
 
     &__body {
         @include dflex(stretch, wrap, space-between);
+        height: 28px;
+        align-items: center;
 
     }
 
@@ -332,21 +335,35 @@
        font-family: "Lato Light";;
         font-size: rem(14);
         font-weight: 300;
-        line-height: rem(71.17);
+
+        &.page{
+            text-decoration: underline;
+        }
+       
     }
 
     &__button {
        font-family: "Lato Light";;
         font-size: rem(14);
         font-weight: 300;
-        line-height: rem(71.17);
         text-transform: uppercase;
         cursor: pointer;
+
+        border: none;
+        background: inherit;
 
     }
 
     .active {
         opacity: 1;
         visibility: visible;
+    }
+}
+
+.cookies-banner-open {
+    .cookies-bottom {
+        visibility: visible;
+        opacity: 1;
+        transform: translateY(0);
     }
 }

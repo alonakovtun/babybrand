@@ -148,6 +148,28 @@ jQuery('.product-mobile .woocommerce-product-gallery__image').addClass('swiper-s
 
 
 
+const cookiesBannerEl = document.querySelector(".cookies-bottom");
+
+    if (cookiesBannerEl) {
+        const bannerClosedByUser = localStorage.getItem(
+            "cookies_banner_closed"
+        );
+
+        if (!bannerClosedByUser) {
+            document.body.classList.add("cookies-banner-open");
+
+            const closeBtnEl = cookiesBannerEl.querySelector(".cookies-bottom__button");
+
+            closeBtnEl.addEventListener("click", (e) => {
+                e.preventDefault();
+
+                document.body.classList.remove("cookies-banner-open");
+
+                localStorage.setItem("cookies_banner_closed", true);
+            });
+        }
+    }
+
 
 
 export default miniCart;

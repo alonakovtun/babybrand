@@ -78,18 +78,12 @@
         </div>
     </div>
 </div>
-<div class="cookies-bottom">
-    <div class="container">
-        <div class="cookies-bottom__body">
-            <div class="cookies-bottom__info">We use cookies in order to provide you with the best online
-                experience. By continuing to use our site you are agreeing to our cookies policy.</div>
-            <div class="cookies-bottom__button">Close</div>
-        </div>
-    </div>
-</div>
+
 </div><!-- #page -->
+<? site_cookies_banner(); ?>
 
 <?php wp_footer(); ?>
+
 
 <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
 <script>
