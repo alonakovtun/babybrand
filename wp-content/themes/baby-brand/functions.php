@@ -214,34 +214,30 @@ function custom_quantity_fields_script(){
     
 // }
 // add_action( 'widgets_init', 'arphabet_widgets_init' );
+ 
+add_action('woocommerce_before_single_product', 'bbloomer_prev_next_product');
+add_action('woocommerce_after_single_product', 'bbloomer_prev_next_product');
 
+function bbloomer_prev_next_product()
+{
 
+    echo '<div class="prev_next_buttons">';
 
-/**
- * @snippet       Add next/prev buttons @ WooCommerce Single Product Page
- * @how-to        Get CustomizeWoo.com FREE
- * @sourcecode    https://businessbloomer.com/?p=20567
- * @author        Rodolfo Melogli
- * @testedwith    WooCommerce 2.5.5
- */
- 
-add_action( 'woocommerce_before_single_product', 'bbloomer_prev_next_product' );
- 
-// and if you also want them at the bottom...
-add_action( 'woocommerce_after_single_product', 'bbloomer_prev_next_product' );
- 
-function bbloomer_prev_next_product(){
- 
-echo '<div class="prev_next_buttons">';
- 
-   // 'product_cat' will make sure to return next/prev from current category
-    $previous = next_post_link('%link', 'Previous', TRUE, ' ', 'product_cat');
-   $next = previous_post_link('%link', 'Next', TRUE, ' ', 'product_cat');
- 
-   echo $previous . '<a>/</a>' . $next;
-    
-echo '</div>';
-         
+    $prev_post = get_adjacent_post(true, '', true, 'product_cat');
+    $next_post = get_adjacent_post(true, '', false, 'product_cat');
+    $separator = (!empty($prev_post) && !empty($next_post)) ? '/' : '';
+
+    if (!empty($prev_post)) {
+        echo '<a href="' . get_permalink($prev_post->ID) . '" title="' . $prev_post->post_title . '">Previous</a>';
+    }
+
+    echo $separator;
+
+    if (!empty($next_post)) {
+        echo '<a href="' . get_permalink($next_post->ID) . '" title="' . $next_post->post_title . '">Next</a>';
+    }
+
+    echo '</div>';
 }
 
 add_action('wp_logout','njengah_homepage_logout_redirect');
