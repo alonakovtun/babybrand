@@ -10,7 +10,10 @@
     }
 
     &__body {
-        max-width: rem(442);
+        max-width: 440px;
+        @media only screen and (max-width: 768px) {
+            max-width: 100%;
+          }
     }
 
     &__column {
@@ -19,9 +22,10 @@
 
     &__title {
         margin-bottom: rem(20);
+        font-family: 'Lato Regular';
     }
 
     &__text {
-        
+        text-transform: none;
     }
 }
