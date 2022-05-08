@@ -173,7 +173,7 @@ $product_categories = get_categories(array(
                         </li>
                         <? if (!is_user_logged_in()) : ?>
                             <li class="header-list__item"><a class="link">Account</a>
-                                <div class="stories__block header-block">
+                                <div class="stories__block header-block login-header">
                                     <? include get_template_directory() . '/woocommerce/myaccount/form-login.php'; ?>
                                 </div>
                             </li>
@@ -233,7 +233,7 @@ $product_categories = get_categories(array(
 
                         </a>
 
-                        <div class="stories__block header-block">
+                        <div class="stories__block header-block cart">
                             <div class="header-block__container container">
                                 <div class="mini-cart">
                                     <?php get_template_part('template-parts/baby-mini-cart'); ?>

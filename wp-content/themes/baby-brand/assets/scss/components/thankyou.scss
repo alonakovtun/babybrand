@@ -26,6 +26,10 @@
         font-weight: 400;
         line-height: rem(27);
         text-transform: uppercase;
+
+        @media only screen and (max-width: 768px) {
+            display: none;
+        }
     }
 }
 
@@ -38,11 +42,18 @@
        font-family: "Lato Light";;
         font-size: rem(16);
         font-weight: 300;
+
+        @media only screen and (max-width: 768px) {
+            text-transform: uppercase;
+        }
     }
 }
 
 .thankyoupage-bottom {
     margin-bottom: rem(194);
+    @media only screen and (max-width: 768px) {
+        margin-bottom: 90px;
+    }
 }
 
 .item-thankyou {
