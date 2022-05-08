@@ -133,8 +133,16 @@ figure {
 
 .adress-page__column:first-child {
   margin-right: 25rem;
+  @media only screen and (max-width: 768px) {
+    margin-right: 0;
+  }
 }
 
+.adress-page__column:last-child {
+  @media only screen and (max-width: 768px) {
+    margin-top: 75px;
+  }
+}
 .adress-page__column {
   margin-right: 0;
 }
@@ -209,6 +217,10 @@ figure {
 .woocommerce {
   .woocommerce-MyAccount-navigation.accountdetails {
     margin-top: 10rem;
+
+    @media only screen and (max-width: 768px) {
+      margin-top: 90px;
+  }
   }
 }
 

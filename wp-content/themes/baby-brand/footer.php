@@ -77,7 +77,7 @@
         <div class="cookies-block__privacy data-email ">This email is already subscribed.
         </div>
     </div>
-   
+
 </div><!-- #page --> <? site_cookies_banner() ?>
 
 <?php wp_footer(); ?>
@@ -101,7 +101,7 @@
 
     });
 
-    var mainScreenSwiper = new Swiper('.product-mobile.swiper', {
+    var productSwiper = new Swiper('.product-mobile.swiper', {
         slidesPerView: 1,
         spaceBetween: 0,
         speed: 800,
@@ -109,6 +109,16 @@
             delay: 4000
         },
         loop: true,
+
+    });
+
+    var orderSwiper = new Swiper('.swiper.order-slider', {
+        slidesPerView: 1,
+        spaceBetween: 0,
+        navigation: {
+            nextEl: '.swiper-button-order-next',
+            prevEl: '.swiper-button-order-prev',
+        },
 
     });
 </script>

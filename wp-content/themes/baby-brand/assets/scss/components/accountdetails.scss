@@ -67,9 +67,17 @@
 
     &__title {
        font-family: "Lato Light";;
-        font-size: rem(16);
+        font-size: 12px;
         text-transform: uppercase;
         margin: rem(70) 0 rem(40) 0;
+
+        @media only screen and (max-width: 768px) {
+            font-size: 11px;
+        }
+
+        @media only screen and (min-width: 1600px) {
+            font-size: 16px;
+        }
     }
 
     &__form {
@@ -83,6 +91,17 @@
             border: none;  
             text-transform: uppercase;
             width: 100%;   
+
+            font-size: 12px;
+
+
+            @media only screen and (max-width: 768px) {
+                font-size: 11px;
+            }
+    
+            @media only screen and (min-width: 1600px) {
+                font-size: 16px;
+            }
         }
     }
 }

@@ -9,6 +9,17 @@
         padding: 0;
         @include dflex(center,wrap,flex-start);
         list-style-type: none;     
+
+        @media only screen and (max-width: 768px) {
+            flex-direction: column;
+          align-items: flex-start;
+        }   
+
+        .woocommerce-MyAccount-navigation-link{
+            @media only screen and (max-width: 768px) {
+                margin-bottom: 42px;
+            }  
+        }
     }
 
     &__link {
@@ -17,12 +28,20 @@
         margin-right:rem(25) ;
         color: #000000;
        font-family: "Lato Light";;
-        font-size: rem(16);
+        font-size: 12px;
         font-weight: 300;
         text-transform: uppercase;
         text-decoration: none;   
 
         transition: all 0.4s;
+
+        @media only screen and (max-width: 768px) {
+            font-size: 11px;
+        }  
+
+        @media only screen and (min-width: 1600px) {
+            font-size: 16px;
+        }
     }
     
 }
@@ -39,6 +58,9 @@
         width: 100%;
         padding: rem(60) 0 0 0;
         background-color: #fff;   
+        @media only screen and (max-width: 768px) {
+            padding: 48px 0 0 0;
+          }
     }
 
     &__columns {
@@ -51,6 +73,9 @@
         position: relative;
         max-width: rem(470);
         margin-right: rem(400);    
+        @media only screen and (max-width: 768px) {
+            flex: 1 1 100%;
+          }
         
     }
 }
@@ -60,10 +85,18 @@
         margin-bottom: rem(45);
         color: #000000;
        font-family: "Lato Light";;
-        font-size: rem(16);
+        font-size: 12px;
         font-weight: 300;
         line-height: rem(20);
         text-transform: uppercase;
+
+        @media only screen and (max-width: 768px) {
+            font-size: 11px;
+        }
+
+        @media only screen and (min-width: 1600px) {
+            font-size: 16px;
+        }
 
     }
 
@@ -88,13 +121,21 @@
         top: 0;
         color: #000000;
        font-family: "Lato Light";;
-        font-size: rem(16);
+        font-size: 12px;
         font-weight: 300;
         line-height: rem(20);
         text-transform: uppercase;
         &:hover{
             text-decoration: underline;
             cursor: pointer;
+        }
+
+        @media only screen and (max-width: 768px) {
+            font-size: 11px;
+        }
+
+        @media only screen and (min-width: 1600px) {
+            font-size: 16px;
         }
     }
 }
@@ -136,6 +177,9 @@
 }
 .woocommerce-Addresses{
     margin-bottom: 170px;
+    @media only screen and (max-width: 768px) {
+        margin-bottom: 90px;
+      }
 }
 
 

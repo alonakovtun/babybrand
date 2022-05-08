@@ -24,7 +24,7 @@ get_header();
                 endwhile; ?>
             </div>
 
-            </div>
+            
         </section>
     <? endif; ?>
     <section class="categories">

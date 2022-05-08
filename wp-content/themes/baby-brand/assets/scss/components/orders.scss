@@ -4,16 +4,38 @@
 
 .orders {
     margin-bottom: rem(470);
+    @media only screen and (max-width: 768px) {
+        margin-bottom: 90px;
+    }
 
 
     &__container {}
 
     &__body {
         @include dflex(center, wrap, flex-start);
+
+        .mobile{
+            display: none
+        }
+
+        @media only screen and (max-width: 768px) {
+            .mobile{
+                display: block;
+            }
+
+            .desktop{
+                display: none
+            }
+          }
     }
 
     &__column {
         margin-right: rem(70);
+        @media only screen and (max-width: 768px) {
+            .view_btn{
+                text-decoration: underline;
+            }
+        }
 
     }
 }
@@ -32,9 +54,16 @@
     &__text {
         margin-bottom: rem(15);
        font-family: "Lato Light";;
-        font-size: rem(16);
+        font-size:12px;
         font-weight: 300;
         text-transform: uppercase;
+        @media only screen and (max-width: 768px) {
+            font-size: 11px;
+        }  
+
+        @media only screen and (min-width: 1600px) {
+            font-size: 16px;
+        }
     }
 }
 
@@ -121,6 +150,9 @@
     min-width: 320px;
     padding: 0 31px;
     margin-bottom: 175px;
+    @media only screen and (max-width: 768px) {
+        margin-bottom: 107px;
+      }
 
     .chekout__gobackbtn{
         margin-top: 20px
@@ -164,5 +196,40 @@ a.disabled {
     a {
         text-decoration: underline;
         color: red;
+    }
+}
+
+.order-slider{
+    position: relative;
+    .swiper-button-order-next{
+        position: absolute;
+        top: 0;
+        right: 0;
+        visibility: visible;
+        opacity: 1;
+
+        transition: all 0.5s;
+        &.swiper-button-disabled{
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.5s;
+
+        }
+    }
+
+    .swiper-button-order-prev{
+        position: absolute;
+        top: 25px;
+        right: 0;
+        visibility: visible;
+        opacity: 1;
+
+        transition: all 0.5s;
+        &.swiper-button-disabled{
+            visibility: hidden;
+            opacity: 0;
+            transition: all 0.5s;
+
+        }
     }
 }
