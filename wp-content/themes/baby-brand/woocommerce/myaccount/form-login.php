@@ -33,12 +33,12 @@ do_action('woocommerce_before_customer_login_form'); ?>
 
 				<p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
 					<!-- <label for="username"><?php esc_html_e('Username or email address', 'woocommerce'); ?>&nbsp;<span class="required">*</span></label> -->
-					<input placeholder="<?php esc_html_e('Email', 'woocommerce'); ?>" type="text" class="woocommerce-Input woocommerce-Input--text input-text item-login__email" name="username" id="username" autocomplete="username" value="<?php echo (!empty($_POST['username'])) ? esc_attr(wp_unslash($_POST['username'])) : ''; ?>" /><?php // @codingStandardsIgnoreLine 
+					<input required placeholder="<?php esc_html_e('Email', 'woocommerce'); ?>" type="text" class="woocommerce-Input woocommerce-Input--text input-text item-login__email" name="username" id="username" autocomplete="username" value="<?php echo (!empty($_POST['username'])) ? esc_attr(wp_unslash($_POST['username'])) : ''; ?>" /><?php // @codingStandardsIgnoreLine 
 																																																																																				?>
 				</p>
 				<p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
 					<!-- <label for="password"><?php esc_html_e('Password', 'woocommerce'); ?>&nbsp;<span class="required">*</span></label> -->
-					<input placeholder="<?php esc_html_e('Password', 'woocommerce'); ?>" class="woocommerce-Input woocommerce-Input--text input-text item-login__pass" type="password" name="password" id="password" autocomplete="current-password" />
+					<input required placeholder="<?php esc_html_e('Password', 'woocommerce'); ?>" class="woocommerce-Input woocommerce-Input--text input-text item-login__pass" type="password" name="password" id="password" autocomplete="current-password" />
 				</p>
 
 				<?php do_action('woocommerce_login_form'); ?>
@@ -105,7 +105,7 @@ do_action('woocommerce_before_customer_login_form'); ?>
 
 									<p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
 										<!-- <label for="reg_email"><?php esc_html_e('Email address', 'woocommerce'); ?>&nbsp;<span class="required">*</span></label> -->
-										<input placeholder="<?php esc_html_e('Email', 'woocommerce'); ?>" type="email" class="woocommerce-Input woocommerce-Input--text input-text item-login__email" name="email" id="reg_email" autocomplete="email" value="<?php echo (!empty($_POST['email'])) ? esc_attr(wp_unslash($_POST['email'])) : ''; ?>" /><?php // @codingStandardsIgnoreLine 
+										<input required placeholder="<?php esc_html_e('Email', 'woocommerce'); ?>" type="email" class="woocommerce-Input woocommerce-Input--text input-text item-login__email" name="email" id="reg_email" autocomplete="email" value="<?php echo (!empty($_POST['email'])) ? esc_attr(wp_unslash($_POST['email'])) : ''; ?>" /><?php // @codingStandardsIgnoreLine 
 																																																																																						?>
 									</p>
 
@@ -113,7 +113,7 @@ do_action('woocommerce_before_customer_login_form'); ?>
 
 										<p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
 											<!-- <label for="reg_password"><?php esc_html_e('Password', 'woocommerce'); ?>&nbsp;<span class="required">*</span></label> -->
-											<input placeholder="<?php esc_html_e('Password', 'woocommerce'); ?>" type="password" class="woocommerce-Input woocommerce-Input--text input-text item-login__pass" name="password" id="reg_password" autocomplete="new-password" />
+											<input required placeholder="<?php esc_html_e('Password', 'woocommerce'); ?>" type="password" class="woocommerce-Input woocommerce-Input--text input-text item-login__pass" name="password" id="reg_password" autocomplete="new-password" />
 										</p>
 
 									<?php else : ?>
