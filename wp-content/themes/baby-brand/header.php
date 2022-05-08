@@ -129,10 +129,6 @@ $product_categories = get_categories(array(
                                                 <? endif; ?>
                                             <?php endwhile; ?>
                                         <? endif; ?>
-                                        <!-- <span class="header-block__text">suggestions:</span>
-                                        <span class="header-block__text">white</span>
-                                        <span class="header-block__text">grey</span>
-                                        <span class="header-block__text">pants</span> -->
                                     </div>
                                 </div>
                             </div>
@@ -172,17 +168,13 @@ $product_categories = get_categories(array(
                                             subscribe
                                         </button>
                                     </form>
-                                    <!-- <div class="assistance-bottomtext">
-                                        I have read, understood and accepted the terms
-                                        and conditions and the privacy policy.
-                                    </div> -->
                                 </div>
                             </div>
                         </li>
                         <? if (!is_user_logged_in()) : ?>
                             <li class="header-list__item"><a class="link">Account</a>
                                 <div class="stories__block header-block">
-                                    <? include get_template_directory() . '/template-parts/login.php'; ?>
+                                    <? include get_template_directory() . '/woocommerce/myaccount/form-login.php'; ?>
                                 </div>
                             </li>
                         <? else : ?>
@@ -322,22 +314,14 @@ $product_categories = get_categories(array(
                                         subscribe
                                     </button>
                                 </form>
-                                <!-- <div class="assistance-bottomtext">
-                                        I have read, understood and accepted the terms
-                                        and conditions and the privacy policy.
-                                    </div> -->
                             </div>
                         </div>
                     </li>
-                    <? if (!is_user_logged_in()) : ?>
-                        <li class="header-list__item open-link"><a class="link">Account</a>
-                            <div class="list-block">
-                                <? include get_template_directory() . '/template-parts/login.php'; ?>
-                            </div>
-                        </li>
-                    <? else : ?>
-                        <li class="header-list__item"><a class="link" href="/my-account/">Account</a></li>
-                    <? endif; ?>
+
+                    <li class="header-list__item"><a href="/my-account" class="link">Account</a>
+
+                    </li>
+
                     <li class="header-list__item"><a class="link">Eur/En</a>
                         <div class="list-block lang">
                             <div class="header-block__container container">

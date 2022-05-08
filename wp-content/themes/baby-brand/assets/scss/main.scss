@@ -278,7 +278,7 @@ figure {
     @media only screen and (max-width: 768px) {
       font-size: 11px;
     }
-  
+
     @media only screen and (min-width: 1600px) {
       font-size: 16px;
     }
@@ -292,7 +292,7 @@ figure {
     .information_title {
       text-transform: uppercase;
 
-      p{
+      p {
         @media only screen and (max-width: 768px) {
           margin-bottom: 0;
         }
@@ -311,33 +311,35 @@ figure {
 
       .size-block {
         width: 240px;
-        &:first-child p:first-child{
+
+        &:first-child p:first-child {
           @media only screen and (max-width: 768px) {
             margin-top: 45px;
 
-           
+
           }
         }
 
-        .title{
+        .title {
           @media only screen and (max-width: 768px) {
             position: relative;
             margin-bottom: 30px;
-            &::after{
+
+            &::after {
               content: "+";
               position: absolute;
               right: 0;
             }
 
-            &.change{
-              &::after{
+            &.change {
+              &::after {
                 content: "-";
               }
             }
           }
         }
 
-        .content{
+        .content {
           @media only screen and (max-width: 768px) {
             display: none;
           }
@@ -346,6 +348,7 @@ figure {
 
       p {
         margin-right: 10rem;
+
         @media only screen and (max-width: 768px) {
           margin-right: 0;
         }
@@ -505,9 +508,17 @@ input:focus {
 .error-404 {
   padding: 127px 31px;
 
+  @media only screen and (max-width: 768px) {
+    padding-bottom: 60px;
+  }
+
   .header-block__text {
     margin-top: 68px;
     text-transform: none;
+
+    @media only screen and (max-width: 768px) {
+      margin-top: 26px;
+    }
   }
 }
 
@@ -612,5 +623,37 @@ input:focus {
 
   &.dif_color {
     color: #000;
+  }
+}
+
+.button__trigger-register {
+  &.mobile {
+    display: none;
+  }
+
+  @media only screen and (max-width: 768px) {
+    &.desktop {
+      display: none;
+    }
+
+    &.mobile {
+      display: block;
+    }
+  }
+}
+
+.login__body {
+  &.register {
+    @media only screen and (max-width: 768px) {
+      margin-top: 90px !important;
+      padding: 0 31px;
+      margin-bottom: 80px;
+    }
+  }
+}
+
+.mini-cart {
+  @media only screen and (max-width: 768px) {
+    padding: 0 31px;
   }
 }

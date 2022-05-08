@@ -11,7 +11,7 @@
                 <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
                     <!-- <label for="username"><?php esc_html_e('Username or email address', 'woocommerce'); ?>&nbsp;<span class="required">*</span></label> -->
                     <input placeholder="<?php esc_html_e('Email', 'woocommerce'); ?>" type="text" class="woocommerce-Input woocommerce-Input--text input-text item-login__email" name="username" id="username" autocomplete="username" value="<?php echo (!empty($_POST['username'])) ? esc_attr(wp_unslash($_POST['username'])) : ''; ?>" /><?php // @codingStandardsIgnoreLine 
-                                                                                                                                                                                                                                                                                    ?>
+                                                                                                                                                                                                                                                                                                                                                ?>
                 </p>
                 <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
                     <!-- <label for="password"><?php esc_html_e('Password', 'woocommerce'); ?>&nbsp;<span class="required">*</span></label> -->
@@ -42,18 +42,20 @@
             <div class="item-login__text">Sign in to check the status of your most
                 recent
                 order and your order history.</div>
- 
-                <a class="item-login__btn button__trigger-register">register</a>
-            
+
+            <a class="item-login__btn button__trigger-register desktop">register</a>
+            <a class="item-login__btn button__trigger-register mobile" href="/my-account/">register</a>
+
+
         </div>
 
     </div>
 
     <div class="register-box">
-        <? include get_template_directory() . '/woocommerce/myaccount/form-login.php'; ?>  
+        <? include get_template_directory() . '/woocommerce/myaccount/form-login.php'; ?>
     </div>
 
-    
 
-    
+
+
 </div>
