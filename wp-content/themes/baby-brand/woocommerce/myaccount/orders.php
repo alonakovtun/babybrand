@@ -97,7 +97,7 @@ do_action('woocommerce_before_account_orders', $has_orders); ?>
 						</tbody>
 					</table>
 
-					<div class="swiper order-slider mt-65 woocommerce-orders-table woocommerce-MyAccount-orders shop_table shop_table_responsive my_account_orders account-orders-table ">
+					<div class="mobile swiper order-slider mt-65 woocommerce-orders-table woocommerce-MyAccount-orders shop_table shop_table_responsive my_account_orders account-orders-table ">
 
 						<div class="swiper-wrapper">
 							<?php

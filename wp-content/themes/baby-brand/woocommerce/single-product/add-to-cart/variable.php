@@ -115,17 +115,16 @@ do_action('woocommerce_before_add_to_cart_form'); ?>
 
 <div class="item-bottom">
 		<div class="item-bottom__list">
-			<div class="item-bottom__link" href="">Size guide</div>
+			<div class="item-bottom__link">Size guide</div>
 			<div class="item-bottom__text"> <?php the_field('size_guide_product'); ?> </div>
 		</div>
 
 		<div class="item-bottom__list">
-			<div class="item-bottom__link" href="">Shipping info</div>
+			<div class="item-bottom__link">Shipping info</div>
 			<div class="item-bottom__text"><?php the_field('shipping_info_product'); ?></div>
 		</div>
 		<div class="item-bottom__list">
-			<div class="item-bottom__link" href="">Exchange & Returns
-				Policy</div>
+			<div class="item-bottom__link">Exchange & Returns Policy</div>
 			<div class="item-bottom__text"><?php the_field('exchange_returns_policy_product'); ?></div>
 		</div>
 
