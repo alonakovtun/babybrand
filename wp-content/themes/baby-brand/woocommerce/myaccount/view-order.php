@@ -56,22 +56,24 @@ printf(
 	</ol>
 <?php endif; ?>
 <?php do_action('woocommerce_view_order', $order_id); ?>
-<div class="item-checkout__buttons woocommerce-order-details order-pay-cancel-buttons">
-	<?php
-	$actions = wc_get_account_orders_actions($order);
-	unset($actions['view']);
 
-	if (!empty($actions)) {
+<?php
+$actions = wc_get_account_orders_actions($order);
+unset($actions['view']);
+
+if (!empty($actions)) : ?>
+	<div class="item-checkout__buttons woocommerce-order-details order-pay-cancel-buttons">
+		<?php
 		foreach ($actions as $key => $action) { // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
 			$disabled = $action['name'] == 'Pay' ? 'disabled' : '';
-			echo '<div class="item-checkout__button"><a href="' . esc_url($action['url']) . '" id="pay_a" class="woocommerce-button '.$disabled.' button ' . sanitize_html_class($key) . '">' . esc_html($action['name']) . '</a></div>';
+			echo '<div class="item-checkout__button"><a href="' . esc_url($action['url']) . '" id="pay_a" class="woocommerce-button ' . $disabled . ' button ' . sanitize_html_class($key) . '">' . esc_html($action['name']) . '</a></div>';
 		}
-	}
-	?>
-</div>
-<div class="item-checkout__radiobtns">
-	<input class="item-checkout__radio" onchange="jQuery('#pay_a').removeClass('disabled'); jQuery('.item-checkout__radiotext a').css('color', 'black')" id="checkoutradio" type="radio" name="" value="">
-	<label class="item-checkout__radiotext" for="checkoutradio">
-		By proceeding I accept the <a href="/store-policy">Terms & conditions</a>
-	</label>
-</div>
+		?>
+	</div>
+	<div class="item-checkout__radiobtns">
+		<input class="item-checkout__radio" onchange="jQuery('#pay_a').removeClass('disabled'); jQuery('.item-checkout__radiotext a').css('color', 'black')" id="checkoutradio" type="radio" name="" value="">
+		<label class="item-checkout__radiotext" for="checkoutradio">
+			By proceeding I accept the <a href="/store-policy">Terms & conditions</a>
+		</label>
+	</div>
+<?php endif; ?>
