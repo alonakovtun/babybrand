@@ -171,5 +171,31 @@ const cookiesBannerEl = document.querySelector(".cookies-bottom");
     }
 
 
+    jQuery(".size-block .title").click(function () {
+      jQuery(this).toggleClass("change");
+      jQuery(".size-block .title").not(this).removeClass("change");
+  });
+  
+  jQuery(document).ready(function () {
+      jQuery(".size-block .title").each(function () {
+          jQuery(this).click(function () {
+              var nextElem = jQuery(this).parent().find(".content");
+  
+              jQuery(".content")
+                  .not(nextElem)
+                  .each(function () {
+                      jQuery(this).hide();
+                  });
+  
+              if (nextElem.css("display") === "block") {
+                  nextElem.hide();
+                  return;
+              }
+  
+              nextElem.fadeIn(500);
+          });
+      });
+  });
+
 
 export default miniCart;

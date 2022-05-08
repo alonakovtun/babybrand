@@ -8,24 +8,24 @@ get_header();
         </div>
         <div class="upper">
             <div class="size-block">
-                <p><?php the_field('category1_title') ?></p>
-                <p><?php the_field('category1_content') ?></p>
+                <p class="title"><?php the_field('category1_title') ?></p>
+                <div class="content"><?php the_field('category1_content') ?></div>
             </div>
             <div class="size-block">
-                <p><?php the_field('category2_title') ?></p>
-                <p><?php the_field('category2_content') ?></p>
+                <p class="title"><?php the_field('category2_title') ?></p>
+                <div class="content"><?php the_field('category2_content') ?></div>
             </div>
             <div class="size-block">
-                <p><?php the_field('category3_title') ?></p>
-                <p><?php the_field('category3_content') ?></p>
+                <p class="title"><?php the_field('category3_title') ?></p>
+                <div class="content"><?php the_field('category3_content') ?></div>
             </div>
             <div class="size-block">
-                <p><?php the_field('category4_title') ?></p>
-                <p><?php the_field('category4_content') ?></p>
+                <p class="title"><?php the_field('category4_title') ?></p>
+                <div class="content"><?php the_field('category4_content') ?></div>
             </div>
             <div class="size-block">
-                <p><?php the_field('category5_title') ?></p>
-                <p><?php the_field('category5_content') ?></p>
+                <p class="title"><?php the_field('category5_title') ?></p>
+                <div class="content"><?php the_field('category5_content') ?></div>
             </div>
 
 

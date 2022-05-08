@@ -9,6 +9,8 @@
 
     &__body {
         @include dflex (flex-start, wrap, flex-start);
+        @media only screen and (max-width: 768px) {
+            flex-direction: column-reverse;          }
     }
 
     &__column {
@@ -21,6 +23,10 @@
         .card-body__row {
             flex: 1 1 50%;
             display: flex;
+
+            @media only screen and (max-width: 768px) {
+                flex-direction: column;
+            }
 
             &.q {
                 align-items: end;
@@ -348,7 +354,7 @@
 }
 
 .item-column-body {
-    @include dflex(center, wrap, flex-start);
+    @include dflex(center, nowrap, flex-start);
 }
 
 .item-checkout-img {
