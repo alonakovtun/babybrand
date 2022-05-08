@@ -639,7 +639,7 @@
         justify-content: space-between;
         height: 17.1875rem;
         color: #000000;
-       font-family: "Lato Light";;
+        font-family: "Lato Light";;
         font-weight: 300;
         text-transform: uppercase;
         padding: 20px 0; 
@@ -647,6 +647,9 @@
 
         @media only screen and (max-width: 768px) {
             margin-right: 0;
+            height: 176px;
+            padding-top: 0;
+            padding-bottom: 50px;
         }
 
     }
@@ -675,6 +678,9 @@
 
     &__remove {
         margin-top: rem(20);
+        @media only screen and (max-width: 768px) {
+            margin-top: 0;
+          }
     }
 
     &__row {
@@ -691,11 +697,6 @@
 .item-total {
     display: flex;
     flex-direction: column;
-    
-
-
-
-
 
     &__body {
         display: flex;
