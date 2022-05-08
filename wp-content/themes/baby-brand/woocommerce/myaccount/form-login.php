@@ -66,7 +66,7 @@ do_action('woocommerce_before_customer_login_form'); ?>
 				recent
 				order and your order history.</div>
 
-			<a class="item-login__btn button__trigger-register">register</a>
+			<button type="button" class="item-login__btn button__trigger-register">register</button>
 
 
 		</div>

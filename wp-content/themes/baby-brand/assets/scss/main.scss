@@ -642,18 +642,31 @@ input:focus {
   }
 }
 
-.login__body {
-  &.register {
-    @media only screen and (max-width: 768px) {
-      margin-top: 90px !important;
-      padding: 0 31px;
-      margin-bottom: 80px;
-    }
-  }
-}
+// .login__body {
+//   &.register {
+//     @media only screen and (max-width: 768px) {
+//       margin-top: 90px !important;
+//       padding: 0 31px;
+//       margin-bottom: 80px;
+//     }
+//   }
+// }
 
 .mini-cart {
   @media only screen and (max-width: 768px) {
     padding: 0 31px;
+  }
+}
+
+.login-block{
+  padding-top: 170px;
+  @media only screen and (max-width: 768px) {
+    padding-top: 90px;
+  }
+}
+
+.page-id-9{
+  .footer{
+    margin-top: 100px;
   }
 }

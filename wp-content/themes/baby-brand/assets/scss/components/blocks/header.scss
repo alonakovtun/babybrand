@@ -781,6 +781,11 @@
         line-height: rem(25);
         text-transform: uppercase;
 
+        @media only screen and (max-width: 768px) {
+            margin-bottom: 60px;
+        
+          }
+
     }
 
     &__form {
@@ -809,6 +814,12 @@
         background-color: #ffffff;
         text-transform: uppercase;
         cursor: pointer;
+
+        @media only screen and (max-width: 768px) {
+            height: 66px;
+            margin: 0 0 25px;
+        
+          }
     }
 
 
@@ -826,7 +837,7 @@
         }
 
         @media only screen and (max-width: 768px) {
-            height: 95px;
+            height: 80px;
         }
     }
 }
@@ -921,14 +932,18 @@
 
 .register-block{
     .item-login__btn{
-        padding: 17.5px 135px;
+        text-align: center;
+        align-items: center;
         @media only screen and (min-width: 1600px) {
             padding: 21.5px 192px;
         }
         @media only screen and (max-width: 768px) {
-            padding: 17.5px 98px;
         }
     }
+
+    @media only screen and (max-width: 768px) {
+        margin-top: 50px;
+      }
 }
 
 .wish{
