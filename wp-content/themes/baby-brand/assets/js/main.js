@@ -56,6 +56,17 @@ jQuery(".filters_title").click(function () {
 
 });
 
+jQuery(".header-list__item.cart .mini-cart-trigger").click(function () {
+    jQuery('.header-list__item.cart').toggleClass('cart-open');
+});
+
+jQuery(".close-cart").click(function () {
+    jQuery('.header-list__item.cart ').removeClass('cart-open');
+});
+
+
+
+
 jQuery(".item-checkout__name.ship").click(function () {
     jQuery('.item-checkout__option.shipping').find('> .option-item__plus').toggleClass('minus');
 });

@@ -1,7 +1,25 @@
 <!-- # START Sidebar Cart - Header -->
 <form class="woocommerce-cart-form" action="<?php echo esc_url(wc_get_cart_url()); ?>" method="post">
     <div class="card-page">
-        <p class="card-page__title">
+        <div class="mobile">
+            <p class="card-page__title">
+                <?= esc_html__(WC()->cart->get_cart_contents_count() . ' products in card' .  '', 'baby-brand'); ?>
+                <span>
+                    <?php /**
+                global $woocommerce_ultimate_multi_currency_suite;
+                $default_currency = get_woocommerce_currency();
+                if (empty($woocommerce_ultimate_multi_currency_suite->settings->session_currency)) { // if no currency stored in session
+                $current_curr = $default_currency;
+                } else {
+                $current_curr = $woocommerce_ultimate_multi_currency_suite->settings->session_currency;
+                }
+                    */
+                    ?>
+                </span>
+            </p>
+            <p class="link close-cart">Close</p>
+        </div>
+        <p class="card-page__title desktop">
             <?= esc_html__(WC()->cart->get_cart_contents_count() . ' products in card' .  '', 'baby-brand'); ?>
             <span>
                 <?php /**
