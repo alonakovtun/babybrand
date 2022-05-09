@@ -387,7 +387,7 @@ add_filter('woocommerce_cart_updated_notice_type', '__return_false');
 
 function site_cookies_banner()
 { ?>
-    <div class="cookies-bottom">
+    <div class="cookies-bottom desktop">
         <div class="container">
             <div class="cookies-bottom__body">
                 <div class="cookies-bottom__info"><? _e('We use cookies in order to provide you with the best online
@@ -397,5 +397,16 @@ function site_cookies_banner()
             </div>
         </div>
     </div>
-    <?
+
+    <div class="cookies-bottom mobile">
+        <div class="container">
+            <div class="cookies-bottom__body">
+                <div class="cookies-bottom__info"><? _e('By continuing to use our site you 
+are agreeing to our  <a href="/store-policy/" class="cookies-bottom__info page">cookies policy</a>.', 'shop'); ?>
+                </div>
+                <button class="cookies-bottom__button"><? _e('+', 'shop'); ?></button>
+            </div>
+        </div>
+    </div>
+<?
 }

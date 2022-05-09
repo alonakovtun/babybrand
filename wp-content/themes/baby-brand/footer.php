@@ -63,19 +63,23 @@
         <div class="first-block">
             <div class="cookies-block__title">This is all you really need in your
                 little ones minimalistic wardrobe.
-                get -15% for your firstshopping!
+                get -15% for your first shopping!
 
             </div>
             <div class="close"><span>+</span></div>
         </div>
        
         <div class="cookies-block__subtitle">join to our newsletter.</div>
+       
         <form action="" class="cookies-block__form">
-            <input class="cookies-block__email uncorrect-email " type="text" placeholder="Email@gmail.com">
+            <input class="cookies-block__email uncorrect-email " type="text" placeholder="Email">
+            <div class="cookies-block__privacy mobile">By subscribing you agree to our <br>
+            <a href="/store-policy/">Privacy Policy.</a>
+        </div>
             <button class="cookies-block__button">subscribe</button>
         </form>
 
-        <div class="cookies-block__privacy">By subscribing you agree to our <br>
+        <div class="cookies-block__privacy desktop">By subscribing you agree to our <br>
             <a href="/store-policy/">Privacy Policy.</a>
         </div>
         <!-- <div class="cookies-block__privacy uncorrect-privacy">Please correct your email address.
