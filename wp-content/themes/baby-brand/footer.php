@@ -60,9 +60,15 @@
 <div class="cookies-block">
     <div class="cookies-block__body">
         <img src="../img/iconX.png" alt="" class="cookies-block__icon">
-        <div class="cookies-block__title">This is all you really need in your
-            little ones minimalistic wardrobe.
-            get -15% for your first shopping!</div>
+        <div class="first-block">
+            <div class="cookies-block__title">This is all you really need in your
+                little ones minimalistic wardrobe.
+                get -15% for your firstshopping!
+
+            </div>
+            <div class="close"><span>+</span></div>
+        </div>
+       
         <div class="cookies-block__subtitle">join to our newsletter.</div>
         <form action="" class="cookies-block__form">
             <input class="cookies-block__email uncorrect-email " type="text" placeholder="Email@gmail.com">
@@ -70,12 +76,12 @@
         </form>
 
         <div class="cookies-block__privacy">By subscribing you agree to our <br>
-            <a href="">Privacy Policy.</a>
+            <a href="/store-policy/">Privacy Policy.</a>
         </div>
-        <div class="cookies-block__privacy uncorrect-privacy">Please correct your email address.
+        <!-- <div class="cookies-block__privacy uncorrect-privacy">Please correct your email address.
         </div>
         <div class="cookies-block__privacy data-email ">This email is already subscribed.
-        </div>
+        </div> -->
     </div>
 
 </div><!-- #page --> <? site_cookies_banner() ?>

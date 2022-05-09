@@ -144,13 +144,16 @@ $product_categories = get_categories(array(
                     <ul class="header-list second">
                         <li class="header-list__item"><a class="link">Eur/En</a>
                             <div class="stories__block header-block lang">
-                                <div class="header-block__container container">
-                                    <div class="lang__body">
-                                        <div class="lang-block__eng">ENG / EURO</div>
-                                        <div class="lang-block__pl">PL / pln</div>
-                                    </div>
+                                <ul class="header-block__container container">
+                                <?
+                                    wp_nav_menu(array(
+                                        'theme_location' => 'menu-1',
+                                        'container' => '',
+                                        'items_wrap' => '%3$s'
+                                    ));
+                                    ?>
 
-                                </div>
+                                                </ul>
                             </div>
                         </li>
                         <li class="header-list__item"><a class="link">assistance</a>

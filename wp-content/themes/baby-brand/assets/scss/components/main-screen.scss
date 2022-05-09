@@ -180,8 +180,6 @@
 /*------------cookiespage----------------------------------------------------------------------*/
 
 .cookies-block {
-    opacity: 0;
-    visibility: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -190,8 +188,8 @@
     background-color: #ffffff;
     position: fixed;
     transition: all 0.3s ease 0s;
-    bottom: 13%;
-    right: -100%;
+    bottom: 60px;
+    right: 31px;
     z-index: 25;
 
     @media(min-width: 992px) {
@@ -220,6 +218,23 @@
         justify-content: space-between;
         width: rem(350);
         height: rem(200);
+
+        .first-block{
+            display: flex;
+
+            .close{
+                position: absolute;
+                right: 0;
+                top: -5px;
+
+                transform: rotate(45deg);
+                cursor: pointer;
+
+                span{
+                    font-size: 18px;
+                }
+            }
+        }
     }
 
     &__title {
@@ -228,6 +243,7 @@
         font-size: rem(12);
         font-weight: 300;
         text-transform: uppercase;
+        width: 70%;
     }
 
     &__subtitle {
@@ -288,6 +304,10 @@
         font-weight: 300;
 
         span {
+            text-decoration: underline;
+        }
+
+        a{
             text-decoration: underline;
         }
 
