@@ -410,3 +410,15 @@ are agreeing to our  <a href="/store-policy/" class="cookies-bottom__info page"
     </div>
 <?
 }
+
+function get_language_shortcode() {
+    $lang = apply_filters( 'wpml_current_language', null );
+    if ('en' == apply_filters( 'wpml_current_language', NULL )) {
+        return 'ENG/EURO';
+    } else if ('pl' == apply_filters( 'wpml_current_language', NULL )) {
+        return 'PL/PLN';
+    }
+    return ($lang);
+}
+add_shortcode( 'language', 'get_language_shortcode' );
+

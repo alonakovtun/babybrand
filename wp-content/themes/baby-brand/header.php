@@ -142,10 +142,10 @@ $product_categories = get_categories(array(
                         <a href="/" class="header-logo__img"><img src="/wp-content/themes/baby-brand/assets/img/logo.svg" alt="" class="img"></a>
                     </div>
                     <ul class="header-list second">
-                        <li class="header-list__item"><a class="link">Eur/En</a>
+                        <li class="header-list__item"><a class="link"><?php echo do_shortcode("[language]"); ?></a>
                             <div class="stories__block header-block lang">
                                 <ul class="header-block__container container">
-                                <?
+                                    <?
                                     wp_nav_menu(array(
                                         'theme_location' => 'menu-1',
                                         'container' => '',
@@ -153,7 +153,7 @@ $product_categories = get_categories(array(
                                     ));
                                     ?>
 
-                                                </ul>
+                                </ul>
                             </div>
                         </li>
                         <li class="header-list__item"><a class="link">assistance</a>
@@ -325,7 +325,7 @@ $product_categories = get_categories(array(
 
                     </li>
 
-                    <li class="header-list__item"><a class="link">Eur/En</a>
+                    <!-- <li class="header-list__item"><a class="link">Eur/En</a>
                         <div class="list-block lang">
                             <div class="header-block__container container">
                                 <div class="lang__body">
@@ -335,7 +335,22 @@ $product_categories = get_categories(array(
 
                             </div>
                         </div>
-                    </li>
+                    </li> -->
+
+                    <li class="header-list__item">
+                            <div class="lang">
+                                <ul class="">
+                                    <?
+                                    wp_nav_menu(array(
+                                        'theme_location' => 'menu-1',
+                                        'container' => '',
+                                        'items_wrap' => '%3$s'
+                                    ));
+                                    ?>
+
+                                </ul>
+                            </div>
+                        </li>
 
                     <li class="header-list__item"><a class="link"><img src="/wp-content/themes/baby-brand/assets/img/search_icon.png"></a>
                         <div class="list-block">

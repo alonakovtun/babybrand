@@ -378,6 +378,11 @@
 
     &.lang {
         padding-bottom: 93px;
+
+        .header-block__container{
+            list-style: none;
+            display: flex;
+        }
     }
 
     &__container {
