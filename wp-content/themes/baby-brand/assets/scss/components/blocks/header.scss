@@ -95,6 +95,13 @@
 
             }
 
+            .lang{
+                ul{
+                    list-style: none;
+                    padding-left: 0;
+                }
+            }
+
             .header-list__item.cart {
                 &.cart-open {
                     transition: 1s;
@@ -1154,4 +1161,9 @@
         overflow: auto;
         height: 100vh;
     }
+}
+
+.checkout_btn{
+    width: 100%;
+    cursor: pointer;
 }

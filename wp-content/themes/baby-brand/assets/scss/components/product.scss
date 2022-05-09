@@ -679,3 +679,16 @@
     z-index: 101;
   }
 
+  .add_btn{
+      position: relative;
+
+      .add-to-wish{
+          position: absolute;
+          top: 35%;
+          right: 55px;
+          @media only screen and (max-width: 768px) {
+            right: 20px;
+          }
+      }
+  }
+

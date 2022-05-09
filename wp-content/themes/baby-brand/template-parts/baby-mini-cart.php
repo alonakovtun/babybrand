@@ -150,11 +150,11 @@
 
                     <?php do_action('woocommerce_widget_shopping_cart_before_buttons'); ?>
 
-                    <p class=" item-total__button ">
+                    <p class="checkout_btn">
                         <? // do_action( 'woocommerce_widget_shopping_cart_buttons' );
                         ?>
 
-                        <a href="<?= get_page_link(8); ?>" class="item-total__button_link">
+                        <a href="<?= get_page_link(8); ?>" class="item-total__button item-total__button_link">
                             <?= _e('Checkout', 'baby-brand'); ?>
                         </a>
                     </p>
