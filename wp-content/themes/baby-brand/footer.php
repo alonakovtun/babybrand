@@ -59,7 +59,6 @@
 </footer><!-- #colophon -->
 <div class="cookies-block">
     <div class="cookies-block__body">
-        <img src="../img/iconX.png" alt="" class="cookies-block__icon">
         <div class="first-block">
             <div class="cookies-block__title">This is all you really need in your
                 little ones minimalistic wardrobe.
