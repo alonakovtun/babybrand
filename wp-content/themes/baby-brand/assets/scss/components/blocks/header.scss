@@ -863,6 +863,12 @@
         @media only screen and (max-width: 768px) {
             flex: 0 0 100%;
         }
+
+        &:last-child {
+            @media only screen and (max-width: 768px) {
+                margin-bottom: 90px;
+            }
+        }
     }
 
     &__login__bottomtext {

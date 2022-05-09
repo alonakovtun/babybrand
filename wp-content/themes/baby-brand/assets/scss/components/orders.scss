@@ -70,6 +70,9 @@
 .woocommerce-order-details {
     margin-top: 25px;
     width: 460px;
+    @media only screen and (max-width: 768px) {
+        width: 100%;    
+    } 
 
     .woocommerce-table{
         font-weight: 300;
@@ -120,9 +123,16 @@
     width: 400px;
     font-weight: 300;
     margin-top: 55px;
+    @media only screen and (max-width: 768px) {
+        width: 100%;
+    }
 
     .woocommerce-column__title{
         margin-bottom: 55px;
+        @media only screen and (max-width: 768px) {
+            margin-top: 25px;
+            margin-bottom: 35px;
+        }
     }
 
     address{
@@ -139,6 +149,9 @@
 .woocommerce-columns--addresses{
     display: flex;
     justify-content: space-between;
+    @media only screen and (max-width: 768px) {
+        flex-direction: column;
+    }
 }
 
 .order-number{
