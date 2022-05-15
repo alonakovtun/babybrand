@@ -221,17 +221,18 @@
 
     &:hover {
         background-color: #000;
-
-        .item-cart__text {
-            color: #ffffff;
-        }
+        
+            &__text {
+                color: #ffffff;
+        
+                @media only screen and (max-width: 768px) {
+                    color: #000;
+                }
+            }
 
         @media only screen and (max-width: 768px) {
             background-color: #fff;
-
-            .item-cart__text {
-                color: #000;
-            }
+            color: #000!important;
         }
     }
 
