@@ -688,3 +688,8 @@ input:focus {
 //     margin-top: 100px;
 //   }
 // }
+
+input {
+    outline: none;
+    box-shadow: none;
+}
