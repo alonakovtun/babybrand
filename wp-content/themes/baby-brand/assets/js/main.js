@@ -175,6 +175,27 @@ if (cookiesBannerEl) {
     }
 }
 
+jQuery(document).ready(function () {
+    jQuery(window).on("resize", function (e) {
+        checkScreenSize();
+    });
+
+    checkScreenSize();
+    
+    function checkScreenSize(){
+        var newWindowWidth = jQuery(window).width();
+        if (newWindowWidth < 768) {
+            jQuery(".cookies-bottom__button").html('+');
+            jQuery(".cookies-bottom__button").addClass('mobile')
+        }
+        else
+        {
+            jQuery(".cookies-bottom__button").html('Close');
+        }
+    }
+
+});
+
 
 jQuery(".size-block .title").click(function () {
     jQuery(this).toggleClass("change");

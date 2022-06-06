@@ -20,7 +20,7 @@ defined('ABSPATH') || exit;
 
 do_action('woocommerce_before_reset_password_form');
 ?>
-<div class="login__body register lost">
+<div class="login__body lost">
 	<div class="login__column ">
 		<div class="u-column2 col-2">
 			<form method="post" class="item-login__form woocommerce-ResetPassword lost_reset_password">

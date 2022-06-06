@@ -387,24 +387,17 @@ add_filter('woocommerce_cart_updated_notice_type', '__return_false');
 
 function site_cookies_banner()
 { ?>
-    <div class="cookies-bottom desktop">
+    <div class="cookies-bottom ">
         <div class="container">
             <div class="cookies-bottom__body">
-                <div class="cookies-bottom__info"><? _e('We use cookies in order to provide you with the best online
+                <div class="cookies-bottom__info desktop"><? _e('We use cookies in order to provide you with the best online
                 experience. By continuing to use our site you are agreeing to our <a href="/store-policy/" class="cookies-bottom__info page">cookies policy</a>.', 'shop'); ?>
                 </div>
-                <button class="cookies-bottom__button"><? _e('Close', 'shop'); ?></button>
-            </div>
-        </div>
-    </div>
-
-    <div class="cookies-bottom mobile">
-        <div class="container">
-            <div class="cookies-bottom__body">
-                <div class="cookies-bottom__info"><? _e('By continuing to use our site you 
-are agreeing to our  <a href="/store-policy/" class="cookies-bottom__info page">cookies policy</a>.', 'shop'); ?>
+                <div class="cookies-bottom__info mobile" ><? _e('By continuing to use our site you 
+                        are agreeing to our  <a href="/store-policy/" class="cookies-bottom__info page">cookies policy</a>.', 'shop'); ?>
                 </div>
-                <button class="cookies-bottom__button"><? _e('+', 'shop'); ?></button>
+
+                <button class="cookies-bottom__button"><? _e('Close', 'shop'); ?></button>
             </div>
         </div>
     </div>
@@ -421,4 +414,10 @@ function get_language_shortcode() {
     return ($lang);
 }
 add_shortcode( 'language', 'get_language_shortcode' );
+
+if( function_exists('acf_add_options_page') ) {
+	
+	acf_add_options_page();
+	
+}
 

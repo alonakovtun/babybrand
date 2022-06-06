@@ -692,3 +692,23 @@
       }
   }
 
+//   .slick-slide{
+//     .slick-current{
+//         .slick-active{
+//             @media only screen and (max-width: 768px) {
+//                 width: auto!important;
+//               }
+//         }
+//     }
+//   }  
+
+  .woo-variation-product-gallery{
+    width: 100%;
+  }
+
+  .woo-variation-gallery-trigger.woo-variation-gallery-trigger-position-top-right {
+      @media only screen and (max-width: 768px) {
+          display: none;
+      }
+  }
+
