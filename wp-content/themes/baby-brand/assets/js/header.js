@@ -40,6 +40,35 @@ jQuery(".header-list__item").hover(
     }
 );
 
+
+
+jQuery(".sub-menu .menu-item").hover(
+    function () {
+        jQuery(this).addClass("change_color");
+        jQuery(this).find(".link").addClass("notopacity");
+        jQuery(".sub-menu .menu-item .link.opacity").addClass("sub");
+    },
+    function () {
+        jQuery(this).removeClass("change_color");
+        jQuery(this).find(".link").removeClass("notopacity");
+        jQuery(".sub-menu .menu-item .link.opacity").removeClass("sub");
+    }
+);
+
+jQuery(".menu-item-has-children").hover(
+    function () {
+        jQuery(this).addClass("change_color");
+        jQuery(this).find(".link").addClass("notopacity");
+        jQuery(".menu-item-has-children .link.opacity").addClass("sub");
+    },
+    function () {
+        jQuery(this).removeClass("change_color");
+        jQuery(this).find(".link").removeClass("notopacity");
+        jQuery(".menu-item-has-children .link.opacity").removeClass("sub");
+    }
+);
+
+
 jQuery(".menu-item a").addClass("link");
 
 jQuery("#mobile-menu-toggle").click(function () {

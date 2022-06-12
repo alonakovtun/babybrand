@@ -1173,3 +1173,43 @@
     width: 100%;
     cursor: pointer;
 }
+
+.sub-menu{
+    .menu-item, .menu-item-has-children{
+        .link{
+            &.opacity {
+                color: #000;
+                &.sub {
+                    color:  #939598;
+                }
+            }
+        }
+       
+        &.change_color{
+            .link{
+                &.notopacity{
+                    color: #000;
+                }
+            }
+        }
+    }
+}
+
+.menu-item-has-children{
+    .link{
+        &.opacity {
+            color: #000;
+            &.sub {
+                color:  #939598;
+            }
+        }
+    }
+
+    &.change_color{
+        .link{
+            &.notopacity{
+                color: #000;
+            }
+        }
+    }
+}

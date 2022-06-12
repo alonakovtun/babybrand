@@ -47,7 +47,7 @@ const miniCart = () => {
 };
 
 jQuery(".menu-item").children("a").addClass("link");
-jQuery(".menu-item").addClass("header-list__item");
+// jQuery(".menu-item").addClass("header-list__item");
 
 jQuery(".filters_title").click(function () {
     jQuery(".filters-popup").slideToggle("slow", "linear");

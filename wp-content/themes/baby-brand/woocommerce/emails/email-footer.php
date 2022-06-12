@@ -40,7 +40,10 @@ defined( 'ABSPATH' ) || exit;
 									<table border="0" cellpadding="10" cellspacing="0" width="100%">
 										<tr>
 											<td colspan="2" valign="middle" id="credit">
-												<?php echo wp_kses_post( wpautop( wptexturize( apply_filters( 'woocommerce_email_footer_text', get_option( 'woocommerce_email_footer_text' ) ) ) ) ); ?>
+												<ul class="footer-links">
+													<li><a href="#" target="_blank">Facebook</a></li>
+													<li><a href="#" target="_blank">Instagram</a></li>
+												</ul>
 											</td>
 										</tr>
 									</table>
