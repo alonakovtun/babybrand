@@ -548,7 +548,7 @@
 
     .woocommerce-widget-layered-nav-list {
         display: flex;
-        width: 15%;
+        flex-wrap: wrap;
 
         &__item:not(:last-child) {
             margin-right: 18px;
@@ -568,7 +568,8 @@
 
         .filter-widget {
             &:not(:last-child) {
-                margin-right: 116px
+                margin-right: 116px;
+                max-width: 15%;
             }
         }
     }
