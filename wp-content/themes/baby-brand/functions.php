@@ -421,4 +421,14 @@ if( function_exists('acf_add_options_page') ) {
 	
 }
 
+add_action( 'woocommerce_after_shop_loop_item_title', 'display_color_attribute', 5 );
+function display_color_attribute() {
+    global $product;
+
+    if ( $product->is_type('variable') ) {
+        $taxonomy = 'pa_color';
+        echo '<span class="attribute-color">' . $product->get_attribute($taxonomy) . '</span>';
+    }
+}
+
 

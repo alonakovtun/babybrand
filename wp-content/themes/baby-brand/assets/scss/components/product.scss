@@ -343,6 +343,7 @@
     padding-top: 206px;
     max-width: rem(601);
     margin-top: rem(-25);
+    left: calc(50% + 135px);
 
     @media only screen and (min-width: 1600px) {
         padding-top: 291px;
@@ -352,6 +353,7 @@
     @media only screen and (max-width: 768px) {
         position: relative;
         padding: 65px 31px;
+        left: 0;
     }
 }
 
@@ -570,6 +572,10 @@
             &:not(:last-child) {
                 margin-right: 116px;
                 max-width: 15%;
+
+                @media only screen and (max-width: 768px) {
+                    min-width: 100%;
+                }
             }
         }
     }
@@ -679,6 +685,10 @@
   .stop {
     position: relative;
     z-index: 101;
+
+    @media only screen and (max-width: 768px) {
+        position: initial;
+    }
   }
 
   .add_btn{
@@ -706,6 +716,10 @@
 
   .woo-variation-product-gallery{
     width: 100%;
+    max-width: 50%!important;
+    @media only screen and (max-width: 768px) {
+        max-width: 100%!important;
+    }
   }
 
   .woo-variation-gallery-trigger.woo-variation-gallery-trigger-position-top-right {

@@ -256,7 +256,7 @@ function getCookie(cname) {
 }
 
 (function(){
-    var a = document.querySelector('.main-column__body'), b = null, P = 0;  
+    var a = document.querySelector('.main-column__body'), b = null, P = 150;  
     window.addEventListener('scroll', Ascroll, false);
     document.body.addEventListener('scroll', Ascroll, false);
     function Ascroll() {
@@ -279,7 +279,7 @@ function getCookie(cname) {
         a.style.border = '0';
       }
       var Ra = a.getBoundingClientRect(),
-          R = Math.round(Ra.top + b.getBoundingClientRect().height - document.querySelector('.related.products').getBoundingClientRect().top + 120 );  
+          R = Math.round(Ra.top + b.getBoundingClientRect().height - document.querySelector('.related.products').getBoundingClientRect().top + 320 );  
       if ((Ra.top - P) <= 0) {
         if ((Ra.top - P) <= R) {
           b.className = 'stop';
