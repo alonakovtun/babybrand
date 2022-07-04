@@ -67,14 +67,14 @@
             </div>
             <div class="close"><span>+</span></div>
         </div>
-       
+
         <div class="cookies-block__subtitle">join to our newsletter.</div>
-       
+
         <form action="" class="cookies-block__form">
             <input class="cookies-block__email uncorrect-email " type="text" placeholder="Email">
             <div class="cookies-block__privacy mobile">By subscribing you agree to our <br>
-            <a href="/store-policy/">Privacy Policy.</a>
-        </div>
+                <a href="/store-policy/">Privacy Policy.</a>
+            </div>
             <button class="cookies-block__button">subscribe</button>
         </form>
 
@@ -129,6 +129,25 @@
             prevEl: '.swiper-button-order-prev',
         },
 
+    });
+
+    var relatedSwiper = new Swiper('.swiper-container.related-product', {
+        slidesPerView: 1,
+        spaceBetween: 0,
+        speed: 800,
+        autoplay: {
+            delay: 4000
+        },
+        loop: true,
+        breakpoints: {
+            768: {
+                slidesPerView: 2,
+            },
+
+            1200: {
+                slidesPerView: 4,
+            }
+        }
     });
 </script>
 </body>

@@ -728,3 +728,18 @@
       }
   }
 
+
+  .related.products{
+    .related__slider-product-bottom{
+        .title{
+            display: flex;
+            flex-direction: column;
+        }
+       
+      }
+      .products__body{
+        flex-wrap: nowrap;
+      }
+  }
+
+
