@@ -381,6 +381,14 @@
         font-weight: 300;
         text-transform: uppercase;
         cursor: pointer;
+        height: fit-content;
+        border-bottom: 1px solid #fff;
+
+        transition: all .3s;
+
+        &:hover{
+            border-color: #000;
+        }
 
         @media only screen and (min-width: 1600px) {
             font-size: 16px;
@@ -407,6 +415,19 @@
         .header-block__container{
             list-style: none;
             display: flex;
+            flex-direction: column;
+
+            .menu-item{
+                .link{
+                    border-bottom: 1px solid #fff;
+
+                    transition: all 0.3s;
+
+                    &:hover {
+                        border-color: #000;
+                    }
+                }
+            }
         }
     }
 
@@ -456,11 +477,11 @@
             font-size: 11px;
         }
 
-        a {
-            &:hover {
-                text-decoration: underline;
-            }
-        }
+        // a {
+        //     &:hover {
+        //         text-decoration: underline;
+        //     }
+        // }
 
     }
 
@@ -521,6 +542,17 @@
 
     &__body {
         display: block;
+
+        .header-block__text{
+            a{
+                border-bottom: 1px solid #fff;
+                transition: all .3s;
+
+                &:hover {
+                    border-color: #000;
+                }
+            }
+        }
 
     }
 }
@@ -613,14 +645,21 @@
     display: block;
     margin-bottom: 21px;
     max-width: rem(200);
+    width: fit-content;
     color: #000000;
     font-family: "Lato Light";
-    ;
     font-size: 12px;
     font-weight: 300;
     text-align: left;
     text-transform: uppercase;
     text-decoration: none;
+
+    border-bottom: 1px solid #fff;
+    transition: all .3s;
+
+    &:hover{
+        border-color: #000;
+    }
 
     @media only screen and (min-width: 1600px) {
         font-size: 16px;
@@ -721,6 +760,11 @@
         align-items: flex-end;
         position: relative;
         margin-bottom: 1rem;
+        width: 350px;
+
+        @media only screen and (min-width: 1600px) {
+            width: 450px;
+        }
     }
 
     .mobile {
@@ -750,8 +794,8 @@
         opacity: 0.85;
 
         img {
-            width: 100%;
-            height: -webkit-fill-available;
+            width: 12.5rem;
+            height: 17.1875rem;
         }
     }
 
@@ -856,6 +900,14 @@
             width: 100%;
             text-decoration: none;
             text-align: center;
+            background-color: #ffffff;
+
+            transition: all .3s;
+
+            &:hover{
+                color: #fff;
+                background-color: #000;
+            }
         }
     }
 
@@ -947,6 +999,15 @@
         background-color: #ffffff;
         text-transform: uppercase;
         cursor: pointer;
+
+        color: #000000;
+
+        transition: all .3s;
+
+        &:hover{
+            color: #ffffff;
+            background-color: #000000;
+        }
 
         @media only screen and (max-width: 768px) {
             height: 66px;
@@ -1156,24 +1217,48 @@
         .stories-color:nth-child(2) {
             a {
                 color: #000;
+                border-bottom: 1px solid #fff;
+
+                transition: all .3s;
+                &:hover {
+                    border-color: #000;
+                }
             }
         }
 
         .stories-color:nth-child(3) {
             a {
                 color: #141515;
+                border-bottom: 1px solid #fff;
+
+                transition: all .3s;
+                &:hover {
+                    border-color: #141515;
+                }
             }
         }
 
         .stories-color:nth-child(4) {
             a {
                 color: #808285;
+                border-bottom: 1px solid #fff;
+
+                transition: all .3s;
+                &:hover {
+                    border-color: #808285;
+                }
             }
         }
 
         .stories-color:nth-child(5) {
             a {
                 color: #939598;
+                border-bottom: 1px solid #fff;
+
+                transition: all .3s;
+                &:hover {
+                    border-color: #939598;
+                }
             }
         }
     }
@@ -1228,6 +1313,17 @@
             &.notopacity{
                 color: #000;
             }
+        }
+    }
+}
+
+.stories__block{
+    .header-block__text--bottom a{
+        border-bottom: 1px solid #fff;
+
+        transition: all 0.3s;
+        &:hover{
+            border-color: #000;
         }
     }
 }

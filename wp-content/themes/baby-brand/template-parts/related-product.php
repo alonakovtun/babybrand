@@ -1,8 +1,9 @@
-<?php
+<section class="related products">
+    <?php
 
-$items = get_field('related_products');
-if ($items) : ?>
-    <section class="related products">
+    $items = get_field('related_products');
+    if ($items) : ?>
+
         <div class="container">
             <div class="first-block">
                 <div class="top">
@@ -72,4 +73,4 @@ if ($items) : ?>
 
 
 
-    </section>
+</section>

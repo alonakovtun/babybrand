@@ -128,7 +128,7 @@ if ( ! function_exists( 'shop_post_thumbnail' ) ) :
 			?>
 
 			<div class="post-thumbnail">
-				<?php the_post_thumbnail(); ?>
+				<?php the_post_thumbnail('full'); ?>
 			</div><!-- .post-thumbnail -->
 
 		<?php else : ?>

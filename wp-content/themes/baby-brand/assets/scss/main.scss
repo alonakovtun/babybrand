@@ -241,6 +241,7 @@ figure {
   .products {
     @media only screen and (max-width: 768px) {
       margin-bottom: 0;
+      overflow: revert;
     }
   }
 
@@ -362,6 +363,10 @@ figure {
 
         @media only screen and (max-width: 768px) {
           margin-right: 0;
+        }
+
+        @media only screen and (min-width: 1600px) {
+          margin-right: 6rem;
         }
       }
     }
@@ -515,6 +520,10 @@ figure {
       @media only screen and (max-width: 768px) {
         bottom: 2px;
         right: 5px;
+      }
+
+      @media only screen and (min-width: 1600px) {
+        font-size: 13px;
       }
     }
   }
@@ -706,4 +715,13 @@ input {
     outline: none;
     box-shadow: none;
     border-radius: 0;
+}
+
+.lost_password{
+  border-bottom: 1px solid #fff;
+  transition: all .3s;
+
+  &:hover{
+    border-color: #000;
+  }
 }

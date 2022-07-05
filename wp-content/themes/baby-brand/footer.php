@@ -140,6 +140,10 @@
         },
         loop: true,
         breakpoints: {
+            320: {
+                slidesPerView: 1,
+                loop: false,
+            },
             768: {
                 slidesPerView: 2,
             },
