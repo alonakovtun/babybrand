@@ -53,13 +53,28 @@
 
         <?php endif; ?> -->
 
-        <?php 
-        $color = $product->get_attribute( 'pa_color' );
-        
+        <?php
+            $hexes = [];
+            $finalColors = [];
+
+            $colorString = $product->get_attribute('pa_color');
+            $colors = array_map('trim', explode(',', $colorString));
+            $terms = get_terms([
+                'taxonomy' => 'pa_color',
+                'hide_empty' => true,
+            ]);
+
+            foreach ($terms as $term) {
+                $hexes[$term->name] = get_term_meta($term->term_id)['product_attribute_color'][0];
+            }
+
+            foreach ($colors as $color) {
+                foreach ($hexes as $hexColor => $hexValue) {
+                    if ($color == $hexColor) {
+                        echo "<p style='background-color:". $hexValue ."'>test</p>";
+                    }
+                }
+            }
         ?>
-        <p><?echo $color; ?></p>
-
-
-
     </div>
 </div>
