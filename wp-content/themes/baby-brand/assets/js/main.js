@@ -284,7 +284,8 @@ function getCookie(cname) {
       }
       var Ra = a.getBoundingClientRect(),
           R = Math.round(Ra.top + b.getBoundingClientRect().height - document.querySelector('.related.products').getBoundingClientRect().top + 320 );  
-      if ((Ra.top - P) <= 0) {
+      console.log(Ra.top);
+          if ((Ra.top - P) <= 0) {
         if ((Ra.top - P) <= R) {
           b.className = 'stop';
           b.style.top = - R +'px';

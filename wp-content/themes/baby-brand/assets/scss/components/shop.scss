@@ -253,12 +253,10 @@
 
 }
 
-// .woocommerce ul.products li.product a img:nth-of-type(2) {
-//     display: none;
-// }
-// .woocommerce ul.products li.product a:hover img:nth-of-type(2) {product-image
-//     display: block
-// }
-// .woocommerce ul.products li.product a:hover img:nth-of-type(1) {
-//     display: none;
-// }
+.fa-spinner:before{
+      content: url('/wp-content/themes/baby-brand/assets/img/Ripple-1.9s-54px-2.gif')!important;
+}
+
+.lmp_products_loading .fa.lmp_rotate:before{
+      animation: none!important;
+}

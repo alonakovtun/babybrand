@@ -737,17 +737,16 @@
     position: fixed;
     left: 60%;
     padding-top: 0 !important;
-    // z-index: 101;
-    // width: 450px!important;
     height: 500px;
     overflow: auto !important;
+
+    @media only screen and (min-width: 1600px) {
+        height: 800px;
+    }
 }
 
 .stop {
     position: relative;
-    // z-index: 101;
-    // width: 450px!important;
-    // left: 57%;
 
     @media only screen and (max-width: 768px) {
         position: initial;
