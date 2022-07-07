@@ -53,38 +53,12 @@
 
         <?php endif; ?> -->
 
-        <?php
+        <?php 
+        $color = $product->get_attribute( 'pa_color' );
+        
+        ?>
+        <p><?echo $color; ?></p>
 
-$attributes = $prd->get_attributes('pa_color');
-
-           foreach($attributes as $attr=>$attr_dts){
-
-               $attribute_label = wc_attribute_label($attr);
-
-               if ( isset( $attributes[ $attr ] ) || isset( $attributes[ 'pa_' . $attr ] ) ) {
-
-                   $attribute = isset( $attributes[ $attr ] ) ? $attributes[ $attr ] : $attributes[ 'pa_' . $attr ];
-
-                   if ( $attribute['is_taxonomy'] ) {
-
-                      $values = wc_get_product_terms( $prd->id, $attribute['name'],array( 'fields' =>  'all' ));
-                        if( $values ){
-                                foreach ( $values as $term ){
-                                    echo '<dh>' . $term->name.' </dh>';
-                                    echo '<dd>' . get_term_meta( $term->term_id, 'color', true ) . '</dd>';
-                                    echo '<dd><img src="' . get_term_meta( $term->term_id, 'image', true ) . '" /></dd>';
-                                }
-                            echo '</dl>';
-                        }
-
-                   } else {
-
-                       $formatted_attributes[$attribute_label] = $attribute['value'];
-                   }
-
-               }
-           }
-?>
 
 
     </div>
