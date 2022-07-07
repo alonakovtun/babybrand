@@ -136,14 +136,18 @@ jQuery(document).ready(function () {
                 .not(nextElem)
                 .each(function () {
                     jQuery(this).hide();
+                    jQuery(this).removeClass('_active');
                 });
 
             if (nextElem.css("display") === "block") {
                 nextElem.hide();
+                nextElem.removeClass('_active');
                 return;
             }
 
             nextElem.fadeIn(500);
+            nextElem.addClass('_active');
+
         });
     });
 });
@@ -297,5 +301,38 @@ function getCookie(cname) {
       }, false);
     }
     })()
+
+    jQuery(".footer__item").hover(
+        function () {
+            jQuery(this).addClass("change_color");
+            jQuery(".footer__item a").addClass("opacity");
+        },
+        function () {
+            jQuery(this).removeClass("change_color");
+            jQuery(".footer__item a").removeClass("opacity");
+        }
+    );
+
+    function showImg(){
+        function reveal() {
+            var reveals = document.querySelectorAll(".categories__body .categories__column");
+    
+            for (var i = 0; i < reveals.length; i++) {
+              var windowHeight = window.innerHeight;
+              var elementTop = reveals[i].getBoundingClientRect().top;
+              var elementVisible = 75;
+    
+              if (elementTop < windowHeight - elementVisible) {
+                reveals[i].classList.add("active");
+              } else {
+                reveals[i].classList.remove("active");
+              }
+            }
+          }
+    
+          window.addEventListener("scroll", reveal);
+    }
+
+    showImg();
 
 export default miniCart;

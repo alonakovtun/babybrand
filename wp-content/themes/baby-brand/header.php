@@ -55,7 +55,7 @@ $product_categories = get_categories(array(
                 <div class="header__body">
 
                     <ul class="header-list first">
-                        <li class="header-list__item shop"><a class="link">Shop</a>
+                        <li class="header-list__item shop"><a class="link"><?php _e( 'Shop', 'baby-brand')?></a>
                             <div class="stories__block header-block shop-list">
                                 <ul class="header-block__container container">
                                     <?
@@ -70,11 +70,11 @@ $product_categories = get_categories(array(
 
                         </li>
 
-                        <li class="header-list__item"><a class="link">About</a>
+                        <li class="header-list__item"><a class="link"><?php _e( 'About', 'baby-brand')?></a>
                             <div class="stories__block header-block">
                                 <div class="header-block__container container">
                                     <div class="aboutmenu-block__top">
-                                        <div class="aboutmenu-block__text">A BABY BRAND was created to deliver the most
+                                        <div class="aboutmenu-block__text"><?php _e( 'A BABY BRAND was created to deliver the most
                                             simple
                                             clothes in easy
                                             basic colours. We put all our hearts into this little brand, to make your
@@ -83,19 +83,19 @@ $product_categories = get_categories(array(
                                             and to dress with ease. We treat our garments as basic, comfy uniforms
                                             and simply enjoy all the other important things n life! We are based in
                                             Warsaw, POLAND and this is where we design, develop and produce
-                                            our products.
-                                            <div class="aboutmenu-block__subtext">MINIMALIST BASICS FOR BABIES & KIDS.
+                                            our products.', 'baby-brand')?>
+                                            <div class="aboutmenu-block__subtext"><?php _e( 'MINIMALIST BASICS FOR BABIES & KIDS.', 'baby-brand')?>
                                             </div>
                                         </div>
-                                        <a class="aboutmenu-block__get" href="/about/">get to know more</a>
+                                        <a class="aboutmenu-block__get" href="/about/"><?php _e( 'get to know more', 'baby-brand')?></a>
                                     </div>
                                 </div>
                             </div>
                         </li>
-                        <li class="header-list__item"><a class="link">stories</a>
+                        <li class="header-list__item"><a class="link"><?php _e( 'stories', 'baby-brand')?></a>
                             <div class="stories__block header-block">
                                 <div class="header-block__container container">
-                                    <div class="header-block__name">stories</div>
+                                    <div class="header-block__name"><?php _e( 'stories', 'baby-brand')?></div>
                                     <?php foreach ($blogs as $blog) : ?>
                                         <div class="header-block__text stories-color">
                                             <a href="<?php echo $blog->guid; ?>">
@@ -103,18 +103,18 @@ $product_categories = get_categories(array(
                                             </a>
                                         </div>
                                     <?php endforeach; ?>
-                                    <div class="header-block__text--bottom"> <a href="/stories/">all stories</a>
+                                    <div class="header-block__text--bottom"> <a href="/stories/"><?php _e( 'all stories', 'baby-brand')?></a>
                                     </div>
                                 </div>
                             </div>
                         </li>
-                        <li class="header-list__item"><a class="link">Search</a>
+                        <li class="header-list__item"><a class="link"><?php _e( 'Search', 'baby-brand')?></a>
                             <div class="stories__block header-block">
                                 <div class="header-block__container container">
                                     <div class="search__body">
                                         <?php get_product_search_form() ?>
                                         <? if (have_rows('search_suggestions_items', 'option')) : ?>
-                                            <span class="header-block__text"><? _e('suggestions', 'anomeo'); ?>:</span>
+                                            <span class="header-block__text"><? _e('suggestions', 'baby-brand'); ?>:</span>
 
 
                                             <?php while (have_rows('search_suggestions_items', 'option')) : the_row();
@@ -156,15 +156,15 @@ $product_categories = get_categories(array(
                                 </ul>
                             </div>
                         </li>
-                        <li class="header-list__item"><a class="link">assistance</a>
+                        <li class="header-list__item"><a class="link"><?php _e('assistance', 'baby-brand')?></a>
                             <div class="stories__block header-block">
                                 <div class="header-block__container container">
                                     <a href="mailto:info@ababybrand.com" class="assistanse-link">Info@ababybrand.com</a>
-                                    <a href="/shipping-returns/" class="assistanse-link nomarginb">shipping & returns</a>
-                                    <a href="/quality-care/" class="assistanse-link nomarginb"> quality & care</a>
-                                    <a href="/size-guide/" class="assistanse-link bigmarginb"> size guide</a>
-                                    <a href="/my-account/wish-list/" class="assistanse-link bigmarginb wish">Wishlist <img src="/wp-content/uploads/2022/04/producticon.png"> </a>
-                                    <a class="assistanse-link bigmarginb">Newsletter</a>
+                                    <a href="/shipping-returns/" class="assistanse-link nomarginb"><?php _e('shipping & returns', 'baby-brand')?></a>
+                                    <a href="/quality-care/" class="assistanse-link nomarginb"><?php _e('quality & care', 'baby-brand')?> </a>
+                                    <a href="/size-guide/" class="assistanse-link bigmarginb"><?php _e('size guide', 'baby-brand')?> </a>
+                                    <a href="/my-account/wish-list/" class="assistanse-link bigmarginb wish"><?php _e('Wishlist', 'baby-brand')?> <img src="/wp-content/uploads/2022/04/producticon.png"> </a>
+                                    <a class="assistanse-link bigmarginb newsletter"><?php _e('Newsletter', 'baby-brand')?></a>
                                     <form class="assistanse-form" action="" method="get">
                                         <input type="email" class="assistanse-email" placeholder="Enter your email">
                                         <button class="assistance-btn">
@@ -175,15 +175,15 @@ $product_categories = get_categories(array(
                             </div>
                         </li>
                         <? if (!is_user_logged_in()) : ?>
-                            <li class="header-list__item"><a class="link">Account</a>
+                            <li class="header-list__item"><a class="link"><?php _e( 'Account', 'baby-brand')?></a>
                                 <div class="stories__block header-block login-header">
                                     <? include get_template_directory() . '/woocommerce/myaccount/form-login.php'; ?>
                                 </div>
                             </li>
                         <? else : ?>
-                            <li class="header-list__item"><a class="link" href="/my-account/">Account</a></li>
+                            <li class="header-list__item"><a class="link" href="/my-account/"><?php _e( 'Account', 'baby-brand')?></a></li>
                         <? endif; ?>
-                        <li class="header-list__item"><a class="link mini-cart-trigger">Cart
+                        <li class="header-list__item"><a class="link mini-cart-trigger"><?php _e( 'Cart', 'baby-brand')?>
                                 <span class="count"><?php echo WC()->cart->get_cart_contents_count() === 0 ? '' :  WC()->cart->get_cart_contents_count()  ?></span>
 
                             </a>
@@ -250,7 +250,7 @@ $product_categories = get_categories(array(
                 </div>
 
                 <ul class="header-list mobile">
-                    <li class="header-list__item shop open-link"><a class="link">Shop</a>
+                    <li class="header-list__item shop open-link"><a class="link"><?php _e( 'Shop', 'baby-brand')?></a>
                         <div class="list-block">
                             <ul class="header-block__container container">
                                 <?
@@ -265,11 +265,11 @@ $product_categories = get_categories(array(
 
                     </li>
 
-                    <li class="header-list__item open-link"><a class="link">About</a>
+                    <li class="header-list__item open-link"><a class="link"><?php _e( 'About', 'baby-brand')?></a>
                         <div class="list-block">
                             <div class="header-block__container container">
                                 <div class="aboutmenu-block__top">
-                                    <div class="aboutmenu-block__text">A BABY BRAND was created to deliver the most
+                                    <div class="aboutmenu-block__text"><?php _e( 'A BABY BRAND was created to deliver the most
                                         simple
                                         clothes in easy
                                         basic colours. We put all our hearts into this little brand, to make your
@@ -278,14 +278,14 @@ $product_categories = get_categories(array(
                                         and to dress with ease. We treat our garments as basic, comfy uniforms
                                         and simply enjoy all the other important things n life! We are based in
                                         Warsaw, POLAND and this is where we design, develop and produce
-                                        our products.
+                                        our products.', 'baby-brand')?>
                                     </div>
-                                    <a class="aboutmenu-block__get" href="/about/">get to know more</a>
+                                    <a class="aboutmenu-block__get" href="/about/"><?php _e( 'get to know more', 'baby-brand')?></a>
                                 </div>
                             </div>
                         </div>
                     </li>
-                    <li class="header-list__item open-link"><a class="link">stories</a>
+                    <li class="header-list__item open-link"><a class="link"><?php _e( 'stories', 'baby-brand')?></a>
                         <div class="list-block">
                             <div class="header-block__container container">
                                 <?php foreach ($blogs as $blog) : ?>
@@ -295,33 +295,33 @@ $product_categories = get_categories(array(
                                         </a>
                                     </div>
                                 <?php endforeach; ?>
-                                <div class="header-block__text--bottom"> <a href="/stories/">all stories</a>
+                                <div class="header-block__text--bottom"> <a href="/stories/"><?php _e( 'all stories', 'baby-brand')?></a>
                                 </div>
                             </div>
                         </div>
                     </li>
 
 
-                    <li class="header-list__item open-link"><a class="link">assistance</a>
+                    <li class="header-list__item open-link"><a class="link"><?php _e( 'assistance', 'baby-brand')?></a>
                         <div class="list-block">
                             <div class="header-block__container container">
                                 <a href="mailto:info@ababybrand.com" class="assistanse-link">Info@ababybrand.com</a>
-                                <a href="/shipping-returns/" class="assistanse-link nomarginb">shipping & returns</a>
-                                <a href="/quality-care/" class="assistanse-link nomarginb"> quality & care</a>
-                                <a href="/size-guide/" class="assistanse-link bigmarginb"> size guide</a>
-                                <a href="/my-account/wish-list/" class="assistanse-link bigmarginb wish">Wishlist <img src="/wp-content/uploads/2022/04/producticon.png"> </a>
-                                <a class="assistanse-link bigmarginb">Newsletter</a>
+                                <a href="/shipping-returns/" class="assistanse-link nomarginb"><?php _e( 'shipping & returns', 'baby-brand')?></a>
+                                <a href="/quality-care/" class="assistanse-link nomarginb"> <?php _e( 'quality & care', 'baby-brand')?></a>
+                                <a href="/size-guide/" class="assistanse-link bigmarginb"> <?php _e( 'size guide', 'baby-brand')?></a>
+                                <a href="/my-account/wish-list/" class="assistanse-link bigmarginb wish"><?php _e( 'Wishlist', 'baby-brand')?> <img src="/wp-content/uploads/2022/04/producticon.png"> </a>
+                                <a class="assistanse-link bigmarginb"><?php _e( 'Newsletter', 'baby-brand')?></a>
                                 <form class="assistanse-form" action="" method="get">
                                     <input type="email" class="assistanse-email" placeholder="Enter your email">
                                     <button class="assistance-btn">
-                                        subscribe
+                                        <?php _e( 'subscribe', 'baby-brand')?>
                                     </button>
                                 </form>
                             </div>
                         </div>
                     </li>
 
-                    <li class="header-list__item"><a href="/my-account" class="link">Account</a>
+                    <li class="header-list__item"><a href="/my-account" class="link"> <?php _e( 'Account', 'baby-brand')?></a>
 
                     </li>
 
@@ -358,7 +358,7 @@ $product_categories = get_categories(array(
                                 <div class="search__body">
                                     <?php get_product_search_form() ?>
                                     <? if (have_rows('search_suggestions_items', 'option')) : ?>
-                                        <span class="header-block__text"><? _e('suggestions', 'anomeo'); ?>:</span>
+                                        <span class="header-block__text"><? _e('suggestions', 'baby-brand'); ?>:</span>
 
 
                                         <?php while (have_rows('search_suggestions_items', 'option')) : the_row();

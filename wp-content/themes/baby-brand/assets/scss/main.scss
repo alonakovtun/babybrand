@@ -387,7 +387,7 @@ figure {
 
   @media only screen and (max-width: 768px) {
     width: 100%;
-    padding-bottom: 75px;
+    // padding-bottom: 75px;
   }
 
 
@@ -717,7 +717,7 @@ input {
     border-radius: 0;
 }
 
-.lost_password{
+.lost_password a{
   border-bottom: 1px solid #fff;
   transition: all .3s;
 
@@ -725,3 +725,4 @@ input {
     border-color: #000;
   }
 }
+

@@ -657,9 +657,16 @@
     border-bottom: 1px solid #fff;
     transition: all .3s;
 
+    &.newsletter{
+        &:hover{
+            border-color: #fff;
+        }
+    }
+
     &:hover{
         border-color: #000;
     }
+    
 
     @media only screen and (min-width: 1600px) {
         font-size: 16px;
@@ -1134,6 +1141,26 @@
         color: #000;
     }
 }
+
+.footer__item{
+    &.change_color {
+        .opacity {
+            color: #000;
+        }
+    }
+
+    a{
+        color: #000;
+        transition: all .3s;
+        &.opacity{
+            color: #939598;
+        }
+    }
+
+   
+}
+
+
 
 .register-block {
     .item-login__btn {

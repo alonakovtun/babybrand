@@ -21,7 +21,7 @@ get_header(); ?>
                 setup_postdata($post);
             ?>
 
-                <div class="categories__column item-category">
+                <div class="categories__column item-category stories">
                     <a href="<?php the_permalink() ?>">
                         <img src="<?php echo get_the_post_thumbnail_url(); ?>" alt="images" />
                     </a>
@@ -33,8 +33,11 @@ get_header(); ?>
                         <a href="<?php the_permalink() ?>" class="categories__name"><?php the_title(); ?></a>
                     </div>
                     <div class="mobile">
-                        <p><?php the_field('date'); ?></p>
-                        <a href="<?php the_permalink() ?>" class="categories__name"><?php the_title(); ?></a>
+
+                        <a href="<?php the_permalink() ?>" class="categories__name">
+                            <p><?php the_title(); ?></p>
+                            <p><?php the_field('date'); ?></p>
+                        </a>
                     </div>
 
                 </div>

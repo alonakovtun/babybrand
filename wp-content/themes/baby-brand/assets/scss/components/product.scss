@@ -145,6 +145,7 @@
 
         .item-settings__name {
             margin-right: 63px;
+
             @media only screen and (min-width: 1600px) {
                 margin-right: 40px;
             }
@@ -224,18 +225,18 @@
 
     &:hover {
         background-color: #000;
-        
-            &__text {
-                color: #ffffff;
-        
-                @media only screen and (max-width: 768px) {
-                    color: #000;
-                }
+
+        &__text {
+            color: #ffffff;
+
+            @media only screen and (max-width: 768px) {
+                color: #000;
             }
+        }
 
         @media only screen and (max-width: 768px) {
             background-color: #fff;
-            color: #000!important;
+            color: #000 !important;
         }
     }
 
@@ -316,7 +317,13 @@
 
         font-weight: 300;
 
-        transition: all 0.4s;
+        transition: all 1.5s;
+
+        color: #fff;
+
+        &._active{
+            color: #000;
+        }
 
         @media only screen and (max-width: 768px) {
             position: relative;
@@ -423,6 +430,7 @@
         background: none;
         border: none;
         cursor: pointer;
+        color: #000000
     }
 
     .qty {
@@ -563,9 +571,22 @@
             font-size: 16px;
         }
 
-        &__item:not(:last-child) {
-            margin-right: 18px;
-            margin-bottom: 20px;
+        &__item {
+
+            a {
+                border-bottom: 1px solid #fff;
+                transition: all .3s;
+
+                &:hover {
+                    border-color: #000;
+                }
+            }
+
+
+            &:not(:last-child) {
+                margin-right: 18px;
+                margin-bottom: 20px;
+            }
         }
 
         .count {
@@ -598,9 +619,14 @@
     top: 133px;
     right: 31px;
 
+    border-bottom: 1px solid #fff;
+    transition: all .3s;
+
     &:hover {
-        text-decoration: underline
+        border-color: #000;
     }
+
+
 
     @media only screen and (max-width: 768px) {
         left: 31px;
@@ -611,7 +637,7 @@
         top: 200px;
     }
 
-    
+
 
     cursor: pointer;
 }
@@ -629,6 +655,17 @@
     width: 170px;
     flex-wrap: wrap;
     justify-content: flex-start;
+
+    .filter-item {
+        a {
+            border-bottom: 1px solid #fff;
+            transition: all .3s;
+
+            &:hover {
+                border-color: #000;
+            }
+        }
+    }
 }
 
 .yith-wcan-filters .yith-wcan-filter .filter-items .filter-item.active>a,
@@ -684,50 +721,52 @@
         display: block;
     }
 
-    .swiper-slide{
-        img{
+    .swiper-slide {
+        img {
             @media only screen and (max-width: 768px) {
                 height: 400px !important;
                 object-fit: cover;
             }
         }
-    } 
+    }
 
-    
+
 }
 
 .sticky {
     position: fixed;
     left: 60%;
-    padding-top: 0!important;
-    z-index: 101;
+    padding-top: 0 !important;
+    // z-index: 101;
     // width: 450px!important;
     height: 500px;
-    overflow: auto!important;
-  }
-  .stop {
+    overflow: auto !important;
+}
+
+.stop {
     position: relative;
-    z-index: 101;
+    // z-index: 101;
     // width: 450px!important;
     // left: 57%;
 
     @media only screen and (max-width: 768px) {
         position: initial;
     }
-  }
+}
 
-  .add_btn{
-      position: relative;
+.add_btn {
+    position: relative;
 
-      .add-to-wish{
-          position: absolute;
-          top: 35%;
-          right: 55px;
-          @media only screen and (max-width: 768px) {
+    .add-to-wish {
+        position: absolute;
+        top: 35%;
+        right: 55px;
+
+        @media only screen and (max-width: 768px) {
             right: 20px;
-          }
-      }
-  }
+        }
+    }
+}
 
 //   .slick-slide{
 //     .slick-current{
@@ -739,42 +778,44 @@
 //     }
 //   }  
 
-  .woo-variation-product-gallery{
+.woo-variation-product-gallery {
     width: 100%;
-    max-width: 50%!important;
+    max-width: 50% !important;
+
     @media only screen and (max-width: 768px) {
-        max-width: 100%!important;
+        max-width: 100% !important;
     }
-  }
+}
 
-  .woo-variation-gallery-trigger.woo-variation-gallery-trigger-position-top-right {
-      @media only screen and (max-width: 768px) {
-          display: none;
-      }
-  }
+.woo-variation-gallery-trigger.woo-variation-gallery-trigger-position-top-right {
+    @media only screen and (max-width: 768px) {
+        display: none;
+    }
+}
 
 
-.related.products{
-    .related__slider-product-bottom{
-        .title{
+.related.products {
+    .related__slider-product-bottom {
+        .title {
             display: flex;
             flex-direction: column;
         }
-        
+
     }
-    .products__body{
+
+    .products__body {
         flex-wrap: nowrap;
     }
 
-    .related-products{
+    .related-products {
         @media only screen and (max-width: 768px) {
             overflow: hidden;
         }
     }
 }
 
-.yith-wcan-filters .yith-wcan-filter .filter-items .filter-item{
-    line-height: inherit!important;
+.yith-wcan-filters .yith-wcan-filter .filter-items .filter-item {
+    line-height: inherit !important;
     margin-bottom: 20px;
     margin-right: 18px;
 }

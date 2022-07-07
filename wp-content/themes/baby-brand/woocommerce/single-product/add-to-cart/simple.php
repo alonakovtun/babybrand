@@ -99,21 +99,21 @@ if ($product->is_in_stock()) : ?>
 
 	</div>
 	<div class="item-cart notactive">
-		<p class="item-cart__text notactive ">select variant</p>
+		<p class="item-cart__text notactive "><?php _e('select variant', 'baby-brand')?></p>
 
 	</div>
 	<div class="item-bottom">
 		<div class="item-bottom__list">
-			<div class="item-bottom__link">Size guide</div>
+			<div class="item-bottom__link"><?php _e('Size guide', 'baby-brand')?></div>
 			<div class="item-bottom__text"> <?php the_field('size_guide_product'); ?> </div>
 		</div>
 
 		<div class="item-bottom__list">
-			<div class="item-bottom__link">Shipping info</div>
+			<div class="item-bottom__link"><?php _e('Shipping info', 'baby-brand')?></div>
 			<div class="item-bottom__text"><?php the_field('shipping_info_product'); ?></div>
 		</div>
 		<div class="item-bottom__list">
-			<div class="item-bottom__link">Exchange & Returns Policy</div>
+			<div class="item-bottom__link"><?php _e('Exchange & Returns Policy', 'baby-brand')?></div>
 			<div class="item-bottom__text"><?php the_field('exchange_returns_policy_product'); ?></div>
 		</div>
 

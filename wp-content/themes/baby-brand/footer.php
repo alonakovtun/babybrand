@@ -51,7 +51,7 @@
             </div>
             <div class="footer__bottom">
                 <p class="footer__text">2021 Baby Brand / Based in Warsaw</p>
-                <p class="footer__text">PH Studio</p>
+                <!-- <p class="footer__text">PH Studio</p> -->
             </div>
 
         </div>

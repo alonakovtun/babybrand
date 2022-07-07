@@ -6,7 +6,7 @@ get_header();
             <div class="create">
                 <div class="create__container container">
                     <div class="create__body">
-                        <div class="create__title">Create an account</div>
+                        <div class="create__title"><?php _e('Create an account', 'baby-brand')?></div>
                         <div class="create__column">
                             <div class="create__column item-create">
                                 <div class="item-create__title"></div>
@@ -20,9 +20,9 @@ get_header();
                             <div class="create__button">
                                 register
                             </div>
-                            <div class="create__text">
-                                By creating an account, you accept our Terms and Conditions and
-                                confirm that you have read our Privacy Policy.
+                            <div class="create__text"><?php _e(' By creating an account, you accept our Terms and Conditions and
+                                confirm that you have read our Privacy Policy.', 'baby-brand')?>
+                               
                             </div>
                         </div>
                     </div>

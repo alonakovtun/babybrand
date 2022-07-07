@@ -40,11 +40,14 @@ get_header();
                     $i += 2;
                 ?>
                     <a href="<?= get_term_link($term->slug, 'product_cat') ?>" class="categories__column item-category" data-wow-delay="0.<?= $i > 10 ? $i = 1 : $i ?>s">
-                        <img class="item-category__img" src="<?= $image ?>" alt="">
-                        <div class="item-category__text">
-                            <?= $description; ?>
+                        <div class="cat-block">
+                            <img class="item-category__img" src="<?= $image ?>" alt="">
+                            <div class="item-category__text">
+                                <?= $description; ?>
+                            </div>
+                            <p class="categories__name"><?php echo esc_html($term->name); ?></p>
                         </div>
-                        <p class="categories__name"><?php echo esc_html($term->name); ?></p>
+                       
                     </a>
                 <?php endforeach; ?>
             <?php endif; ?>
