@@ -321,7 +321,7 @@ $product_categories = get_categories(array(
                         </div>
                     </li>
 
-                    <li class="header-list__item"><a href="/my-account" class="link"> <?php _e( 'Account', 'baby-brand')?></a>
+                    <li class="header-list__item"><a href="/my-account" class="link"> <?php __('Account', 'baby-brand')?></a>
 
                     </li>
 

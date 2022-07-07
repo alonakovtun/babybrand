@@ -24,7 +24,8 @@
 
       &__item {
             color: #000000;
-           font-family: "Lato Light";;
+            font-family: "Lato Light";
+            ;
             font-size: rem(16);
             font-weight: 300;
             text-transform: uppercase;
@@ -56,7 +57,8 @@
 
       &__name {
             margin-bottom: rem(20);
-           font-family: "Lato Light";;
+            font-family: "Lato Light";
+            ;
             font-size: rem(16);
             font-weight: 300;
             text-transform: uppercase;
@@ -71,7 +73,8 @@
 
       &__item {
             margin-right: rem(20);
-           font-family: "Lato Light";;
+            font-family: "Lato Light";
+            ;
             font-size: rem(16);
             font-weight: 300;
             text-decoration: none;
@@ -80,7 +83,8 @@
             &--3 {
                   flex: 0 0 33.333%;
                   margin-bottom: rem(20);
-                 font-family: "Lato Light";;
+                  font-family: "Lato Light";
+                  ;
                   font-size: rem(16);
                   font-weight: 300;
                   text-decoration: none;
@@ -92,7 +96,8 @@
             position: absolute;
             top: 0;
             right: 0;
-           font-family: "Lato Light";;
+            font-family: "Lato Light";
+            ;
             font-size: rem(16);
             font-weight: 300;
             text-decoration: none;
@@ -133,24 +138,26 @@
             img {
                   display: block;
                   height: auto;
-                  height: 430px!important;
+                  height: 430px !important;
                   width: 100%;
                   object-fit: cover;
 
                   @media only screen and (min-width: 1600px) {
-                        max-height: 600px!important;
-                        height: 600px!important;
+                        max-height: 600px !important;
+                        height: 600px !important;
                   }
+
                   @media only screen and (max-width: 768px) {
                         max-height: 265px;
-                        height: 265px!important;
+                        height: 265px !important;
                   }
             }
       }
 
       &__name {
             color: #070707;
-           font-family: "Lato Light";;
+            font-family: "Lato Light";
+            ;
             font-size: rem(16);
             font-weight: 300;
             text-transform: uppercase;
@@ -162,7 +169,7 @@
             padding: rem(38) rem(50) 0 rem(50);
 
             @media only screen and (max-width: 768px) {
-                 flex-direction: column;
+                  flex-direction: column;
             }
 
       }
@@ -171,9 +178,10 @@
 
       &__icon {
             cursor: pointer;
+
             @media only screen and (max-width: 768px) {
-                 margin-top: 10px;
-             }
+                  margin-top: 10px;
+            }
 
       }
 
@@ -207,18 +215,18 @@
       }
 }
 
-._first{
+._first {
       opacity: 1;
       visibility: visible;
       transition: all 0.5s;
 
-      &:hover{
+      &:hover {
             opacity: 0;
             visibility: hidden;
       }
 }
 
-._second{
+._second {
       position: absolute;
       top: 0;
       left: 0;
@@ -234,7 +242,8 @@
       z-index: 20;
       text-decoration: none;
       color: #000000;
-     font-family: "Lato Light";;
+      font-family: "Lato Light";
+      ;
       font-size: 12px;
       font-weight: 300;
       text-transform: uppercase;
@@ -246,17 +255,49 @@
             font-size: 16px;
             margin-top: 200px;
       }
+
       @media only screen and (max-width: 768px) {
             visibility: hidden;
             opacity: 0;
-        }
+      }
 
 }
 
-.fa-spinner:before{
-      content: url('/wp-content/themes/baby-brand/assets/img/Ripple-1.9s-54px-2.gif')!important;
+.fa-spinner:before {
+      content: url('/wp-content/themes/baby-brand/assets/img/Ripple-1.9s-54px-2.gif') !important;
 }
 
-.lmp_products_loading .fa.lmp_rotate:before{
-      animation: none!important;
+.lmp_products_loading .fa.lmp_rotate:before {
+      animation: none !important;
+}
+
+
+.products__column {
+      &.desktop {
+            @media only screen and (max-width: 768px) {
+                  display: none;
+            }
+      }
+
+      &.mobile {
+            
+            display: none;
+
+            @media only screen and (max-width: 768px) {
+                  display: block;
+                  height: 36.125rem;
+            }
+            
+            .item-column__circles{
+                  padding-left: 0;
+                  margin-top: 0;
+                  padding-bottom: 0;
+            }
+
+            .item-column__icon{
+                  padding-left: 31px;
+                  margin-top: 5px;
+            }
+
+      }
 }
