@@ -7,7 +7,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
- * @package shop
+ * @package baby-brand
  */
 
 $blogsArr = get_posts(array(

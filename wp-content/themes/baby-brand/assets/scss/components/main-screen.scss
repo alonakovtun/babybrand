@@ -93,9 +93,18 @@
                 transform: translateY(0);
             }
         }
+        
         &.active{
             transform: translateY(0);
             opacity: 1;
+        }
+
+        @media only screen and (min-width: 768px) {
+            &.stories:nth-child(-n+2) {
+                transform: translateY(0px);
+
+                opacity: 1;
+            }
         }
 
         &:hover img {
@@ -103,12 +112,7 @@
             transition: 0.3s;
         }
 
-        &.stories:nth-child(-n+2){
-            transform: translateY(0px);
         
-            opacity: 1;
-        }
-
     }
 
     &__name {

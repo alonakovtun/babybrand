@@ -137,16 +137,33 @@ jQuery(document).ready(function () {
                 .each(function () {
                     jQuery(this).hide();
                     jQuery(this).removeClass('_active');
+                    jQuery(this).addClass('not_active');
+                    jQuery('.main-item-column__price').css('visibility', 'visible');
+                    jQuery('.woocommerce-product-details__short-description').css('visibility', 'visible');
+                    jQuery('.variations_form').css('visibility', 'visible');
+                    jQuery('.prev_next_buttons').css('visibility', 'visible');
+                    
+                    
                 });
 
             if (nextElem.css("display") === "block") {
                 nextElem.hide();
                 nextElem.removeClass('_active');
+                nextElem.addClass('not_active');
+                jQuery('.main-item-column__price').css('visibility', 'visible');
+                jQuery('.woocommerce-product-details__short-description').css('visibility', 'visible');
+                jQuery('.variations_form').css('visibility', 'visible');
+                jQuery('.prev_next_buttons').css('visibility', 'visible');
                 return;
             }
 
             nextElem.fadeIn(500);
             nextElem.addClass('_active');
+            nextElem.removeClass('not_active');
+            jQuery('.main-item-column__price').css('visibility', 'hidden');
+            jQuery('.woocommerce-product-details__short-description').css('visibility', 'hidden');
+            jQuery('.variations_form').css('visibility', 'hidden');
+            jQuery('.prev_next_buttons').css('visibility', 'hidden');
 
         });
     });
@@ -259,49 +276,63 @@ function getCookie(cname) {
     return "";
 }
 
-(function(){
-    var a = document.querySelector('.main-column__body'), b = null, P = 150;  
-    window.addEventListener('scroll', Ascroll, false);
-    document.body.addEventListener('scroll', Ascroll, false);
-    function Ascroll() {
-      if (b == null) {
-        var Sa = getComputedStyle(a, ''), s = '';
-        for (var i = 0; i < Sa.length; i++) {
-          if (Sa[i].indexOf('overflow') == 0 || Sa[i].indexOf('padding') == 0 || Sa[i].indexOf('border') == 0 || Sa[i].indexOf('outline') == 0 || Sa[i].indexOf('box-shadow') == 0 || Sa[i].indexOf('background') == 0) {
-            s += Sa[i] + ': ' +Sa.getPropertyValue(Sa[i]) + '; '
-          }
+jQuery(document).ready(function () {
+    jQuery(window).on("resize", function (e) {
+        checkScreenSize();
+    });
+
+    checkScreenSize();
+    
+    function checkScreenSize(){
+        var newWindowWidth = jQuery(window).width();
+        if (newWindowWidth > 768) {
+            (function(){
+                var a = document.querySelector('.main-column__body'), b = null, P = 150;  
+                window.addEventListener('scroll', Ascroll, false);
+                document.body.addEventListener('scroll', Ascroll, false);
+                function Ascroll() {
+                  if (b == null) {
+                    var Sa = getComputedStyle(a, ''), s = '';
+                    for (var i = 0; i < Sa.length; i++) {
+                      if (Sa[i].indexOf('overflow') == 0 || Sa[i].indexOf('padding') == 0 || Sa[i].indexOf('border') == 0 || Sa[i].indexOf('outline') == 0 || Sa[i].indexOf('box-shadow') == 0 || Sa[i].indexOf('background') == 0) {
+                        s += Sa[i] + ': ' +Sa.getPropertyValue(Sa[i]) + '; '
+                      }
+                    }
+                    b = document.createElement('div');
+                    b.style.cssText = s + ' box-sizing: border-box; width: ' + a.offsetWidth + 'px;';
+                    a.insertBefore(b, a.firstChild);
+                    var l = a.childNodes.length;
+                    for (var i = 1; i < l; i++) {
+                      b.appendChild(a.childNodes[1]);
+                    }
+                    a.style.height = b.getBoundingClientRect().height + 'px';
+                    a.style.padding = '0';
+                    a.style.border = '0';
+                  }
+                  var Ra = a.getBoundingClientRect(),
+                      R = Math.round(Ra.top + b.getBoundingClientRect().height - document.querySelector('.related.products').getBoundingClientRect().top + 320 );  
+                  console.log(Ra.top);
+                      if ((Ra.top - P) <= 0) {
+                    if ((Ra.top - P) <= R) {
+                      b.className = 'stop';
+                      b.style.top = - R +'px';
+                    } else {
+                      b.className = 'sticky';
+                      b.style.top = P + 'px';
+                    }
+                  } else {
+                    b.className = '';
+                    b.style.top = '';
+                  }
+                  window.addEventListener('resize', function() {
+                    a.children[0].style.width = getComputedStyle(a, '').width
+                  }, false);
+                }
+                })()
         }
-        b = document.createElement('div');
-        b.style.cssText = s + ' box-sizing: border-box; width: ' + a.offsetWidth + 'px;';
-        a.insertBefore(b, a.firstChild);
-        var l = a.childNodes.length;
-        for (var i = 1; i < l; i++) {
-          b.appendChild(a.childNodes[1]);
-        }
-        a.style.height = b.getBoundingClientRect().height + 'px';
-        a.style.padding = '0';
-        a.style.border = '0';
-      }
-      var Ra = a.getBoundingClientRect(),
-          R = Math.round(Ra.top + b.getBoundingClientRect().height - document.querySelector('.related.products').getBoundingClientRect().top + 320 );  
-      console.log(Ra.top);
-          if ((Ra.top - P) <= 0) {
-        if ((Ra.top - P) <= R) {
-          b.className = 'stop';
-          b.style.top = - R +'px';
-        } else {
-          b.className = 'sticky';
-          b.style.top = P + 'px';
-        }
-      } else {
-        b.className = '';
-        b.style.top = '';
-      }
-      window.addEventListener('resize', function() {
-        a.children[0].style.width = getComputedStyle(a, '').width
-      }, false);
     }
-    })()
+});
+
 
     jQuery(".footer__item").hover(
         function () {
@@ -334,6 +365,27 @@ function getCookie(cname) {
           window.addEventListener("scroll", reveal);
     }
 
+    function showAbout(){
+        function reveal() {
+            var reveals = document.querySelectorAll(".about__column");
+    
+            for (var i = 0; i < reveals.length; i++) {
+              var windowHeight = window.innerHeight;
+              var elementTop = reveals[i].getBoundingClientRect().top;
+              var elementVisible = 75;
+    
+              if (elementTop < windowHeight - elementVisible) {
+                reveals[i].classList.add("active");
+              } else {
+                reveals[i].classList.remove("active");
+              }
+            }
+          }
+    
+          window.addEventListener("scroll", reveal);
+    }
+    
     showImg();
+    showAbout();
 
 export default miniCart;

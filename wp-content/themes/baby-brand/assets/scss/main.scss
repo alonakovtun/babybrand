@@ -547,6 +547,11 @@ input:focus {
     padding-bottom: 60px;
   }
 
+  @media only screen and (min-width: 1600px) {
+    padding-left: 51px;
+    padding-right: 51px;
+  }
+
   .header-block__text {
     margin-top: 68px;
     text-transform: none;

@@ -116,16 +116,25 @@ do_action('woocommerce_before_add_to_cart_form'); ?>
 <div class="item-bottom">
 		<div class="item-bottom__list">
 			<div class="item-bottom__link"><?php _e('Size guide', 'baby-brand')?></div>
-			<div class="item-bottom__text"> <?php the_field('size_guide_product'); ?> </div>
+			<div class="item-bottom__text"> 
+				<?php the_field('size_guide_product'); ?> 
+				<div class="close-info"></div>
+			</div>
 		</div>
 
 		<div class="item-bottom__list">
 			<div class="item-bottom__link"><?php _e('Shipping info', 'baby-brand')?></div>
-			<div class="item-bottom__text"><?php the_field('shipping_info_product'); ?></div>
+			<div class="item-bottom__text">
+				<?php the_field('shipping_info_product'); ?>
+				<div class="close-info"></div>
+			</div>
 		</div>
 		<div class="item-bottom__list">
 			<div class="item-bottom__link"><?php _e('Exchange & Returns Policy', 'baby-brand')?></div>
-			<div class="item-bottom__text"><?php the_field('exchange_returns_policy_product'); ?></div>
+			<div class="item-bottom__text">
+				<?php the_field('exchange_returns_policy_product'); ?>
+				<div class="close-info"></div>
+			</div>
 		</div>
 
 	</div>

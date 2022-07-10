@@ -7,7 +7,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
- * @package shop
+ * @package baby-brand
  */
 
 ?>
@@ -15,12 +15,12 @@
 <footer id="colophon" class="site-footer footer desktop">
     <div class="container">
         <div class="footer__body">
-            <p class="footer__text">2021 Baby Brand / Based in Warsaw</p>
+            <p class="footer__text">2021 Baby Brand / <?php _e('Based in Warsaw', 'baby-brand')?></p>
             <div class="footer__menu">
                 <ul class="footer__list">
-                    <li class="footer__item"><a href="/contact/">Contact </a></li>
-                    <li class="footer__item"><a href="/about/">about</a></li>
-                    <li class="footer__item"><a href="/store-policy/"> store policy </a></li>
+                    <li class="footer__item"><a href="/contact/"><?php _e('Contact', 'baby-brand')?> </a></li>
+                    <li class="footer__item"><a href="/about/"><?php _e('about', 'baby-brand')?></a></li>
+                    <li class="footer__item"><a href="/store-policy/"> <?php _e('store policy', 'baby-brand')?> </a></li>
                     <li class="footer__item"><a href="">Instagram </a></li>
                     <li class="footer__item"><a href="">Facebook</a></li>
                     <li class="footer__item"><a href="">pinterest</a></li>
@@ -39,9 +39,9 @@
 
             <div class="footer__menu">
                 <ul class="footer__list">
-                    <li class="footer__item"><a href="/contact/">Contact </a></li>
-                    <li class="footer__item"><a href="/about/">about</a></li>
-                    <li class="footer__item"><a href="/store-policy/"> store policy </a></li>
+                    <li class="footer__item"><a href="/contact/"><?php _e('Contact', 'baby-brand')?> </a></li>
+                    <li class="footer__item"><a href="/about/"><?php _e('about', 'baby-brand')?></a></li>
+                    <li class="footer__item"><a href="/store-policy/"> <?php _e('store policy', 'baby-brand')?> </a></li>
                     <li class="footer__item"><a href="">Instagram </a></li>
                     <li class="footer__item"><a href="">Facebook</a></li>
                     <li class="footer__item"><a href="">pinterest</a></li>
@@ -50,7 +50,7 @@
 
             </div>
             <div class="footer__bottom">
-                <p class="footer__text">2021 Baby Brand / Based in Warsaw</p>
+                <p class="footer__text">2021 Baby Brand / <?php _e('Based in Warsaw', 'baby-brand')?></p>
                 <!-- <p class="footer__text">PH Studio</p> -->
             </div>
 
@@ -60,26 +60,26 @@
 <div class="cookies-block">
     <div class="cookies-block__body">
         <div class="first-block">
-            <div class="cookies-block__title">This is all you really need in your
+            <div class="cookies-block__title"> <?php _e('This is all you really need in your
                 little ones minimalistic wardrobe.
-                get -15% for your first shopping!
+                get -15% for your first shopping!', 'baby-brand')?> 
 
             </div>
             <div class="close"><span>+</span></div>
         </div>
 
-        <div class="cookies-block__subtitle">join to our newsletter.</div>
+        <div class="cookies-block__subtitle"><?php _e('join to our newsletter.', 'baby-brand')?></div>
 
         <form action="" class="cookies-block__form">
             <input class="cookies-block__email uncorrect-email " type="text" placeholder="Email">
-            <div class="cookies-block__privacy mobile">By subscribing you agree to our <br>
-                <a href="/store-policy/">Privacy Policy.</a>
+            <div class="cookies-block__privacy mobile"><?php _e('By subscribing you agree to our.', 'baby-brand')?> <br>
+                <a href="/store-policy/"><?php _e('Privacy Policy.', 'baby-brand')?></a>
             </div>
-            <button class="cookies-block__button">subscribe</button>
+            <button class="cookies-block__button"><?php _e('subscribe', 'baby-brand')?></button>
         </form>
 
-        <div class="cookies-block__privacy desktop">By subscribing you agree to our <br>
-            <a href="/store-policy/">Privacy Policy.</a>
+        <div class="cookies-block__privacy desktop"><?php _e('By subscribing you agree to our', 'baby-brand')?> <br>
+            <a href="/store-policy/"><?php _e('Privacy Policy.', 'baby-brand')?></a>
         </div>
         <!-- <div class="cookies-block__privacy uncorrect-privacy">Please correct your email address.
         </div>

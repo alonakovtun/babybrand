@@ -17,10 +17,35 @@
         width: 100%;
         height: auto;
         flex: 0 0 50%;
+
+        transition: 0.3s;
+
+        transform: translateY(75px);
+
         @media only screen and (max-width: 768px) {
             &:nth-child(3) {  
                 order: 2;
               }
+        }
+
+        @media only screen and (max-width: 768px) {
+            &:first-child{
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        &.active{
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        @media only screen and (min-width: 768px) {
+            &.stories:nth-child(-n+2) {
+                transform: translateY(0px);
+
+                opacity: 1;
+            }
         }
 
        
