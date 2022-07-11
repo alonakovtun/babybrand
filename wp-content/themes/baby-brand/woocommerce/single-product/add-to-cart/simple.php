@@ -84,9 +84,8 @@ if ($product->is_in_stock()) : ?>
 			do_action('woocommerce_after_add_to_cart_quantity');
 			?>
 			<div class="add_btn">
-				<div class="">
 					<button type="submit" name="add-to-cart" value="<?php echo esc_attr($product->get_id()); ?>" class="main_btn_area item-cart item-cart__text single_add_to_cart_button button alt item-cart__text"><?php echo esc_html('Add to Cart', 'shop'); ?></button>
-				</div>
+			
 				<div class="add-to-wish">
 					<?php echo do_shortcode("[yith_wcwl_add_to_wishlist]") ?>
 				</div>

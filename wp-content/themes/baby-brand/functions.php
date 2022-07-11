@@ -61,7 +61,7 @@ if (!function_exists('baby_setup')) :
         );
 
         register_sidebar(array(
-            'name'          => __('Filters sidebar', 'shop'),
+            'name'          => __('Filters sidebar', 'baby-brand'),
             'id'            => 'filters-sidebar',
             'before_widget' => '<aside id="%1$s" class="filter-widget %2$s">',
             'after_widget'  => '</aside>',
@@ -70,7 +70,7 @@ if (!function_exists('baby_setup')) :
         ));
 
         register_sidebar(array(
-            'name'          => __('Filters sidebar2', 'shop'),
+            'name'          => __('Filters sidebar2', 'baby-brand'),
             'id'            => 'filters-sidebar2',
             'before_widget' => '<aside id="%1$s" class="filter-widget %2$s">',
             'after_widget'  => '</aside>',
@@ -391,13 +391,13 @@ function site_cookies_banner()
         <div class="container">
             <div class="cookies-bottom__body">
                 <div class="cookies-bottom__info desktop"><? _e('We use cookies in order to provide you with the best online
-                experience. By continuing to use our site you are agreeing to our <a href="/store-policy/" class="cookies-bottom__info page">cookies policy</a>.', 'shop'); ?>
+                experience. By continuing to use our site you are agreeing to our <a href="/store-policy/" class="cookies-bottom__info page">cookies policy</a>.', 'baby-brand'); ?>
                 </div>
                 <div class="cookies-bottom__info mobile" ><? _e('By continuing to use our site you 
-                        are agreeing to our  <a href="/store-policy/" class="cookies-bottom__info page">cookies policy</a>.', 'shop'); ?>
+                        are agreeing to our  <a href="/store-policy/" class="cookies-bottom__info page">cookies policy</a>.', 'baby-brand'); ?>
                 </div>
 
-                <button class="cookies-bottom__button"><? _e('Close', 'shop'); ?></button>
+                <button class="cookies-bottom__button"><? _e('Close', 'baby-brand'); ?></button>
             </div>
         </div>
     </div>
