@@ -18,7 +18,7 @@
 
 defined('ABSPATH') || exit;
 
-get_header('shop');
+get_header('baby-brand');
 
 /**
  * Hook: woocommerce_before_main_content.
@@ -49,7 +49,7 @@ do_action('woocommerce_before_main_content');
 </header>
 
 <div id="filter-toggle-btn" class="filters_title link">
-	<? _e('Filters', 'shop') ?>
+	<? _e('Filters', 'baby-brand') ?>
 </div>
 
 <div class="filters-popup filter-row-popup">
@@ -117,4 +117,4 @@ do_action('woocommerce_after_main_content');
  */
 do_action('woocommerce_sidebar');
 
-get_footer('shop');
+get_footer('baby-brand');

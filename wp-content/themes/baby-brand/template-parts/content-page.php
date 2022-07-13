@@ -4,7 +4,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
- * @package shop
+ * @package baby-brand
  */
 
 ?>
@@ -22,7 +22,7 @@
 
 		wp_link_pages(
 			array(
-				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'shop' ),
+				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'baby-brand' ),
 				'after'  => '</div>',
 			)
 		);
@@ -36,7 +36,7 @@
 				sprintf(
 					wp_kses(
 						/* translators: %s: Name of current post. Only visible to screen readers */
-						__( 'Edit <span class="screen-reader-text">%s</span>', 'shop' ),
+						__( 'Edit <span class="screen-reader-text">%s</span>', 'baby-brand' ),
 						array(
 							'span' => array(
 								'class' => array(),

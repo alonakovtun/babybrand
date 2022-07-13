@@ -135,7 +135,7 @@ defined('ABSPATH') || exit;
 						</div>
 					</div>
 					<div class="card-body__row q">
-						<div class="card-body__quantity">Quantity:
+						<div class="card-body__quantity"><?php _e('Quantity:', 'baby-brand')?>
 							<?php echo apply_filters('woocommerce_checkout_cart_item_quantity', '<span>' . sprintf($cart_item['quantity']) . '</span>', $cart_item, $cart_item_key); ?>
 						</div>
 					</div>
@@ -146,7 +146,7 @@ defined('ABSPATH') || exit;
 							'<a href="%s" class="checkout__remove remove removed_from_cart">%s</a>',
 							esc_url(wc_get_cart_remove_url($cart_item_key)),
 							__('REMOVE', 'woocommerce'),
-							__('REMOVE', 'hedo'),
+							__('REMOVE', 'baby-brand'),
 						), $cart_item_key);
 						?>
 					</div>

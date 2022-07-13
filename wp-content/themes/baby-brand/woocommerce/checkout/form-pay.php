@@ -25,7 +25,7 @@ $totals = $order->get_order_item_totals(); // phpcs:ignore WordPress.WP.GlobalVa
 <form id="order_review" method="post">
 
 	<div class="shop_table order_pay woocommerce-order-details">
-	<div class="chekout__gobackbtn" onclick="history.go(-1)">Go back</div>
+	<div class="chekout__gobackbtn" onclick="history.go(-1)"><?php _e('Go back', 'baby-brand')?></div>
 		<!-- <div>
 			<tr>
 				<th class="product-name"><?php esc_html_e('Product', 'woocommerce'); ?></th>

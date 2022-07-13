@@ -60,13 +60,14 @@ do_action('woocommerce_before_customer_login_form'); ?>
 		</div>
 		<div class="login__column register-block">
 			<div class="item-login__name">
-				create an account
+				<?php _e('create an account', 'baby-brand') ?>
+				
 			</div>
-			<div class="item-login__text">Sign in to check the status of your most
+			<div class="item-login__text"><?php _e('Sign in to check the status of your most
 				recent
-				order and your order history.</div>
+				order and your order history.', 'baby-brand') ?></div>
 
-			<button type="button" class="item-login__btn button__trigger-register">register</button>
+			<button type="button" class="item-login__btn button__trigger-register"><?php _e('register', 'baby-brand') ?></button>
 
 
 		</div>

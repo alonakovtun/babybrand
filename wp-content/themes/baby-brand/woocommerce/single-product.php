@@ -19,7 +19,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 
-get_header( 'shop' ); ?>
+get_header( 'baby-brand' ); ?>
 
 	<?php
 		/**
@@ -57,6 +57,6 @@ get_header( 'shop' ); ?>
 	?>
 
 <?php
-get_footer( 'shop' );
+get_footer( 'baby-brand' );
 
 /* Omit closing PHP tag at the end of PHP files to avoid "headers already sent" issues. */

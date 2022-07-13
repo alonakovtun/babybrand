@@ -127,8 +127,9 @@
         bottom: 0;
         z-index: 3;
         display: flex;
-        align-items: flex-end;
-        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        justify-content: flex-end;
         color: #000000;
         font-family: "Lato Light";
         ;
@@ -454,7 +455,7 @@
 
 
     &__body {
-        @include dflex(stretch, wrap, space-between);
+        @include dflex(stretch, nowrap, space-between);
         height: 28px;
         align-items: center;
 

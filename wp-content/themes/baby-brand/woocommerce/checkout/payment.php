@@ -19,7 +19,7 @@ defined( 'ABSPATH' ) || exit;
 
 ?>
 <div id="payment" class="woocommerce-checkout-payment">
-	<div class="item-checkout__subname">payment method</div>
+	<div class="item-checkout__subname"><?php _e('payment method', 'baby-brand')?></div>
 		<?php if ( WC()->cart->needs_payment() ) : ?>
 			<ul class="wc_payment_methods payment_methods methods">
 				<?php
@@ -51,11 +51,11 @@ defined( 'ABSPATH' ) || exit;
 			</div>
 			<div class="item-checkout__radiobtns">
 				<input class="item-checkout__radio" onchange="jQuery('#place_order').removeAttr('disabled')" id="checkoutradio" type="radio" name="" value="">
-				<label class="item-checkout__radiotext" for="checkoutradio">By proceeding I
+				<label class="item-checkout__radiotext" for="checkoutradio"><?php _e('By proceeding I
 					accept
 					the
 					Terms &
-					conditions</label>
+					conditions', 'baby-brand')?></label>
 			</div>
 
 			<?php do_action( 'woocommerce_review_order_after_submit' ); ?>

@@ -82,7 +82,7 @@ do_action('woocommerce_before_edit_account_form'); ?>
 					</p>
 
 					<div class="accountdetails__forgot">
-                           <a href="/my-account/lost-password/"> Forgot your current password? </a>
+                           <a href="/my-account/lost-password/"> <?php _e('Forgot your current password?', 'baby-brand')?> </a>
                         </div>
 
 					<?php do_action('woocommerce_edit_account_form_end'); ?>

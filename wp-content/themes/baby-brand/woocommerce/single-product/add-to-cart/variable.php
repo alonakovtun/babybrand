@@ -27,7 +27,7 @@ $variations_attr = function_exists('wc_esc_json') ? wc_esc_json($variations_json
 do_action('woocommerce_before_add_to_cart_form'); ?>
 <?php if (have_rows('color_links')) : ?>
 	<div class="item-settings">
-		<div class="item-settings__name link">Colour</div>
+		<div class="item-settings__name link"><?php _e('Colour', 'baby-brand')?></div>
 		<?php while (have_rows('color_links')) : the_row(); ?>
 			<?php
 			$post_object = get_sub_field('color_product_link');
@@ -112,6 +112,7 @@ do_action('woocommerce_before_add_to_cart_form'); ?>
 		<?php do_action('woocommerce_after_variations_form'); ?>
 	</form>
 </div>
+							</div>
 
 <div class="item-bottom">
 		<div class="item-bottom__list">

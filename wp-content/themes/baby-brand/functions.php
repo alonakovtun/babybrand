@@ -19,8 +19,8 @@ if (!function_exists('baby_setup')) :
 
         register_nav_menus(
             array(
-                'menu-1' => esc_html__('Primary', 'baby'),
-                'main-menu' => esc_html__('Main menu', 'baby')
+                'menu-1' => esc_html__('Primary', 'baby-brand'),
+                'main-menu' => esc_html__('Main menu', 'baby-brand')
             )
         );
 

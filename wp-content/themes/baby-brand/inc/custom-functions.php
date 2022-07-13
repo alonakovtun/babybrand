@@ -70,7 +70,7 @@ function theme_translations_js()
         ),
         'nounce' => wp_create_nonce('ajax'),
         'l18n'   => array(
-            'btnAddToCartValidation' => __('Choose option', 'baby'),
+            'btnAddToCartValidation' => __('Choose option', 'baby-brand'),
         )
     ));
 }

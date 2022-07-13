@@ -246,7 +246,7 @@
 
     &.mobile{
         @media only screen and (max-width: 768px) {
-            padding: 0 31px;
+            padding: 0 25px;
         }
     }
 
@@ -358,6 +358,7 @@
 
         @media only screen and (max-width: 768px) {
             font-size: 11px;
+            margin-bottom: 40px;
         }
     }
 
@@ -436,7 +437,7 @@
 
         @media only screen and (max-width: 768px) {
             padding: 0 !important;
-            margin-top: 40px;
+            margin-top: 58px;
         }
 
 
@@ -496,6 +497,7 @@
 
         @media only screen and (max-width: 768px) {
             font-size: 11px;
+            margin-top: 45px;
         }
     }
 
@@ -1305,6 +1307,14 @@
 }
 
 .sub-menu{
+
+    li{
+        // &:not(:first-child){
+            @media only screen and (max-width: 768px) {
+                margin-bottom: 30px;
+            }
+        // }
+    }
     .menu-item, .menu-item-has-children{
         .link{
             &.opacity {

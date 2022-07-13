@@ -48,11 +48,11 @@ defined('ABSPATH') || exit;
 								<p class="thankyoupage-top__title">
 									<?php echo apply_filters('woocommerce_thankyou_order_received_text', esc_html__('thank you for your order!', 'woocommerce'), $order); ?>
 								</p>
-								<div class="thankyoupage-top__backhome" style="z-index: 999;"><a href="<?php echo home_url() ?>">back to homepage</a></div>
+								<div class="thankyoupage-top__backhome" style="z-index: 999;"><a href="<?php echo home_url() ?>"><?php _e('back to homepage', 'baby-brand')?></a></div>
 							</div>
-							<div class="thankyou-middle__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+							<div class="thankyou-middle__text"><?php _e('Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 								Proin
-								nibh augue, <br> suscipit a, scelerisque sed, lacinia in mi. </div>
+								nibh augue, suscipit a, scelerisque sed, lacinia in mi.', 'baby-brand')?> </div>
 							<div class="thankyoupage-bottom item-thankyou">
 								<div class="item-thankyou__body">
 									<div class="item-thankyou__name"><?php esc_html_e('order:', 'woocommerce') ?></div>

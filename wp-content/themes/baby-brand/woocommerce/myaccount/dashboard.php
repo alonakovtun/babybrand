@@ -36,7 +36,7 @@ $allowed_html = array(
 				<?php
 				
 				printf(
-					__('Hello, %1$s', 'babybrand'),
+					__('Hello, %1$s', 'baby-brand'),
 					esc_html($current_user->display_name)
 				);
 				
@@ -46,10 +46,10 @@ $allowed_html = array(
 
 	<section class="myaccount__content-wrap myaccount__content-wrap--dashboard">
 		
-		<p class="dashboard-text hellopage__subtitle">From your account dashboard you can view your recent orders,
+		<p class="dashboard-text hellopage__subtitle"><?php _e('From your account dashboard you can view your recent orders,
                             manage
                             your shipping and billing addresses,
-                            and edit your password and account details.</p>
+                            and edit your password and account details.', 'baby-brand') ?></p>
 	</section>
 		</div>
 

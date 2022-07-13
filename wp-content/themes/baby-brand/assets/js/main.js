@@ -140,22 +140,18 @@ jQuery(document).ready(function () {
             jQuery(".item-bottom__text")
                 .not(nextElem)
                 .each(function () {
-                    jQuery(this).css('transform','translateY(0px)');
+                    jQuery(this).css('transform','translateY(-430px)');
                     jQuery(this).removeClass('_active');
-                    jQuery('.main-item-column__price').css('visibility', 'visible');
-                    jQuery('.woocommerce-product-details__short-description').css('visibility', 'visible');
-                    jQuery('.variations_form').css('visibility', 'visible');
+                    jQuery('.hidden_info').css('transform','translateY(0px)');
                     jQuery('.prev_next_buttons').css('visibility', 'visible');
                     
                     
                 });
 
             if (nextElem.css("display") === "flex") {
-                nextElem.css('transform','translateY(0px)');
+                nextElem.css('transform','translateY(-430px)');
                 nextElem.removeClass('_active');
-                jQuery('.main-item-column__price').css('visibility', 'visible');
-                jQuery('.woocommerce-product-details__short-description').css('visibility', 'visible');
-                jQuery('.variations_form').css('visibility', 'visible');
+                jQuery('.hidden_info').css('transform','translateY(0px)');
                 jQuery('.prev_next_buttons').css('visibility', 'visible');
                 return;
             }
@@ -163,9 +159,8 @@ jQuery(document).ready(function () {
             nextElem.fadeIn(500);
             nextElem.addClass('_active');
             nextElem.removeClass('not_active');
-            jQuery('.main-item-column__price').css('visibility', 'hidden');
-            jQuery('.woocommerce-product-details__short-description').css('visibility', 'hidden');
-            jQuery('.variations_form').css('visibility', 'hidden');
+            jQuery('.hidden_info').css('transform','translateY(550px)');
+            jQuery('.hidden_info').css('visibility', 'hidden');
             jQuery('.prev_next_buttons').css('visibility', 'hidden');
 
         });
@@ -420,5 +415,18 @@ function showImg() {
     
     showImg();
     showAbout();
+
+    const fancyBox = () => {
+        const images = document.querySelectorAll('.woocommerce-product-gallery__wrapper img');
+      
+        if (!images) return;
+      
+        images.forEach(element => {
+          element.setAttribute('data-fancybox', '');
+        });
+      };
+
+      fancyBox();
+      
 
 export default miniCart;

@@ -111,7 +111,7 @@
                                                     '<a href="%s" class="checkout__remove remove trigger-change">%s</a>',
                                                     esc_url(wc_get_cart_remove_url($cart_item_key)),
                                                     __('Remove', 'woocommerce'),
-                                                    __('Remove', 'hedo'),
+                                                    __('Remove', 'baby-brand'),
                                                 ), $cart_item_key);
                                                 ?>
                                             </div>

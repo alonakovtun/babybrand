@@ -34,7 +34,7 @@ if (!$checkout->is_registration_enabled() && $checkout->is_registration_required
 	<div class="checkout">
 		<div class="checkout__container container">
 			<div class="checkout__body">
-				<div class="chekout__gobackbtn" onclick="history.go(-1)">Go back</div>
+				<div class="chekout__gobackbtn" onclick="history.go(-1)"><?php _e('Go back', 'baby-brand')?></div>
 				<div class="checkout__column item-checkout">
 					<form name="checkout" method="post" class="checkout woocommerce-checkout" action="<?php echo esc_url(wc_get_checkout_url()); ?>" enctype="multipart/form-data">
 
@@ -53,7 +53,7 @@ if (!$checkout->is_registration_enabled() && $checkout->is_registration_required
 							<?php do_action('woocommerce_checkout_after_customer_details'); ?>
 
 						<?php endif; ?>
-					<div class="item-checkout__subname">billing summary</div>
+					<div class="item-checkout__subname"><?php _e('billing summary', 'baby-brand')?></div>
 					<?php do_action('woocommerce_review_order_before_payment') ?>
 
 					<div class="item-checkout__option option-item ">
@@ -71,7 +71,7 @@ if (!$checkout->is_registration_enabled() && $checkout->is_registration_required
 					<?php if (WC()->cart->needs_shipping() && WC()->cart->show_shipping()) : ?>
 					<div class="item-checkout__option option-item ">
 						<?php do_action('woocommerce_review_order_before_shipping'); ?>
-                        <div class="option-item__name">shipping</div>
+                        <div class="option-item__name"><?php _e('shipping', 'baby-brand')?></div>
                         <div class="option-item__total"><?php echo WC()->cart->get_cart_shipping_total(); ?></div>
 
 						<?php do_action('woocommerce_review_order_after_shipping'); ?>

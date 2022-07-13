@@ -37,7 +37,7 @@ get_header();
         </div>
         <div class="stories__info">
 
-            <div class="stories__title"><?php the_title(); ?><br>
+            <div class="stories__title"><?php the_title(); ?><br><br>
                 <span><?php the_field('date') ?></span>
             </div>
             <div class="stories__subtitle"><?php the_field('content1') ?></div>

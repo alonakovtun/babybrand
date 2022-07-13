@@ -22,7 +22,7 @@ defined('ABSPATH') || exit;
 
 $notes = $order->get_customer_order_notes();
 ?>
-<div class="chekout__gobackbtn" onclick="history.go(-1)">Go back</div>
+<div class="chekout__gobackbtn" onclick="history.go(-1)"><?php _e('Go back', 'baby-brand')?></div>
 <?php
 printf(
 	/* translators: 1: order number 2: order date 3: order status */
@@ -73,7 +73,7 @@ if (!empty($actions)) : ?>
 	<div class="item-checkout__radiobtns">
 		<input class="item-checkout__radio" onchange="jQuery('#pay_a').removeClass('disabled'); jQuery('.item-checkout__radiotext a').css('color', 'black')" id="checkoutradio" type="radio" name="" value="">
 		<label class="item-checkout__radiotext" for="checkoutradio">
-			By proceeding I accept the <a href="/store-policy">Terms & conditions</a>
+			<?php _e('By proceeding I accept the', 'baby-brand')?> <a href="/store-policy"><?php _e('Terms & conditions', 'baby-brand')?></a>
 		</label>
 	</div>
 <?php endif; ?>
