@@ -79,7 +79,7 @@ body {
 }
 
 #template_header_image {
-	padding: 60px 0 50px;
+	padding: 50px 15px;
 	text-align: center;
 }
 
@@ -172,10 +172,13 @@ body {
 }
 
 #body_content_inner p{
-	padding-left: 60px;
-	color: #000;
-	font-size: 14px;
-	text-transform: uppercase;
+    margin: 0 auto;
+    padding-left: 0px;
+    color: #000;
+    text-align: center;
+    font-size: 12px;
+    text-transform: uppercase;
+    width: 39%;
 }
 
 #body_content_inner p:last-child{
@@ -319,7 +322,7 @@ img {
 }
 
 .order-title {
-	padding: 25px 60px;
+	padding: 70px 60px 25px;
 	margin: 0 !important;
 	color: #000;
 	font-size: 14px;
@@ -327,9 +330,6 @@ img {
 	font-weight: 300;
 	display: flex;
     justify-content: space-between;
-
-	border-top: 1px solid #e5e5e5;
-	border-bottom: 1px solid #e5e5e5;
 }
 
 .wc-bacs-bank-details-heading {
