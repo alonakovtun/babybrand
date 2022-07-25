@@ -86,6 +86,21 @@
         margin-bottom: rem(31);
         padding-bottom: rem(22);
         color: #939598;
+
+        .accountdetails__button{
+            @media only screen and (max-width: 768px) {
+                height: 65px;
+                justify-content: flex-start;
+                padding-left: 35px;
+            }
+        }
+        
+        .accountdetails__forgot{
+            @media only screen and (max-width: 768px) {
+                margin-bottom: 0;
+            }
+        }
+
         input{
             display: block;
             border: none;  

@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 /**
  * The header for our theme
  *
@@ -52,12 +52,13 @@ $product_categories = get_categories(array(
         jQuery(window).on('load', function() {
             jQuery('#loading').css('opacity', '0');
             jQuery('#loading').css('visibility', 'hidden');
-
+           
         })
     </script>
 </head>
 
 <body <?php body_class(); ?>>
+
     <?php wp_body_open(); ?>
     <div id="loading"></div>
     <div id="page" class="site wrapper">
@@ -176,12 +177,18 @@ $product_categories = get_categories(array(
                                     <a href="/size-guide/" class="assistanse-link bigmarginb"><?php _e('size guide', 'baby-brand') ?> </a>
                                     <a href="/my-account/wish-list/" class="assistanse-link bigmarginb wish"><?php _e('Wishlist', 'baby-brand') ?> <img src="/wp-content/uploads/2022/04/producticon.png"> </a>
                                     <a class="assistanse-link bigmarginb newsletter"><?php _e('Newsletter', 'baby-brand') ?></a>
-                                    <form class="assistanse-form" action="" method="get">
+                                    <!-- <form class="assistanse-form" action="" method="get">
                                         <input type="email" class="assistanse-email" placeholder="Enter your email">
                                         <button class="assistance-btn">
                                             subscribe
                                         </button>
-                                    </form>
+                                    </form> -->
+                                    <?php
+                                    if ($_SESSION['width'] >= 768) {
+                                        get_template_part('template-parts/header-newsletter');
+                                    }
+                                    ?>
+
                                 </div>
                             </div>
                         </li>
@@ -194,7 +201,7 @@ $product_categories = get_categories(array(
                         <? else : ?>
                             <li class="header-list__item"><a class="link" href="/my-account/"><?php _e('Account', 'baby-brand') ?></a></li>
                         <? endif; ?>
-                        <li class="header-list__item"><a class="link mini-cart-trigger"><?php _e('Cart', 'baby-brand') ?>
+                        <li class="header-list__item cart"><a class="link mini-cart-trigger"><?php _e('Cart', 'baby-brand') ?>
                                 <span class="count"><?php echo WC()->cart->get_cart_contents_count() === 0 ? '' :  WC()->cart->get_cart_contents_count()  ?></span>
 
                             </a>
@@ -313,7 +320,7 @@ $product_categories = get_categories(array(
                     </li>
 
 
-                    <li class="header-list__item open-link"><a class="link"><?php _e('assistance', 'baby-brand') ?></a>
+                    <li class="header-list__item open-link assistance"><a class="link"><?php _e('assistance', 'baby-brand') ?></a>
                         <div class="list-block">
                             <div class="header-block__container container">
                                 <a href="mailto:info@ababybrand.com" class="assistanse-link">Info@ababybrand.com</a>
@@ -322,12 +329,17 @@ $product_categories = get_categories(array(
                                 <a href="/size-guide/" class="assistanse-link bigmarginb"> <?php _e('size guide', 'baby-brand') ?></a>
                                 <a href="/my-account/wish-list/" class="assistanse-link bigmarginb wish"><?php _e('Wishlist', 'baby-brand') ?> <img src="/wp-content/uploads/2022/04/producticon.png"> </a>
                                 <a class="assistanse-link bigmarginb"><?php _e('Newsletter', 'baby-brand') ?></a>
-                                <form class="assistanse-form" action="" method="get">
+                                <!-- <form class="assistanse-form" action="" method="get">
                                     <input type="email" class="assistanse-email" placeholder="Enter your email">
                                     <button class="assistance-btn">
                                         <?php _e('subscribe', 'baby-brand') ?>
                                     </button>
-                                </form>
+                                </form> -->
+
+                                <?php
+                                if ($_SESSION['width'] <= 768) {
+                                    get_template_part('template-parts/header-newsletter');
+                                } ?>
                             </div>
                         </div>
                     </li>

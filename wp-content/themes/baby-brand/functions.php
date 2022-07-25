@@ -444,6 +444,14 @@ add_theme_support( 'woocommerce', apply_filters( 'storefront_woocommerce_args', 
     )
  ) ) );
 
+ add_filter('woocommerce_save_account_details_required_fields', 'remove_required_fields');
+
+        function remove_required_fields( $required_fields ) {
+            unset($required_fields['account_display_name']);
+
+            return $required_fields;
+        }
+
 
  
 

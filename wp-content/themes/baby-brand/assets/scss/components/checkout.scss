@@ -50,6 +50,12 @@
                 }
             }
         }
+
+        .card-body__name{
+            @media only screen and (max-width: 768px) {
+                margin-right: 0;
+            }
+        }
     }
 }
 
@@ -266,6 +272,7 @@
         line-height: rem(19.43);
         text-transform: uppercase;
         cursor: pointer;
+        color: #000;
 
         &:last-child {
             margin-right: 0;
@@ -397,7 +404,6 @@
     opacity: 0.5;
 
     @media only screen and (max-width: 768px) {
-        width: 143px;
         height: 176px;
         margin-bottom: 60px;
     }
@@ -427,4 +433,8 @@
             display: none;
         }
     }
+}
+
+.payment-method__img{
+    display: none;
 }

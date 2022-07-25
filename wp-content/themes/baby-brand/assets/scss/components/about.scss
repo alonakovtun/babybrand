@@ -22,6 +22,11 @@
 
         transform: translateY(75px);
 
+        &:first-child, 
+        &:nth-child(2){
+            transform: translateY(0);
+        }
+
         @media only screen and (max-width: 768px) {
             &:nth-child(3) {  
                 order: 2;

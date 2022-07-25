@@ -24,7 +24,7 @@
                     <li class="footer__item"><a href="">Instagram </a></li>
                     <li class="footer__item"><a href="">Facebook</a></li>
                     <li class="footer__item"><a href="">pinterest</a></li>
-                    <li class="footer__item"><a href="">newsletter</a></li>
+                    <li class="footer__item newsletter"><span>newsletter</span></li>
                 </ul>
 
             </div>
@@ -45,7 +45,7 @@
                     <li class="footer__item"><a href="">Instagram </a></li>
                     <li class="footer__item"><a href="">Facebook</a></li>
                     <li class="footer__item"><a href="">pinterest</a></li>
-                    <li class="footer__item"><a href="">newsletter</a></li>
+                    <li class="footer__item newsletter"><span>newsletter</span></li>
                 </ul>
 
             </div>
@@ -57,7 +57,7 @@
         </div>
     </div>
 </footer><!-- #colophon -->
-<div class="cookies-block">
+<!-- <div class="cookies-block">
     <div class="cookies-block__body">
         <div class="first-block">
             <div class="cookies-block__title"> <?php _e('This is all you really need in your
@@ -81,13 +81,17 @@
         <div class="cookies-block__privacy desktop"><?php _e('By subscribing you agree to our', 'baby-brand')?> <br>
             <a href="/store-policy/"><?php _e('Privacy Policy.', 'baby-brand')?></a>
         </div>
-        <!-- <div class="cookies-block__privacy uncorrect-privacy">Please correct your email address.
+        <div class="cookies-block__privacy uncorrect-privacy">Please correct your email address.
         </div>
         <div class="cookies-block__privacy data-email ">This email is already subscribed.
-        </div> -->
+        </div> 
     </div>
 
-</div><!-- #page --> <? site_cookies_banner() ?>
+</div> -->
+
+<?php echo do_shortcode('[mc4wp_form id="1949"]'); ?>
+
+<? site_cookies_banner() ?>
 
 <?php wp_footer(); ?>
 
@@ -153,6 +157,9 @@
             }
         }
     });
+
+   
+
 </script>
 
 <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>

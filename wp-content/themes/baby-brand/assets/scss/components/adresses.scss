@@ -1,90 +1,93 @@
-.adresses-header{
+.adresses-header {
     position: relative;
 }
 
 .adress {
 
-    &__list {    
-        margin-top:rem(95) ;   
+    &__list {
+        margin-top: rem(95);
         padding: 0;
-        @include dflex(center,wrap,flex-start);
-        list-style-type: none;     
+        @include dflex(center, wrap, flex-start);
+        list-style-type: none;
 
         @media only screen and (max-width: 768px) {
             flex-direction: column;
-          align-items: flex-start;
-        }   
+            align-items: flex-start;
+        }
 
-        .woocommerce-MyAccount-navigation-link{
+        .woocommerce-MyAccount-navigation-link {
             @media only screen and (max-width: 768px) {
                 margin-bottom: 42px;
-            }  
+            }
         }
     }
 
     &__link {
         position: relative;
         z-index: 2;
-        margin-right:rem(25) ;
+        margin-right: rem(25);
         color: #000000;
-       font-family: "Lato Light";;
+        font-family: "Lato Light";
+        ;
         font-size: 12px;
         font-weight: 300;
         text-transform: uppercase;
-        text-decoration: none;   
+        text-decoration: none;
 
         transition: all 0.4s;
 
         @media only screen and (max-width: 768px) {
             font-size: 11px;
-        }  
+        }
 
         @media only screen and (min-width: 1600px) {
             font-size: 16px;
         }
     }
-    
+
 }
 
 .adress-page {
 
-    &__container {
-        
-        
-    }
+    &__container {}
 
     &__body {
-        display: block; 
+        display: block;
         width: 100%;
         padding: rem(60) 0 0 0;
-        background-color: #fff;   
+        background-color: #fff;
+
         @media only screen and (max-width: 768px) {
             padding: 48px 0 0 0;
-          }
+            position: relative;
+        }
     }
 
     &__columns {
-        @include dflex(flex-start,wrap,flex-start);
-        
+        @include dflex(flex-start, wrap, flex-start);
+
     }
 
     &__column {
         flex: 1 1 50%;
         position: relative;
         max-width: rem(470);
-        margin-right: rem(400);    
+        margin-right: rem(400);
+
         @media only screen and (max-width: 768px) {
             flex: 1 1 100%;
-          }
-        
+        }
+
     }
 }
+
 .item-adress {
 
     &__name {
         margin-bottom: rem(45);
         color: #000000;
-       font-family: "Lato Light";;
+        font-family: "Lato Light";
+        ;
         font-size: 12px;
         font-weight: 300;
         line-height: rem(20);
@@ -102,30 +105,36 @@
 
     &__form {
         width: 100%;
-        border-bottom: 1px solid #939598; 
+        border-bottom: 1px solid #939598;
         margin-bottom: rem(31);
         padding: rem(22) 0;
         color: #939598;
-        
-        input{
+
+        input {
             display: block;
-            border: none;  
+            border: none;
             text-transform: uppercase;
+        }
+
+        @media only screen and (max-width: 768px) {
+            border-bottom: none;
         }
 
     }
 
-    &__edit { 
+    &__edit {
         position: absolute;
         right: 0;
         top: 0;
         color: #000000;
-       font-family: "Lato Light";;
+        font-family: "Lato Light";
+        ;
         font-size: 12px;
         font-weight: 300;
         line-height: rem(20);
         text-transform: uppercase;
-        &:hover{
+
+        &:hover {
             text-decoration: underline;
             cursor: pointer;
         }
@@ -139,32 +148,38 @@
         }
     }
 }
+
 .adress {
 
     &__buttons {
-        @include dflex(center,wrap,flex-start);
+        @include dflex(center, wrap, flex-start);
         margin-top: rem(50);
         margin-bottom: rem(140);
-                 
+
     }
 
     &__btn {
-        @include dflex(center,wrap,center);
+        @include dflex(center, wrap, center);
         width: rem(159);
         height: rem(45);
         border: 1px solid #000000;
         background-color: #ffffff;
         margin-right: rem(22);
         cursor: pointer;
-        
+
     }
 }
+
 #select2-billing_country-container {
     font-weight: 300;
 }
 
 .woocommerce-address-fields__field-wrapper {
     width: 26.5%;
+
+    @media only screen and (max-width: 768px) {
+        width: 100%;
+    }
 
     label {
         display: none;
@@ -175,18 +190,59 @@
         font-weight: 300;
     }
 }
-.woocommerce-Addresses{
+
+.woocommerce-Addresses {
     margin-bottom: 170px;
+
     @media only screen and (max-width: 768px) {
         margin-bottom: 90px;
-      }
+    }
 }
 
 
-.pt-0{
+.pt-0 {
     padding-top: 0;
 }
 
 .address-buttons {
     width: 385px;
+
+    @media only screen and (max-width: 768px) {
+        width: 100%;
+    }
+
+    a {
+        @media only screen and (max-width: 768px) {
+            position: absolute;
+            top: 0;
+            background: none;
+            border: none;
+            width: auto;
+            height: auto;
+            padding-top: 5px;
+            right: 0;
+            margin-right: 0;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+
+    button{
+
+        @media only screen and (max-width: 768px) {
+            height: 65px;
+            justify-content: flex-start;
+            padding-left: 35px;
+        }
+    }
+}
+
+.woocommerce-edit-address{
+    .woocommerce-MyAccount-content {
+        @media only screen and (max-width: 768px) {
+            margin-bottom: 35px;
+        }
+    }
 }

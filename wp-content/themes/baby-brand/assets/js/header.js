@@ -82,7 +82,7 @@ jQuery(".header-list__item").click(function () {
 });
 
 jQuery(document).ready(function () {
-    jQuery(".header-list__item").each(function () {
+    jQuery(".header-list__item:not(:last-child)").not(':nth-child(4)').each(function () {
         jQuery(this).click(function () {
             var nextElem = jQuery(this).find(".list-block");
 
@@ -101,5 +101,13 @@ jQuery(document).ready(function () {
         });
     });
 });
+
+jQuery('.header-list__item.search .link').click(function() {
+    jQuery(this).parent().find('.list-block').slideToggle();
+})
+
+jQuery('.header-list__item.assistance .link').click(function() {
+    jQuery(this).parent().find('.list-block').slideToggle();;
+})
 
 export { initHeaderScripts };
