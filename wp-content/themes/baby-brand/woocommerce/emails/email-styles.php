@@ -101,7 +101,7 @@ body {
 	border: 0;
 	color: #000;
 	font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
-	font-size: 14px;
+	font-size: 12px;
 	line-height: 150%;
 	padding: 30px 0;
 }
@@ -119,7 +119,7 @@ body {
 }
 
 #template_footer .footer-links li a {
-	font-size: 14px;
+	font-size: 12px;
 	color: #000;
 	text-transform: uppercase;
 	text-decoration: none;
@@ -131,7 +131,7 @@ body {
 }
 
 #body_content table td {
-	padding: 10px 0 32px;
+	padding: 10px 0 0;
 }
 
 #body_content table td td {
@@ -183,7 +183,6 @@ body {
 
 #body_content_inner p:last-child{
 	text-transform: none;
-	padding-right: 60px;
 	font-size: 12px;
 }
 
@@ -239,7 +238,7 @@ a {
 img {
 	border: none;
 	display: inline-block;
-	font-size: 14px;
+	font-size: 12px;
 	font-weight: bold;
 	outline: none;
 	text-decoration: none;
@@ -247,8 +246,8 @@ img {
 	vertical-align: middle;
 	margin-<?php echo is_rtl() ? 'left' : 'right'; ?>: 10px;
 	max-width: 100%;
-    width: 225px;
-    height: 320px;
+    width: 80px;
+    height: 100px;
 	object-fit: cover;
 }
 
@@ -273,9 +272,9 @@ img {
 
 .address-title {
 	color: #000;
-	border-top: 1px solid #e5e5e5;
+	border-top: 1px solid #939599;
 	font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
-	font-size: 14px;
+	font-size: 12px;
 	font-weight: 300;
 	line-height: 1;
 	margin: 0;
@@ -287,7 +286,7 @@ img {
 	padding: 0px 60px 60px;
 	color: #000;
 	font-style: normal;
-	font-size: 14px;
+	font-size: 12px;
 	font-weight: 300;
 	text-transform: uppercase;
 }
@@ -325,11 +324,11 @@ img {
 	padding: 70px 60px 25px;
 	margin: 0 !important;
 	color: #000;
-	font-size: 14px;
+	font-size: 12px;
 	line-height: 1;
 	font-weight: 300;
 	display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
 }
 
 .wc-bacs-bank-details-heading {
@@ -351,7 +350,7 @@ img {
 	border-left: 0;
 	border-right: 0;
 
-	width: 250px;
+	width: 100px;
 	padding-left: 60px!important;
 	padding-bottom: 15px!important;
 }
@@ -392,7 +391,7 @@ img {
 
 .order_item .qty-row {
 	margin: 25px 0 0 !important;
-	font-size: 14px!important;
+	font-size: 12px!important;
 	text-transform: uppercase!important;
 }
 
@@ -400,7 +399,7 @@ img {
 .order-details-totals .empty-col {
 	height: 30px;
 
-	border-bottom: 1px solid #ececec;
+	border-bottom: 1px solid #939599;
 }
 
 .order-details-totals th {
@@ -409,7 +408,7 @@ img {
 	font-weight: normal;
 	text-transform: uppercase;
 	color: #000;
-	font-size: 14px;
+	font-size: 12px;
 }
 
 .order-details-totals td {
@@ -418,15 +417,15 @@ img {
 	font-weight: normal;
 	text-transform: uppercase;
 	color: #000;
-	font-size: 14px;
+	font-size: 12px;
 }
 
 .order-details-totals .order_total th,
 .order-details-totals .order_total td {
 	color: #000;
 	padding: 12px 60px !important;
-	font-weight: 600;
-	font-size: 14px;
+	font-weight: 400;
+	font-size: 12px;
 
 	padding-bottom: 23px;
 }
@@ -457,21 +456,57 @@ img {
 .title-table{
 	display: flex;
 	justify-content: space-between;
-	padding-right: 60px;
-	margin-top: 35px;
+	<!-- padding-right: 60px; -->
+	margin-top: 10px;
 }
 
 .title-table p{
 	margin-bottom: 30px!important;
 	padding-right: 0px!important;
-	font-size: 14px!important;
+	padding-left: 60px;
+	font-size: 12px!important;
 	text-transform: uppercase!important;
+	text-align: center!important;
+}
+
+#body_content_inner .summary{
+	padding-left: 60px;
+	font-size: 12px!important;
+	text-align: start!important;
+	width: 100%!important;
+	margin-bottom: 35px!important;
+}
+
+#body_content_inner .qty-row{
+	text-align: start!important;
 }
 
 .title p{
 	padding-left: 0px;
 	padding-right: 0px!important;
-	font-size: 14px!important;
+	font-size: 12px!important;
+	text-align: start!important;
+}
+
+.footer-text{
+	text-transform: uppercase;
+    width: 41%;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.footer-text a{
+	text-decoration: none!important;
+}
+
+.footer-img{
+	width: 24px;
+    height: 30px;
+}
+
+.f-img{
+	text-align: center;
+	margin-bottom: 25px;
 }
 
 <?php

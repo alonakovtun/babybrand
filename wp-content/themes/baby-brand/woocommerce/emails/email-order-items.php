@@ -22,8 +22,7 @@ $text_align  = is_rtl() ? 'right' : 'left';
 $margin_side = is_rtl() ? 'left' : 'right';
 ?>
 <div class="title-table">
-	<p><?php _e('Item') ?></p>
-	<p><?php _e('Price') ?></p>
+	<p class="summary"><?php _e('order summary') ?></p>
 </div>
 
 <?php
